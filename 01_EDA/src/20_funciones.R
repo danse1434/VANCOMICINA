@@ -80,7 +80,7 @@ fun_param <- function(data, param, crit1 = 0.05) {
   z = data %>%
     tab_style(style = list(cell_fill(color = alpha('#00ff00', 0.5))),
               locations = cells_body(columns = vars(!!param_quo),
-                                     rows = (!!param_quo < crit1)))
+                                     rows = (!!param_quo >= crit1)))
   return(z)
 }
 
@@ -280,4 +280,69 @@ plotly = function(x, y, X, Y, z) {
     print(plot2(data, !!X_qu, !!Y_qu), vp = vplayout(x, y))
   }
 }
+#-------------------------------------------------------------------------------#
+#' Función de **correlación biserial**, modificada con índices
+#' 
+#' 1 Seleccionar los datos por medio de índices
+#' 2 Se calcula la correlación entre dos vectores seleccionados desde el
+#' data.frame, por sus nombres _x_ y _y_.
+#' 3 Retorna esta correlación
+#' 
+#' @param data data frame con variables continuas; se asume que la primera columna 
+#' contiene a la variable categórica como valor numérico y la segunda columnna 
+#' contiene a la variable continua. 
+#' @param indices indices de filas
+#'
+#' @return resultados de correlación biserial por punto
+#' @export
+#'
+#' @examples
+#' corr_biserial(df1, 1:14)
+#' 
+corr_biserial <- function(data, indices) {
+  df <- data[indices,]
+  
+  Z <- ltm::biserial.cor(x = pull(df, 2), y = pull(df, 1), 
+                    use = "complete.obs", level = 1)
+  return(Z)
+}
+#-------------------------------------------------------------------------------#
+#' Función de **Bootstrap** con la función de correlación de Kendall 
+#'
+#' @param data data frame con los datos
+#' @param x variable 1 (número)
+#' @param y variable 2 (número)
+#' 
+#' 
+Confint_Boot_biserial <- function(data) {
+  B <- boot::boot(data = data, statistic = corr_biserial, R = 1000)
+  C <- boot::boot.ci(B, type = "perc")
+  return(C)
+}
+
+#-------------------------------------------------------------------------------#
+#' Función de **Test de Correlación Biserial por Puntos**
+#'
+#' @param r_pb es el valor de correlación biserial por punto obtenido con 
+#' *corr_biserial*
+#' @param n es el número de observaciones presentes
+#'
+#' @return retorna un data.frame con valor de estadístico t, valor crítico de t, 
+#' y valor p
+#' @export
+#'
+#' @examples
+#' test_biserial(0.202, 14)
+#' 
+test_biserial <- function(r_pb, n) {
+  t    = r_pb * sqrt((n - 2) / (1 - r_pb ^ 2))
+  tc   = qt(0.05 / 2, n - 2) %>% abs()
+  pval = 2 * pt(-abs(t), df = n - 2)
+  
+  return(list(t = t,
+              tc = tc,
+              pval = pval))
+}
+
+
 

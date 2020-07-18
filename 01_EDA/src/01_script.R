@@ -30,12 +30,12 @@ data <- read_csv('data/data_TAD.csv', na = '.')
 df1 <- data %>%
   filter(EVID == 1) %>% 
   mutate(SCM2 = 0.007184 * (WTKG ^ 0.425) * (HCM ^ 0.725)) %>%
-  mutate(eGFR = eGFR(SCRMGDL, AGEA, SEXF, 0))
+  mutate(CLCRMLMIN = eGFR(SCRMGDL, AGEA, SEXF, 0))
 
 # > Pruebas de normalidad ---------------------------------------------------
 df1_norm <- df1 %>% # Se seleccionan 15 datos correspondientes a los pacientes
   normtest_batery(data = .,
-                  vector = c(12, 14:21, 23, 24), 
+                  vector = c(12, 14:21, 23), 
                   alpha = 0.05) 
 
 # Presentación en formato de tabla
@@ -55,8 +55,8 @@ norm_gt1 <- gt(df1_norm) %>%
   fun_param(Liliefors) %>% 
   fun_param(Pearson) %>% 
   fun_param(Shapiro_Francia) %>% 
-  tab_footnote(footnote = md('Los colores en verde indican un valor p menor a 0.05, 
-                                    en los cuales se debe rechazar la H0 de normalidad'),
+  tab_footnote(footnote = glue::glue('Los colores en verde indican un valor p > 0.05, 
+                              no se puede rechazar la H0 de normalidad.'),
                locations = cells_column_labels(columns = 1)) 
 
 norm_gt1 %>% 
@@ -80,7 +80,7 @@ norm_gt1 %>%
 #' 6 Mover las columnas _li_, _ls_ con el resto de los resultados paramétricos
 #................................................................................
 
-res_df1 <- select(df1, c(12, 14:21, 23, 24)) %>%
+res_df1 <- select(df1, c(12, 14:21, 23)) %>%
   summarise(across(
     everything(),
     list(
@@ -136,7 +136,7 @@ desc_gt1 %>%
 # método gráfico.
 
 {pdf('output/figs/Correl_Contin_1.pdf', 11.0, 8.50)
-  select(df1, c(12, 14:21, 23, 24)) %>% 
+  select(df1, c(12, 14:21, 23)) %>% 
   chart.Correlation(., histogram = TRUE, pch = 19)
 dev.off()}
 
@@ -145,7 +145,7 @@ dev.off()}
 
 # > Detección de outliers ------------
 
-outl_df1 <- select(df1, c(12, 14:21, 23, 24)) %>% 
+outl_df1 <- select(df1, c(12, 14:21, 23)) %>% 
     mutate(across(everything(), ~ out_det(vec = .x, val = .x)))
 
 outl_gt1 <- outl_df1 %>% 
@@ -168,8 +168,7 @@ outl_gt1 <- outl_df1 %>%
   fun_param_1(CLCRMLMIN) %>% 
   fun_param_1(RAL) %>% 
   fun_param_1(RAN) %>% 
-  fun_param_1(SCM2) %>% 
-  fun_param_1(eGFR) 
+  fun_param_1(SCM2)
   
 outl_gt1 %>% 
   gtsave(filename = 'gt_outliers.html', path = file.path(getwd(), 'output/tabs/'))
@@ -187,11 +186,11 @@ outl_gt1 %>%
 #................................................................................
 
 df1_b <- df1 %>% 
-  select(12, 14:21, 23, 24) %>% 
+  select(12, 14:21, 23) %>% 
   colnames() %>% 
   combn(m = 2, simplify = FALSE) %>% 
   map_dfr( ~ as_tibble(.x), .id = 'ID') %>% 
-  mutate(rep = rep(c('Var1', 'Var2'), 55)) %>% 
+  mutate(rep = rep(c('Var1', 'Var2'), 45)) %>% 
   pivot_wider(names_from = rep)
 
 #................................................................................
@@ -204,7 +203,7 @@ df1_b <- df1 %>%
 df1_C <- df1_b %>% 
   mutate(dat1 = map2(Var1,Var2, ~tibble(select(df1, .x, .y))),
          corr = map_dbl(dat1, ~ corr(.x, 1:14, 1, 2))) %>% 
-  mutate(boot = map(dat1, ~ Confint_Boot(.x, 1, 2)))
+  mutate(boot = map(dat1, ~ Confint_Boot(.x, 1, 2))) 
 
 #................................................................................
 #' 10 Extraer el límite inferior y superior del intervalo de confianza estimado
@@ -214,7 +213,8 @@ df1_C <- df1_b %>%
 df1_C <- df1_C %>% 
   mutate(li = map_dbl(boot, ~ .x$percent[,4]),
          ls = map_dbl(boot, ~ .x$percent[,5])) %>% 
-  select(-dat1, -boot)
+  select(-dat1, -boot) %>% 
+  arrange(desc(abs(corr)))
 
 # Crear una tabla con correlaciones
 corr_gt1 <- df1_C %>% 
@@ -232,19 +232,17 @@ corr_gt1 <- df1_C %>%
     column_labels.font.size = "smaller",
     table.font.size = "smaller",
     data_row.padding = px(3)
-  )
-  
+  ) %>%
+  tab_style(style = list(cell_fill(color = alpha('#00ff00', 0.5))),
+            locations = cells_body(columns = vars(corr),
+                                   rows = (sign(li) == sign(ls))))
+
 corr_gt1 %>% 
   gtsave(filename = 'gt_corr_pearson.html', path = file.path(getwd(), 'output/tabs/'))
 
-
-# > Covariables discretas -----------
-# Se crea una función que realiza el test de Kendall 
-#................................................................................
-#' 1 Extraer variables seleccionadas en un tibble
-#' 2 Calcular el test de correlación de Kendall
-#' 3 Extraer tau y valor p
-#................................................................................
+# > Covariables discretas ----------------
+# Se crea una función que realiza el Test de Correlación Biserial por Puntos
+# Las variables seleccionadas en un tibble
 
 df2 <- tibble::tribble(
     ~Var1,     ~Var2,
@@ -261,44 +259,69 @@ df2 <- tibble::tribble(
     "ANTU",    "ALBGDL",
     "ANTU",    "SCM2")
 
-df2b <- df2 %>% 
-  mutate(dat1 = map2(Var1, Var2, ~tibble(select(df1, .x, .y)))) %>% 
-  mutate(kend = map(dat1, ~cor.test(x= pull(.x, 1), 
-                                    y= pull(.x, 2), 
-                                    method = 'kendall',
-                                    alternative = 'greater'))) %>% 
-  mutate(t = map_dbl(kend, ~.x$estimate),
-         p = map_dbl(kend, ~.x$p.value))
+#................................................................................
+#' 1 Extraer el tibble con las variables de interés en _Var1_ y _Var2_
+#' 2 Calcular la correlación biserial por puntos
+#' 3 Calcular IC95% por bootstrap
+#' 4 Calcular resultados de test con correl. biserial
+#' 5 Extraer _li_, _ls_, _t_, _tc_, y _pval_ de las columnas listas
+#................................................................................
 
-# Almacenar tabla
-kend_gt1 <- df2b %>% 
-  select(-dat1, -kend) %>% 
+df2b <- df2 %>%
+  mutate(
+    dat1  = map2(Var1, Var2, ~ tibble(select(df1, .x, .y))),
+    biser = map_dbl(dat1, ~ corr_biserial(.x, 1:14)),
+    boot  = map(dat1, ~ Confint_Boot_biserial(.x)),
+    test  = map(biser, ~ test_biserial(.x, n = 14))
+  ) 
+
+df2b1 <- df2b %>%
+  mutate(
+    li   = map_dbl(boot, ~ .x$percent[, 4]),
+    ls   = map_dbl(boot, ~ .x$percent[, 5]),
+    t    = map_dbl(test, pluck("t")),
+    tc   = map_dbl(test, pluck("tc")),
+    pval = map_dbl(test, pluck("pval"))
+  )
+
+# Presentación de tabla
+gt_correl_biser <- 
+  select(df2b1, -dat1, -boot, -test) %>% 
+  arrange(pval) %>% 
   gt() %>% 
   tab_header(
-    title = html('<b>&#x2605; Correlación de Kendall &#x2605;</b>'),
-    subtitle = glue::glue("Se muestra un resumen de coeficientes en pares de covariables")) %>%
-  cols_label(Var1 = "Variable 1",
-             Var2 = "Variable 2",
-             t    = "Tau",
-             p    = "Valor p") %>% 
+  title = html('<b>&#x2605; Test de Correlación Biserial por Puntos &#x2605;</b>'),
+  subtitle = glue::glue("Se muestra un resumen de valores obtenidos")) %>%
+  cols_label(Var1  = "Variable 1",
+             Var2  = "Variable 2",
+             biser = "Corr Biserial [IC95%]",
+             t     = "Valor t",
+             tc    = "Valor t Crítico",
+             pval  = 'Valor p') %>%
+  fmt_number(columns = 3:8, decimals = 3) %>% 
+  cols_merge(columns = vars(li, ls), pattern = "{1}, {2}") %>% 
+  cols_merge(columns = vars(biser, li), pattern = "{1} [{2}]") %>% 
+  tab_style(style = list(cell_fill(color = alpha('#00ff00', 0.5))),
+            locations = cells_body(columns = vars(biser, pval),
+                           rows = (sign(li) == sign(ls)))) %>% 
   tab_options(
     column_labels.font.size = "smaller",
     table.font.size = "smaller",
     data_row.padding = px(3)
   )
-
-kend_gt1 %>% 
-  gtsave(filename = 'gt_corr_kendall.html', path = file.path(getwd(), 'output/tabs/'))
+# Almacenamiento de tabla
+gt_correl_biser %>% 
+  gtsave(filename = 'gt_corr_biserial.html', path = file.path(getwd(), 'output/tabs/'))
 
 
 # > Gráficos de relaciones de covariables -----------
-var_cont <- colnames(select(df1, 12, 14:21, 23, 24)) 
+var_cont <- colnames(select(df1, 12, 14:21, 23)) 
 
-df2_ls <- vector('list', 22L)
+df2_ls <- vector('list', 20L)
 
-for (i in 1:11) {
+for (i in 1:10) {
   df2_ls[[i]]      <- plot2(df1, SEXF, var_cont[[i]])
-  df2_ls[[i + 11]] <- plot2(df1, ANTU, var_cont[[i]], h=c('green', 'purple'))
+  df2_ls[[i + 10]] <- plot2(df1, ANTU, var_cont[[i]], h=c('green', 'purple'))
 }
 
 df2_comp <- 
@@ -306,7 +329,7 @@ df2_ls[[1]] + df2_ls[[2]] + df2_ls[[3]] + df2_ls[[4]] + df2_ls[[5]] +
 df2_ls[[6]] + df2_ls[[7]] + df2_ls[[8]] + df2_ls[[9]] + df2_ls[[10]] +
 df2_ls[[11]] + df2_ls[[12]] + df2_ls[[13]] + df2_ls[[14]] + df2_ls[[15]] +
 df2_ls[[16]] + df2_ls[[17]] + df2_ls[[18]] + df2_ls[[19]] + df2_ls[[20]] +
-df2_ls[[21]] + df2_ls[[22]] + guide_area() + plot_layout(guides = 'collect') + 
+  guide_area() + plot_layout(guides = 'collect') + 
 plot_spacer()+ plot_spacer() + 
 plot_layout(ncol = 5)
 
@@ -314,14 +337,21 @@ ggsave('Correl_Discret_1.pdf', df2_comp, 'pdf', 'output/figs/', 1, 12, 10)
 
 var_cont
 
+# HCM, SCRMGDL, RAL, SCM2
 df2_comp_a <- df2_ls[[3]] + df2_ls[[4]] + df2_ls[[8]] + 
   df2_ls[[10]] + plot_layout(guides = 'collect')
-
-df2_comp_b <- df2_ls[[11+2]] + df2_ls[[11+5]] + df2_ls[[11+6]] +
+# WTKG, ALBGDL, PROGDL
+df2_comp_b <- df2_ls[[10+2]] + df2_ls[[10+5]] + df2_ls[[10+6]] +
   guide_area() + plot_layout(guides = 'collect')
+
+df2_comp_c <- df2_ls[[3]] + df2_ls[[4]] + df2_ls[[8]] + df2_ls[[10]] +
+  df2_ls[[12]] + df2_ls[[15]] + df2_ls[[16]] +
+  guide_area() + plot_layout(guides = 'collect')
+
 
 ggsave('Correl_Discret_a.pdf', df2_comp_a, 'pdf', 'output/figs/', 1, 8, 6)
 ggsave('Correl_Discret_b.pdf', df2_comp_b, 'pdf', 'output/figs/', 1, 8, 6)
+ggsave('Correl_Discret_c.pdf', df2_comp_c, 'pdf', 'output/figs/', 1, 8, 6)
   
 
 #-------------------------------------------------------------------------------#
@@ -358,7 +388,7 @@ comb_gt2 %>%
 # Revisión Datos PK -----------------------------------------
 #-------------------------------------------------------------------------------#
 theme_set(theme_bw() + 
-            theme(legend.position = c(0.8, 0.85), 
+            theme(legend.position = c(0.85, 0.85), 
                   legend.background = element_rect(fill = NULL, colour = 'gray50'), 
                   legend.key = element_rect(fill = NULL), 
                   legend.title = element_text(face = 'bold'), 
@@ -384,6 +414,10 @@ ytype_status <- c(
   `2` = 'Quimioluminiscencia'
 )
 
+ytype_LLOQ <- tribble( ~ YTYPE, ~ LLOQ,
+                       1, NA_real_,
+                       2, 3)
+
 gperfil1 <- data %>% 
   mutate(ID = factor(ID)) %>% 
   filter(EVID == 0) %>% 
@@ -392,6 +426,8 @@ gperfil1 <- data %>%
   xlab('TAD: tiempo tras dosis (hr)') +
   ylab('Concentración plasmática (mg/L)') + 
   guides(col = guide_legend(nrow=5)) + 
+  coord_cartesian(xlim=c(0,12), ylim = c(1,100)) +
+  geom_hline(data = ytype_LLOQ, aes(yintercept = LLOQ), col='red', lty='dashed') +
   facet_wrap(. ~ YTYPE, labeller = labeller(
     YTYPE = ytype_status
   )) +
@@ -430,15 +466,12 @@ gperfil2 <- data %>%
   guides(col = guide_legend(nrow=5)) + 
   facet_wrap(. ~ YTYPE, labeller = labeller(YTYPE = ytype_status)) +
   scale_y_log10(breaks = breaks, minor_breaks = minor_breaks) +
+  geom_hline(data = ytype_LLOQ, aes(yintercept = LLOQ), col='red', lty='dashed') +
   scale_color_viridis_d() +
-  coord_cartesian(ylim = c(1,100)) +
+  coord_cartesian(xlim=c(0,12), ylim = c(1,100)) +
   annotation_logticks(sides = 'lr')
 
 #-------------------------------------------------------------------------------#
 # Resultados de 
 ggsave(filename = 'output/figs/log_TAD_DV.pdf', plot = gperfil2, 
        device = 'pdf', width = 7, height = 4, units = 'in')
-
-
-
-
