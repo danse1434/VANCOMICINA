@@ -1,0 +1,19 @@
+<DATAFILE>
+
+[FILEINFO]
+file = 'data/data_TAD.csv'
+delimiter = comma
+header = {ID, DV, TAD, YTYPE, EVID, MDV, AMT, TINF, ADDL, II, SS, AGEA, SEXF, WTKG, HCM, SCRMGDL, ALBGDL, PROGDL, CLCRMLMIN, RAL, RAN, ANTU}
+
+[CONTENT]
+ID = {use=identifier}
+DV = {use=observation, name={y_1, y_2}, yname={'1', '2'}, type={continuous, continuous}}
+TAD = {use=time}
+YTYPE = {use=observationtype}
+EVID = {use=eventidentifier}
+MDV = {use=missingdependentvariable}
+AMT = {use=amount}
+TINF = {use=infusiontime}
+ADDL = {use=additionaldose}
+II = {use=interdoseinterval}
+SS = {use=steadystate, nbdoses=5}
