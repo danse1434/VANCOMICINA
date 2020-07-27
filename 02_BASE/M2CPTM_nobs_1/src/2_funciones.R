@@ -92,7 +92,9 @@ RES_TSFD <- function(x, y, xspline, yspline, perc_data, xlab, ylab) {
     geom_line(perc_data, 
               mapping = aes(x = !!x, y = empirical_upper), 
               col = '#EBA213', lty = 'dashed', size = 1.2) +
-    coord_cartesian(ylim = c(-2.5, 2.5)) +
+    geom_text_repel(data = filter(y2_residuals, abs(!!y) > 2), 
+                    aes(label = ID))  +
+    coord_cartesian(ylim = c(-5.0,+5.0)) +
     xlab(xlab) + ylab(ylab) %>% return(.)
 }
 
@@ -141,7 +143,6 @@ RES_TAD <- function(x, y, xlab, ylab) {
     ggplot(mapping = aes(x = !!x, y = !!y)) +
     geom_hline(yintercept = 0) +
     geom_point(col = '#4682B4') +
-    coord_cartesian(ylim = c(-2.5, 2.5)) +
     xlab(xlab) + ylab(ylab) +
     stat_smooth(method = 'loess', formula = y ~ x, se = FALSE, 
                 col = '#EBA213', lty = 'solid', size = 1) +
@@ -151,6 +152,7 @@ RES_TAD <- function(x, y, xlab, ylab) {
               col = '#EBA213', lty = 'dashed', size = 1.2) +
     geom_line(data = A, aes(TIME, LS), 
               col = '#EBA213', lty = 'dashed', size = 1.2) + 
+    coord_cartesian(ylim = c(-5.0,+5.0)) +
     geom_text_repel(data = filter(y2_residuals, abs(!!y) > 2), 
                     aes(label = ID))  %>% 
     return(.)
@@ -202,6 +204,6 @@ RES_PRE <- function(x, y, xspline, yspline, perc_data, xlab, ylab) {
     # Texto de etiquetas
     geom_text_repel(data = filter(y2_residuals, abs(!!y) > 2), 
                     aes(label = ID)) + 
-    coord_cartesian(ylim = c(-2.5, 2.5)) +
+    coord_cartesian(ylim = c(-5.0,+5.0)) +
     xlab(xlab) + ylab(ylab) %>% return(.)
 }
