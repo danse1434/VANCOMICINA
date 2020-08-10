@@ -31,7 +31,7 @@ V2 = {distribution=logNormal, typical=V2_pop, sd=omega_V2}
 fi = {distribution=logNormal, typical=f_pop, sd=omega_f}
 
 [LONGITUDINAL]
-input = {fi, a_fi, b1, b2}
+input = {fi, a_fi, a1, b1, b2}
 
 file = 'lib:infusion_2cpt_ClV1QV2.txt'
 
@@ -42,7 +42,7 @@ OUTPUT:
 output = Cc_2
 
 DEFINITION:
-y1 = {distribution=normal, prediction=Cc, errorModel=proportional(b1)}
+y1 = {distribution=normal, prediction=Cc, errorModel=combined1(a1, b1)}
 y2 = {distribution=normal, prediction=Cc_2, errorModel=proportional(b2)}
 
 <FIT>
@@ -54,6 +54,7 @@ Cl_pop = {value=10.2275, method=MLE}
 Q_pop = {value=11.1604, method=MLE}
 V1_pop = {value=43.2233, method=MLE}
 V2_pop = {value=60.344, method=MLE}
+a1 = {value=1, method=MLE}
 b1 = {value=0.3, method=MLE}
 b2 = {value=0.3, method=MLE}
 f_pop = {value=0.8, method=MLE}
@@ -74,8 +75,8 @@ plotResult(method = {outputplot, indfits, obspred, vpc, npc, residualsscatter, r
 
 [SETTINGS]
 GLOBAL:
-exportpath = 'm2cptm_nobs2_prop'
+exportpath = 'M2CPTM_nobs_2_combP'
 
 [COMMENTS]
-; **Modelo de 2CPTM con observaciones del metodo de quimioluminiscencia y microbiologico** - Modelo de Error Proporcional
+; **Modelo de 2CPTM con observaciones del metodo de quimioluminiscencia y microbiologico** - Modelo de Error Combinado 2
 

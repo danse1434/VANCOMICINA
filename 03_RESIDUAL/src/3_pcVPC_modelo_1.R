@@ -218,7 +218,7 @@ g_percs <-
   ylab('Concentración plasmática VAN (mg/L)')
 
 # Almacenamiento en formato PDF
-ggsave(file.path(auxdir, 'figures', 'M1_VPC_percentil.pdf'), g_percs, device='pdf', 
+ggsave(file.path(auxdir, 'figures', 'M1_VPC_percentil.pdf'), g_percs, 'pdf',
        width = 6, height = 5)
 
 #-------------------------------------------------------------------------------#

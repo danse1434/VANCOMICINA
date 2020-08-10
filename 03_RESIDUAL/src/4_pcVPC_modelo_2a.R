@@ -358,6 +358,7 @@ dfr_percs1_pcVPC <- dfr_percs_pcVPC %>%
 #   los muestreos de observaciones iguales al set de datos originales. 
 #   Se renombra la columna y_1 como PRED.
 
+
 out2 <- list(name = 'y1', time = data_TAD$y1$time)
 
 data_OBS_PRED <- simulx(
@@ -424,7 +425,6 @@ data_OBS_PRED_sum <- data_OBS %>%
     LS   = quantile(x = y1, probs = 0.90),
     n    = n()
   )
-
 #-------------------------------------------------------------------------------#
 # VPC con percentiles predichos corregidos por PRED
 g_percs1 <- 
