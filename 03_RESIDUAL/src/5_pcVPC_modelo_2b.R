@@ -454,7 +454,7 @@ ggsave(filename = file.path(auxdir, 'figures', 'M2b_pcVPC_percentil.pdf'),
 
 # Eliminación del objeto data_list que es muy grande como para ser almacenado 
 # y transferido
-rm(data_list)
+# rm(data_list)
 
 #-------------------------------------------------------------------------------#
 # Almacenar RDS
