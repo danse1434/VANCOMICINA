@@ -66,11 +66,11 @@ GLOBAL:
 exportpath = 'M2CPTM_nobs_1_prop'
 
 POPULATION:
-smoothingiterations = 2000
-exploratoryiterations = 5000
-simulatedannealingiterations = 2000
-exploratoryinterval = 1000
-smoothinginterval = 1000
+smoothingiterations = 1000
+exploratoryiterations = 1000
+simulatedannealingiterations = 150
+exploratoryinterval = 500
+smoothinginterval = 500
 omegatau = 0.8
 errormodeltau = 0.8
 
