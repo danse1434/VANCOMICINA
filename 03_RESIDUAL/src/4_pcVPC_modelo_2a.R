@@ -169,7 +169,7 @@ dfr_percs1 <- dfr_percs %>%
 data_OBS1 <- data_OBS %>% 
   mutate(gr = ntile(time, 7)) %>% 
   group_by(gr) %>% 
-  filter(YTYPE == 2) %>% 
+  filter(YTYPE == 1) %>% 
   summarise(
     TIME = mean(time),
     ME   = quantile(x = y1, probs = 0.50),
@@ -445,7 +445,6 @@ g_percs1 <-
   xlab('TAD, tiempo tras dosis (h)') + 
   ylab('Concentración plasmática VAN \n Corregida por predicción (mg/L)')
 
-g_percs1
 # Almacenamiento del archivo PDF
 ggsave(filename = file.path(auxdir, 'figures', 'M2a_pcVPC_percentil.pdf'), 
        g_percs1, 
@@ -453,7 +452,7 @@ ggsave(filename = file.path(auxdir, 'figures', 'M2a_pcVPC_percentil.pdf'),
 
 # Eliminación del objeto data_list que es muy grande como para ser almacenado 
 # y transferido
-rm(data_list)
+# rm(data_list)
 
 #-------------------------------------------------------------------------------#
 # Almacenar RDS
