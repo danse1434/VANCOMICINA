@@ -16,7 +16,6 @@
 #-------------------------------------------------------------------------------#
 # Introducción -----------------------------------------------------
 #-------------------------------------------------------------------------------#
-
 # Carga de paquetes
 require(tidyverse)
 require(rlang)
@@ -74,7 +73,7 @@ A = readChar(fileName, file.info(fileName)$size)
 # mejor búsqueda en el espacio muestral. 
 
 A1 <- A %>% 
-  str_replace('(?<=CENS)\\}', ', new_ID}') %>% 
+  str_replace('(?<=ANTU)\\}', ', new_ID}') %>% 
   str_replace('ID(?=\\s\\=\\s)', 'new_ID') %>% 
   str_replace_all('(?<=b\\s\\=\\s\\{value\\=)(\\-0|.)\\.\\d+(?=\\,)','0.3') %>%
   str_replace_all('(?<=omega_Cl\\s\\=\\s\\{value\\=)(\\-0|.)\\.\\d+(?=\\,)','1.00') %>%
