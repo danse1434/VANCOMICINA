@@ -34,8 +34,7 @@ dir.create(file.path(bootdir))
 # Generación de subdirectorios de trabajos
 set.seed(12356)
 
-data <- read_csv(file.path(auxdir, 'data', 'data_TAD.csv'),
-                 na = '.')
+data <- read_csv(file.path(auxdir, 'data', 'data_TAD.csv'), na = '.')
 
 data.ls <- data %>%
   group_by(ID) %>%

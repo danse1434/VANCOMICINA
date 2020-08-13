@@ -6,7 +6,7 @@ initializeLixoftConnectors(software="monolix")
 
 #-------------------------------------------------------------------------------#
 # Directorios de trabajo
-auxdir  <- file.path('.', 'M2CPTM_nobs_2_comb')
+auxdir  <- file.path('.', 'M2CPTM_nobs_2_comb1')
 bootdir <- file.path(auxdir, 'results', 'boot')
 
 # Asignación de lambda y ejecución
@@ -14,7 +14,7 @@ for (i in 1:1000) {
 # Ruta a directorio de trabajo
 dis <- glue('{bootdir}/B{i}')
 # Ruta al archivo de control
-filename <- file.path(dis, 'M2CPTM_nobs_2_comb.mlxtran')
+filename <- file.path(dis, 'M2CPTM_nobs_2_comb1.mlxtran')
 # Lectura y asignación de archivo de control en envir.
 A = readChar(filename, file.info(filename)$size) 
 # Modificar el archivo de control
