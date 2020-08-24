@@ -16,6 +16,7 @@
 # Introducción -----------------------------------------------------
 #-------------------------------------------------------------------------------#
 # Carga de paquetes
+require(data.table)
 require(tidyverse)
 require(rlang)
 require(mlxR)
@@ -119,17 +120,33 @@ for (i in 1:1000) {
 
 options(dplyr.summarise.inform = FALSE) # Elimina unos mensajes molestos
 
-dfr_percs <- data_list %>%
-  map_dfr( ~ as_tibble(.x), .id = 'simId') %>%
-  mutate(gr = ntile(time, 100)) %>%
-  group_by(simId, gr) %>%
-  nest() %>%
-  mutate(
-    TIME = map_dbl(data, ~ mean(.x$time)),
-    ME   = map_dbl(data, ~ quantile(.x$y2, probs = 0.50)),
-    LI   = map_dbl(data, ~ quantile(.x$y2, probs = 0.10)),
-    LS   = map_dbl(data, ~ quantile(.x$y2, probs = 0.90))
-  )
+dfr_percs <-   data_list %>%
+  map_dfr( ~ .x, .id = 'simId')
+
+setDT(dfr_percs)[, gr := cut(
+  time,
+  breaks = quantile(time, probs = seq(0, 1, 1 / 100)),
+  labels = 1:100,
+  right = TRUE
+)][, gr := ifelse(is.na(gr), 1, gr)][, `:=`(
+  TIME = mean(time),
+  ME = quantile(y2, probs = 0.50),
+  LI = quantile(y2, probs = 0.10),
+  LS = quantile(y2, probs = 0.90)
+), by = .(simId, gr)]
+
+
+# dfr_percs <-   data_list %>%
+# map_dfr( ~ .x, .id = 'simId')
+# mutate(gr = ntile(time, 100)) %>%
+#   group_by(simId, gr) %>%
+#   nest() %>%
+#   mutate(
+#     TIME = map_dbl(data, ~ mean(.x$time)),
+#     ME   = map_dbl(data, ~ quantile(.x$y2, probs = 0.50)),
+#     LI   = map_dbl(data, ~ quantile(.x$y2, probs = 0.10)),
+#     LS   = map_dbl(data, ~ quantile(.x$y2, probs = 0.90))
+#   )
 
 #-------------------------------------------------------------------------------#
 # Calcular intervalos de confianza del 95% para cada intervalo de predicción
@@ -142,7 +159,7 @@ dfr_percs <- data_list %>%
 #  inferior y el límite superior del IP
 #................................................................................
 
-dfr_percs1 <- dfr_percs %>% 
+dfr_percs1 <- as_tibble(dfr_percs) %>% 
   group_by(gr) %>% 
   summarise(
     TIME  = mean(TIME),
@@ -210,7 +227,7 @@ g_percs <-
   linedots(data_OBS1, TIME, LI) +
   linedots(data_OBS1, TIME, LS) +
   scale_x_continuous(breaks = seq(0,12,2)) +
-  coord_cartesian(xlim=c(0,12), ylim=c(0,50)) +
+  coord_cartesian(xlim=c(0,12), ylim=c(0,70)) +
   theme(panel.border = element_rect(fill = NULL, colour = 'black')) +
   xlab('TAD, tiempo tras dosis (h)') + 
   ylab('Concentración plasmática VAN (mg/L)')
@@ -318,15 +335,24 @@ data_ls_df <- data_list %>%
 #  la media e IP80% para la variable concentración (IP). 
 #................................................................................
 
-dfr_percs_pcVPC <- data_ls_df %>%
-  mutate(pcy2 = y2.x * ME_bin / y2.y) %>%
-  group_by(simId, gr) %>%
-  summarise(
+# dfr_percs_pcVPC <- data_ls_df %>%
+#   mutate(pcy2 = y2.x * ME_bin / y2.y) %>%
+#   group_by(simId, gr) %>%
+#   summarise(
+#     TIME = mean(time),
+#     ME   = quantile(x = pcy2, probs = 0.50),
+#     LI   = quantile(x = pcy2, probs = 0.10),
+#     LS   = quantile(x = pcy2, probs = 0.90)
+#   )
+
+dfr_percs_pcVPC <-
+  data.table(data_ls_df)[, pcy2 := y2.x * ME_bin / y2.y][, .(
     TIME = mean(time),
-    ME   = quantile(x = pcy2, probs = 0.50),
-    LI   = quantile(x = pcy2, probs = 0.10),
-    LS   = quantile(x = pcy2, probs = 0.90)
-  )
+    ME = quantile(pcy2, probs = 0.50),
+    LI = quantile(pcy2, probs = 0.10),
+    LS = quantile(pcy2, probs = 0.90)
+  ), by = .(simId, gr)]
+
 #-------------------------------------------------------------------------------#
 # Calcular intervalos de confianza del 95% para cada intervalo de predicción
 # Se debe realizar un resumen del valor de IP dentro de cada bin, entre todas 
@@ -338,7 +364,7 @@ dfr_percs_pcVPC <- data_ls_df %>%
 #  inferior y el límite superior del IP
 #................................................................................
 
-dfr_percs1_pcVPC <- dfr_percs_pcVPC %>% 
+dfr_percs1_pcVPC <- as_tibble(dfr_percs_pcVPC) %>% 
   group_by(gr) %>% 
   summarise(
     TIME  = mean(TIME),
@@ -415,6 +441,7 @@ data_OBS_PRED <- data_OBS_PRED %>%
 
 data_OBS_PRED_sum <- data_OBS %>%
   mutate(time = round(time, 4)) %>% 
+  filter(YTYPE == 2) %>% 
   left_join(., data_OBS_PRED, by = c('id', 'time')) %>%
   mutate(pcVPC = y2 * ME_PRED / PRED) %>%
   group_by(gr) %>%
@@ -442,7 +469,7 @@ g_percs1 <-
   linedots(data_OBS_PRED_sum, TIME, LS) +
   scale_x_continuous(breaks = seq(0,12,2)) +
   theme(panel.border = element_rect(fill = NULL, colour = 'black')) +
-  coord_cartesian(ylim = c(0, 50)) +
+  coord_cartesian(ylim = c(0, 70)) +
   xlab('TAD, tiempo tras dosis (h)') + 
   ylab('Concentración plasmática VAN \n Corregida por predicción (mg/L)')
 
