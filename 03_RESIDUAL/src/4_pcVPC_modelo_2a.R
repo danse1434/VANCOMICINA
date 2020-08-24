@@ -417,7 +417,8 @@ data_OBS_PRED_sum <- data_OBS %>%
   mutate(time = round(time, 4)) %>% 
   left_join(., data_OBS_PRED, by = c('id', 'time')) %>%
   mutate(pcVPC = y1 * ME_PRED / PRED) %>%
-  group_by(gr) %>%
+  group_by(gr) %>%  
+  filter(YTYPE == 1) %>% 
   summarise(
     TIME = mean(time),
     ME   = quantile(x = y1, probs = 0.50),
