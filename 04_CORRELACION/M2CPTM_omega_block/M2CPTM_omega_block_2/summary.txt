@@ -1,0 +1,99 @@
+********************************************************************************
+*                         M2CPTM_omega_block_2.mlxtran                         *
+*                         October 08, 2020 at 17:47:07                         *
+*                         Monolix version : 5.1.1                              *
+********************************************************************************
+
+
+POPULATION PARAMETERS ESTIMATION _______________________________________________
+
+Fixed Effects ----------------------------     se_sa    rse(%)
+Cl_pop                         :      10.2     0.726      7.12
+V1_pop                         :      43.5   1.79e-6   4.11e-6
+Q_pop                          :      10.1      2.89      28.6
+V2_pop                         :      53.8       8.1        15
+
+Standard Deviation of the Random Effects -
+omega_Cl                       :     0.261     0.051      19.5
+omega_V1                       :   3.05e-8   2.05e-7       673
+omega_Q                        :     0.978     0.233      23.9
+
+Error Model Parameters -------------------
+b                              :    0.0958   0.00818      8.54
+
+Elapsed time (seconds) :       86
+
+ _______________________________________________________________________________
+
+
+
+CORRELATION MATRIX OF THE ESTIMATES ____________________________________________
+
+
+Fisher by Stochastic Approximation ---------------------------------------------
+Correlation Matrix :
+  Cl_pop         1
+  V1_pop  0.055726         1
+   Q_pop  0.025196 -0.036744         1
+  V2_pop -0.092073  -0.17012 -0.016299         1
+omega_Cl -0.007896-0.0037431 0.0071609  0.045961         1
+omega_V1  -0.13267  -0.45084  0.095158    0.4444 0.0054651         1
+ omega_Q 0.0083153  0.039433 -0.015958 -0.073352  0.016175  -0.10171         1
+       b  0.029877  0.038029 0.0038366 -0.087002 -0.019348  -0.10416 -0.055824         1
+                               min       max   max/min
+Eigen values           :      0.43       1.8       4.2
+
+Elapsed time (seconds) :    0.36
+
+ -------------------------------------------------------------------------------
+
+ _______________________________________________________________________________
+
+
+
+INDIVIDUAL PARAMETERS ESTIMATION _______________________________________________
+
+
+Individual Parameters Estimation by Conditional Mean ---------------------------
+           min        Q1    median        Q3       max
+Cl :      4.98      9.94      10.7      12.3      13.1
+V1 :      43.5      43.5      43.5      43.5      43.5
+Q  :       1.3      5.59        14      16.6      62.3
+V2 :      53.8      53.8      53.8      53.8      53.8
+
+Elapsed time (seconds) :       1
+
+ -------------------------------------------------------------------------------
+
+
+Individual Parameters Estimation by Conditional Mode ---------------------------
+           min        Q1    median        Q3       max
+Cl :      5.02      9.97      10.7      12.3      13.1
+V1 :      43.5      43.5      43.5      43.5      43.5
+Q  :      1.38      5.35      12.5      15.3      54.1
+V2 :      53.8      53.8      53.8      53.8      53.8
+
+Elapsed time (seconds) :   0.016
+
+ -------------------------------------------------------------------------------
+
+ _______________________________________________________________________________
+
+
+
+LOG-LIKELIHOOD ESTIMATION ______________________________________________________
+                                                            (is)
+
+-2 x log-likelihood                             :         395.64
+Akaike Information Criteria               (AIC) :         411.64
+Corrected Bayesian Information Criteria  (BICc) :         426.38
+Bayesian Information Criteria             (BIC) :         416.76
+
+Elapsed time                          (seconds) :           1.89
+
+
+[Importance Sampling] Standard error        : 0.063
+                      Sampling distribution : T-distribution with 5 degrees of freedom
+
+ _______________________________________________________________________________
+
