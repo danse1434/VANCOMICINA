@@ -97,20 +97,51 @@ ggsave(G_ll, filename = 'figures/01_perfiles_LL_1D.pdf', device = 'pdf',
 #-------------------------------------------------------------------------------#
 # Bandas de Verosimilitud -----------------------------------------------------
 #-------------------------------------------------------------------------------#
-x <- extractor('Q_pop', mode='interval')
+x_Clpop <- extractor('Cl_pop', mode='interval')
+x_Qpop  <- extractor('Q_pop', mode='interval')
+x_V1pop <- extractor('V1_pop', mode='interval')
+x_V2pop <- extractor('V2_pop', mode='interval')
 
-ggplot(x, aes(x = Q_pop, y = LL_mn)) +
-  aux_plot +
-  geom_ribbon(aes(ymin = LL_li, ymax = LL_ls), fill=alpha('blue', 0.1)) +
-  geom_point(data = df_Qpop1$Minimo, aes(x=Q_pop, y=LL1), 
-             col = 'red3', shape = 8) +
-  geom_point(data = df_Qpop1$Punto_Corte, aes(x=Q_pop, y=LL1), 
-             col = 'green1') +
-  geom_vline(data = popParam,
-             aes(xintercept = Q_pop),
-             lty = 'dashed',
-             col = 'blue4') +
-  xlab(expression('Q (L/h)'))
+# Cálculo de valores mínimos y adición de 3.84
+x_Clpop1 <- x_Clpop %>% xval.func(Cl_pop, LL_mn)
+x_Qpop1  <- x_Qpop  %>% xval.func(Q_pop, LL_mn)
+x_V1pop1 <- x_V1pop %>% xval.func(V1_pop, LL_mn)
+x_V2pop1 <- x_V2pop %>% xval.func(V2_pop, LL_mn)
+
+x_ll_1 <- ggplot(x_Clpop, aes(x = Cl_pop, y = LL_mn)) +
+  geom_ribbon(aes(ymin=LL_li, ymax=LL_ls), fill=alpha('blue', 0.1)) +
+  geom_point(data = x_Clpop1$Minimo, col = 'red3', shape = 8) +
+  geom_point(data = x_Clpop1$Punto_Corte, col = 'green1') +
+  geom_vline(data = popParam, aes(xintercept = Cl_pop), lty='dashed', col='blue4') + 
+  xlab(expression('Cl (L/h)')) + aux_plot
+
+x_ll_2 <- ggplot(x_Qpop, aes(x = Q_pop, y = LL_mn)) +
+  geom_ribbon(aes(ymin=LL_li, ymax=LL_ls), fill=alpha('blue', 0.1)) +
+  geom_point(data = x_Qpop1$Minimo, col='red3', shape = 8) +
+  geom_point(data = x_Qpop1$Punto_Corte, col='green1') +
+  geom_vline(data = popParam, aes(xintercept = Q_pop), lty='dashed', col='blue4') + 
+  xlab(expression('Q (L/h)')) + aux_plot
+
+x_ll_3 <- ggplot(x_V1pop, aes(x = V1_pop, y = LL_mn)) +
+  geom_ribbon(aes(ymin=LL_li, ymax=LL_ls), fill=alpha('blue', 0.1)) +
+  geom_point(data = x_V1pop1$Minimo, col = 'red3', shape = 8) +
+  geom_point(data = x_V1pop1$Punto_Corte, col = 'green1') +
+  geom_vline(data = popParam, aes(xintercept = V1_pop), lty='dashed', col='blue4') + 
+  xlab(expression(V[1]~'(L)')) + aux_plot
+
+x_ll_4 <- ggplot(x_V2pop, aes(x = V2_pop, y = LL_mn)) +
+  geom_ribbon(aes(ymin=LL_li, ymax=LL_ls), fill=alpha('blue', 0.1)) +
+  geom_point(data = x_V2pop1$Minimo, col = 'red3', shape = 8) +
+  geom_point(data = x_V2pop1$Punto_Corte, col = 'green1') +
+  geom_vline(data = popParam, aes(xintercept = V2_pop), lty='dashed', col='blue4') + 
+  xlab(expression(V[2]~'(L)')) + aux_plot
+
+x_ll <- ((x_ll_1 + x_ll_2) / (x_ll_3 + x_ll_4)) + 
+  plot_annotation(tag_levels = 'A')
+
+# Almacenamiento de gráfico
+ggsave(x_ll, filename = 'figures/03_perfiles_LL_1D.pdf', device = 'pdf', 
+       width = 7, height = 5)
 
 
 
