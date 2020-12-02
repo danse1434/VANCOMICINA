@@ -99,7 +99,7 @@ ggsave(G_ll, filename = 'figures/01_perfiles_LL_1D.pdf', device = 'pdf',
 #-------------------------------------------------------------------------------#
 x <- extractor('Q_pop', mode='interval')
 
-ggplot(x, aes(x = Q_pop, y = LL1)) +
+ggplot(x, aes(x = Q_pop, y = LL_mn)) +
   aux_plot +
   geom_ribbon(aes(ymin = LL_li, ymax = LL_ls), fill=alpha('blue', 0.1)) +
   geom_point(data = df_Qpop1$Minimo, aes(x=Q_pop, y=LL1), 
