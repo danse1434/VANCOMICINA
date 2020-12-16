@@ -211,7 +211,7 @@ compPCA_mat <- PCdf %>%
   select(starts_with('PC')) %>% 
   as.matrix()
 
-# Calcular distancias respecto a la media de cad dimensión
+# Calcular distancias respecto a la media de cada dimensión
 A <- apply(compPCA_mat, 2, function(x) abs(x - mean(x))) %>% 
   apply(., c(1,2), function(x) x^2) %>% 
   apply(., 1, function(x) sqrt(sum(x)))
@@ -221,6 +221,15 @@ aov_1 <- PCdf[,c('label')] %>%
   add_column(d = A) %>% 
   separate(label, c('Cl', 'V1', 'Q', 'V2'), '\\-') %>% 
   aov(d ~ Cl+V1+Q+V2, .) 
+
+#              Df Sum Sq Mean Sq F value  Pr(>F)   
+# Cl           2   8.25   4.124   1.038 0.35936   
+# V1           2   1.57   0.784   0.197 0.82135   
+# Q            2  41.77  20.883   5.257 0.00740 **
+# V2           2  45.47  22.735   5.723 0.00494 **
+# Residuals   72 286.02   3.972                   
+# ---
+#   Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
 # > 4.2 Respuesta: logaritmo de verosimilitud --------
 aov_2 <- s_fct_ls1[s_fct_ls1$parameter=='LL',] %>% 

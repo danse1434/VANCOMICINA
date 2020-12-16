@@ -110,12 +110,12 @@ def generarTriplot(data, labels, which=(1,2,3), view_pos=(+17, -61), pos=111, fi
   # textos = [ plt.text(x_s0[i], x_s1[i], txt, size=7) for i, txt in enumerate(labels) if d_cor[i]]
   # adjust_text(textos, force_text=(0.2,1.0))
 
-  labels = [ 'PC{m} ({n:.2f}%)'.format(m= i, n=var_ratio[i-1]*100) for i in which]
-  ax.set(xlabel = labels[0], ylabel = labels[1], zlabel = labels[2])
+  ax_labels = [ 'PC{m} ({n:.2f}%)'.format(m= i, n=var_ratio[i-1]*100) for i in which]
+  ax.set(xlabel = ax_labels[0], ylabel = ax_labels[1], zlabel = ax_labels[2])
   ax.view_init(elev=view_pos[0], azim=view_pos[1])
 
   res_dict = {'x_scatter':x_s0, 'y_scatter':x_s1, 'z_scatter':x_s2, 
-  'colorList':cList, 'compVec':comp_vec, 'components':components, 'labels': labels}
+  'colorList':cList, 'compVec':comp_vec, 'components':components, 'labels': ax_labels, 'specs': labels}
   return(res_dict)
 
 
@@ -123,27 +123,38 @@ def generarTriplot(data, labels, which=(1,2,3), view_pos=(+17, -61), pos=111, fi
 
 def generarTriplot_Plotly(x):
   
+  # Formato de etiquetas (valores iniciales)
+  format1 = ["Configuracion Inicial {0} <br>x: {1:.3f}, y: {2:.3f}, z: {3:.3f}".format(i,j,k,n) 
+  for i,j,k,n in zip(x['specs'], x['x_scatter'], x['y_scatter'], x['z_scatter'])]
+
+  # Gráfico de dispersión
   fig = go.Figure(data=[go.Scatter3d(x=x['x_scatter'], y=x['y_scatter'], z=x['z_scatter'],
-                        mode='markers', marker=dict(size=12, color=x['colorList'], opacity=0.8))],
+                        mode='markers', 
+                        marker=dict(size=12, color=x['colorList'], opacity=0.8),
+                        hovertemplate = format1
+                        )],
                 layout = go.Layout(scene=go.Scene(
                   xaxis=go.XAxis(title=x['labels'][0]),
                   yaxis=go.YAxis(title=x['labels'][1]),
                   zaxis=go.ZAxis(title=x['labels'][2])
                   )))
 
+  # Vectores de parámetros
   for i in range(9):
     fig.add_trace(
       go.Scatter3d(
-        x = [0, x['components'][0][i]], y = [0, x['components'][1][i]], z = [0, x['components'][2][i]],
+        x = [0, x['components'][0][i]*5], y = [0, x['components'][1][i]*5], z = [0, x['components'][2][i]*5],
         mode = 'lines', line={'color':'green', 'width':5}, 
         name=x['compVec'][i].get_text(),
         text=[x['compVec'][i].get_text()],
         hovertemplate = "{}".format( x['compVec'][i].get_text() )
       )
     )
-    
+  ax_lim = {'nticks':11, 'range':(-11,+11)}
   fig.update_layout(
-    title_text='PCA_Convergencia',
+    title_text='Análisis de Covergencia - PCA',
+    scene = {'xaxis':ax_lim, 'yaxis':ax_lim, 'zaxis':ax_lim, 
+    'aspectmode':'cube', 'aspectratio':{'x':1, 'y':1.5, 'z':1.5}}
     # aspectratio = dict( x=1, y=1, z=1 )
   )
   return(fig)
