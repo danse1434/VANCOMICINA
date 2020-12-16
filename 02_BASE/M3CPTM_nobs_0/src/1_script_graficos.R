@@ -29,6 +29,7 @@ require(tidyverse)
 require(gt)
 
 # Apertura de fuente
+source(file.path('src', '10_performance_fun.R'), encoding = 'UTF-8')
 source("M3CPTM_nobs_0/src/2_funciones.R", encoding = 'UTF-8')
 
 #-------------------------------------------------------------------------------#
@@ -125,10 +126,19 @@ G_PRED_OBS_PREDLOG <-
                      breaks = breaks, minor_breaks = min_breaks) 
 
 # Almacenamiento en pdf de los gráficos
+G_PRED_OBS_PRED <- G_PRED_OBS_PRED + predictivePerformaceLabel(
+  y1_obsVsPred, 'popPred', 'y1', x = 0.65, round = 3, size=2.3, y=0.1,
+  boot = TRUE, R = 1e3, xlim = c(0,60), ylim = c(0,60)
+)
+G_PRED_OBS_IPRED <- G_PRED_OBS_IPRED + predictivePerformaceLabel(
+  y1_obsVsPred, 'indivPredMean', 'y1', x = 0.65, round = 3, size=2.3, y=0.1,
+  boot = TRUE, R = 1e3, xlim = c(0,60), ylim = c(0,60)
+)
+
 G1 <- ((G_PRED_OBS_PRED + G_PRED_OBS_IPRED) /
-      (G_PRED_OBS_PREDLOG + G_PRED_OBS_IPREDLOG)) &
-      theme(panel.grid.major = element_line(colour = "gray80"), 
-            panel.grid.minor = element_line(colour = "gray95"))
+         (G_PRED_OBS_PREDLOG + G_PRED_OBS_IPREDLOG)) &
+  theme(panel.grid.major = element_line(colour = "gray80"), 
+        panel.grid.minor = element_line(colour = "gray95"))
 
 G1 <- G1 + plot_annotation(tag_levels = 'A')
 

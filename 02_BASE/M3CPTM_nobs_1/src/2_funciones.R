@@ -33,7 +33,7 @@ GOF_PRED <- function(x, y, xspline, yspline, xconfint, yconfint_lo,
   yconfint_lo = rlang::ensym(yconfint_lo)
   yconfint_up = rlang::ensym(yconfint_up)
   
-  y1_obsVsPred %>% 	
+  y2_obsVsPred %>% 	
     ggplot(mapping = aes(x = !!x, y = !!y, group = ID)) +	
     geom_point(shape = 1) + 	
     xlab(xlab) + ylab(ylab) +	
