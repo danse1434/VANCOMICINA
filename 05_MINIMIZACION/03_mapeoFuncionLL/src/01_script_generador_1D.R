@@ -33,7 +33,7 @@ parametrosPoblacionales <-
 
 #-------------------------------------------------------------------------------#
 # Selección de parámetro a evaluar
-par_eval = 'Cl_pop'
+par_eval = 'b'
 
 # Cálculo de valor mínimo (50%) y valor máximo (500%) respecto al valor 
 # nominal estimado en el modelo base.
