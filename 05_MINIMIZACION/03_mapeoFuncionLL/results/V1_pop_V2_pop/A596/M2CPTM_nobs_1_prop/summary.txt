@@ -1,0 +1,64 @@
+********************************************************************************
+*                        M2CPTM_nobs_1_prop.mlxtran                            *
+*                        December 16, 2020 at 23:55:12                         *
+*                        Monolix version : 5.1.1                               *
+********************************************************************************
+
+
+POPULATION PARAMETERS ESTIMATION _______________________________________________
+
+Fixed Effects ----------------------------
+Cl_pop                         :      10.2
+V1_pop                         :       197
+Q_pop                          :      11.2
+V2_pop                         :       217
+
+Standard Deviation of the Random Effects -
+omega_Cl                       :       1.5
+omega_V1                       :       1.5
+omega_Q                        :       1.5
+omega_V2                       :       1.5
+
+Error Model Parameters -------------------
+b                              :       0.3
+
+Elapsed time (seconds) :        0
+
+ _______________________________________________________________________________
+
+
+
+INDIVIDUAL PARAMETERS ESTIMATION _______________________________________________
+
+
+Individual Parameters Estimation by Conditional Mean ---------------------------
+           min        Q1    median        Q3       max
+Cl :      3.28      7.42      9.39      10.5      11.8
+V1 :      42.8      52.8      57.2      65.4       115
+Q  :      9.58      15.7      20.8      24.4      34.8
+V2 :       292       479       539       667   1.03e+3
+
+Elapsed time (seconds) :     1.5
+
+ -------------------------------------------------------------------------------
+
+ _______________________________________________________________________________
+
+
+
+LOG-LIKELIHOOD ESTIMATION ______________________________________________________
+                                                            (is)
+
+-2 x log-likelihood                             :         607.78
+Akaike Information Criteria               (AIC) :         625.78
+Corrected Bayesian Information Criteria  (BICc) :         641.15
+Bayesian Information Criteria             (BIC) :         631.53
+
+Elapsed time                          (seconds) :           1.36
+
+
+[Importance Sampling] Standard error        : 0.165
+                      Sampling distribution : T-distribution with 5 degrees of freedom
+
+ _______________________________________________________________________________
+

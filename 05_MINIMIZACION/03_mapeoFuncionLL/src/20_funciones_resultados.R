@@ -144,3 +144,76 @@ xval.func <- function(data, x, y, v0 = 3.84,
   return(Result)
 }
 
+#-------------------------------------------------------------------------------#
+#' Generar Gráfico Bidimensional de Contornos
+#'
+#' @param datos Tabla con perfil de verosimilitud
+#' @param datos_ref Tabla con valores de referencia (modelo base o final)
+#' @param x_param Variable en el eje X
+#' @param y_param Variable en el eje Y
+#' @param z_indic Variable con el indicador de convergencia
+#' @param xlab Etiqueta eje X
+#' @param ylab Etiqueta eje Y
+#' @param n_bins Número de niveles o contornos
+#' @param tipo Tipo de gráfico ggplot o plotly
+#'
+#' @return
+#' @export
+#' objeto gráfico de tipo GGplot o Plotly
+#'
+#' @examples
+#' 
+#' 
+generarGrafico2D <- function(datos, datos_ref, x_param, y_param, z_indic, 
+                             xlab='x', ylab='Y', n_bins=5, tipo='ggplot') {
+  
+  x_param_quo = ensym(x_param)
+  y_param_quo = ensym(y_param)
+  z_indic_quo = ensym(z_indic)
+  
+  # Identificación de bins para hacer contornos
+  lvl = pull(datos, !!z_indic_quo) %>% 
+    list('min' = min(.), 'max' = max(.))
+  
+  if (tipo=='ggplot') {
+    
+    # Especificación de gráfico GGplot2
+    g <- ggplot(datos, aes(x=!!x_param_quo, y=!!y_param_quo, z=!!z_indic_quo)) + 
+      geom_contour_filled(aes(fill=stat(level)), 
+                          breaks = seq(lvl$min, lvl$max, length.out = n_bins+1)) +
+      # Valor de verosimilitud mínimo global
+      geom_point(data=datos %>%  slice_min(LL1), shape=8, color='red') +
+      
+      # Valor de verosimilitud para estimación de modelo base o final
+      geom_point(data=datos_ref %>% add_column(!!z_indic_quo:=0), shape=4, color='green1') +
+      scale_fill_viridis_d(name = 'Nivel') +
+      guides(fill = guide_colorsteps(barheight = unit(4, "cm"))) +
+      xlab(xlab) + ylab(ylab)
+    
+  } else if (tipo=='plotly') {
+    # Generar matriz de mapeo entre las dos dimensiones
+    mat = datos[,c(x_param, y_param, z_indic)] %>%
+      pivot_wider(id_cols = !!x_param_quo, 
+                  names_from = !!y_param_quo, 
+                  values_from= !!z_indic_quo) %>% 
+      column_to_rownames(var = x_param) %>% 
+      as.matrix()
+    
+    # Configuración de número de contornos
+    cont_ls = list(
+      showlabels = TRUE, 
+      start = lvl$min, end = lvl$max, 
+      size = (lvl$max - lvl$min)/(n_bins)
+    )
+    
+    # Creación de plotly
+    g <- plot_ly(x=dimnames(mat)[[1]], y=dimnames(mat)[[2]], z = mat, type = "contour", 
+                 contours = cont_ls) %>%
+      layout(xaxis = list(title = xlab), yaxis = list(title = ylab)) %>%
+      config(.Last.value, mathjax = "cdn")
+    
+  } else {
+    stop("Tipo no reconocido")
+  }
+  return(g)
+}
