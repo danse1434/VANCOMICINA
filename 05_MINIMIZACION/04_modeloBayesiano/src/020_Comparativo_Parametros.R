@@ -6,8 +6,9 @@ df2 <- read_csv(file.path('reports', '101_modeltwoCptmDiag_Results.txt'))
 df3 <- read_csv(file.path('reports', '102_modeltwoCptmDiagProp_Results.txt'))
 df4 <- read_csv(file.path('reports', '103_modeltwoCptmDiagPropCov_Results.txt'))
 df5 <- read_csv(file.path('reports', '104_modeltwoCptmDiagProp_errResNor_Results.txt'))
+df6 <- read_csv(file.path('reports', '105_modeltwoCptmDiagProp_errResNor_NoInfo_Results.txt'))
 
-parameters <- unique(c(df1$P, df2$P, df3$P, df4$P, df5$P)) %>% 
+parameters <- unique(c(df1$P, df2$P, df3$P, df4$P, df5$P, df6$P)) %>% 
   keep(~ str_detect(.x, 'CLHat|QHat|V1Hat|V2Hat|omega|rho|^b\\d{0,}$|sigma')) %>% 
   discard(~ str_detect(.x, 'rho\\[1,1\\]|rho\\[2,2\\]|rho\\[3,3\\]|rho\\[4,4\\]'))%>% 
   discard(~ str_detect(.x, 'rho\\[2,1\\]|rho\\[3,1\\]|rho\\[4,1\\]|rho\\[3,2\\]|rho\\[4,2\\]|rho\\[4,3\\]'))
@@ -63,3 +64,5 @@ crearTabla(df4, 'Matriz BSV Diagonal - Error Residual Proporcional - Métodos An
 crearTabla(df5, 'Modelo Base Vancomicina - Método Quimioluminiscencia') %>% 
   gtsave('104_modeltwoCptmDiagProp_errResNor_Results.html', normalizePath(file.path('reports')))
 
+crearTabla(df6, 'Modelo Base Vancomicina - Método Quimioluminiscencia (a priori difuso)') %>% 
+  gtsave('105_modeltwoCptmDiagProp_errResNor_NoInfo_Results.html', normalizePath(file.path('reports')))

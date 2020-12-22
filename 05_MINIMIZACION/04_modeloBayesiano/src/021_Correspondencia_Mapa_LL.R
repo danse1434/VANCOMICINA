@@ -134,3 +134,37 @@ ggsave('111_comparacion_Bayesiana_Omegas_LL.pdf', graficoOmegas, 'pdf',
        'figures', 1, 8, 6)  
 
 
+#-------------------------------------------------------------------------------#
+# 3. Modelo con a priori difuso -----------
+#-------------------------------------------------------------------------------#
+
+modelName_2 <- '105_modeltwoCptmDiagProp_errResNor_NoInfo'
+load(file = file.path('models', paste0(modelName_2, "Fit.Rsave")))
+
+fit_mcmc_2 <- As.mcmc.list(fit)
+
+lista_2D_2 <- list()
+
+lista_2D_2[[1]] <- modificarInserto(grafico_2D_LS[[1]], fit_mcmc_2, 
+                                  'CLHat', 'V1Hat', 
+                                  xlim=c(7,13), ylim=c(38,55))
+
+
+lista_2D_2[[2]] <- modificarInserto(grafico_2D_LS[[2]], fit_mcmc_2, 
+                                  'V1Hat', 'V2Hat', 
+                                  xlim=c(40,55), ylim=c(40,70))
+
+lista_2D_2[[3]] <- modificarInserto(grafico_2D_LS[[3]], fit_mcmc_2, 
+                                  'CLHat', 'QHat', 
+                                  xlim=c(6,15), ylim=c(6,18))
+
+lista_2D_2[[4]] <- modificarInserto(grafico_2D_LS[[4]], fit_mcmc_2, 
+                                  'QHat', 'V2Hat', 
+                                  xlim=c(8,20), ylim=c(40,100))
+
+# Creación de composición de gráficos
+(lista_2D_2 %>% 
+    reduce(., `+`)+
+    plot_layout(ncol=2)) %>% 
+  ggsave('figures/112_comparacion_Bayesiana_Mas_Verosimilitud_Difuso.pdf', plot = ., 'pdf', 
+         width = 8, height = 6)
