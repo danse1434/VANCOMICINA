@@ -30,9 +30,17 @@ for (i in 1:length(id_vector)) {
   
   jack_data <- data %>%
     filter(ID != id_vector[i])
-
-  write_delim(x = jack_data, 
-              file = file.path('data', paste0('data_TAD_del',i,'.csv')),
+  
+  n_unique <- (unique(jack_data$ID))
+  
+  jack_data <- jack_data %>% 
+    mutate(
+      OLD_ID = ID,
+      ID = factor(ID),
+      ID = fct_relabel(ID, ~match(.x, n_unique) %>% as.character())
+      ) 
+  
+  write_delim(x = jack_data,
+              file.path('data', paste0('data_TAD_del',i,'.csv')),
               delim = ",", na = '.')
 }
-

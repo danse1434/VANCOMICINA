@@ -23,7 +23,8 @@ set.seed(20201209)
 source('./src/010_funciones_procesamiento.R', encoding = 'UTF8')
 
 # Nombre del modelo
-modelName <- '104_modeltwoCptmDiagProp_errResNor'
+# 104_modeltwoCptmDiagProp_errResNor
+modelName <- '090_Base_Model'
 
 
 #-------------------------------------------------------------------------------#
@@ -32,22 +33,15 @@ modelName <- '104_modeltwoCptmDiagProp_errResNor'
 for (i in 1:14) {
   data <- read_csv(file.path('data', paste0('data_TAD_del',i,'.csv')), na = '.')
   datosProcesados_1  <- procesamientoDatos(data)
-  datosProcesados_2  <- formacionInputs(datosProcesados)
+  datosProcesados_2  <- formacionInputs(datosProcesados_1)
   eventoObservacion  <- datosProcesados_2$evOBS
   eventoDosificacion <- datosProcesados_2$evDosis
   
   source('./src/002_preparacionPrevios.R', encoding = 'UTF8')
-  
+  print(stan_d)
   # Ejecución Stan
   if(!file.exists(file.path('models', paste0(modelName, '_del', i, "Fit.Rsave")))){
-    # Ejecución de pruebas
-    test <- stan(
-      file.path('src', paste0(modelName, '.stan')), # Modelo Stan
-      data = stan_d, # Datos
-      chains = 1, # Cadenas
-      init = init,
-      iter = 10 # Iteraciones
-    )
+    
     d <- Sys.time()
     nChains <- 4
     nPost <- 1000 ## Número de muestras de cadenas
@@ -65,11 +59,14 @@ for (i in 1:14) {
                 init = init,
                 chains = nChains)
     
-    d <- d- Sys.time(); print(d)
+    d <- d- Sys.time()
     
     save(fit, file = file.path('models', paste0(modelName, '_del', i, "Fit.Rsave")))
     
   } else {
     load(file = file.path('models', paste0(modelName, '_del', i, "Fit.Rsave")))
   }
+  
+  print(paste0('Ok iteracion ', i))
+  print(d)
 }
