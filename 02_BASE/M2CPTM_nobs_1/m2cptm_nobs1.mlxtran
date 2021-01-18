@@ -1,7 +1,7 @@
 <DATAFILE>
 
 [FILEINFO]
-file = 'data/data_TAD.csv'
+file='data/data_TAD.csv'
 delimiter = comma
 header = {ID, DV, TAD, YTYPE, EVID, MDV, AMT, TINF, ADDL, II, SS, AGEA, SEXF, WTKG, HCM, SCRMGDL, ALBGDL, PROGDL, CLCRMLMIN, RAL, RAN, ANTU}
 
@@ -59,7 +59,7 @@ populationParameters()
 individualParameters(method = {conditionalMean, conditionalMode })
 fim(method = StochasticApproximation)
 logLikelihood(method = ImportanceSampling)
-plotResult(method = {outputplot, indfits, obspred, vpc, npc, residualsscatter, residualsdistribution, parameterdistribution, covariatemodeldiagnosis, randomeffects, covariancemodeldiagnosis, blq, predictiondistribution, likelihoodcontribution, categorizedoutput, saemresults, condmeanresults, fisher, likelihoodresults })
+plotResult(method = {indfits, obspred, vpc, npc, residualsscatter, residualsdistribution, parameterdistribution, covariatemodeldiagnosis, randomeffects, covariancemodeldiagnosis, blq, predictiondistribution, likelihoodcontribution, categorizedoutput, saemresults, condmeanresults, fisher, likelihoodresults })
 
 [SETTINGS]
 GLOBAL:
@@ -73,6 +73,10 @@ exploratoryinterval = 1000
 smoothinginterval = 1000
 omegatau = 0.8
 errormodeltau = 0.8
+
+FIM:
+miniterations = 200
+maxiterations = 5000
 
 [COMMENTS]
 ; Modelo de 2CPTM con observaciones del metodo de quimioluminiscencia

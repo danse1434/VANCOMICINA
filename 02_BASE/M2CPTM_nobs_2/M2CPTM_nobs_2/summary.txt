@@ -1,0 +1,112 @@
+********************************************************************************
+*                         M2CPTM_nobs_2.mlxtran                                *
+*                         January 14, 2021 at 10:57:37                         *
+*                         Monolix version : 2020R1                             *
+********************************************************************************
+
+
+ESTIMATION OF THE POPULATION PARAMETERS ________________________________________
+
+Fixed Effects ----------------------------     se_sa    rse(%)
+Cl_pop   :                            10.2     0.728      7.11
+V1_pop   :                            47.4      2.95      6.22
+Q_pop    :                            10.9     0.476      4.36
+V2_pop   :                            41.3      15.1      36.6
+
+Standard Deviation of the Random Effects -
+omega_Cl :                           0.246    0.0497      20.2
+omega_V1 :                           0.174    0.0592      34.1
+omega_Q  :                          0.0323    0.0353       109
+omega_V2 :                               1     0.346      34.6
+
+Error Model Parameters -------------------
+a1       :                           0.287    0.0242      8.41
+a2       :                           0.102    0.0129      12.7
+
+Elapsed time (seconds) :      33
+
+ _______________________________________________________________________________
+
+
+
+ESTIMATION OF THE INDIVIDUAL PARAMETERS ________________________________________
+
+
+Estimation of the individual parameters by Conditional Distribution ------------
+           min        Q1    median        Q3       max
+Cl :      5.57      9.39      10.7      12.2      13.4
+V1 :      37.9      44.7      48.5      50.2      68.9
+Q  :      10.9      10.9      10.9        11        11
+V2 :       4.7      37.9      76.5        84       133
+
+Elapsed time (seconds) :       3
+
+ -------------------------------------------------------------------------------
+
+
+Estimation of the individual parameters by Conditional Mode --------------------
+           min        Q1    median        Q3       max
+Cl :      5.62      9.63      10.9      12.5      13.5
+V1 :      36.8      43.3      47.6      49.7      67.9
+Q  :      10.9      10.9      10.9      10.9        11
+V2 :      4.91        24      41.6      55.2      88.8
+
+Elapsed time (seconds) :   0.058
+
+ -------------------------------------------------------------------------------
+
+ _______________________________________________________________________________
+
+
+
+ESTIMATION OF THE FISHER INFORMATION MATRIX ____________________________________
+
+
+Estimation of the Fisher information matrix by Stochastic Approximation --------
+
+Correlation Matrix :
+  Cl_pop         1
+  V1_pop -0.013212         1
+   Q_pop  0.025971  -0.26714         1
+  V2_pop  -0.18637   0.10535  -0.09895         1
+omega_Cl -0.040726  0.019048 -0.022351  0.052637         1
+omega_V1-0.0029509  -0.16128   0.18463 -0.027536  0.047075         1
+ omega_Q  0.051668  -0.21807  0.054939 -0.059232 -0.029057    0.1805         1
+omega_V2  -0.27561   0.15193 -0.039766   0.34428  0.056315 -0.003163  -0.16509         1
+      a1 -0.039237  -0.11188   0.11032 -0.015177  0.064919   0.16978  -0.01978  0.044256         1
+      a2  0.040967   0.19422  -0.25887  0.052213 -0.098495  -0.40557 -0.020553 -0.055544  -0.33133         1
+
+                               min       max   max/min
+Eigen values           :      0.52         2       3.8
+
+Elapsed time (seconds) :    0.41
+
+ -------------------------------------------------------------------------------
+
+ _______________________________________________________________________________
+
+
+
+ESTIMATION OF THE LOG-LIKELIHOOD _______________________________________________
+
+                                                            (is)
+-2 x log-likelihood                       (OFV) :         982.88
+Akaike Information Criteria               (AIC) :        1002.88
+Corrected Bayesian Information Criteria  (BICc) :        1024.98
+Bayesian Information Criteria             (BIC) :        1009.27
+
+Elapsed time                          (seconds) :           5.03
+CPU time                              (seconds) :           5.00
+
+
+[Importance Sampling] Standard error        : 0.073
+                      Sampling distribution : T-distribution with 5 degrees of freedom
+
+ _______________________________________________________________________________
+
+DATASET INFORMATION
+Number of individuals: 14
+Number of observations (obsid 1): 96
+Number of observations (obsid 2): 96
+Number of doses: 84
+
