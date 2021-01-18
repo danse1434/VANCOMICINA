@@ -12,10 +12,13 @@
 ##  
 ## Email: dsparrag@unal.edu.co 
 ##------------------------------------------------------------------------------#
+monolix2019R2.path <-  "C:/ProgramData/Lixoft/MonolixSuite2019R2"
+require(lixoftConnectors, lib.loc = monolix2019R2.path )
+require(mlxR)
+initMlxR(path = monolix2019R2.path)   #(adapt the path if necessary).
 require(data.table)
 require(tidyverse)
 require(rlang)
-require(mlxR)
 require(progress)
 
 #-------------------------------------------------------------------------------#
@@ -92,7 +95,9 @@ for (i in 1:N) {
     treatment = data_TAD$treatment, 
     model = file.path('models', 'modeloBase_2.txt'),
     output = list(out1),
-    settings = list(load.design=FALSE)
+    settings = list(
+      load.design=FALSE, 
+      digits=3)
   )[['y1']]
   
 }
@@ -175,7 +180,6 @@ gVPC <- dfr_percs_2 %>%
 
 ggsave('011_VPC_BASE_incert.pdf', gVPC, 'pdf', 'figures', 1, 8, 6)
 
-fwrite(dfr_percs, file.path('reports', '011_pred_sim_incert.csv'))
-
-
+# Almacenamiento en formato CSV comprimido
+fwrite(dfr_percs, file.path('reports', '011_pred_sim_incert.csv.gz'))
 
