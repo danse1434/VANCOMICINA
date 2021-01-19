@@ -132,7 +132,7 @@ data{
 }
 
 transformed data{
-  //vector[nObs] logcObs = log(cObs);
+  vector[nObs] logcObs = log(cObs);
   int nRandom = 4;
 }
 
@@ -192,7 +192,7 @@ model{
     logtheta ~ multi_normal(log(thetaHat), Omega);
     // Variabilidad Intra-individual
     // Se cambia a un modelo de error Residual con distribucion Normal
-    cObs ~ normal(cHat, b * cHat);
+    logcObs ~ normal(log(cHat), b * log(cHat));
 }
 
 generated quantities{
@@ -224,8 +224,8 @@ generated quantities{
       CLPred[subject[i]],  QPred[subject[i]], 
       V1Pred[subject[i]], V2Pred[subject[i]] );
       
-      cObsCond[i] = normal_rng(cHat[i], fabs(b*cHat[i])); // Predicciones individuales
-      cObsPred[i] = normal_rng(cHatPred[i], fabs(b*cHatPred[i])); // Predicciones poblacionales
+      cObsCond[i] = exp(normal_rng(log(cHat[i]),     fabs(b*log(cHat[i])))); // Predicciones individuales
+      cObsPred[i] = exp(normal_rng(log(cHatPred[i]), fabs(b*log(cHatPred[i])))); // Predicciones poblacionales
   }
 }
 
