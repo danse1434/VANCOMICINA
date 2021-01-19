@@ -182,3 +182,7 @@ ggsave('011_VPC_BASE_incert.pdf', gVPC, 'pdf', 'figures', 1, 8, 6)
 
 # Almacenamiento en formato CSV comprimido
 fwrite(dfr_percs, file.path('reports', '011_pred_sim_incert.csv.gz'))
+<<<<<<< HEAD
+=======
+
+>>>>>>> 61eafd0e8a51a4c75aa282fc7d6a4348bc507976
