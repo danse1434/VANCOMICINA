@@ -1,0 +1,100 @@
+********************************************************************************
+*                         modeloBase.mlxtran                                   *
+*                         January 10, 2021 at 17:44:50                         *
+*                         Monolix version : 5.1.1                              *
+********************************************************************************
+
+
+POPULATION PARAMETERS ESTIMATION _______________________________________________
+
+Fixed Effects ----------------------------     se_sa    rse(%)
+Cl_pop                         :      10.6      1.48      13.9
+V1_pop                         :      46.8      35.1        75
+Q_pop                          :      11.7      38.4       328
+V2_pop                         :      49.9      42.4        85
+
+Standard Deviation of the Random Effects -
+omega_Cl                       :     0.302       0.1      33.3
+omega_V1                       :     0.348     0.466       134
+omega_Q                        :      1.49       nan       nan
+omega_V2                       :      1.04      1.16       112
+
+Error Model Parameters -------------------
+b                              :    0.0922    0.0083         9
+
+Elapsed time (seconds) :    0.004
+
+ _______________________________________________________________________________
+
+
+
+CORRELATION MATRIX OF THE ESTIMATES ____________________________________________
+
+
+Fisher by Stochastic Approximation ---------------------------------------------
+Correlation Matrix :
+  Cl_pop         1
+  V1_pop   -0.7354         1
+   Q_pop    0.7699  -0.96362         1
+  V2_pop  -0.65749   0.73847  -0.78385         1
+omega_Cl  0.068746  -0.14636   0.15078 -0.091741         1
+omega_V1    0.6899  -0.93352   0.89544   -0.6908   0.12515         1
+ omega_Q       nan       nan       nan       nan       nan       nan       nan
+omega_V2  -0.75226   0.93201   -0.9287   0.76162  -0.15146  -0.87443       nan         1
+       b    0.2025  -0.26687    0.2546   -0.1739  0.059136    0.2545       nan  -0.26334         1
+WARNING : Impossible to compute the eigen values of the correlation matrix.
+
+Elapsed time (seconds) :     1.1
+
+ -------------------------------------------------------------------------------
+
+ _______________________________________________________________________________
+
+
+
+INDIVIDUAL PARAMETERS ESTIMATION _______________________________________________
+
+
+Individual Parameters Estimation by Conditional Mean ---------------------------
+           min        Q1    median        Q3       max
+Cl :      6.88      8.83        11      12.6      16.3
+V1 :      32.4      51.5      52.4      54.9      60.9
+Q  :      22.1      30.8      36.3      44.3      80.5
+V2 :      37.3      63.4        67      81.4       120
+
+Elapsed time (seconds) :     1.1
+
+ -------------------------------------------------------------------------------
+
+
+Individual Parameters Estimation by Conditional Mode ---------------------------
+           min        Q1    median        Q3       max
+Cl :      7.07      9.08      11.3      12.8      16.6
+V1 :      29.4      45.7      48.1        51      55.6
+Q  :      11.7      15.2      16.8      22.8      35.8
+V2 :       6.8      28.3      52.8      62.4        67
+
+Elapsed time (seconds) :   0.022
+
+ -------------------------------------------------------------------------------
+
+ _______________________________________________________________________________
+
+
+
+LOG-LIKELIHOOD ESTIMATION ______________________________________________________
+                                                            (is)
+
+-2 x log-likelihood                             :         558.01
+Akaike Information Criteria               (AIC) :         576.01
+Corrected Bayesian Information Criteria  (BICc) :         591.38
+Bayesian Information Criteria             (BIC) :         581.76
+
+Elapsed time                          (seconds) :           1.65
+
+
+[Importance Sampling] Standard error        : 0.155
+                      Sampling distribution : T-distribution with 5 degrees of freedom
+
+ _______________________________________________________________________________
+

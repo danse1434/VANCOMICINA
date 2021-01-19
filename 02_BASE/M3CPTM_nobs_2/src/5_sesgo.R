@@ -59,7 +59,7 @@ yt_residuals %>%
 # A tibble: 4 x 3
 # variable   Sesgo Imprecision
 # <chr>      <dbl>       <dbl>
-#   1 pwRes    -0.0648       0.842
-# 2 iwRes.mn -0.0516       0.760
-# 3 iwRes.mo -0.0182       0.757
-# 4 npde     -0.0486       0.710
+#   1 pwRes    -0.0806       0.755
+# 2 iwRes.mn -0.117        0.846
+# 3 iwRes.mo -0.0473       0.838
+# 4 npde     -0.118        0.816

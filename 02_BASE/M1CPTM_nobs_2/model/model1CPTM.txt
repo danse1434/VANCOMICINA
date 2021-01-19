@@ -1,0 +1,15 @@
+DESCRIPTION:
+The administration is via an infusion (requires INFUSION RATE or INFUSION DURATION column-type in the data set).
+The PK model has one compartment (volume V) and a linear elimination (clearance Cl).
+
+[LONGITUDINAL]
+input = {V, Cl}
+
+EQUATION:
+
+; PK model definition
+Cc_1 = pkmodel(V, Cl)
+Cc_2 = pkmodel(V, Cl)
+
+OUTPUT:
+output = {Cc_1, Cc_2}

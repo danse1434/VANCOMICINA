@@ -1,0 +1,22 @@
+DESCRIPTION:
+Modelo mezcla de estructura de 1 y 2 compartimentos de acuerdo a probabilidad.
+
+[LONGITUDINAL]
+input = {Cl, V1, Q, V2, p}
+
+EQUATION:
+
+; Parameter transformations 
+V = V1 
+k = Cl/V1 
+k12 = Q/V1 
+k21 = Q/V2
+
+; PK model definition
+f1 = pkmodel(V, k)
+f2 = pkmodel(V, k, k12, k21)
+
+Cc = bsmm(f1, p, f2, 1-p)
+
+OUTPUT:
+output = {Cc}
