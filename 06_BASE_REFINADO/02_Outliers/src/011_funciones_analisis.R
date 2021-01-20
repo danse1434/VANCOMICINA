@@ -11,7 +11,7 @@
 #' @examples
 #' pcout(pca2, PC1, PC2)
 #' 
-pcout <- function(data, x, y) {
+pcout <- function(data, x, y, id=TRUE) {
   # Quosures
   xq <- rlang::enquo(x); yq <- rlang::enquo(y)
   
@@ -20,14 +20,24 @@ pcout <- function(data, x, y) {
     rownames_to_column(var = 'ID')
   
   # Gráfico
-  G1 <- ggplot(W, aes(!!xq, !!yq, colour = is.out)) +
-    geom_point() +
-    # Líneas intersección (0,0)
-    geom_hline(yintercept = 0, lty = 'dashed', col = "grey50") +
-    geom_vline(xintercept = 0, lty = 'dashed', col = "grey50") +
-    # Puntos de color negro/azul (adentro/fuera)
-    scale_color_manual(values = c("black", "blue")) +
-    theme(legend.position = "none")
+  if (id) {
+    G1 <- ggplot(W, aes(!!xq, !!yq, colour = is.out)) +
+      geom_point() +
+      # Líneas intersección (0,0)
+      geom_hline(yintercept = 0, lty = 'dashed', col = "grey50") +
+      geom_vline(xintercept = 0, lty = 'dashed', col = "grey50") +
+      # Puntos de color negro/azul (adentro/fuera)
+      scale_color_manual(values = c("black", "blue")) +
+      theme(legend.position = "none")
+    
+  } else {
+    G1 <- ggplot(W, aes(!!xq, !!yq)) +
+      geom_point() +
+      # Líneas intersección (0,0)
+      geom_hline(yintercept = 0, lty = 'dashed', col = "grey50") +
+      geom_vline(xintercept = 0, lty = 'dashed', col = "grey50") +
+      theme(legend.position = "none")
+  }
   
   return(list(data = W, graph = G1))
 }

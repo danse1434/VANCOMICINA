@@ -13,6 +13,7 @@
 # Carga de paquetes
 require(rlang)
 require(tidyverse)
+require(ggrepel)
 require(tidymodels)
 require(patchwork)
 require(bigutilsr)
@@ -73,17 +74,16 @@ data_mn <- data_df %>%
               names_from = Parameter,
               values_from = P50) 
 
+# 1.4 Crear receta, normalizar, y preparar
+
 rec <- recipe(Sujeto ~ ., data = data_mn)
-nor <- rec %>% 
-  step_normalize(all_predictors()) 
-
-pre <- nor %>% 
-  prep(data_mn)
-
+nor <- rec %>% step_normalize(all_predictors()) 
+pre <- nor %>% prep(data_mn)
 
 # Selección de tema
-theme_set(theme_bw() +
-            theme(panel.border = element_rect(fill = NA, colour = 'black')))
+theme_set(
+  theme_bw() + theme(panel.border = element_rect(fill = NA, colour = 'black'))
+  )
 
 # Gráfico de cambio en cada parámetro en forma univariada 
 G1 <- bake(pre, data_mn) %>%
@@ -115,7 +115,6 @@ ggsave("1_valores_estandarizados.pdf", G1, 'pdf', 'figures', 1, 5, 4)
 #-------------------------------------------------------------------------------#
 # 2. Análisis de Componentes Principales -------------------------
 #-------------------------------------------------------------------------------#
-
 # Realización de análisis de componentes principales (PCA)
 # 
 # Se utilizó la función "prcomp" de la librería stats, se elimina la variable 
@@ -140,7 +139,7 @@ pca1 %>% autoplot(x = 1, y =2)
 pca2 <- pca1$x
 
 #-------------------------------------------------------------------------------#
-# Aplicación de criterios de identificación de outliers -------------------
+# 3. Aplicación de criterios de identificación de outliers -------------------
 #-------------------------------------------------------------------------------#
 # Criterio de distancia de al menos 6 desviaciones estándar desde la media.
 #................................................................................
@@ -156,7 +155,7 @@ apply(pca2, 2, function(x)
 apply(pca2, 2, function(x)
   which((abs(x - median(x)) / mad(x)) > 6)) 
 
-# Para PC1 se identifica al individuo 7 como posible dato atípico.
+# Para PC1 se identifica al individuo 7 como posible individuo atípico.
 
 # El criterio no es capaz de identificar algún outlier variando el umbral de 
 # desviación estándar, debido a que no considera ninguno de los datos outlier 
@@ -176,7 +175,7 @@ dist <- apply(pca2, 2, function(x)
 # Es una generalización multidimensional de la idea de medir cuantas desvest 
 # esta lejos de la media de P. 
 
-dist2 <- bigutilsr::dist_ogk(pca2)
+dist2 <- bigutilsr::dist_ogk(pca2, 20)
 qplot(dist, sqrt(dist2))
 
 pval <- pchisq(dist2, df = 9, lower.tail = FALSE)
@@ -184,11 +183,39 @@ hist(pval)
 
 # Corrección de Bonferroni
 is.out <- (pval < (0.05 / length(dist2)))  
-qplot(pca2[, 1], pca2[, 2], color = is.out, size = I(3)) + coord_equal()
 
+gPCA_Maha <- 
+  qplot(pca2[, 1], pca2[, 2], color = is.out, size = I(3)) + 
+  geom_text_repel(aes(label=1:14)) +
+  theme(legend.position = c(0.8, 0.8)) + 
+  xlab(expression(PC[1])) + ylab(expression(PC[2])) +
+  labs(title = 'Identificación Outliers', subtitle = 'Distancia Mahalonobis')
+
+# G1
+ggsave("3_distanceMahalonnobis.pdf", gPCA_Maha, 'pdf', 'figures', 1, 5, 4)
 
 #-------------------------------------------------------------------------------#
-# Gráficos finales PCA ----------------------------------------------------
+# Aplicación de LOF
+LOF_1 <- LOF(U = pca2, seq_k = c(3:10))
+
+gPCA_LOF <- ggplot(pca2, aes(x = PC1, y = PC2)) +
+  geom_point(aes(color = 'Observaciones', shape='Observaciones'), size=0.1) +
+  geom_point(
+    aes(color = 'LOF Score', shape='LOF Score'),
+    size = LOF_1*0.1/min(LOF_1) # El valor de LOF define el tamaño del punto 
+  )  +
+  xlab("PC1 (56.4%)") + ylab("PC2  (17.2%)") +
+  scale_color_manual(values = c('black', 'red'), breaks = c('Observaciones', 'LOF Score'), name='L') +
+  scale_shape_manual(values = c(16, 1), breaks = c('Observaciones', 'LOF Score'), name='L') +
+  geom_text_repel(aes(label = ifelse(LOF_1 >= 1, round(LOF_1, 2), NA_real_) )) +
+  # labs(title = 'Identificación Outliers', subtitle = 'Local Outlier Factor') +
+  theme(legend.position = c(0.8, 0.8), legend.title = element_blank())
+
+# gPCA_LOF
+ggsave("4_LOF_identification.pdf", gPCA_LOF, 'pdf', 'figures', 1, 5, 4)
+
+#-------------------------------------------------------------------------------#
+# 4. Gráficos finales PCA ----------------------------------------------------
 #-------------------------------------------------------------------------------#
 # Gráficos con PCA para cada par (PC1,PC2)-(PC2,PC3)-(PC1,PC3)
 # 
@@ -277,3 +304,16 @@ gT <- (gm1 + gm2 + gm3 +
 
 ggsave('2_CompuestoPC.pdf', gT, 'pdf', 'figures', 1, 5*2, 4*2)
 ggsave('2_CompuestoPC.png', gT, 'png', 'figures', 2, dpi = 'print')
+
+# Gráfico compuesto con inclusión de puntuaciones LOF
+
+gT1 <- (gm1 + gm2 + (gPCA_LOF + coords) +
+         (
+           wrap_elements(panel =  ~ plot3D_PCA(), clip = FALSE) +
+             theme(plot.margin = margin(0, 0, 0, 0))
+         )) +
+  plot_layout(ncol = 2) + plot_annotation(tag_levels = 'A')
+
+# gT1
+
+ggsave('5_CompuestoPC_LOF.pdf', gT1, 'pdf', 'figures', 1, 5*2, 4*2)
