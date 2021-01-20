@@ -43,7 +43,7 @@ dataObservacion <- data %>%
   filter(EVID==0) %>% 
   mutate(
     TAD = map2_dbl(ID, TAD, ~(seleccionUltimaDosis(.x, dataDosificacion) + .y))
-    )
+  )
 
 
 dataObservacion
@@ -53,25 +53,25 @@ dataObservacion
 #-------------------------------------------------------------------------------#
 eventoObservacion <- dataObservacion %>% 
   filter(YTYPE==1) %>% list(
-  nObs      = dim(.)[1],
-  cObs      = as.numeric(.$DV),
-  time      = as.numeric(.$TAD),
-  nSubjects = length(unique(.$ID)),
-  
-  start     = group_by(., ID) %>% 
-    rownames_to_column() %>% 
-    slice_head() %>% 
-    `$`(rowname) %>% 
-    as.integer(),
-  
-  end       = group_by(., ID) %>% 
-    rownames_to_column() %>% 
-    slice_tail() %>% 
-    `$`(rowname) %>% 
-    as.integer(),
-  
-  subject   = as.integer(.$ID)
-)
+    nObs      = dim(.)[1],
+    cObs      = as.numeric(.$DV),
+    time      = as.numeric(.$TAD),
+    nSubjects = length(unique(.$ID)),
+    
+    start     = group_by(., ID) %>% 
+      rownames_to_column() %>% 
+      slice_head() %>% 
+      `$`(rowname) %>% 
+      as.integer(),
+    
+    end       = group_by(., ID) %>% 
+      rownames_to_column() %>% 
+      slice_tail() %>% 
+      `$`(rowname) %>% 
+      as.integer(),
+    
+    subject   = as.integer(.$ID)
+  )
 
 eventoDosificacion <- list(
   nAdmEv     = dim(dataDosificacion)[1],
@@ -91,14 +91,14 @@ eventoDosificacion <- list(
 )
 
 hiperparametros <- list(
-  muClHat = 10.0,
-  sdClHat = 3,
-  muQHat  = 10.0,
-  sdQHat  = 3,
-  muV1Hat = 45,
-  sdV1Hat = 3,
-  muV2Hat = 50,
-  sdV2Hat = 3,
+  min_ClHat = 0,
+  max_ClHat = 50,
+  min_QHat  = 0,
+  max_QHat  = 50,
+  min_V1Hat = 0,
+  max_V1Hat = 250,
+  min_V2Hat = 0,
+  max_V2Hat = 250,
   
   muOmega = rep(0, 4),
   sdOmega = rep(1, 4),
@@ -116,10 +116,10 @@ stan_d
 
 # Inicializador
 init <- function(){
-  list(CLHat = exp(rnorm(1, log(hiperparametros$muClHat), 0.2)),
-       QHat  = exp(rnorm(1, log(hiperparametros$muQHat), 0.2)),
-       V1Hat = exp(rnorm(1, log(hiperparametros$muV1Hat), 0.2)),
-       V2Hat = exp(rnorm(1, log(hiperparametros$muV2Hat), 0.2)),
+  list(CLHat = runif(1, hiperparametros$min_ClHat, hiperparametros$max_ClHat),
+       QHat  = runif(1, hiperparametros$min_QHat, hiperparametros$max_QHat),
+       V1Hat = runif(1, hiperparametros$min_V1Hat, hiperparametros$max_V1Hat),
+       V2Hat = runif(1, hiperparametros$min_V2Hat, hiperparametros$max_V2Hat),
        
        omega = exp(rnorm(4, log(0.2), 0.5)),
        sigma = runif(1, 0.5, 2),

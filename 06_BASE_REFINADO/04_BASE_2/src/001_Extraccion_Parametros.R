@@ -17,6 +17,8 @@ require(tidyverse)
 #-------------------------------------------------------------------------------#
 # 1. Lectura de archivo con datos bayesiano -------------------
 #-------------------------------------------------------------------------------#
+source(file.path('src', '001_prepros_modeloBase.R'), encoding = 'UTF-8')
+
 modelName <- '081_modeltwoCptmDiagProp_errResNor_NoInfo'
 load(file = file.path('models', paste0(modelName, "Fit.Rsave")))
 
@@ -183,18 +185,8 @@ distDF <- as.matrix(fit, pars = parameters) %>%
   mutate(parameter = factor(parameter, 
                             levels = c('CLHat', 'QHat', 'V1Hat', 'V2Hat', 
                                        'omega[1]', 'omega[2]', 'omega[3]', 'omega[4]', 'b'))) 
-  
-distDF %>% 
-  ggplot(aes(x=values, colour = parameter, 
-             fill=after_scale(alpha(colour, 0.5)))) + 
-  # geom_histogram(stat = 'density') +
-  geom_density() + 
-  facet_wrap(. ~ parameter, ncol=4, scales = 'free') + 
-  theme(legend.position = 'none', axis.title.x = element_blank()) + 
-  ylab('Densidad')
 
-
-P#-------------------------------------------------------------------------------#
+#-------------------------------------------------------------------------------#
 #' Encontrar parámetros de dist. probabilidad 
 #'
 #' @param x vector numérico con muestras
@@ -298,7 +290,87 @@ distGT <- distDF2 %>%
 gtsave(distGT, '002_distBayesParam.html', file.path('figures') %>% normalizePath())  
 
 
+densidadDist <- tibble(
+  parameter = c('CLHat', 'QHat', 'V1Hat', 'V2Hat', 
+                'omega[1]', 'omega[2]', 'omega[3]', 'omega[4]', 'b'),
+  lim = list(c(0, 17.5), c(0, 48.0), c(0, 100.), c(0, 250.),
+           c(0, 0.8),  c(0, 6.0),  c(0, 1.8),  c(0, 6.0), c(0, 0.5)),
+  par = list(
+    c(stan_d$min_ClHat, stan_d$max_ClHat),
+    c(stan_d$min_QHat,  stan_d$max_QHat),
+    c(stan_d$min_V1Hat, stan_d$max_V1Hat),
+    c(stan_d$min_V2Hat, stan_d$max_V2Hat),
+    c(stan_d$muOmega[1], stan_d$sdOmega[1]),
+    c(stan_d$muOmega[2], stan_d$sdOmega[2]),
+    c(stan_d$muOmega[3], stan_d$sdOmega[3]),
+    c(stan_d$muOmega[4], stan_d$sdOmega[4]),
+    c(stan_d$mub, stan_d$sdb)
+    ),
+  fun = list(dunif, dunif, dunif, dunif, 
+             dcauchy, dcauchy, dcauchy, dcauchy, dcauchy)
+)
+
+densidadDist1 <- densidadDist %>% 
+  mutate(
+    x = map(lim, ~seq(.x[1], .x[2], length.out = 1E2)),
+    y = pmap(list(seq=x, par=par, probfun=fun), function(seq, par, probfun){
+      tibble(x = seq, y = probfun(seq, par[1], par[2]))
+    }),
+    parameter = factor(parameter, levels(distDF$parameter))
+  ) %>% 
+  select(parameter, y) %>% 
+  unnest(y)
 
 
+densidadDist2 <- 
+  distDF1 %>%
+  select(parameter, densy) %>% 
+  unnest(densy) %>% 
+  mutate(
+    pred = ifelse(parameter %in% c('omega[2]', 'omega[4]') & pred > 0.6, NA, pred),
+    pred = ifelse(parameter %in% c('b') & pred > 20, NA, pred),
+    values = ifelse(parameter %in% c('b') & values < 0.5, NA, values),
+    values = ifelse(parameter %in% c('omega[2]', 'omega[4]') & values > 6, NA, values)
+    )
+  
+distrCompar <- distDF %>%
+  mutate(
+    values = ifelse(parameter %in% c('omega[2]', 'omega[4]') & values > 6, NA, values),
+    values = ifelse(parameter == 'b' & values > 0.5, NA, values),
+    ) %>% 
+  ggplot(aes(x = values)) +
+  geom_histogram(
+    aes(y = ..density..),
+    bins = 10,
+    fill = alpha('gray', 0.1),
+    color = 'gray'
+  ) +
+  geom_density(aes(color='Posteriori', lty='Posteriori')) + 
+  geom_line(
+    data = densidadDist1, aes(x=x, y=y, color='Previa', lty='Previa'), 
+  ) +
+  geom_line(
+    data = densidadDist2, 
+    aes(x=values, y=pred, color='Simulada', lty='Simulada'), 
+  ) +
+  facet_wrap(. ~ parameter, ncol = 4, scales = 'free') +
+  scale_color_manual(
+    values=c('red', 'black', 'green4'), 
+    breaks=c('Previa', 'Posteriori', 'Simulada'), 
+    name = 'Distribución'
+  ) + 
+  scale_linetype_manual(
+    values=c('dashed', 'dotdash', 'solid'), 
+    breaks=c('Previa', 'Posteriori', 'Simulada'), 
+    name = 'Distribución'
+  ) +
+  theme(
+    legend.position = c(0.6, 0.1), 
+    legend.direction = 'horizontal',
+    panel.grid = element_blank(),
+    axis.title.x = element_blank()) +
+  ylab('Densidad')
 
+# Almacenamiento de distribuciones empíricas y modelos de distribución
+ggsave('020_distBayesParam.pdf', distrCompar, 'pdf', 'figures', 1, 8,6)
 
