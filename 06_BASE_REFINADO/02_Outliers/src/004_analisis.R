@@ -14,6 +14,7 @@
 require(rlang)
 require(tidyverse)
 require(ggrepel)
+require(gt)
 require(tidymodels)
 require(patchwork)
 require(bigutilsr)
@@ -73,6 +74,17 @@ data_mn <- data_df %>%
   pivot_wider(id_cols = Sujeto,
               names_from = Parameter,
               values_from = P50) 
+
+data_gt <- data_mn %>%
+  gt() %>%
+  fmt_number(contains('pop'), decimals = 2) %>%
+  fmt_number(matches('omega|b'), decimals = 3) %>%
+  tab_header(
+    title = 'Modelo Base Vancomicina - Análisis de Outlier', 
+    subtitle = 'Resumen Valores Modelo por eliminación de sujeto (Del-1)') %>%
+  tab_options(table.font.size = '12px')
+
+gtsave(data_gt, '0_Resumen_Estimados.html', file.path('figures') %>% normalizePath())
 
 # 1.4 Crear receta, normalizar, y preparar
 
