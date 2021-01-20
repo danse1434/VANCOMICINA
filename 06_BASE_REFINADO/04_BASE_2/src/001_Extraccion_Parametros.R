@@ -17,7 +17,7 @@ require(tidyverse)
 #-------------------------------------------------------------------------------#
 # 1. Lectura de archivo con datos bayesiano -------------------
 #-------------------------------------------------------------------------------#
-modelName <- '080_modeltwoCptmDiagProp'
+modelName <- '081_modeltwoCptmDiagProp_errResNor_NoInfo'
 load(file = file.path('models', paste0(modelName, "Fit.Rsave")))
 
 #-------------------------------------------------------------------------------#
@@ -154,8 +154,8 @@ write_csv(df_predictions, file.path('data', 'processed',
 df_predictions_2 <- 
   read_csv(file.path('data', 'data_TAD.csv'), na = '.') %>% 
   filter(EVID == 0 & YTYPE==1) %>% 
-  select(ID, DV, TAD, YTYPE) %>% 
-  bind_cols(df_predictions %>% select(-number))
+  dplyr::select(ID, DV, TAD, YTYPE) %>% 
+  bind_cols(df_predictions %>% dplyr::select(-number))
 
 # Almacenamiento de modelo 
 write_csv(df_predictions_2,
@@ -177,7 +177,7 @@ theme_set(theme_bw())
 
 distDF <- as.matrix(fit, pars = parameters) %>% 
   as_tibble(.) %>% 
-  add_column(rep = 1:4000, .before = 'CLHat') %>% 
+  add_column(rep = 1:8000, .before = 'CLHat') %>% 
   pivot_longer(!matches('rep'), 
                names_to = 'parameter', values_to = 'values') %>%
   mutate(parameter = factor(parameter, 
@@ -194,7 +194,7 @@ distDF %>%
   ylab('Densidad')
 
 
-#-------------------------------------------------------------------------------#
+P#-------------------------------------------------------------------------------#
 #' Encontrar parámetros de dist. probabilidad 
 #'
 #' @param x vector numérico con muestras
@@ -274,7 +274,7 @@ ggsave('001_distBayesParam.pdf', g, 'pdf', 'figures', 1, 8,6)
 # Extraer parámetros estimados de distribuciones de probabilidad
 distDF2 <- distDF1 %>% 
   mutate(param   = map_df(param, 'estimate')) %>% 
-  select(-data, -dist, -densy) 
+  dplyr::select(-data, -dist, -densy) 
 
 distDF2['meanlog'] <- distDF2$param$meanlog 
 distDF2['sdlog']   <- distDF2$param$sdlog 
@@ -283,7 +283,7 @@ distDF2['rate']    <- distDF2$param$rate
 
 # Crear tabla de resultados 
 distGT <- distDF2 %>% 
-  select(-param) %>% 
+  dplyr::select(-param) %>% 
   ungroup() %>% 
   gt(rowname_col = 'parameter') %>% 
   fmt_number(columns = 2:5, decimals = 3) %>% 

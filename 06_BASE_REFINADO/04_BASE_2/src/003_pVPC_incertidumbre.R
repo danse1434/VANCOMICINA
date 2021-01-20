@@ -43,11 +43,10 @@ param <- setNames(popParam$mn,
 
 # Especificación de hiperparámetros
 mnHP <- c(
-  supCl = 10.5276,
-  supQ = 11.3589,
-  supV1 = 46.6653,
-  supV2 = 49.7993,
-  supb = 0.0919 
+  supCl = 10.82,
+  supQ  = 22.198,
+  supV1 = 51.63,
+  supV2 = 42.48 
 )
 
 hiperPar <- tribble(
@@ -56,21 +55,20 @@ hiperPar <- tribble(
   "muQ",  log( mnHP[['supQ']] ),
   "muV1", log( mnHP[['supV1']] ),
   "muV2", log( mnHP[['supV2']] ),
-  "mub",  log( mnHP[['supb']] ),
-  "sdCl", 0.085,
-  "sdQ",  0.256,
-  "sdV1", 0.060,
-  "sdV2", 0.061,
-  'sh_omega_Cl', 3.541,
-  'sh_omega_Q', 0.638,
-  'sh_omega_V1', 1.335,
-  'sh_omega_V2', 0.963,
-  'sc_omega_Cl', 38.886,
-  'sc_omega_Q', 0.287,
-  'sc_omega_V1', 11.029,
-  'sc_omega_V2', 0.897,
-  'mu_b', -2.387,
-  'sd_b', 0.088,
+  "sdCl", 0.098,
+  "sdQ",  0.674,
+  "sdV1", 0.225,
+  "sdV2", 0.655,
+  'sh_omega_Cl', 3.613,
+  'sh_omega_Q',  0.762,
+  'sh_omega_V1', 1.338,
+  'sh_omega_V2', 1.242,
+  'sc_omega_Cl', 38.819,
+  'sc_omega_Q',  0.818,
+  'sc_omega_V1', 9.792,
+  'sc_omega_V2', 0.886,
+  'mu_b', -2.380,
+  'sd_b',  0.087,
   )
 
 hiperPar1 <- setNames(hiperPar$val, hiperPar$par)
@@ -175,14 +173,10 @@ gVPC <- dfr_percs_2 %>%
   geom_line(aes(y = ME_me), lty='dashed') +
   geom_line(aes(y = LI_me), lty='dashed') +
   geom_line(aes(y = LS_me), lty='dashed') +
-  xlab('Tiempo (h') + ylab(expression(C[PRED]~"(mg/mL)"))+
+  xlab('Tiempo (h') + ylab(expression(C[PRED]~"(mg/L)"))+
   theme_bw()
 
 ggsave('011_VPC_BASE_incert.pdf', gVPC, 'pdf', 'figures', 1, 8, 6)
 
 # Almacenamiento en formato CSV comprimido
 fwrite(dfr_percs, file.path('reports', '011_pred_sim_incert.csv.gz'))
-<<<<<<< HEAD
-=======
-
->>>>>>> 61eafd0e8a51a4c75aa282fc7d6a4348bc507976

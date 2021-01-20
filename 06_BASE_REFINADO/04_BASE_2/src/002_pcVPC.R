@@ -11,10 +11,13 @@
 ##  
 ## Email: dsparrag@unal.edu.co 
 ##------------------------------------------------------------------------------#
+monolix2019R2.path <-  "C:/ProgramData/Lixoft/MonolixSuite2019R2"
+require(lixoftConnectors, lib.loc = monolix2019R2.path )
+require(mlxR)
+initMlxR(path = monolix2019R2.path)   #(adapt the path if necessary).
 require(data.table)
 require(tidyverse)
 require(rlang)
-require(mlxR)
 require(progress)
 
 #-------------------------------------------------------------------------------#
@@ -39,12 +42,15 @@ param <- setNames(popParam$mn,
 out1  <- list(name = 'y1', time = seq(0, 12, length.out = 1e3))
 out2  <- list(name = 'Cc', time = seq(0, 12, length.out = 1e3))
 
-data_list <- vector(mode = "list", length = 1000)
+N = 5e2
+
+data_list <- vector(mode = "list", length = N)
 
 ptm <- proc.time()
-pb <- progress_bar$new(total = 1000)
 
-for (i in 1:1e3) {
+pb <- progress_bar$new(total = N, format = "[:bar] :percent :percent in :elapsed eta: :eta")
+
+for (i in 1:N) {
   pb$tick()
   
   data_list[[i]] <- simulx(
@@ -52,7 +58,9 @@ for (i in 1:1e3) {
     treatment = data_TAD$treatment, 
     model = file.path('models', 'modeloBase_1.txt'),
     output = list(out1),
-    settings = list(load.design=FALSE)
+    settings = list(
+      load.design = FALSE, 
+      digits = 3)
     )[['y1']]
   
 }
@@ -68,7 +76,7 @@ dfr_percs <-
 
 setDT(dfr_percs)
 
-dfr_percs[, gr:= ntile(time, 100), by=.(design)]
+dfr_percs[, gr:= ntile(time, 100), by=.(design)][, `:=`(time=round(time,3), y1=round(y1, 3))]
 
 dfr_percs_1 <- dfr_percs[, .(
   TIME = mean(time),
@@ -118,21 +126,22 @@ linedots <- function(data, x, y) {
 theme_set(theme_bw() +
             theme(panel.border = element_rect(fill = NULL, colour = 'black')))
 
-dfr_percs_2 %>%
+gVPC <- dfr_percs_2 %>%
   ggplot(aes(x = TIME)) +
   geom_ribbon(aes(ymin = ME_li, ymax = ME_ls), fill=alpha('gray70', 0.5)) +
   geom_ribbon(aes(ymin = LI_li, ymax = LI_ls), fill=alpha('gray30', 0.5)) +
   geom_ribbon(aes(ymin = LS_li, ymax = LS_ls), fill=alpha('gray30', 0.5)) +
-  geom_point(data=data_TAD$y1, aes(x=time, y=y1)) +
+  # geom_point(data=data_TAD$y1, aes(x=time, y=y1)) +
   linedots(dataOBS1, TIME, ME) +
   linedots(dataOBS1, TIME, LI) +
   linedots(dataOBS1, TIME, LS) +
   geom_line(aes(y = ME_me), lty='dashed') +
   geom_line(aes(y = LI_me), lty='dashed') +
   geom_line(aes(y = LS_me), lty='dashed') +
+  xlab('Tiempo (h') + ylab(expression(C[PRED]~"(mg/L)"))+
   theme_bw()
 
+ggsave('010_VPC_BASE.pdf', gVPC, 'pdf', 'figures', 1, 8, 6)
 
-
-
-
+# Almacenamiento en formato CSV comprimido
+fwrite(dfr_percs, file.path('reports', '010_pred_sim.csv.gz'))
