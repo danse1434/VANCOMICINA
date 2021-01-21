@@ -4,7 +4,9 @@
 ## Propósito del Script:  
 ##  
 ## Autor: Daniel S. Parra González 
+##
 ## Fecha de creación: 07/07/2020
+## Fecha de modificación: 20/01/2021
 ##  
 ## Copyright (c) Daniel S. Parra, 2020 
 ##  
@@ -215,6 +217,16 @@ data_final <- dataVAN2b %>%
   arrange(ID, TAD, DV) %>% 
   relocate(c(AMT:SS), .after = MDV)
 
+# Modificación para el individuo 7, se encuentra que este tiene un tiempo de 
+# infusión de 4 horas. Esto fue identificado en la tesis de referencia en la 
+# página 21. Esto lo evidenció el autor por el Cmax mostrado por el perfil que 
+# coincidía en las determinaciones microbiológicas y por quimioluminiscencia. 
+# 
+# Este error en especificación del modelo se evidenció durante el refinado del 
+# modelo base (20-01-2020).
+
+data_final <- data_final %>% 
+  mutate(TINF = ifelse(ID==7 & EVID==1, 4, TINF))
 
 #-------------------------------------------------------------------------------#
 # 5 Almacenamiento ---------------------------------------------
