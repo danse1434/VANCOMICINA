@@ -14,8 +14,8 @@
 #' @param ylab etiqueta de eje Y
 #'
 #' @return
-#' @export este se basa en un objeto llamado "y2_obsVsPred", y 
-#' otro llamado "y2_visualGuides"
+#' @export este se basa en un objeto llamado "y1_obsVsPred", y 
+#' otro llamado "y1_visualGuides"
 #'
 #' @examples
 #'   GOF_PRED(x = popPred, y = y2, xspline = popPred_spline_abscissa, 
@@ -33,15 +33,15 @@ GOF_PRED <- function(x, y, xspline, yspline, xconfint, yconfint_lo,
   yconfint_lo = rlang::ensym(yconfint_lo)
   yconfint_up = rlang::ensym(yconfint_up)
   
-  y2_obsVsPred %>% 	
+  y1_obsVsPred %>% 	
     ggplot(mapping = aes(x = !!x, y = !!y, group = ID)) +	
     geom_point(shape = 1) + 	
     xlab(xlab) + ylab(ylab) +	
     geom_abline(slope = 1, intercept = 0, lty = 'dotted') + 	
-    geom_line(y2_visualGuides, 	
+    geom_line(y1_visualGuides, 	
               mapping =  aes(x = !!xspline, y = !!yspline), 	
               inherit.aes = F, colour = colourp) +	
-    geom_ribbon(y2_visualGuides, 	
+    geom_ribbon(y1_visualGuides, 	
                 mapping =  aes(x = !!xconfint, 	
                                ymin = !!yconfint_lo,	
                                ymax = !!yconfint_up), 	
@@ -61,13 +61,13 @@ GOF_PRED <- function(x, y, xspline, yspline, xconfint, yconfint_lo,
 #' @param xlab etiqueta de eje X
 #' @param ylab etiqueta de eje Y
 #'
-#' @return se obtiene un gráfico de residuales con datos de *y2_residuals* y 
-#' *y2_spline*
+#' @return se obtiene un gráfico de residuales con datos de *y1_residuals* y 
+#' *y1_spline*
 #' @export
 #'
 #' @examples 
 #' RES_TSFD(x = time, y = pwRes, xspline = time_pwRes, yspline = time_pwRes_spline,
-#' perc_data = y2_time_percentiles_pwRes, xlab = 'TSFD', ylab = 'PWRES')
+#' perc_data = y1_time_percentiles_pwRes, xlab = 'TSFD', ylab = 'PWRES')
 #' 
 RES_TSFD <- function(x, y, xspline, yspline, perc_data, xlab, ylab) {
   x <- rlang::ensym(x)
@@ -76,11 +76,11 @@ RES_TSFD <- function(x, y, xspline, yspline, perc_data, xlab, ylab) {
   yspline <- rlang::ensym(yspline)
   stopifnot(is.data.frame(perc_data) == TRUE)
   
-  y2_residuals %>% 
+  y1_residuals %>% 
     ggplot(mapping = aes(x = !!x, y = !!y)) +
     geom_hline(yintercept = 0) +
     geom_point(col = '#4682B4') +
-    geom_line(y2_spline, 
+    geom_line(y1_spline, 
               mapping = aes(x = !!xspline, y = !!yspline), 
               col = '#EBA213', lty = 'solid', size = 1) +
     geom_line(perc_data, 
@@ -127,7 +127,7 @@ RES_TAD <- function(x, y, xlab, ylab) {
   #................................................................................
 
   #-------------------------------------------------------------------------------#
-  A <- y2_residuals %>%
+  A <- y1_residuals %>%
     mutate(gr = ntile(TAD, 6)) %>% 
     group_by(gr) %>% 
     summarise(TIME = mean(TAD), 
@@ -137,7 +137,7 @@ RES_TAD <- function(x, y, xlab, ylab) {
   
   #-------------------------------------------------------------------------------#
   # Crear el gráfico de residuales con las especificaciones mostradas
-  y2_residuals %>% 
+  y1_residuals %>% 
     ggplot(mapping = aes(x = !!x, y = !!y)) +
     geom_hline(yintercept = 0) +
     geom_point(col = '#4682B4') +
@@ -151,7 +151,7 @@ RES_TAD <- function(x, y, xlab, ylab) {
               col = '#EBA213', lty = 'dashed', size = 1.2) +
     geom_line(data = A, aes(TIME, LS), 
               col = '#EBA213', lty = 'dashed', size = 1.2) + 
-    geom_text_repel(data = filter(y2_residuals, abs(!!y) > 2), 
+    geom_text_repel(data = filter(y1_residuals, abs(!!y) > 2), 
                     aes(label = ID))  %>% 
     return(.)
 }
@@ -160,10 +160,10 @@ RES_TAD <- function(x, y, xlab, ylab) {
 #-------------------------------------------------------------------------------#
 #' Creación de gráfico de residuales
 #'
-#' @param x Variable X (en *y2_residuals*) para puntos
-#' @param y Variable Y (en *y2_residuals*) para puntos
-#' @param xspline Variable X (en *y2_spline*) para spline
-#' @param yspline Variable Y (en *y2_spline*) para spline
+#' @param x Variable X (en *y1_residuals*) para puntos
+#' @param y Variable Y (en *y1_residuals*) para puntos
+#' @param xspline Variable X (en *y1_spline*) para spline
+#' @param yspline Variable Y (en *y1_spline*) para spline
 #' @param perc_data Tabla con datos de percentiles empíricos
 #' @param xlab Etiqueta de eje X personalizada
 #' @param ylab Etiqueta de eje Y personalizada
@@ -173,7 +173,7 @@ RES_TAD <- function(x, y, xlab, ylab) {
 #'
 #' @examples
 #' RES_PRE(x = prediction_pwRes, y = pwRes, xspline = prediction_pwRes, 
-#' yspline = prediction_pwRes_spline, perc_data = y2_prediction_percentiles_pwRes,
+#' yspline = prediction_pwRes_spline, perc_data = y1_prediction_percentiles_pwRes,
 #' xlab = 'PRED', ylab = 'WRES')
 #' 
 RES_PRE <- function(x, y, xspline, yspline, perc_data, xlab, ylab) {
@@ -183,11 +183,11 @@ RES_PRE <- function(x, y, xspline, yspline, perc_data, xlab, ylab) {
   yspline <- rlang::ensym(yspline)
   stopifnot(is.data.frame(perc_data) == TRUE)
   
-  y2_residuals %>% 
+  y1_residuals %>% 
     ggplot(mapping = aes(x = !!x, y = !!y)) +
     geom_hline(yintercept = 0) +
     geom_point(col = '#8721B8') +
-    geom_line(y2_spline, 
+    geom_line(y1_spline, 
               mapping = aes(x = !!xspline, y = !!yspline), 
               col = '#EBA213', lty = 'solid', size = 1) +
     geom_line(data = perc_data,
@@ -200,7 +200,7 @@ RES_PRE <- function(x, y, xspline, yspline, perc_data, xlab, ylab) {
               mapping = aes(x = prediction, y = empirical_upper),
               col = '#EBA213', lty = 'dashed', size = 1.2) +
     # Texto de etiquetas
-    geom_text_repel(data = filter(y2_residuals, abs(!!y) > 2), 
+    geom_text_repel(data = filter(y1_residuals, abs(!!y) > 2), 
                     aes(label = ID)) + 
     coord_cartesian(ylim = c(-2.5, 2.5)) +
     xlab(xlab) + ylab(ylab) %>% return(.)

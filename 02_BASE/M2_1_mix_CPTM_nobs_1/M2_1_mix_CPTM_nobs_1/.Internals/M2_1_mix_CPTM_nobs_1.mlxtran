@@ -1,7 +1,7 @@
 <DATAFILE>
 
 [FILEINFO]
-file='../../data/data_TAD.csv'
+file = '../../data/data_TAD.csv'
 delimiter = comma
 header = {ID, DV, TAD, YTYPE, EVID, MDV, AMT, TINF, ADDL, II, SS, AGEA, SEXF, WTKG, HCM, SCRMGDL, ALBGDL, PROGDL, CLCRMLMIN, RAL, RAN, ANTU}
 
@@ -66,4 +66,7 @@ plotResult(method = {indfits, parameterdistribution, covariancemodeldiagnosis, c
 [SETTINGS]
 GLOBAL:
 exportpath = '../'
+
+[COMMENTS]
+; Modelo Mezcla 1CPTM-2CPTM con observaciones del metodo de quimioluminiscencia.
 

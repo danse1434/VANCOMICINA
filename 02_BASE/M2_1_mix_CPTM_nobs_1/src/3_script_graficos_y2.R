@@ -36,7 +36,7 @@ source("M2CPTM_nobs_2/src/4_funciones_y2.R", encoding = 'UTF-8')
 #-------------------------------------------------------------------------------#
 # Ajuste de una variable para guardar la subcarpeta que contiene datos de 
 # gráfico de bondad de ajuste
-auxdir <- file.path('M2_1_mix_CPTM_nobs_2', 'M2_1_mix_CPTM_nobs_2')
+auxdir <- file.path('M2_1_mix_CPTM_nobs_1', 'M2_1_mix_CPTM_nobs_1')
 dir.create(path = file.path(auxdir, 'figures'))
 
 gof_dir <- file.path(auxdir, 'ChartsData','ObservationsVsPredictions')

@@ -29,8 +29,8 @@ require(tidyverse)
 require(gt)
 
 # Apertura de fuente
-source(file.path('src', '10_peformance_fun.R'), encoding = 'UTF-8')
-source("M3CPTM_nobs_1/src/2_funciones.R", encoding = 'UTF-8')
+source(file.path('src', '10_performance_fun.R'), encoding = 'UTF-8')
+source(file.path('M3CPTM_nobs_1', 'src', '2_funciones.R'), encoding = 'UTF-8')
 
 #-------------------------------------------------------------------------------#
 # Bondad de ajuste -------------------------------------------------

@@ -1,7 +1,7 @@
 <DATAFILE>
 
 [FILEINFO]
-file = 'data/data_TAD.csv'
+file='data/data_TAD.csv'
 delimiter = comma
 header = {ID, DV, TAD, YTYPE, EVID, MDV, AMT, TINF, ADDL, II, SS, AGEA, SEXF, WTKG, HCM, SCRMGDL, ALBGDL, PROGDL, CLCRMLMIN, RAL, RAN, ANTU}
 
@@ -37,7 +37,7 @@ input = {a}
 file = 'lib:infusion_3cpt_ClV1Q2V2Q3V3.txt'
 
 DEFINITION:
-y2 = {distribution=normal, prediction=Cc, errorModel=constant(a)}
+y2 = {distribution=logNormal, prediction=Cc, errorModel=constant(a)}
 
 <FIT>
 data = y_2
@@ -65,7 +65,7 @@ populationParameters()
 individualParameters(method = {conditionalMean, conditionalMode })
 fim(method = StochasticApproximation)
 logLikelihood(method = ImportanceSampling)
-plotResult(method = {outputplot, indfits, obspred, vpc, npc, residualsscatter, residualsdistribution, parameterdistribution, covariatemodeldiagnosis, randomeffects, covariancemodeldiagnosis, blq, predictiondistribution, likelihoodcontribution, categorizedoutput, saemresults, condmeanresults, fisher, likelihoodresults })
+plotResult(method = {indfits, obspred, vpc, npc, residualsscatter, residualsdistribution, parameterdistribution, covariatemodeldiagnosis, randomeffects, covariancemodeldiagnosis, blq, predictiondistribution, likelihoodcontribution, categorizedoutput, saemresults, condmeanresults, fisher, likelihoodresults })
 
 [SETTINGS]
 GLOBAL:

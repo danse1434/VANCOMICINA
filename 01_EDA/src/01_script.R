@@ -80,7 +80,7 @@ norm_gt1 %>%
 #' 6 Mover las columnas _li_, _ls_ con el resto de los resultados paramétricos
 #................................................................................
 
-res_df1 <- select(df1, c(12, 14:21, 23)) %>%
+res_df1 <- select(df1, all_of(c(12, 14:21, 23))) %>%
   summarise(across(
     everything(),
     list(
@@ -136,7 +136,7 @@ desc_gt1 %>%
 # método gráfico.
 
 {pdf('output/figs/Correl_Contin_1.pdf', 11.0, 8.50)
-  select(df1, c(12, 14:21, 23)) %>% 
+  select(df1, all_of(c(12, 14:21, 23))) %>% 
   chart.Correlation(., histogram = TRUE, pch = 19)
 dev.off()}
 
@@ -145,7 +145,7 @@ dev.off()}
 
 # > Detección de outliers ------------
 
-outl_df1 <- select(df1, c(12, 14:21, 23)) %>% 
+outl_df1 <- select(df1, all_of(c(12, 14:21, 23))) %>% 
     mutate(across(everything(), ~ out_det(vec = .x, val = .x)))
 
 outl_gt1 <- outl_df1 %>% 

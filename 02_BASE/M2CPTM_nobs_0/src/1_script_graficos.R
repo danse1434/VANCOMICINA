@@ -46,28 +46,28 @@ gof_dir <- file.path(auxdir, 'ChartsData','ObservationsVsPredictions')
 theme_set(theme_bw())
 
 # Apertura de archivo de datos
-y2_obsVsPred <- # Observaciones vs predicciones
-  read_csv(file.path(gof_dir, 'y2_obsVsPred.txt'))
+y1_obsVsPred <- # Observaciones vs predicciones
+  read_csv(file.path(gof_dir, 'y1_obsVsPred.txt'))
 
-y2_visualGuides <- # Ayudas visuales
-  read_csv(file.path(gof_dir, 'y2_visualGuides.txt'))
+y1_visualGuides <- # Ayudas visuales
+  read_csv(file.path(gof_dir, 'y1_visualGuides.txt'))
 
-y2_obsVsSimulatedPred <- # Observaciones vs predicciones simuladas
-  read_csv(file.path(gof_dir, 'y2_obsVsSimulatedPred.txt'))
+y1_obsVsSimulatedPred <- # Observaciones vs predicciones simuladas
+  read_csv(file.path(gof_dir, 'y1_obsVsSimulatedPred.txt'))
 
 #-------------------------------------------------------------------------------#
 # Bondad de ajuste OBS vs PRED
 
-G_PRED_OBS_PRED <-  y2_obsVsPred %>% 
-  ggplot(mapping = aes(x = popPred, y = y2, group = ID)) +
+G_PRED_OBS_PRED <-  y1_obsVsPred %>% 
+  ggplot(mapping = aes(x = popPred, y = y1, group = ID)) +
   geom_point(shape = 1) + 
   xlab('PRED') + ylab('OBS') +
   geom_abline(slope = 1, intercept = 0, lty = 'dotted') + 
   # Modelo LOESS
-  geom_line(y2_visualGuides, 
+  geom_line(y1_visualGuides, 
             mapping =  aes(x = popPred_spline_abscissa, y = popPred_spline), 
             inherit.aes = F, colour = 'blue4') +
-  geom_ribbon(y2_visualGuides, 
+  geom_ribbon(y1_visualGuides, 
               mapping =  aes(x = popPred_ci_abscissa, 
                              ymin = popPred_piLower,
                              ymax = popPred_piUpper), 
@@ -78,7 +78,7 @@ G_PRED_OBS_PRED <-  y2_obsVsPred %>%
 # Gráficos de bondad de ajuste
 
 G_PRED_OBS_PRED <- 
-  GOF_PRED(x = popPred, y = y2, 
+  GOF_PRED(x = 'popPred', y = 'y1', 
            xspline = popPred_spline_abscissa, 
            yspline = popPred_spline, 
            xconfint = popPred_ci_abscissa, 
@@ -87,7 +87,7 @@ G_PRED_OBS_PRED <-
            colourp = 'blue1', xlab = 'PRED', ylab = 'OBS')
 
 G_PRED_OBS_IPRED <- 
-  GOF_PRED(x = indivPredMean, y = y2, 
+  GOF_PRED(x = indivPredMean, y = y1, 
            xspline = indivPred_spline_abscissa, 
            yspline = indivPred_spline, 
            xconfint = indivPred_ci_abscissa, 
@@ -98,8 +98,8 @@ G_PRED_OBS_IPRED <-
 #-------------------------------------------------------------------------------#
 # Bondad de ajuste OBS vs PPRED
 G_PRED_OBS_PPRED <- 
-  y2_obsVsSimulatedPred    %>%  
-  ggplot(mapping = aes(x = indivPredSimulated, y = y2)) +
+  y1_obsVsSimulatedPred    %>%  
+  ggplot(mapping = aes(x = indivPredSimulated, y = y1)) +
   geom_point(shape = 1) + 
   xlab('PPRED') + ylab('OBS') +
   stat_smooth(method = 'loess') +
@@ -153,35 +153,35 @@ ggsave(file.path(auxdir, 'figures/G_GOF.pdf'), G1,
 
 res_dir <- file.path(auxdir, 'ChartsData','ScatterPlotOfTheResiduals')
 # Todos los Residuales
-y2_residuals <-
-  read_csv(file.path(res_dir, 'y2_residuals.txt'))
+y1_residuals <-
+  read_csv(file.path(res_dir, 'y1_residuals.txt'))
 # Residuales simulados
-y2_simulatedResiduals <-
-  read_csv(file.path(res_dir, 'y2_simulatedResiduals.txt'))
+y1_simulatedResiduals <-
+  read_csv(file.path(res_dir, 'y1_simulatedResiduals.txt'))
 # Percentiles de residuales vs predicción
-y2_prediction_percentiles_iwRes <-
-  read_csv(file.path(res_dir, 'y2_prediction_percentiles_iwRes.txt'))
-y2_prediction_percentiles_pwRes <-
-  read_csv(file.path(res_dir, 'y2_prediction_percentiles_pwRes.txt'))
-y2_prediction_percentiles_npde <-
-  read_csv(file.path(res_dir, 'y2_prediction_percentiles_npde.txt'))
+y1_prediction_percentiles_iwRes <-
+  read_csv(file.path(res_dir, 'y1_prediction_percentiles_iwRes.txt'))
+y1_prediction_percentiles_pwRes <-
+  read_csv(file.path(res_dir, 'y1_prediction_percentiles_pwRes.txt'))
+y1_prediction_percentiles_npde <-
+  read_csv(file.path(res_dir, 'y1_prediction_percentiles_npde.txt'))
 # Percentiles de residuales vs tiempo
-y2_time_percentiles_iwRes <-
-  read_csv(file.path(res_dir, 'y2_time_percentiles_iwRes.txt'))
-y2_time_percentiles_pwRes <-
-  read_csv(file.path(res_dir, 'y2_time_percentiles_pwRes.txt'))
-y2_time_percentiles_npde <-
-  read_csv(file.path(res_dir, 'y2_time_percentiles_npde.txt'))
+y1_time_percentiles_iwRes <-
+  read_csv(file.path(res_dir, 'y1_time_percentiles_iwRes.txt'))
+y1_time_percentiles_pwRes <-
+  read_csv(file.path(res_dir, 'y1_time_percentiles_pwRes.txt'))
+y1_time_percentiles_npde <-
+  read_csv(file.path(res_dir, 'y1_time_percentiles_npde.txt'))
 # Especificación de contenedores (bins) en los datos
-y2_individualBins <-
-  read_csv(file.path(res_dir, 'y2_individualBins.txt'))
-y2_populationBins <-
-  read_csv(file.path(res_dir, 'y2_populationBins.txt'))
-y2_timeBins <-
-  read_csv(file.path(res_dir, 'y2_timeBins.txt'))
+y1_individualBins <-
+  read_csv(file.path(res_dir, 'y1_individualBins.txt'))
+y1_populationBins <-
+  read_csv(file.path(res_dir, 'y1_populationBins.txt'))
+y1_timeBins <-
+  read_csv(file.path(res_dir, 'y1_timeBins.txt'))
 # Especificación de línea de tendencia
-y2_spline <-
-  read_csv(file.path(res_dir, 'y2_spline.txt'))
+y1_spline <-
+  read_csv(file.path(res_dir, 'y1_spline.txt'))
 
 #-------------------------------------------------------------------------------#
 # Gráficos de residuales vs Tiempo ---------------------------------------------
@@ -192,7 +192,7 @@ G_RES_T_PWRES <- RES_TSFD(
   y = pwRes,
   xspline = time_pwRes,
   yspline = time_pwRes_spline,
-  perc_data = y2_time_percentiles_pwRes,
+  perc_data = y1_time_percentiles_pwRes,
   xlab = 'TAD',
   ylab = 'PWRES'
 )
@@ -202,7 +202,7 @@ G_RES_T_IWRES <- RES_TSFD(
   y = iwRes_mean,
   xspline = time_iwRes,
   yspline = time_iwRes_spline,
-  perc_data = y2_time_percentiles_iwRes,
+  perc_data = y1_time_percentiles_iwRes,
   xlab = 'TAD',
   ylab = 'IWRES'
 )
@@ -212,7 +212,7 @@ G_RES_T_NPDE <- RES_TSFD(
   y = npde,
   xspline = time_npde,
   yspline = time_npde_spline,
-  perc_data = y2_time_percentiles_npde,
+  perc_data = y1_time_percentiles_npde,
   xlab = 'TAD',
   ylab = 'NPDE'
 )
@@ -225,19 +225,19 @@ G_RES_T_NPDE <- RES_TSFD(
 G_RES_C_PWRES <- 
   RES_PRE(x = prediction_pwRes, y = pwRes, 
           xspline = prediction_pwRes, yspline = prediction_pwRes_spline,
-          perc_data = y2_prediction_percentiles_pwRes,
+          perc_data = y1_prediction_percentiles_pwRes,
           xlab = 'PRED', ylab = 'WRES')
 
 G_RES_C_IWRES <- 
   RES_PRE(x = prediction_iwRes_mean, y = iwRes_mean, 
           xspline = prediction_iwRes, yspline = prediction_iwRes_spline,
-          perc_data = y2_prediction_percentiles_iwRes,
+          perc_data = y1_prediction_percentiles_iwRes,
           xlab = 'IPRED', ylab = 'IWRES')
 
 G_RES_C_NPDE <- 
   RES_PRE(x = prediction_npde, y = npde, 
           xspline = prediction_npde, yspline = prediction_npde_spline,
-          perc_data = y2_prediction_percentiles_npde,
+          perc_data = y1_prediction_percentiles_npde,
           xlab = 'PRED', ylab = 'NPDE')
 
 #-------------------------------------------------------------------------------#
@@ -254,22 +254,22 @@ ggsave(file.path(auxdir, 'figures/G_RES.pdf'), G2, 'pdf',
 # Gráficos observaciones y predicciones individuales ----------------------------
 #-------------------------------------------------------------------------------#
 # Carga de ajustes individuales
-y2_fits <-
-  read_csv(file.path(auxdir, 'ChartsData', 'IndividualFits', 'y2_fits.txt'))
+y1_fits <-
+  read_csv(file.path(auxdir, 'ChartsData', 'IndividualFits', 'y1_fits.txt'))
   
-y2_observations <- 
+y1_observations <- 
   read_csv(file.path(auxdir, 'ChartsData', 'IndividualFits', 
-                     'y2_observations.txt'))
+                     'y1_observations.txt'))
 
-G_CP_TAD <-  y2_fits %>%
+G_CP_TAD <-  y1_fits %>%
   ggplot(mapping = aes(x = time)) +
-  geom_ribbon(y2_observations, mapping = aes(x = time, ymin = piLower, ymax = piUpper),
+  geom_ribbon(y1_observations, mapping = aes(x = time, ymin = piLower, ymax = piUpper),
               fill = alpha('gray50', 0.14)) + 
   geom_line(aes(y = pop), lty = 'dashed') +
   geom_line(aes(y = indivPredMean), lty = 'solid', col = 'blue2') +
   facet_wrap( ~ ID, ncol = 4, labeller = labeller(.cols = label_both)) +
-  geom_point(data = y2_observations,
-             mapping = aes(x = time, y = y2),
+  geom_point(data = y1_observations,
+             mapping = aes(x = time, y = y1),
              col = 'blue4') +
   scale_x_continuous(breaks = seq(0, 12, 2), minor_breaks = seq(0,12,1)) +
   coord_cartesian(xlim = c(0, 12)) +
@@ -301,7 +301,7 @@ vareta <- eta %>%
 eta_res <- 1 - (vareta / (popeta1^ 2))
 
 # Shrinkage Epsilon
-epsilon_shrink <- 1-sd(y2_residuals$iwRes_mean)
+epsilon_shrink <- 1-sd(y1_residuals$iwRes_mean)
 
 
 gt_shrinkage <- eta_res %>% 
