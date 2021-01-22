@@ -7,7 +7,7 @@ header = {ID, DV, TAD, YTYPE, EVID, MDV, AMT, TINF, ADDL, II, SS, AGEA, SEXF, WT
 
 [CONTENT]
 ID = {use=identifier}
-DV = {use=observation, name={y_1, y_2}, yname={'1', '2'}, type={continuous, continuous}}
+DV = {use=observation, name={y1, y2}, yname={'1', '2'}, type={continuous, continuous}}
 TAD = {use=time}
 YTYPE = {use=observationtype}
 EVID = {use=eventidentifier}
@@ -21,32 +21,25 @@ SS = {use=steadystate, nbdoses=5}
 <MODEL>
 
 [INDIVIDUAL]
-input = {Cl_pop, omega_Cl, Q_pop, omega_Q, V1_pop, omega_V1, V2_pop, omega_V2, f_pop, omega_f}
+input = {Cl_pop, omega_Cl, Q_pop, omega_Q, V1_pop, omega_V1, V2_pop, omega_V2}
 
 DEFINITION:
 Cl = {distribution=logNormal, typical=Cl_pop, sd=omega_Cl}
 Q = {distribution=logNormal, typical=Q_pop, sd=omega_Q}
 V1 = {distribution=logNormal, typical=V1_pop, sd=omega_V1}
 V2 = {distribution=logNormal, typical=V2_pop, sd=omega_V2}
-fi = {distribution=logNormal, typical=f_pop, sd=omega_f}
 
 [LONGITUDINAL]
-input = {fi, a_fi, a1, a2}
+input = {a1, a2}
 
-file = 'lib:infusion_2cpt_ClV1QV2.txt'
-
-EQUATION:
-Cc_2 = fi * Cc
-
-OUTPUT:
-output = Cc_2
+file = 'model/model.txt'
 
 DEFINITION:
-y1 = {distribution=normal, prediction=Cc, errorModel=constant(a1)}
+y1 = {distribution=normal, prediction=Cc_1, errorModel=constant(a1)}
 y2 = {distribution=normal, prediction=Cc_2, errorModel=constant(a2)}
 
 <FIT>
-data = {y_2, y_1}
+data = {y1,y2}
 model = {y1, y2}
 
 <PARAMETER>
@@ -56,12 +49,10 @@ V1_pop = {value=43.2233, method=MLE}
 V2_pop = {value=60.344, method=MLE}
 a1 = {value=3, method=MLE}
 a2 = {value=3, method=MLE}
-f_pop = {value=0.8, method=MLE}
 omega_Cl = {value=1.5, method=MLE}
 omega_Q = {value=1.5, method=MLE}
 omega_V1 = {value=1.5, method=MLE}
 omega_V2 = {value=1.5, method=MLE}
-omega_f = {value=1.5, method=MLE}
 
 <MONOLIX>
 

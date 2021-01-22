@@ -16,9 +16,13 @@
 # Introducción -----------------------------------------------------
 #-------------------------------------------------------------------------------#
 # Carga de paquetes
-require(tidyverse)
-require(rlang)
+monolix2019R2.path <-  "C:/ProgramData/Lixoft/MonolixSuite2019R2"
+require(lixoftConnectors, lib.loc = monolix2019R2.path )
 require(mlxR)
+initMlxR(path = monolix2019R2.path)   #(adapt the path if necessary).
+require(tidyverse)
+require(progress)
+require(rlang)
 
 #-------------------------------------------------------------------------------#
 auxdir <- file.path('.', 'M2CPTM_nobs_1_prop')

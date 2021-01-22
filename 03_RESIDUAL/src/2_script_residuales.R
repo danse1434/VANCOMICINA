@@ -21,7 +21,7 @@ require(gt)
 # Selección de tema
 theme_set(theme_bw())
 # Ejecutar script de funciones
-source('src/9_funciones.R', encoding = 'UTF-8')
+source(file.path('src', '9_funciones.R'), encoding = 'UTF-8')
 
 #-------------------------------------------------------------------------------#
 # 1 Introducción ------------------
@@ -62,18 +62,17 @@ res_nobs1 <- res_nobs1 %>%
 # 2 Residuales -----------------
 #-------------------------------------------------------------------------------#
 G_RES_T <- list()
-x_pwres <- list(data=res_nobs2, x='time', y='pwRes', 
+x_pwres <- list(data=res_nobs1, x='time', y='pwRes', 
                 xlab='TAD', ylab='PWRES')
-x_iwres <- list(data=res_nobs2, x='time', y='iwRes_mean', 
+x_iwres <- list(data=res_nobs1, x='time', y='iwRes_mean', 
                 xlab='TAD', ylab='IWRES')
-x_npde  <- list(data=res_nobs2, x='time', y='npde', 
+x_npde  <- list(data=res_nobs1, x='time', y='npde', 
                xlab='TAD', ylab='NPDE')
 
 for (i in seq_along(resid_vector)) {
   G_RES_T[[i+0]] <- eval(expr(RES_C(resid_vector[i], !!!x_pwres)))
   G_RES_T[[i+4]] <- eval(expr(RES_C(resid_vector[i], !!!x_iwres)))
   G_RES_T[[i+8]] <- eval(expr(RES_C(resid_vector[i], !!!x_npde)))
-  
 }
 
 G_RES_T_Comp <- 
@@ -89,17 +88,17 @@ for (i in 1:4) {
 G_RES_T_Comp <- G_RES_T_Comp + 
   plot_annotation(tag_levels = c('A', '1'))
 
-ggsave('figures/residuales_TAD.pdf', G_RES_T_Comp, 'pdf', 
+ggsave(file.path('figures', 'residuales_TAD.pdf'), G_RES_T_Comp, 'pdf', 
        width = 8, height = 8)
 
 #-------------------------------------------------------------------------------#
 G_RES_C <- list()
 
-x_pwres <- list(data=res_nobs2, x='prediction_pwRes', y='pwRes', 
+x_pwres <- list(data=res_nobs1, x='prediction_pwRes', y='pwRes', 
                 xlab='PRED', ylab='PWRES')
-x_iwres <- list(data=res_nobs2, x='prediction_iwRes_mean', y='iwRes_mean', 
+x_iwres <- list(data=res_nobs1, x='prediction_iwRes_mean', y='iwRes_mean', 
                 xlab='IPRED', ylab='IWRES')
-x_npde <- list(data=res_nobs2, x='prediction_npde', y='npde', 
+x_npde <- list(data=res_nobs1, x='prediction_npde', y='npde', 
                xlab='PRED', ylab='NPDE')
 
 for (i in seq_along(resid_vector)) {
@@ -122,7 +121,7 @@ for (i in 1:4) {
 G_RES_C_Comp <- G_RES_C_Comp + 
   plot_annotation(tag_levels = c('A', '1'))
 
-ggsave('figures/residuales_PRE.pdf', G_RES_C_Comp, 'pdf', 
+ggsave(file.path('figures', 'residuales_PRE.pdf'), G_RES_C_Comp, 'pdf', 
        width = 8, height = 8)
 
 #-------------------------------------------------------------------------------#
@@ -143,7 +142,7 @@ ggsave('figures/residuales_PRE.pdf', G_RES_C_Comp, 'pdf',
 #' 15 Recodificar a la variable *Resid*
 #' 16 Convertir a *Resid* en un factor ordenado
 #................................................................................
-res_norm <- res_nobs2 %>% 
+res_norm <- res_nobs1 %>% 
   select(Resid, pwRes, iwResMean = iwRes_mean, iwResMode = iwRes_mode, npde) %>% 
   pivot_longer(cols = -Resid, names_to = 'Residuales', values_to = 'Val') %>% 
   group_by(Resid, Residuales) %>%
@@ -276,7 +275,8 @@ plot_hist_comp <- res_norm %>%
     data = res_norm,
     mapping = aes(label = paste0(
       'Shapiro-Wilk: \n p = ', formatC(SW, 2, format = 'e')
-    )), y = 0.95, x = 6.0, hjust=1, vjust=1, size=2.7, colour='black' ) +
+    )), y = 0.95, x = 3.0, hjust=.5, vjust=1, size=2, colour='black' ) +
+  coord_cartesian(ylim=c(0, 1)) +
   theme(
     legend.position = 'none',
     panel.grid.major = element_line(color = 'gray85'),

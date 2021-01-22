@@ -1,6 +1,6 @@
 ********************************************************************************
 *                         M2CPTM_nobs_1_prop.mlxtran                           *
-*                         August 10, 2020 at 22:18:03                          *
+*                         January 21, 2021 at 18:47:43                         *
 *                         Monolix version : 5.1.1                              *
 ********************************************************************************
 
@@ -8,19 +8,19 @@
 POPULATION PARAMETERS ESTIMATION _______________________________________________
 
 Fixed Effects ----------------------------
-Cl_pop                         :      10.5
-V1_pop                         :      46.6
-Q_pop                          :      7.37
-V2_pop                         :      58.8
+Cl_pop                         :      10.6
+V1_pop                         :      40.5
+Q_pop                          :        10
+V2_pop                         :      50.1
 
 Standard Deviation of the Random Effects -
-omega_Cl                       :     0.272
-omega_V1                       :   4.48e-8
-omega_Q                        :      1.14
-omega_V2                       :   1.38e-7
+omega_Cl                       :      0.27
+omega_V1                       :      0.28
+omega_Q                        :     0.682
+omega_V2                       :   2.59e-8
 
 Error Model Parameters -------------------
-b                              :     0.111
+b                              :    0.0591
 
 Elapsed time (seconds) :       12
 

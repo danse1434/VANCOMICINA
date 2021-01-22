@@ -507,7 +507,7 @@ param_df3_gt <- param_df3 %>%
   gt::cols_merge_range(vars(normal.LI), vars(normal.LS), sep = I(", ")) %>% 
   gt::cols_merge_range(vars(pivote.LI), vars(pivote.LS), sep = I(", ")) %>% 
   gt::cols_merge_range(vars(BCa.LI), vars(BCa.LS), sep = I(", ")) %>% 
-  gt::tab_spanner('Resultados Bootstrap (n = 758)', 
+  gt::tab_spanner(label = glue("Resultados Bootstrap (n = {unique(param_df3$n)})"), 
                   vars(median, classic.LI,classic.LS,percent.LI,percent.LS,
                        normal.LI,normal.LS,pivote.LI,pivote.LS,BCa.LI,
                        BCa.LS)) %>% 
@@ -529,7 +529,8 @@ param_df3_gt <- param_df3 %>%
   gt::tab_options(table.font.size = "smaller",
                   data_row.padding = gt::px(3)) %>% 
   gt::tab_footnote('Obtenido mediante bootstrap no paramétrico', 
-                   gt::cells_column_spanners(spanners = "Resultados Bootstrap (n = 758)")) %>% 
+                   gt::cells_column_spanners(
+                     spanners = glue("Resultados Bootstrap (n = {unique(param_df3$n)})"))) %>% 
   gt::tab_footnote('Obtenido mediante matriz de info. de Fisher (FIM)', 
                    gt::cells_column_labels(columns = vars(se_sa, rse_sa)))
 

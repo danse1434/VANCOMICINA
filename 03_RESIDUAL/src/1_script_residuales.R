@@ -21,7 +21,7 @@ require(gt)
 # Selección de tema
 theme_set(theme_bw())
 # Ejecutar script de funciones
-source('src/9_funciones.R', encoding = 'UTF-8')
+source(file.path('src', '9_funciones.R'), encoding = 'UTF-8')
 
 #-------------------------------------------------------------------------------#
 # 1 Introducción ------------------

@@ -16,10 +16,13 @@
 # Introducción -----------------------------------------------------
 #-------------------------------------------------------------------------------#
 # Carga de paquetes
+monolix2019R2.path <-  "C:/ProgramData/Lixoft/MonolixSuite2019R2"
+require(lixoftConnectors, lib.loc = monolix2019R2.path )
+require(mlxR)
+initMlxR(path = monolix2019R2.path)   #(adapt the path if necessary).
 require(data.table)
 require(tidyverse)
 require(rlang)
-require(mlxR)
 
 #-------------------------------------------------------------------------------#
 auxdir <- file.path('.', 'M2CPTM_nobs_2_comb1')
@@ -85,20 +88,26 @@ param <-
   select(-se_sa, -rse_sa) %>%
   column_to_rownames(var = "parameter")
 
+N = 5e2
 param <- setNames(pull(param), as.character(rownames(param)))
 out1  <- list(name = 'y2', time = seq(0, 12, length.out = 1e3))
-data_list <- vector(mode = "list", length = 1000)
+data_list <- vector(mode = "list", length = N)
 
-# ptm <- proc.time()
-for (i in 1:1000) {
+pb <-
+  progress_bar$new(total = N, format = "[:bar] :percent :percent in :elapsed eta: :eta")
+
+ptm <- proc.time()
+
+for (i in 1:N) {
+  pb$tick()
+  
   data_list[i] <- simulx(
     project = project.file,
     output = out1, 
     settings = list(load.design=FALSE)
   )['y2']
-  print(paste('Lista la interacción N.º: ', i))
 }
-# print(proc.time() - ptm)
+print(proc.time() - ptm)
 # Demora 6 minutos
 
 #-------------------------------------------------------------------------------#

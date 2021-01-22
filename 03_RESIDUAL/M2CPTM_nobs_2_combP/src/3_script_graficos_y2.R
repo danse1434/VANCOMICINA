@@ -29,14 +29,14 @@ require(tidyverse)
 require(gt)
 
 # Apertura de fuente
-source("M2CPTM_nobs_2/src/4_funciones_y2.R", encoding = 'UTF-8')
+source(file.path('M2CPTM_nobs_2_combP', 'src', '4_funciones_y2.R'), encoding = 'UTF-8')
 
 #-------------------------------------------------------------------------------#
 # Bondad de ajuste -------------------------------------------------
 #-------------------------------------------------------------------------------#
 # Ajuste de una variable para guardar la subcarpeta que contiene datos de 
 # gráfico de bondad de ajuste
-auxdir <- file.path('M2CPTM_nobs_2', 'm2cptm_nobs2')
+auxdir <- file.path('M2CPTM_nobs_2_combP', 'M2CPTM_nobs_2_combP')
 dir.create(path = file.path(auxdir, 'figures'))
 
 gof_dir <- file.path(auxdir, 'ChartsData','ObservationsVsPredictions')

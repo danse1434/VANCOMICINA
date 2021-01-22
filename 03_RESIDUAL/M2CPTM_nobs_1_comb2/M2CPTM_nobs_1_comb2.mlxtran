@@ -7,7 +7,7 @@ header = {ID, DV, TAD, YTYPE, EVID, MDV, AMT, TINF, ADDL, II, SS, AGEA, SEXF, WT
 
 [CONTENT]
 ID = {use=identifier}
-DV = {use=observation, name={y_1, y_2}, yname={'1', '2'}, type={continuous, continuous}}
+DV = {use=observation, name={y1, y2}, yname={'1', '2'}, type={continuous, continuous}}
 TAD = {use=time}
 YTYPE = {use=observationtype}
 EVID = {use=eventidentifier}
@@ -38,7 +38,7 @@ DEFINITION:
 y2 = {distribution=normal, prediction=Cc, errorModel=combined2(a, b)}
 
 <FIT>
-data = y_2
+data = y2
 model = y2
 
 <PARAMETER>
