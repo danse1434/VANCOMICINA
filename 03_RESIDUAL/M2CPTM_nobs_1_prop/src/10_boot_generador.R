@@ -23,11 +23,11 @@ require(glue)
 
 #-------------------------------------------------------------------------------#
 auxdir  <- file.path('.', 'M2CPTM_nobs_1_prop')
-bootdir <- file.path(auxdir, 'results', 'boot')
+bootdir <- file.path(auxdir, 'results')
 project.file <- file.path(auxdir, 'M2CPTM_nobs_1_prop.mlxtran')
 paramet.file <- file.path(auxdir, 'M2CPTM_nobs_1_prop')
-dir.create(file.path(auxdir, 'results'))
 dir.create(file.path(bootdir))
+# dir.create(file.path(bootdir))
 
 #-------------------------------------------------------------------------------#
 # Generación de subdirectorios de trabajos

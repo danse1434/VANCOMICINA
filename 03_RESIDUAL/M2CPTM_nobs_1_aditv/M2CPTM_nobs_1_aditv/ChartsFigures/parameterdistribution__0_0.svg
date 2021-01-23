@@ -1,0 +1,608 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" class="lixoftchart parameterDistribution" width="863" height="635" style="font-family: &quot;Source Sans Pro&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;; font-weight: normal;"><style>svg {
+--primary--1:rgba(21, 140, 186, 0.1);
+--primary--2:rgba(21, 140, 186, 0.2);
+--primary--3:rgba(21, 140, 186, 0.3);
+--primary--4:rgba(21, 140, 186, 0.4);
+--primary--5:rgba(21, 140, 186, 0.5);
+--primary--6:rgba(21, 140, 186, 0.6);
+--primary--7:rgba(21, 140, 186, 0.7);
+--primary--8:rgba(21, 140, 186, 0.8);
+--primary--9:rgba(21, 140, 186, 0.9);
+--secondary--1:rgba(240, 240, 240, 0.1);
+--secondary--2:rgba(240, 240, 240, 0.2);
+--secondary--3:rgba(240, 240, 240, 0.3);
+--secondary--4:rgba(240, 240, 240, 0.4);
+--secondary--5:rgba(240, 240, 240, 0.5);
+--secondary--6:rgba(240, 240, 240, 0.6);
+--secondary--7:rgba(240, 240, 240, 0.7);
+--secondary--8:rgba(240, 240, 240, 0.8);
+--secondary--9:rgba(240, 240, 240, 0.9);
+--success--1:rgba(40, 182, 44, 0.1);
+--success--2:rgba(40, 182, 44, 0.2);
+--success--3:rgba(40, 182, 44, 0.3);
+--success--4:rgba(40, 182, 44, 0.4);
+--success--5:rgba(40, 182, 44, 0.5);
+--success--6:rgba(40, 182, 44, 0.6);
+--success--7:rgba(40, 182, 44, 0.7);
+--success--8:rgba(40, 182, 44, 0.8);
+--success--9:rgba(40, 182, 44, 0.9);
+--info--1:rgba(117, 202, 235, 0.1);
+--info--2:rgba(117, 202, 235, 0.2);
+--info--3:rgba(117, 202, 235, 0.3);
+--info--4:rgba(117, 202, 235, 0.4);
+--info--5:rgba(117, 202, 235, 0.5);
+--info--6:rgba(117, 202, 235, 0.6);
+--info--7:rgba(117, 202, 235, 0.7);
+--info--8:rgba(117, 202, 235, 0.8);
+--info--9:rgba(117, 202, 235, 0.9);
+--warning--1:rgba(255, 133, 27, 0.1);
+--warning--2:rgba(255, 133, 27, 0.2);
+--warning--3:rgba(255, 133, 27, 0.3);
+--warning--4:rgba(255, 133, 27, 0.4);
+--warning--5:rgba(255, 133, 27, 0.5);
+--warning--6:rgba(255, 133, 27, 0.6);
+--warning--7:rgba(255, 133, 27, 0.7);
+--warning--8:rgba(255, 133, 27, 0.8);
+--warning--9:rgba(255, 133, 27, 0.9);
+--danger--1:rgba(255, 65, 54, 0.1);
+--danger--2:rgba(255, 65, 54, 0.2);
+--danger--3:rgba(255, 65, 54, 0.3);
+--danger--4:rgba(255, 65, 54, 0.4);
+--danger--5:rgba(255, 65, 54, 0.5);
+--danger--6:rgba(255, 65, 54, 0.6);
+--danger--7:rgba(255, 65, 54, 0.7);
+--danger--8:rgba(255, 65, 54, 0.8);
+--danger--9:rgba(255, 65, 54, 0.9);
+--light--1:rgba(246, 246, 246, 0.1);
+--light--2:rgba(246, 246, 246, 0.2);
+--light--3:rgba(246, 246, 246, 0.3);
+--light--4:rgba(246, 246, 246, 0.4);
+--light--5:rgba(246, 246, 246, 0.5);
+--light--6:rgba(246, 246, 246, 0.6);
+--light--7:rgba(246, 246, 246, 0.7);
+--light--8:rgba(246, 246, 246, 0.8);
+--light--9:rgba(246, 246, 246, 0.9);
+--dark--1:rgba(85, 85, 85, 0.1);
+--dark--2:rgba(85, 85, 85, 0.2);
+--dark--3:rgba(85, 85, 85, 0.3);
+--dark--4:rgba(85, 85, 85, 0.4);
+--dark--5:rgba(85, 85, 85, 0.5);
+--dark--6:rgba(85, 85, 85, 0.6);
+--dark--7:rgba(85, 85, 85, 0.7);
+--dark--8:rgba(85, 85, 85, 0.8);
+--dark--9:rgba(85, 85, 85, 0.9);
+--theme-scheme--1:#158CBA;
+--theme-scheme--2:#3e82bf;
+--theme-scheme--3:#6475bc;
+--theme-scheme--4:#8566b0;
+--theme-scheme--5:#a05599;
+--theme-scheme--6:#b0447c;
+--theme-scheme-lg--1:#158cba;
+--theme-scheme-lg--2:#1dade5;
+--theme-scheme-lg--3:#4abeeb;
+--theme-scheme-lg--4:#78cef0;
+--theme-scheme-lg--5:#b0447c;
+--theme-scheme-lg--6:#c36495;
+--theme-scheme-lg--7:#d189ae;
+--theme-scheme-lg--8:#e0adc7;
+--theme-scheme-lg--9:#618f35;
+--theme-scheme-lg--10:#7ab443;
+--theme-scheme-lg--11:#94c664;
+--theme-scheme-lg--12:#aed38a;
+--blue:#158CBA;
+--indigo:#6610f2;
+--purple:#6f42c1;
+--pink:#e83e8c;
+--red:#FF4136;
+--orange:#fd7e14;
+--yellow:#FF851B;
+--green:#28B62C;
+--teal:#20c997;
+--cyan:#75CAEB;
+--white:#fff;
+--gray:#999;
+--gray-dark:#333;
+--primary:#158CBA;
+--secondary:#f0f0f0;
+--success:#28B62C;
+--info:#75CAEB;
+--warning:#FF851B;
+--danger:#FF4136;
+--light:#f6f6f6;
+--dark:#555;
+--breakpoint-xs:0;
+--breakpoint-sm:576px;
+--breakpoint-md:768px;
+--breakpoint-lg:992px;
+--breakpoint-xl:1200px;
+--font-family-sans-serif:"Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+--font-family-monospace:SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+--mm-color-background:;
+--graphical-mode-icon-display:none;
+
+}
+html, body { height: 100%; }
+body { margin: 0px; overflow: hidden; }
+.lixoftchart-container { display: flex; flex-direction: column; height: 100%; }
+.lixoftchart { width: 100%; height: 100%; flex: 1 1 0%; }
+.lixoftchart-header { height: 34px; }
+.main { flex: 1 1 0%; height: 100%; width: 100%; }
+.footer { margin: 0px; }
+.checkinit-footer { max-height: 230px; overflow-y: auto; }
+.page, .subpage { height: 100%; display: none; }
+.page.active, .subpage.active { display: block; }
+.axes, .grid { pointer-events: none; }
+.axis path, .axis line { fill: none; shape-rendering: crispEdges; }
+.tick { font-family: sans-serif; }
+.line { fill: none; }
+.tick line { stroke-width: 1px; }
+.grid line { opacity: 0.2; }
+.title { pointer-events: none; font-weight: 400; }
+.axis-label { text-anchor: middle; }
+.axis-label-unit { font-family: monospace; font-size: smaller; }
+.label-subscript { baseline-shift: sub; font-size: 0.8em; }
+.zoomable-content, .brushable-content { cursor: crosshair; }
+rect.zoom { fill: rgb(221, 221, 221); stroke: steelblue; fill-opacity: 0.5; }
+g.brush &gt; rect.selection { stroke-width: 0; }
+.handle--custom { fill: rgb(122, 122, 122); fill-opacity: 1; stroke: rgb(122, 122, 122); stroke-width: 2px; display: inline !important; }
+.log-filtered { display: none; }
+.dot { stroke: none; }
+.censObservations.highlighted:not(.lambdaz-observation), .censObservations[data--radius]:not(.lambdaz-observation) { fill: brown !important; }
+.spline { fill: none; }
+.regressionLine { fill: none; }
+.convergence-line { fill: none; }
+.percentile-line, .cdf { stroke-width: 1px; }
+.bar { shape-rendering: crispEdges; }
+.vertical-line, .horizontal-line { shape-rendering: crispEdges; }
+.k1, .bound { shape-rendering: crispEdges; }
+.outlier.dot { fill: none; }
+.boxplot { font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 10px; line-height: normal; font-family: sans-serif; }
+.box-element line, .box-element rect { stroke-opacity: 1; shape-rendering: crispEdges; }
+.boxplot .outlier line { fill: none; }
+.boxplot .box-underlay { fill: white; fill-opacity: 1; }
+.boxplot .label { font-size: 12px; }
+.arrow-marker { stroke-width: 0; font-size: 20px; fill: red; dominant-baseline: central; }
+.layout-link { padding: 1px 5px !important; }
+.sublayout-controls { min-height: 20px; transition: opacity 0.5s ease-in-out; background-color: transparent; opacity: 0.2; cursor: pointer; }
+.pagination { transition: opacity 0.5s ease-in-out; }
+.sublayout-controls .pagination { opacity: 0; }
+.sublayout-controls:hover { transition: none; opacity: 0.9; }
+.sublayout-controls:hover .pagination { transition: none; opacity: 1; }
+.plot-grid, .subplot-grid { margin: 0px; min-width: 0px; }
+.grid-cell { outline: rgb(221, 221, 221) solid 1px; cursor: text; position: absolute; }
+.plot-cell { background-color: rgba(119, 33, 111, 0.298039); }
+.matrix-diagonal-cell { background-color: rgb(174, 167, 159) !important; }
+.plot-cell.selected { background-color: rgb(119, 33, 111); }
+.plot-cell:hover, .plot-cell.hovered { background-color: rgb(243, 152, 20); }
+.plot-cell.ui-selecting { background-color: rgb(233, 84, 32); }
+.cells-selector { cursor: pointer; width: 0px; height: 0px; position: absolute; border: 10px solid rgba(119, 33, 111, 0.298039); }
+.cells-selector.selected { border-color: rgb(119, 33, 111); }
+.cells-selector.rows, .cells-selector.all { border-top-color: transparent !important; border-bottom-color: transparent !important; border-right-color: transparent !important; }
+.cells-selector.cols { border-top-color: transparent !important; border-left-color: transparent !important; border-right-color: transparent !important; }
+.cells-selector.all { transform: rotate(-45deg); }
+.cells-selector:hover { border-color: rgb(243, 152, 20); }
+.layout-grid, .sublayout-grid { padding: 0px; margin: 0px; min-width: 0px; background-color: transparent; border: none; box-shadow: none !important; }
+.layout-grid-content { border-collapse: collapse; border: 1px solid rgb(221, 221, 221); }
+.layout-cell { background-color: rgba(119, 33, 111, 0.298039); border: 1px solid rgb(221, 221, 221); min-width: 20px; width: 20px; height: 20px; cursor: pointer; }
+.layout-cell.selected { background-color: rgb(119, 33, 111); }
+.layout-cell.selecting { background-color: rgb(233, 84, 32); }
+.layout-container { padding: 10px 15px; align-items: center; }
+.layout-controls { display: flex; justify-content: space-between; align-items: center; }
+.layout-controls &gt; .layout-controls-wrapper { display: flex; align-items: baseline; }
+.layout-controls .btn { border: 0px; border-radius: 0px; white-space: nowrap; padding: 4px 8px !important; }
+.layout-controls .btn.toggle-controls-btn { margin-left: 1rem !important; }
+.pagination input { color: inherit; background: transparent; border: 0px; outline: none; }
+.contrasted-chart-header-btn:not(:hover) { background: rgba(255, 255, 255, 0.2) !important; }
+.message-banner { position: fixed; left: 0px; width: 100%; margin-bottom: 0px; z-index: 10; }
+.message-banner.top { top: 0px; }
+.message-banner.bottom { bottom: 0px; }
+.legend { box-shadow: rgba(0, 0, 0, 0.2) 0px 8px 17px 0px, rgba(0, 0, 0, 0.188235) 0px 6px 20px 0px; z-index: 10; }
+.legend:not(.no-move) { cursor: move !important; }
+.legend-glyph:not(.aa) { shape-rendering: crispEdges; }
+.legend-group-label { font-weight: bold; }
+.ui-selectable-helper { z-index: 1100; }
+.ui-selectable-helper.no-top { border-top: 0px; }
+.ui-selectable-helper.no-right { border-right: 0px; }
+.ui-selectable-helper.no-bottom { border-bottom: 0px; }
+.ui-selectable-helper.no-left { border-left: 0px; }
+.print-preview &gt; .modal-dialog { position: absolute; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; }
+.page-preview { border: 1px dashed rgb(51, 51, 51); margin: 0px auto; }
+.page-preview.portrait { height: 60vh; width: 42.42vh; }
+.page-preview.landscape { width: 60vw; height: 42.42vw; }
+.tooltip-key::after { content: ": "; }
+.brushed-out, .bar.brushed-out { fill: rgb(204, 204, 204) !important; }
+.infowrapper { pointer-events: none; }
+.information { overflow-y: overlay; overflow-x: hidden; padding: 0.5em; font-family: monospace; box-shadow: rgba(0, 0, 0, 0.2) 0px 8px 17px 0px, rgba(0, 0, 0, 0.188235) 0px 6px 20px 0px; display: inline-block; float: right; cursor: move; pointer-events: all; }
+.information span { float: left; clear: both; }
+.axis path, .axis line, .grid line{
+stroke: #636363;
+}
+
+.tick text{
+fill: #636363;
+}
+
+.axis path, .axis line{
+stroke-width: 1px;
+}
+
+.bar-label{
+fill: #000000;
+}
+
+.bar-label{
+font-size: 10px;
+}
+
+.bin-value{
+stroke: red;
+}
+
+.bin-value{
+}
+
+.bin-value{
+stroke-width: 1px;
+}
+
+.bound{
+stroke: red;
+}
+
+.bound{
+stroke-width: 2px;
+}
+
+.bound.bounded{
+stroke: limegreen;
+}
+
+.baseline{
+stroke: #000000;
+}
+
+.baseline{
+}
+
+.baseline{
+stroke-width: 1px;
+}
+
+.box-element rect{
+fill: #8fbbd9;
+}
+
+.boxplot .outlier line{
+stroke: #ff0000;
+}
+
+.boxplot .outlier line{
+stroke-width: 1px;
+}
+
+.quartile{
+stroke: #000000;
+}
+
+.quartile{
+stroke-dasharray: 3, 2;
+}
+
+.quartile{
+stroke-width: 1px;
+}
+
+.box-element line{
+stroke: #000000;
+}
+
+.box-element line{
+stroke-width: 1px;
+}
+
+.censEvents{
+fill: #d44242;
+}
+
+.censEvents{
+stroke: #d44242;
+}
+
+.censObservations{
+fill: #d44242;
+}
+.censObsIntervals{stroke:rgb(212,66,66);stroke-opacity:0.498039;}
+
+.censObsIntervals{
+}
+
+.censObsIntervals{
+stroke-width: 5px;
+}
+
+.convergence-line{
+stroke: #4682B4;
+}
+
+.cvIndicator-line{
+stroke: #990099;
+}
+
+.dosingTimes{
+stroke: #000000;
+}
+
+.dosingTimes{
+stroke-dasharray: 8, 8;
+}
+
+.dosingTimes{
+stroke-width: 2px;
+}
+
+line.empirical, path.empirical{
+stroke: #4682B4;
+}
+
+.dot.empirical{
+fill: #4682B4;
+}
+
+line.empirical, path.empirical{
+}
+
+line.empirical, path.empirical{
+stroke-width: 2px;
+}
+
+.fisher_linearization&gt;.bar{
+fill: #4682B4;
+}
+
+.fisher_stochasticApproximation&gt;.bar{
+fill: #98abc5;
+}
+
+.focus &gt; line, .focus &gt; circle{
+stroke: blue;
+}
+
+.lixoftchart{
+background-color: #ffffff;
+}
+
+.sublayout-controls:hover{
+background-color: #ffffff;
+}
+
+.bar:hover, .band-overlay:hover{
+fill: orange !important;
+}
+
+g.bar, g.histogram{
+fill: #4682B4;
+}
+
+g.bar, g.histogram{
+stroke: #ffffff;
+}
+
+g.bar, g.histogram{
+stroke-width: 1px;
+}
+
+.information{
+background-color: #FFFFCC;
+}
+
+.information{
+fill: #FFFFCC;
+}
+
+.information{
+font-size: 12px;
+}
+
+.information{
+color: #000000;
+}
+
+.k1{
+stroke: red;
+}
+
+.k1{
+stroke-width: 1px;
+}
+
+.axis-label.global{
+fill: #000000;
+}
+
+.axis-label.global{
+font-size: 14px;
+}
+
+.legend-frame{
+fill: #ffffff;
+}
+
+.legend-frame{
+stroke: #000000;
+}
+
+.legend-frame{
+stroke-width: 0px;
+}
+
+.legend text{
+fill: #000000;
+}
+
+.legend{
+font-size: 12px;
+}
+
+.ll_importanceSampling&gt;.bar{
+fill: #98abc5;
+}
+
+.ll_linearization&gt;.bar{
+fill: #4682B4;
+}
+
+path.median, line.median{
+stroke: #000000;
+}
+
+path.median, line.median{
+stroke-dasharray: 5,3;
+}
+
+path.median, line.median{
+stroke-width: 1px;
+}
+
+.observation{
+fill: #4682B4;
+}
+
+.observation{
+stroke: #4682B4;
+}
+
+.observation-line{
+stroke-width: 1.5px;
+}
+
+.obsStatisticsValues{
+font-size: 10px;
+}
+
+.outlier.area{
+fill: #ff0000;
+}
+
+.outlier.dot{
+stroke: #ff0000;
+}
+
+.outlier.dot{
+stroke-width: 1px;
+}
+.prediction-interval.median{fill:rgb(255,0,0);fill-opacity:0.2;}
+.prediction-interval.low, .prediction-interval.up{fill:rgb(0,128,255);fill-opacity:0.298039;}
+.plot-background{fill:rgb(250,250,255);fill-opacity:0.6;}
+.bar{stroke:rgb(250,250,255);stroke-opacity:0.6;}
+
+.regressionLine{
+stroke: #bd2671;
+}
+
+.regressionLine{
+}
+
+.regressionLine{
+stroke-width: 1.5px;
+}
+
+.spline{
+stroke: #eba213;
+}
+
+.spline{
+}
+
+.spline{
+stroke-width: 1.5px;
+}
+
+.axis-label.sublabel, .matrix-diagonal-label{
+fill: #000000;
+}
+
+.axis-label.sublabel, .matrix-diagonal-label{
+font-size: 12px;
+}
+
+line.theoretical, path.theoretical{
+stroke: #000000;
+}
+
+.dot.theoretical{
+fill: #000000;
+}
+
+line.theoretical, path.theoretical{
+}
+
+line.theoretical, path.theoretical{
+stroke-width: 1.5px;
+}
+
+.tick{
+font-size: 10px;
+}
+
+.title{
+fill: #000000;
+}
+
+.title{
+font-size: 14px;
+}
+
+.axis-label-unit{
+fill: #999;
+}
+
+.userGuide-dot{
+fill: red;
+}
+
+.userGuide-line{
+stroke: red;
+}
+
+.userGuide-dot{
+r: 3;
+}
+
+.userGuide-line{
+}
+
+.userGuide-line{
+stroke-width: 1px;
+}
+
+.brushed-out, .brushed-out.bar{
+fill: #ccc !important;
+}
+.not-censObservations{display:none;}
+.not-empirical{display:none;}
+.not-grid{display:none;}
+.hasIOV,.__hasIOV{display:none;}
+.not-hasMean{display:none;}
+.not-hasMode{display:none;}
+.not-histogram{display:none;}
+.not-isIndivEstimMean{display:none;}
+.legend,.__legend{display:none;}
+.linkedZoom,.__linkedZoom{display:none;}
+.not-observations{display:none;}
+.shrinkage,.__shrinkage{display:none;}
+.splitted,.__splitted{display:none;}
+.not-theoretical{display:none;}
+.xEqualDomains,.__xEqualDomains{display:none;}
+.xLog,.__xLog{display:none;}
+.yEqualDomains,.__yEqualDomains{display:none;}
+.yLog,.__yLog{display:none;}
+.not-bottomAxisLine{display:none;}
+.not-bottomAxisTickLabels{display:none;}
+.not-leftAxisLine{display:none;}
+.not-leftAxisTickLabels{display:none;}
+.rightAxisLine,.__rightAxisLine{display:none;}
+.not-rightAxisTickLabels{display:none;}
+.topAxisLine,.__topAxisLine{display:none;}
+.not-topAxisTickLabels{display:none;}
+.freehand-guides-layer,.__freehand-guides-layer{display:none;}
+</style><g class="lixoftchart-scaler"><g class="lixoftchart-translator" transform="translate(50,40)"><g class="x axis" transform="translate(0, 561)"><text class="x axis-label global" x="386.5" y="-10" style="text-anchor: middle;"><tspan class="axis-label-text"/><tspan class="axis-label-unit"/></text></g><g class="y axis"><text class="y axis-label global" transform="rotate(-90)" x="-280.5" y="-30" style="text-anchor: middle;"><tspan class="axis-label-text"/><tspan class="axis-label-unit"/></text></g><g class="page plot-page active" data-index="0"><g class="plot-container page-element" width="773" height="521" data-index="0" data-col="0" data-row="0" transform="translate(0,0)"><g class="subpage plot-page active" data-index="0"><g class="plot page-element" width="361.5" height="235.5" id="All-Cl-pdf" data-index="0" title="Cl-pdf" transform="translate(0,0)"><rect width="361.5" height="235.5" class="plot-background"/><svg class="plot-content zoomable-content" width="361.5" height="235.5"><g class="histogram"><rect data-legend="Empirical distribution" data-tooltip="7.14%" class="bar empirical" x="31.749996471271345" y="149.23626373626377" width="10.002925668816658" height="87.26373626373623" data-legend-class="empirical"/><rect data-legend="Empirical distribution" data-tooltip="0%" class="bar empirical" x="41.752922140088" y="235.5" width="10.002925668816658" height="1" data-legend-class="empirical"/><rect data-legend="Empirical distribution" data-tooltip="6.43%" class="bar empirical" x="51.75584780890467" y="157.86263736263737" width="10.002925668816658" height="78.63736263736263" data-legend-class="empirical"/><rect data-legend="Empirical distribution" data-tooltip="0.71%" class="bar empirical" x="61.758773477721334" y="226.87362637362637" width="10.002925668816658" height="9.626373626373635" data-legend-class="empirical"/><rect data-legend="Empirical distribution" data-tooltip="0%" class="bar empirical" x="71.76169914653799" y="235.5" width="10.002925668816658" height="1" data-legend-class="empirical"/><rect data-legend="Empirical distribution" data-tooltip="7.14%" class="bar empirical" x="81.76462481535465" y="149.23626373626377" width="10.002925668816658" height="87.26373626373623" data-legend-class="empirical"/><rect data-legend="Empirical distribution" data-tooltip="16.43%" class="bar empirical" x="91.76755048417132" y="37.09340659340663" width="10.002925668816658" height="199.40659340659337" data-legend-class="empirical"/><rect data-legend="Empirical distribution" data-tooltip="10.71%" class="bar empirical" x="101.77047615298798" y="106.10439560439562" width="10.002925668816658" height="130.39560439560438" data-legend-class="empirical"/><rect data-legend="Empirical distribution" data-tooltip="11.43%" class="bar empirical" x="111.77340182180465" y="97.47802197802199" width="10.002925668816658" height="139.02197802197801" data-legend-class="empirical"/><rect data-legend="Empirical distribution" data-tooltip="15.71%" class="bar empirical" x="121.77632749062133" y="45.71978021978026" width="10.002925668816658" height="190.78021978021974" data-legend-class="empirical"/><rect data-legend="Empirical distribution" data-tooltip="18.57%" class="bar empirical" x="131.77925315943796" y="11.214285714285722" width="10.002925668816658" height="225.28571428571428" data-legend-class="empirical"/><rect data-legend="Empirical distribution" data-tooltip="5.71%" class="bar empirical" x="141.78217882825464" y="166.48901098901098" width="10.002925668816658" height="70.01098901098902" data-legend-class="empirical"/></g><g class="distribution-functions"><path data-legend="Theoretical distribution" class="theoretical line autoscale cdf" d="M16.431818181818183,235.2531445464652L19.751377410468322,234.93860167053484L23.07093663911846,234.34763273476904L26.39049586776859,233.3335922691839L29.710055096418735,231.72515230188898L33.02961432506888,229.3432975876405L36.34917355371901,226.02333681943722L39.66873278236914,221.63807964964985L42.98829201101929,216.1180766823428L46.307851239669425,209.46555548123368L49.62741046831956,201.760065471865L52.946969696969695,193.15542954664477L56.26652892561984,183.8690074698829L59.58608815426999,174.16526262768303L62.90564738292011,164.3361019387302L66.22520661157024,154.68046792391547L69.54476584022039,145.48531824016698L72.86432506887053,137.00957595388326L76.18388429752068,129.4720094300283L79.5034435261708,123.04340986305401L82.82300275482095,117.84294531676008L86.1425619834711,113.93821504558139L89.4621212121212,111.34831085516741L92.78168044077135,110.04909824750032L96.10123966942149,109.97993366702666L99.42079889807164,111.0511065549892L102.74035812672179,113.15140885269952L106.05991735537191,116.15536709118696L109.37947658402206,119.9298057706971L112.69903581267218,124.33953341263684L116.0185950413223,129.25204740183858L119.33815426997246,134.54123739991468L122.65771349862258,140.09012945027894L125.97727272727276,145.79275556665735L129.29683195592287,151.55525934706338L132.61639118457302,157.29636020092624L135.93595041322317,162.94730036315048L139.25550964187326,168.45139298547838L142.5750688705234,173.76327882110104L145.89462809917356,178.84798545598224L149.21418732782368,183.6798683170568L152.53374655647386,188.2414979942163L155.85330578512398,192.52254456480097L159.1728650137741,196.5186971137553L162.49242424242428,200.23064576748345L165.8119834710744,203.66314439443292L169.13154269972452,206.8241646349806L172.45110192837467,209.7241459897692L175.7706611570248,212.3753421536675L179.09022038567497,214.79126044378995L182.40977961432506,216.98618884185717L185.7293388429752,218.97480366878665L189.04889807162536,220.7718500634507L192.3684573002755,222.39188709830677L195.6880165289256,223.8490894036338L199.00757575757572,225.1570974820059L202.3271349862259,226.3289093878682L205.64669421487608,227.37680705398392L208.9662534435262,228.3123112131118L212.2858126721763,229.14615954886457L215.60537190082644,229.88830338469538L218.9249311294766,230.54791886375733L222.24449035812674,231.1334291715285L225.56404958677686,231.6525348997046L228.883608815427,232.11225014024345L232.20316804407713,232.51894233201455L235.5227272727273,232.87837426086384L238.8422865013774,233.1957469401288L242.16184573002758,233.47574237673302L245.4814049586777,233.7225654624506L248.8009641873278,233.9399844254432L252.120523415978,234.1313694383822L255.4400826446281,234.29972911082473L258.7596418732782,234.44774469917675L262.0792011019284,234.57780195135047L265.3987603305785,234.69202056854186L268.71831955922863,234.79228131645064L272.0378787878788,234.8802508554161L275.35743801652893,234.95740438565548L278.6769972451791,235.02504622205808L281.99655647382923,235.08432842449574L285.31611570247935,235.13626761578567L288.6356749311295,235.18176012147137L291.9552341597796,235.22159556446255L295.27479338842977,235.25646904409948L298.5943526170799,235.28699202404206L301.91391184573,235.31370204705658L305.2334710743802,235.3370713877051L308.5530303030303,235.35751474646457L311.87258953168043,235.37539608116924L315.1921487603306,235.39103466407738L318.51170798898073,235.4047104454526L321.83126721763085,235.4166687974275L325.15082644628103,235.42712470515224L328.47038567493115,235.43626646586776L331.7899449035813,235.44425895061121L335.10950413223145,235.45124647776498L338.42906336088157,235.45735534260308L341.74862258953175,235.4626960423569L345.0681818181818,235.46736523210004" data-legend-class="theoretical" fill="none"/></g><g class="userGuides"/></svg><g class="axes"><g class="bottom axis bottomAxisLine" transform="translate(0,235.5)" fill="none" text-anchor="middle"><path class="domain" stroke="#000" d="M0.5,6V0.5H362V6" fill="none"/><g class="tick" opacity="1" transform="translate(33.780654720413445,0)"><line stroke="#000" y2="3" fill="none"/><text fill="#000" y="6" dy="0.71em" class="bottomAxisTickLabels transformed-label"><tspan class="label-block"><tspan class="label-subblock">5</tspan></tspan></text></g><g class="tick" opacity="1" transform="translate(100.69455112463056,0)"><line stroke="#000" y2="3" fill="none"/><text fill="#000" y="6" dy="0.71em" class="bottomAxisTickLabels transformed-label"><tspan class="label-block"><tspan class="label-subblock">10</tspan></tspan></text></g><g class="tick" opacity="1" transform="translate(167.60844752884768,0)"><line stroke="#000" y2="3" fill="none"/><text fill="#000" y="6" dy="0.71em" class="bottomAxisTickLabels transformed-label"><tspan class="label-block"><tspan class="label-subblock">15</tspan></tspan></text></g><g class="tick" opacity="1" transform="translate(234.52234393306478,0)"><line stroke="#000" y2="3" fill="none"/><text fill="#000" y="6" dy="0.71em" class="bottomAxisTickLabels transformed-label"><tspan class="label-block"><tspan class="label-subblock">20</tspan></tspan></text></g><g class="tick" opacity="1" transform="translate(301.4362403372819,0)"><line stroke="#000" y2="3" fill="none"/><text fill="#000" y="6" dy="0.71em" class="bottomAxisTickLabels transformed-label"><tspan class="label-block"><tspan class="label-subblock">25</tspan></tspan></text></g><text class="axis-label sublabel bottom" x="180.75" y="25" style="text-anchor: middle;"><tspan class="transformed-label"><tspan class="label-block"><tspan class="label-subblock">Cl</tspan></tspan></tspan><tspan class="axis-label-unit bottom"/></text></g><g class="left axis leftAxisLine" fill="none" text-anchor="end"><path class="domain" stroke="#000" d="M-6,236H0.5V0.5H-6" fill="none"/><g class="tick" opacity="1" transform="translate(0,236)"><line stroke="#000" x2="-3" fill="none"/><text fill="#000" x="-6" dy="0.32em" class="leftAxisTickLabels transformed-label"><tspan class="label-block"><tspan class="label-subblock">0</tspan></tspan></text></g><g class="tick" opacity="1" transform="translate(0,194.33753858263253)"><line stroke="#000" x2="-3" fill="none"/><text fill="#000" x="-6" dy="0.32em" class="leftAxisTickLabels transformed-label"><tspan class="label-block"><tspan class="label-subblock">0.05</tspan></tspan></text></g><g class="tick" opacity="1" transform="translate(0,152.6750771652651)"><line stroke="#000" x2="-3" fill="none"/><text fill="#000" x="-6" dy="0.32em" class="leftAxisTickLabels transformed-label"><tspan class="label-block"><tspan class="label-subblock">0.1</tspan></tspan></text></g><g class="tick" opacity="1" transform="translate(0,111.01261574789767)"><line stroke="#000" x2="-3" fill="none"/><text fill="#000" x="-6" dy="0.32em" class="leftAxisTickLabels transformed-label"><tspan class="label-block"><tspan class="label-subblock">0.15</tspan></tspan></text></g><g class="tick" opacity="1" transform="translate(0,69.35015433053019)"><line stroke="#000" x2="-3" fill="none"/><text fill="#000" x="-6" dy="0.32em" class="leftAxisTickLabels transformed-label"><tspan class="label-block"><tspan class="label-subblock">0.2</tspan></tspan></text></g><g class="tick" opacity="1" transform="translate(0,27.68769291316275)"><line stroke="#000" x2="-3" fill="none"/><text fill="#000" x="-6" dy="0.32em" class="leftAxisTickLabels transformed-label"><tspan class="label-block"><tspan class="label-subblock">0.25</tspan></tspan></text></g><text class="axis-label sublabel left" x="-117.75" transform="rotate(-90)" y="-30" style="text-anchor: middle;"><tspan class="transformed-label"><tspan class="label-block"><tspan class="label-subblock">density</tspan></tspan></tspan><tspan class="axis-label-unit left"/></text></g></g><g class="grid"><g class="vertical" transform="translate(0,235.5)" fill="none" font-size="10" font-family="sans-serif" text-anchor="middle"><g class="tick" opacity="1" transform="translate(33.780654720413445,0)"><line stroke="#000" y2="-235.5" fill="none"/></g><g class="tick" opacity="1" transform="translate(100.69455112463056,0)"><line stroke="#000" y2="-235.5" fill="none"/></g><g class="tick" opacity="1" transform="translate(167.60844752884768,0)"><line stroke="#000" y2="-235.5" fill="none"/></g><g class="tick" opacity="1" transform="translate(234.52234393306478,0)"><line stroke="#000" y2="-235.5" fill="none"/></g><g class="tick" opacity="1" transform="translate(301.4362403372819,0)"><line stroke="#000" y2="-235.5" fill="none"/></g></g><g class="horizontal" fill="none" font-size="10" font-family="sans-serif" text-anchor="end"><g class="tick" opacity="1" transform="translate(0,236)"><line stroke="#000" x2="361.5" fill="none"/></g><g class="tick" opacity="1" transform="translate(0,194.33753858263253)"><line stroke="#000" x2="361.5" fill="none"/></g><g class="tick" opacity="1" transform="translate(0,152.6750771652651)"><line stroke="#000" x2="361.5" fill="none"/></g><g class="tick" opacity="1" transform="translate(0,111.01261574789767)"><line stroke="#000" x2="361.5" fill="none"/></g><g class="tick" opacity="1" transform="translate(0,69.35015433053019)"><line stroke="#000" x2="361.5" fill="none"/></g><g class="tick" opacity="1" transform="translate(0,27.68769291316275)"><line stroke="#000" x2="361.5" fill="none"/></g></g></g><defs><clipPath id="All-Cl-pdf--freehand-guides-clip" class="freehand-guides-clip"><rect x="0" y="0" width="361.5" height="235.5"/></clipPath></defs></g><g class="plot page-element" width="361.5" height="235.5" id="All-V1-pdf" data-index="1" title="V1-pdf" transform="translate(411.5,0)"><rect width="361.5" height="235.5" class="plot-background"/><svg class="plot-content zoomable-content" width="361.5" height="235.5"><g class="histogram"><rect data-legend="Empirical distribution" data-tooltip="2.14%" class="bar empirical" x="26.605627573424034" y="215.1103896103896" width="16.818676927380345" height="21.389610389610397" data-legend-class="empirical"/><rect data-legend="Empirical distribution" data-tooltip="6.43%" class="bar empirical" x="43.42430450080438" y="174.33116883116884" width="16.818676927380345" height="62.16883116883116" data-legend-class="empirical"/><rect data-legend="Empirical distribution" data-tooltip="9.29%" class="bar empirical" x="60.24298142818469" y="147.14502164502164" width="16.818676927380345" height="89.35497835497836" data-legend-class="empirical"/><rect data-legend="Empirical distribution" data-tooltip="11.43%" class="bar empirical" x="77.06165835556503" y="126.75541125541126" width="16.818676927380345" height="109.74458874458874" data-legend-class="empirical"/><rect data-legend="Empirical distribution" data-tooltip="17.14%" class="bar empirical" x="93.88033528294538" y="72.38311688311688" width="16.818676927380345" height="164.11688311688312" data-legend-class="empirical"/><rect data-legend="Empirical distribution" data-tooltip="23.57%" class="bar empirical" x="110.6990122103257" y="11.214285714285694" width="16.818676927380345" height="225.2857142857143" data-legend-class="empirical"/><rect data-legend="Empirical distribution" data-tooltip="13.57%" class="bar empirical" x="127.51768913770604" y="106.36580086580085" width="16.818676927380345" height="130.13419913419915" data-legend-class="empirical"/><rect data-legend="Empirical distribution" data-tooltip="10%" class="bar empirical" x="144.3363660650864" y="140.34848484848484" width="16.818676927380345" height="96.15151515151516" data-legend-class="empirical"/><rect data-legend="Empirical distribution" data-tooltip="2.86%" class="bar empirical" x="161.15504299246672" y="208.3138528138528" width="16.818676927380345" height="28.186147186147195" data-legend-class="empirical"/><rect data-legend="Empirical distribution" data-tooltip="0%" class="bar empirical" x="177.97371991984707" y="235.5" width="16.818676927380345" height="1" data-legend-class="empirical"/><rect data-legend="Empirical distribution" data-tooltip="1.43%" class="bar empirical" x="194.7923968472274" y="221.9069264069264" width="16.818676927380345" height="14.593073593073598" data-legend-class="empirical"/><rect data-legend="Empirical distribution" data-tooltip="2.14%" class="bar empirical" x="211.61107377460775" y="215.1103896103896" width="16.818676927380345" height="21.389610389610397" data-legend-class="empirical"/></g><g class="distribution-functions"><path data-legend="Theoretical distribution" class="theoretical line autoscale cdf" d="M16.431818181818183,235.4065155307831L19.751377410468326,235.27190082179303L23.070936639118457,234.99521975514594L26.3904958677686,234.4746305328898L29.710055096418742,233.56874399587406L33.02961432506887,232.0982790763706L36.34917355371901,229.85539299178416L39.668732782369155,226.62073628840812L42.98829201101928,222.18651289393011L46.307851239669425,216.38237317090693L49.627410468319574,209.1002137470445L52.946969696969695,200.3140509854027L56.26652892561984,190.09198527545246L59.58608815426999,178.59861854676296L62.90564738292011,166.08779448962943L66.22520661157026,152.88689195455584L69.54476584022039,139.3748986014847L72.86432506887053,125.95702095072487L76.18388429752066,113.03865270397043L79.50344352617081,101.00120824941405L82.82300275482093,90.18175759223874L86.14256198347107,80.85770628695622L89.46212121212123,73.23706705125178L92.78168044077135,67.45425628507263L96.10123966942147,63.57087177355072L99.42079889807164,61.58058844094032L102.74035812672176,61.417142827313995L106.0599173553719,62.96434260502605L109.37947658402206,66.06710449111176L112.69903581267218,70.54265940297884L116.0185950413223,76.19123691663043L119.33815426997246,82.80572633859765L122.65771349862258,90.17998962295411L125.97727272727272,98.115658970455L129.29683195592287,106.42738196108397L132.61639118457302,114.94657683618486L135.93595041322314,123.52383080747765L139.2555096418733,132.03011801934002L142.5750688705234,140.35703527482394L145.89462809917353,148.41625758050375L149.2141873278237,156.13840661634066L152.5337465564738,163.47150759965157L155.85330578512395,170.37918725294506L159.17286501377413,176.83874055508227L162.49242424242422,182.83916880120856L165.81198347107437,188.37926772796342L169.13154269972455,193.46582304161834L172.45110192837464,198.11195214463623L175.7706611570248,202.33561538247258L179.09022038567494,206.1583076777821L182.40977961432503,209.60393177280093L185.7293388429752,212.6978471549465L189.04889807162536,215.46608374113234L192.36845730027545,217.93470617777103L195.6880165289256,220.1293128253173L199.0075757575758,222.07465281805503L202.32713498622587,223.79434474028562L205.64669421487605,225.31068120009732L208.9662534435262,226.64450471467555L212.2858126721763,227.8151416893124L215.60537190082644,228.8403827539964L218.92493112947662,229.73649922550706L222.24449035812674,230.5182869238413L225.56404958677686,231.19912994515556L228.883608815427,231.79107825150842L232.20316804407713,232.30493406573464L235.52272727272725,232.75034305260954L238.84228650137746,233.1358871268648L242.16184573002755,233.46917646114403L245.4814049586777,233.75693888222423L248.80096418732785,234.00510535308666L252.12052341597794,234.2188906537195L255.4400826446281,234.40286870692717L258.7596418732782,234.56104225846758L262.0792011019284,234.69690682432068L265.3987603305785,234.81350897160166L268.71831955922863,234.91349911230992L272.03787878787875,234.99917906839968L275.35743801652893,235.07254471918702L278.676997245179,235.13532407349607L281.99655647382923,235.18901112393513L285.31611570247935,235.23489584321186L288.6356749311295,235.27409067567888L291.9552341597796,235.3075538639609L295.27479338842977,235.33610993265145L298.59435261707983,235.36046763032851L301.91391184573,235.3812356088146L305.2334710743802,235.39893609566883L308.55303030303025,235.41401679308393L311.87258953168043,235.42686121418959L315.19214876033055,235.43779764661204L318.5117079889807,235.44710691324178L321.83126721763085,235.45502908166384L325.15082644628103,235.46176925667794L328.4703856749311,235.46750257478635L331.7899449035813,235.47237850543212L335.1095041322314,235.4765245510701L338.4290633608815,235.4800494267699L341.7486225895317,235.48304578989888L345.0681818181818,235.48559258141657" data-legend-class="theoretical" fill="none"/></g><g class="userGuides"/></svg><g class="axes"><g class="bottom axis bottomAxisLine" transform="translate(0,235.5)" fill="none" text-anchor="middle"><path class="domain" stroke="#000" d="M0.5,6V0.5H362V6" fill="none"/><g class="tick" opacity="1" transform="translate(31.5093606696722,0)"><line stroke="#000" y2="3" fill="none"/><text fill="#000" y="6" dy="0.71em" class="bottomAxisTickLabels transformed-label"><tspan class="label-block"><tspan class="label-subblock">20</tspan></tspan></text></g><g class="tick" opacity="1" transform="translate(68.73603181446289,0)"><line stroke="#000" y2="3" fill="none"/><text fill="#000" y="6" dy="0.71em" class="bottomAxisTickLabels transformed-label"><tspan class="label-block"><tspan class="label-subblock">30</tspan></tspan></text></g><g class="tick" opacity="1" transform="translate(105.96270295925358,0)"><line stroke="#000" y2="3" fill="none"/><text fill="#000" y="6" dy="0.71em" class="bottomAxisTickLabels transformed-label"><tspan class="label-block"><tspan class="label-subblock">40</tspan></tspan></text></g><g class="tick" opacity="1" transform="translate(143.18937410404428,0)"><line stroke="#000" y2="3" fill="none"/><text fill="#000" y="6" dy="0.71em" class="bottomAxisTickLabels transformed-label"><tspan class="label-block"><tspan class="label-subblock">50</tspan></tspan></text></g><g class="tick" opacity="1" transform="translate(180.41604524883493,0)"><line stroke="#000" y2="3" fill="none"/><text fill="#000" y="6" dy="0.71em" class="bottomAxisTickLabels transformed-label"><tspan class="label-block"><tspan class="label-subblock">60</tspan></tspan></text></g><g class="tick" opacity="1" transform="translate(217.64271639362562,0)"><line stroke="#000" y2="3" fill="none"/><text fill="#000" y="6" dy="0.71em" class="bottomAxisTickLabels transformed-label"><tspan class="label-block"><tspan class="label-subblock">70</tspan></tspan></text></g><g class="tick" opacity="1" transform="translate(254.86938753841636,0)"><line stroke="#000" y2="3" fill="none"/><text fill="#000" y="6" dy="0.71em" class="bottomAxisTickLabels transformed-label"><tspan class="label-block"><tspan class="label-subblock">80</tspan></tspan></text></g><g class="tick" opacity="1" transform="translate(292.09605868320705,0)"><line stroke="#000" y2="3" fill="none"/><text fill="#000" y="6" dy="0.71em" class="bottomAxisTickLabels transformed-label"><tspan class="label-block"><tspan class="label-subblock">90</tspan></tspan></text></g><g class="tick" opacity="1" transform="translate(329.3227298279977,0)"><line stroke="#000" y2="3" fill="none"/><text fill="#000" y="6" dy="0.71em" class="bottomAxisTickLabels transformed-label"><tspan class="label-block"><tspan class="label-subblock">100</tspan></tspan></text></g><text class="axis-label sublabel bottom" x="180.75" y="25" style="text-anchor: middle;"><tspan class="transformed-label"><tspan class="label-block"><tspan class="label-subblock">V1</tspan></tspan></tspan><tspan class="axis-label-unit bottom"/></text></g><g class="left axis leftAxisLine" fill="none" text-anchor="end"><path class="domain" stroke="#000" d="M-6,236H0.5V0.5H-6" fill="none"/><g class="tick" opacity="1" transform="translate(0,236)"><line stroke="#000" x2="-3" fill="none"/><text fill="#000" x="-6" dy="0.32em" class="leftAxisTickLabels transformed-label"><tspan class="label-block"><tspan class="label-subblock">0</tspan></tspan></text></g><g class="tick" opacity="1" transform="translate(0,196.31821247580464)"><line stroke="#000" x2="-3" fill="none"/><text fill="#000" x="-6" dy="0.32em" class="leftAxisTickLabels transformed-label"><tspan class="label-block"><tspan class="label-subblock">0.01</tspan></tspan></text></g><g class="tick" opacity="1" transform="translate(0,156.63642495160929)"><line stroke="#000" x2="-3" fill="none"/><text fill="#000" x="-6" dy="0.32em" class="leftAxisTickLabels transformed-label"><tspan class="label-block"><tspan class="label-subblock">0.02</tspan></tspan></text></g><g class="tick" opacity="1" transform="translate(0,116.95463742741393)"><line stroke="#000" x2="-3" fill="none"/><text fill="#000" x="-6" dy="0.32em" class="leftAxisTickLabels transformed-label"><tspan class="label-block"><tspan class="label-subblock">0.03</tspan></tspan></text></g><g class="tick" opacity="1" transform="translate(0,77.27284990321857)"><line stroke="#000" x2="-3" fill="none"/><text fill="#000" x="-6" dy="0.32em" class="leftAxisTickLabels transformed-label"><tspan class="label-block"><tspan class="label-subblock">0.04</tspan></tspan></text></g><g class="tick" opacity="1" transform="translate(0,37.591062379023185)"><line stroke="#000" x2="-3" fill="none"/><text fill="#000" x="-6" dy="0.32em" class="leftAxisTickLabels transformed-label"><tspan class="label-block"><tspan class="label-subblock">0.05</tspan></tspan></text></g><text class="axis-label sublabel left" x="-117.75" transform="rotate(-90)" y="-30" style="text-anchor: middle;"><tspan class="transformed-label"><tspan class="label-block"><tspan class="label-subblock">density</tspan></tspan></tspan><tspan class="axis-label-unit left"/></text></g></g><g class="grid"><g class="vertical" transform="translate(0,235.5)" fill="none" font-size="10" font-family="sans-serif" text-anchor="middle"><g class="tick" opacity="1" transform="translate(31.5093606696722,0)"><line stroke="#000" y2="-235.5" fill="none"/></g><g class="tick" opacity="1" transform="translate(68.73603181446289,0)"><line stroke="#000" y2="-235.5" fill="none"/></g><g class="tick" opacity="1" transform="translate(105.96270295925358,0)"><line stroke="#000" y2="-235.5" fill="none"/></g><g class="tick" opacity="1" transform="translate(143.18937410404428,0)"><line stroke="#000" y2="-235.5" fill="none"/></g><g class="tick" opacity="1" transform="translate(180.41604524883493,0)"><line stroke="#000" y2="-235.5" fill="none"/></g><g class="tick" opacity="1" transform="translate(217.64271639362562,0)"><line stroke="#000" y2="-235.5" fill="none"/></g><g class="tick" opacity="1" transform="translate(254.86938753841636,0)"><line stroke="#000" y2="-235.5" fill="none"/></g><g class="tick" opacity="1" transform="translate(292.09605868320705,0)"><line stroke="#000" y2="-235.5" fill="none"/></g><g class="tick" opacity="1" transform="translate(329.3227298279977,0)"><line stroke="#000" y2="-235.5" fill="none"/></g></g><g class="horizontal" fill="none" font-size="10" font-family="sans-serif" text-anchor="end"><g class="tick" opacity="1" transform="translate(0,236)"><line stroke="#000" x2="361.5" fill="none"/></g><g class="tick" opacity="1" transform="translate(0,196.31821247580464)"><line stroke="#000" x2="361.5" fill="none"/></g><g class="tick" opacity="1" transform="translate(0,156.63642495160929)"><line stroke="#000" x2="361.5" fill="none"/></g><g class="tick" opacity="1" transform="translate(0,116.95463742741393)"><line stroke="#000" x2="361.5" fill="none"/></g><g class="tick" opacity="1" transform="translate(0,77.27284990321857)"><line stroke="#000" x2="361.5" fill="none"/></g><g class="tick" opacity="1" transform="translate(0,37.591062379023185)"><line stroke="#000" x2="361.5" fill="none"/></g></g></g><defs><clipPath id="All-V1-pdf--freehand-guides-clip" class="freehand-guides-clip"><rect x="0" y="0" width="361.5" height="235.5"/></clipPath></defs></g><g class="plot page-element" width="361.5" height="235.5" id="All-Q-pdf" data-index="2" title="Q-pdf" transform="translate(0,285.5)"><rect width="361.5" height="235.5" class="plot-background"/><svg class="plot-content zoomable-content" width="361.5" height="235.5"><g class="histogram"><rect data-legend="Empirical distribution" data-tooltip="35.71%" class="bar empirical" x="16.431818181818187" y="26.96857545123015" width="27.38636363636363" height="209.53142454876985" data-legend-class="empirical"/><rect data-legend="Empirical distribution" data-tooltip="31.43%" class="bar empirical" x="43.81818181818182" y="51.992346397082514" width="27.38636363636363" height="184.5076536029175" data-legend-class="empirical"/><rect data-legend="Empirical distribution" data-tooltip="16.43%" class="bar empirical" x="71.20454545454545" y="139.57554470756588" width="27.38636363636363" height="96.92445529243412" data-legend-class="empirical"/><rect data-legend="Empirical distribution" data-tooltip="10.71%" class="bar empirical" x="98.5909090909091" y="172.94057263536905" width="27.38636363636363" height="63.55942736463095" data-legend-class="empirical"/><rect data-legend="Empirical distribution" data-tooltip="2.86%" class="bar empirical" x="125.97727272727272" y="218.81748603609842" width="27.38636363636363" height="17.682513963901584" data-legend-class="empirical"/><rect data-legend="Empirical distribution" data-tooltip="0.71%" class="bar empirical" x="153.36363636363637" y="231.3293715090246" width="27.38636363636363" height="5.170628490975389" data-legend-class="empirical"/><rect data-legend="Empirical distribution" data-tooltip="0%" class="bar empirical" x="180.75" y="235.5" width="27.38636363636363" height="1" data-legend-class="empirical"/><rect data-legend="Empirical distribution" data-tooltip="0.71%" class="bar empirical" x="208.13636363636365" y="231.3293715090246" width="27.38636363636363" height="5.170628490975389" data-legend-class="empirical"/><rect data-legend="Empirical distribution" data-tooltip="0.71%" class="bar empirical" x="235.5227272727273" y="231.3293715090246" width="27.38636363636363" height="5.170628490975389" data-legend-class="empirical"/><rect data-legend="Empirical distribution" data-tooltip="0%" class="bar empirical" x="262.9090909090909" y="235.5" width="27.38636363636363" height="1" data-legend-class="empirical"/><rect data-legend="Empirical distribution" data-tooltip="0%" class="bar empirical" x="290.2954545454545" y="235.5" width="27.38636363636363" height="1" data-legend-class="empirical"/><rect data-legend="Empirical distribution" data-tooltip="0.71%" class="bar empirical" x="317.6818181818182" y="231.3293715090246" width="27.38636363636363" height="5.170628490975389" data-legend-class="empirical"/></g><g class="distribution-functions"><path data-legend="Theoretical distribution" class="theoretical line autoscale cdf" d="M16.431818181818183,168.78706043749546L19.751377410468315,113.98129788405346L23.070936639118457,68.71967248856649L26.390495867768596,37.45942061735917L29.710055096418735,19.244422117255823L33.02961432506886,11.419890806321774L36.34917355371901,11.214285714285722L39.66873278236914,16.27712641428721L42.98829201101928,24.7841622703867L46.307851239669425,35.38660142094963L49.62741046831956,47.1186366828064L52.946969696969695,59.306303029850966L56.26652892561984,71.49115709240513L59.58608815426999,83.37075037457743L62.90564738292011,94.7538902780627L66.22520661157026,105.52772712189426L69.54476584022039,115.63386300656518L72.86432506887053,125.05116781279692L76.18388429752066,133.78350700578397L79.50344352617081,141.8510336642739L82.82300275482093,149.28405177543047L86.14256198347108,156.1187269752536L89.4621212121212,162.39412042809698L92.78168044077135,168.15016745843604L96.10123966942149,173.4263284463055L99.42079889807162,178.26071602094987L102.74035812672176,182.68955776215552L106.05991735537191,186.74689336486313L109.37947658402203,190.46443384967313L112.69903581267218,193.87153102460798L116.01859504132233,196.99522026449554L119.33815426997245,199.86031038526193L122.65771349862258,202.4895021091966L125.97727272727273,204.9035221762815L129.29683195592287,207.12126415507106L132.616391184573,209.15992987619356L135.93595041322314,211.03516746410983L139.25550964187326,212.76120340379643L142.57506887052344,214.3509671118685L145.89462809917356,215.81620720482297L149.21418732782368,217.16759915664136L152.53374655647383,218.41484437651857L155.85330578512398,219.56676096050336L159.1728650137741,220.63136651145044L162.49242424242425,221.61595350397474L165.8119834710744,222.52715771253435L169.13154269972452,223.37102023402355L172.45110192837467,224.15304363047161L175.7706611570248,224.87824269919722L179.09022038567494,225.55119035176037L182.40977961432506,226.17605905261237L185.7293388429752,226.75665823579962L189.04889807162536,227.2964680850339L192.36845730027545,227.7986700299795L195.68801652892566,228.2661742804264L199.00757575757575,228.70164469055132L202.3271349862259,229.10752121794872L205.64669421487605,229.4860402166538L208.9662534435262,229.8392527799835L212.2858126721763,230.16904132764682L215.60537190082647,230.47713461213104L218.9249311294766,230.76512130174245L222.24449035812674,231.03446228174593L225.56404958677686,231.28650180067424L228.883608815427,231.52247757593662L232.20316804407713,231.74352996122064L235.5227272727273,231.9507102677304L238.8422865013774,232.14498832192606L242.16184573002755,232.3272593340186L245.4814049586777,232.49835014393395L248.80096418732785,232.65902490470475L252.12052341597794,232.8099902571924L255.4400826446281,232.95190004461853L258.7596418732782,233.0853596105248L262.07920110192833,233.21092971942366L265.3987603305785,233.32913013550038L268.7183195592287,233.44044289122576L272.03787878787875,233.5453152746013L275.35743801652893,233.64416256094333L278.67699724517905,233.737370512585L281.9965564738292,233.8252976676083L285.3161157024793,233.90827743667938L288.6356749311294,233.98662002522988L291.9552341597796,234.06061419658212L295.27479338842977,234.13052889013343L298.5943526170799,234.196614707384L301.91391184573,234.25910527739188L305.23347107438013,234.31821851215807L308.55303030303025,234.37415776146977L311.87258953168043,234.4271128758517L315.19214876033055,234.4772611854809L318.51170798898073,234.52476840220598L321.8312672176308,234.56978945116248L325.150826446281,234.61246923789307L328.4703856749311,234.65294335635062L331.7899449035813,234.69133874268428L335.1095041322314,234.7277742792742L338.42906336088157,234.76236135308827L341.74862258953164,234.79520437207742L345.0681818181818,234.826401243003" data-legend-class="theoretical" fill="none"/></g><g class="userGuides"/></svg><g class="axes"><g class="bottom axis bottomAxisLine" transform="translate(0,235.5)" fill="none" text-anchor="middle"><path class="domain" stroke="#000" d="M0.5,6V0.5H362V6" fill="none"/><g class="tick" opacity="1" transform="translate(8.56921774979337,0)"><line stroke="#000" y2="3" fill="none"/><text fill="#000" y="6" dy="0.71em" class="bottomAxisTickLabels transformed-label"><tspan class="label-block"><tspan class="label-subblock">0</tspan></tspan></text></g><g class="tick" opacity="1" transform="translate(48.15896805722503,0)"><line stroke="#000" y2="3" fill="none"/><text fill="#000" y="6" dy="0.71em" class="bottomAxisTickLabels transformed-label"><tspan class="label-block"><tspan class="label-subblock">10</tspan></tspan></text></g><g class="tick" opacity="1" transform="translate(87.7487183646567,0)"><line stroke="#000" y2="3" fill="none"/><text fill="#000" y="6" dy="0.71em" class="bottomAxisTickLabels transformed-label"><tspan class="label-block"><tspan class="label-subblock">20</tspan></tspan></text></g><g class="tick" opacity="1" transform="translate(127.33846867208835,0)"><line stroke="#000" y2="3" fill="none"/><text fill="#000" y="6" dy="0.71em" class="bottomAxisTickLabels transformed-label"><tspan class="label-block"><tspan class="label-subblock">30</tspan></tspan></text></g><g class="tick" opacity="1" transform="translate(166.92821897952,0)"><line stroke="#000" y2="3" fill="none"/><text fill="#000" y="6" dy="0.71em" class="bottomAxisTickLabels transformed-label"><tspan class="label-block"><tspan class="label-subblock">40</tspan></tspan></text></g><g class="tick" opacity="1" transform="translate(206.51796928695168,0)"><line stroke="#000" y2="3" fill="none"/><text fill="#000" y="6" dy="0.71em" class="bottomAxisTickLabels transformed-label"><tspan class="label-block"><tspan class="label-subblock">50</tspan></tspan></text></g><g class="tick" opacity="1" transform="translate(246.10771959438333,0)"><line stroke="#000" y2="3" fill="none"/><text fill="#000" y="6" dy="0.71em" class="bottomAxisTickLabels transformed-label"><tspan class="label-block"><tspan class="label-subblock">60</tspan></tspan></text></g><g class="tick" opacity="1" transform="translate(285.69746990181494,0)"><line stroke="#000" y2="3" fill="none"/><text fill="#000" y="6" dy="0.71em" class="bottomAxisTickLabels transformed-label"><tspan class="label-block"><tspan class="label-subblock">70</tspan></tspan></text></g><g class="tick" opacity="1" transform="translate(325.2872202092466,0)"><line stroke="#000" y2="3" fill="none"/><text fill="#000" y="6" dy="0.71em" class="bottomAxisTickLabels transformed-label"><tspan class="label-block"><tspan class="label-subblock">80</tspan></tspan></text></g><text class="axis-label sublabel bottom" x="180.75" y="25" style="text-anchor: middle;"><tspan class="transformed-label"><tspan class="label-block"><tspan class="label-subblock">Q</tspan></tspan></tspan><tspan class="axis-label-unit bottom"/></text></g><g class="left axis leftAxisLine" fill="none" text-anchor="end"><path class="domain" stroke="#000" d="M-6,236H0.5V0.5H-6" fill="none"/><g class="tick" opacity="1" transform="translate(0,236)"><line stroke="#000" x2="-3" fill="none"/><text fill="#000" x="-6" dy="0.32em" class="leftAxisTickLabels transformed-label"><tspan class="label-block"><tspan class="label-subblock">0</tspan></tspan></text></g><g class="tick" opacity="1" transform="translate(0,198.7162967300206)"><line stroke="#000" x2="-3" fill="none"/><text fill="#000" x="-6" dy="0.32em" class="leftAxisTickLabels transformed-label"><tspan class="label-block"><tspan class="label-subblock">0.01</tspan></tspan></text></g><g class="tick" opacity="1" transform="translate(0,161.43259346004115)"><line stroke="#000" x2="-3" fill="none"/><text fill="#000" x="-6" dy="0.32em" class="leftAxisTickLabels transformed-label"><tspan class="label-block"><tspan class="label-subblock">0.02</tspan></tspan></text></g><g class="tick" opacity="1" transform="translate(0,124.1488901900617)"><line stroke="#000" x2="-3" fill="none"/><text fill="#000" x="-6" dy="0.32em" class="leftAxisTickLabels transformed-label"><tspan class="label-block"><tspan class="label-subblock">0.03</tspan></tspan></text></g><g class="tick" opacity="1" transform="translate(0,86.8651869200823)"><line stroke="#000" x2="-3" fill="none"/><text fill="#000" x="-6" dy="0.32em" class="leftAxisTickLabels transformed-label"><tspan class="label-block"><tspan class="label-subblock">0.04</tspan></tspan></text></g><g class="tick" opacity="1" transform="translate(0,49.581483650102825)"><line stroke="#000" x2="-3" fill="none"/><text fill="#000" x="-6" dy="0.32em" class="leftAxisTickLabels transformed-label"><tspan class="label-block"><tspan class="label-subblock">0.05</tspan></tspan></text></g><g class="tick" opacity="1" transform="translate(0,12.297780380123413)"><line stroke="#000" x2="-3" fill="none"/><text fill="#000" x="-6" dy="0.32em" class="leftAxisTickLabels transformed-label"><tspan class="label-block"><tspan class="label-subblock">0.06</tspan></tspan></text></g><text class="axis-label sublabel left" x="-117.75" transform="rotate(-90)" y="-30" style="text-anchor: middle;"><tspan class="transformed-label"><tspan class="label-block"><tspan class="label-subblock">density</tspan></tspan></tspan><tspan class="axis-label-unit left"/></text></g></g><g class="grid"><g class="vertical" transform="translate(0,235.5)" fill="none" font-size="10" font-family="sans-serif" text-anchor="middle"><g class="tick" opacity="1" transform="translate(8.56921774979337,0)"><line stroke="#000" y2="-235.5" fill="none"/></g><g class="tick" opacity="1" transform="translate(48.15896805722503,0)"><line stroke="#000" y2="-235.5" fill="none"/></g><g class="tick" opacity="1" transform="translate(87.7487183646567,0)"><line stroke="#000" y2="-235.5" fill="none"/></g><g class="tick" opacity="1" transform="translate(127.33846867208835,0)"><line stroke="#000" y2="-235.5" fill="none"/></g><g class="tick" opacity="1" transform="translate(166.92821897952,0)"><line stroke="#000" y2="-235.5" fill="none"/></g><g class="tick" opacity="1" transform="translate(206.51796928695168,0)"><line stroke="#000" y2="-235.5" fill="none"/></g><g class="tick" opacity="1" transform="translate(246.10771959438333,0)"><line stroke="#000" y2="-235.5" fill="none"/></g><g class="tick" opacity="1" transform="translate(285.69746990181494,0)"><line stroke="#000" y2="-235.5" fill="none"/></g><g class="tick" opacity="1" transform="translate(325.2872202092466,0)"><line stroke="#000" y2="-235.5" fill="none"/></g></g><g class="horizontal" fill="none" font-size="10" font-family="sans-serif" text-anchor="end"><g class="tick" opacity="1" transform="translate(0,236)"><line stroke="#000" x2="361.5" fill="none"/></g><g class="tick" opacity="1" transform="translate(0,198.7162967300206)"><line stroke="#000" x2="361.5" fill="none"/></g><g class="tick" opacity="1" transform="translate(0,161.43259346004115)"><line stroke="#000" x2="361.5" fill="none"/></g><g class="tick" opacity="1" transform="translate(0,124.1488901900617)"><line stroke="#000" x2="361.5" fill="none"/></g><g class="tick" opacity="1" transform="translate(0,86.8651869200823)"><line stroke="#000" x2="361.5" fill="none"/></g><g class="tick" opacity="1" transform="translate(0,49.581483650102825)"><line stroke="#000" x2="361.5" fill="none"/></g><g class="tick" opacity="1" transform="translate(0,12.297780380123413)"><line stroke="#000" x2="361.5" fill="none"/></g></g></g><defs><clipPath id="All-Q-pdf--freehand-guides-clip" class="freehand-guides-clip"><rect x="0" y="0" width="361.5" height="235.5"/></clipPath></defs></g><g class="plot page-element" width="361.5" height="235.5" id="All-V2-pdf" data-index="3" title="V2-pdf" transform="translate(411.5,285.5)"><rect width="361.5" height="235.5" class="plot-background"/><svg class="plot-content zoomable-content" width="361.5" height="235.5"><g class="histogram"><rect data-legend="Empirical distribution" data-tooltip="2.86%" class="bar empirical" x="25.538800605463248" y="200.9945054945055" width="15.418605333569424" height="35.50549450549451" data-legend-class="empirical"/><rect data-legend="Empirical distribution" data-tooltip="2.14%" class="bar empirical" x="40.95740593903267" y="209.62087912087912" width="15.418605333569424" height="26.879120879120876" data-legend-class="empirical"/><rect data-legend="Empirical distribution" data-tooltip="4.29%" class="bar empirical" x="56.3760112726021" y="183.74175824175825" width="15.418605333569424" height="52.75824175824175" data-legend-class="empirical"/><rect data-legend="Empirical distribution" data-tooltip="12.86%" class="bar empirical" x="71.79461660617153" y="80.22527472527472" width="15.418605333569424" height="156.27472527472528" data-legend-class="empirical"/><rect data-legend="Empirical distribution" data-tooltip="18.57%" class="bar empirical" x="87.21322193974096" y="11.214285714285694" width="15.418605333569424" height="225.2857142857143" data-legend-class="empirical"/><rect data-legend="Empirical distribution" data-tooltip="12.14%" class="bar empirical" x="102.6318272733104" y="88.85164835164835" width="15.418605333569424" height="147.64835164835165" data-legend-class="empirical"/><rect data-legend="Empirical distribution" data-tooltip="17.86%" class="bar empirical" x="118.05043260687982" y="19.84065934065933" width="15.418605333569424" height="216.65934065934067" data-legend-class="empirical"/><rect data-legend="Empirical distribution" data-tooltip="15%" class="bar empirical" x="133.46903794044925" y="54.34615384615381" width="15.418605333569424" height="182.1538461538462" data-legend-class="empirical"/><rect data-legend="Empirical distribution" data-tooltip="4.29%" class="bar empirical" x="148.8876432740187" y="183.74175824175825" width="15.418605333569424" height="52.75824175824175" data-legend-class="empirical"/><rect data-legend="Empirical distribution" data-tooltip="5.71%" class="bar empirical" x="164.30624860758812" y="166.48901098901098" width="15.418605333569424" height="70.01098901098902" data-legend-class="empirical"/><rect data-legend="Empirical distribution" data-tooltip="2.86%" class="bar empirical" x="179.72485394115756" y="200.9945054945055" width="15.418605333569424" height="35.50549450549451" data-legend-class="empirical"/><rect data-legend="Empirical distribution" data-tooltip="1.43%" class="bar empirical" x="195.14345927472698" y="218.24725274725276" width="15.418605333569424" height="18.25274725274724" data-legend-class="empirical"/></g><g class="distribution-functions"><path data-legend="Theoretical distribution" class="theoretical line autoscale cdf" d="M16.431818181818183,235.42473864725784L19.751377410468326,235.31257365165402L23.070936639118457,235.076222454063L26.3904958677686,234.62007361654386L29.71005509641873,233.80583986661117L33.02961432506888,232.45036824638916L36.34917355371902,230.33100096906335L39.66873278236915,227.19966259188251L42.98829201101928,222.80503660453056L46.307851239669425,216.9203536952846L49.62741046831956,209.3729427162137L52.946969696969695,200.07113140677737L56.26652892561985,189.02442180454133L59.58608815426999,176.35396442390953L62.90564738292012,162.29191570211705L66.22520661157024,147.169928878799L69.54476584022038,131.39848156923603L72.86432506887053,115.43976599176364L76.18388429752066,99.7773650153685L79.5034435261708,84.88592611565656L82.82300275482095,71.20362441679896L86.14256198347108,59.109516480853245L89.46212121212122,48.90707697373438L92.78168044077137,40.81441050849887L96.10123966942149,34.960936671514105L99.42079889807164,31.38981465193993L102.74035812672179,30.065026431808406L106.0599173553719,30.881867260168008L109.37947658402206,33.6795731875479L112.69903581267218,38.25491176611803L116.0185950413223,44.37573499882106L119.33815426997246,51.79370737015873L122.65771349862258,60.25564644482819L125.97727272727273,69.51312666935337L129.29683195592287,79.33018379131917L132.61639118457302,89.48910959050417L135.93595041322314,99.79444171207825L139.25550964187326,110.07533262103934L142.57506887052344,120.18652899696386L145.89462809917356,130.00821363348723L149.21418732782368,139.44496198024163L152.53374655647386,148.4240505905069L155.85330578512398,156.89333005340268L159.17286501377407,164.81884481446943L162.49242424242425,172.1823500417933L165.8119834710744,178.9788439167958L169.13154269972452,185.2142041692489L172.45110192837467,190.90299141684486L175.77066115702482,196.06645945910526L179.09022038567494,200.73079425911527L182.40977961432506,204.92558878474682L185.7293388429752,208.68254984797946L189.04889807162533,212.03442514462418L192.3684573002755,215.01413337964956L195.68801652892566,217.65407718606738L199.00757575757575,219.9856170562271L202.3271349862259,222.0386842972934L205.64669421487608,223.8415117462177L208.9662534435262,225.42046233967977L212.28581267217632,226.79993739303075L215.60537190082647,228.002348412247L218.9249311294766,229.04813830256583L222.24449035812674,229.9558398436631L225.56404958677686,230.7421612026776L228.883608815427,231.42209000741138L232.20316804407716,232.00900907692414L235.52272727272725,232.51481829483512L238.8422865013774,232.9500583122505L242.16184573002758,233.324032790228L245.4814049586777,233.64492674889877L248.80096418732785,233.91991929745978L252.12052341597794,234.1552895932193L255.4400826446281,234.35651533589945L258.75964187327827,234.52836346206269L262.0792011019284,234.67497297932323L265.3987603305785,234.7999300850265L268.7183195592287,234.90633586188412L272.03787878787875,234.99686694461872L275.35743801652893,235.07382961645646L278.6769972451791,235.13920783032228L281.99655647382923,235.1947056635537L285.31611570247935,235.2417847123942L288.6356749311295,235.2816969179697L291.95523415977965,235.31551329252153L295.27479338842977,235.34414898624317L298.5943526170799,235.3683851033825L301.91391184573,235.3888876430518L305.2334710743802,235.40622390671166L308.55303030303025,235.42087668150737L311.8725895316805,235.4332564771904L315.1921487603306,235.44371206469893L318.51170798898073,235.4525395368624L321.83126721763085,235.45999008628064L325.15082644628103,235.46627667224317L328.47038567493115,235.47157972757364L331.7899449035813,235.47605203742532L335.10950413223145,235.4798229052012L338.42906336088157,235.48300170579435L341.7486225895317,235.48568091309323L345.0681818181818,235.4879386770197" data-legend-class="theoretical" fill="none"/></g><g class="userGuides"/></svg><g class="axes"><g class="bottom axis bottomAxisLine" transform="translate(0,235.5)" fill="none" text-anchor="middle"><path class="domain" stroke="#000" d="M0.5,6V0.5H362V6" fill="none"/><g class="tick" opacity="1" transform="translate(16.50236774665724,0)"><line stroke="#000" y2="3" fill="none"/><text fill="#000" y="6" dy="0.71em" class="bottomAxisTickLabels transformed-label"><tspan class="label-block"><tspan class="label-subblock">20</tspan></tspan></text></g><g class="tick" opacity="1" transform="translate(78.79107329694439,0)"><line stroke="#000" y2="3" fill="none"/><text fill="#000" y="6" dy="0.71em" class="bottomAxisTickLabels transformed-label"><tspan class="label-block"><tspan class="label-subblock">40</tspan></tspan></text></g><g class="tick" opacity="1" transform="translate(141.07977884723152,0)"><line stroke="#000" y2="3" fill="none"/><text fill="#000" y="6" dy="0.71em" class="bottomAxisTickLabels transformed-label"><tspan class="label-block"><tspan class="label-subblock">60</tspan></tspan></text></g><g class="tick" opacity="1" transform="translate(203.36848439751867,0)"><line stroke="#000" y2="3" fill="none"/><text fill="#000" y="6" dy="0.71em" class="bottomAxisTickLabels transformed-label"><tspan class="label-block"><tspan class="label-subblock">80</tspan></tspan></text></g><g class="tick" opacity="1" transform="translate(265.6571899478058,0)"><line stroke="#000" y2="3" fill="none"/><text fill="#000" y="6" dy="0.71em" class="bottomAxisTickLabels transformed-label"><tspan class="label-block"><tspan class="label-subblock">100</tspan></tspan></text></g><g class="tick" opacity="1" transform="translate(327.94589549809297,0)"><line stroke="#000" y2="3" fill="none"/><text fill="#000" y="6" dy="0.71em" class="bottomAxisTickLabels transformed-label"><tspan class="label-block"><tspan class="label-subblock">120</tspan></tspan></text></g><text class="axis-label sublabel bottom" x="180.75" y="25" style="text-anchor: middle;"><tspan class="transformed-label"><tspan class="label-block"><tspan class="label-subblock">V2</tspan></tspan></tspan><tspan class="axis-label-unit bottom"/></text></g><g class="left axis leftAxisLine" fill="none" text-anchor="end"><path class="domain" stroke="#000" d="M-6,236H0.5V0.5H-6" fill="none"/><g class="tick" opacity="1" transform="translate(0,236)"><line stroke="#000" x2="-3" fill="none"/><text fill="#000" x="-6" dy="0.32em" class="leftAxisTickLabels transformed-label"><tspan class="label-block"><tspan class="label-subblock">0</tspan></tspan></text></g><g class="tick" opacity="1" transform="translate(0,180.81005314594256)"><line stroke="#000" x2="-3" fill="none"/><text fill="#000" x="-6" dy="0.32em" class="leftAxisTickLabels transformed-label"><tspan class="label-block"><tspan class="label-subblock">0.01</tspan></tspan></text></g><g class="tick" opacity="1" transform="translate(0,125.62010629188514)"><line stroke="#000" x2="-3" fill="none"/><text fill="#000" x="-6" dy="0.32em" class="leftAxisTickLabels transformed-label"><tspan class="label-block"><tspan class="label-subblock">0.02</tspan></tspan></text></g><g class="tick" opacity="1" transform="translate(0,70.43015943782771)"><line stroke="#000" x2="-3" fill="none"/><text fill="#000" x="-6" dy="0.32em" class="leftAxisTickLabels transformed-label"><tspan class="label-block"><tspan class="label-subblock">0.03</tspan></tspan></text></g><g class="tick" opacity="1" transform="translate(0,15.240212583770273)"><line stroke="#000" x2="-3" fill="none"/><text fill="#000" x="-6" dy="0.32em" class="leftAxisTickLabels transformed-label"><tspan class="label-block"><tspan class="label-subblock">0.04</tspan></tspan></text></g><text class="axis-label sublabel left" x="-117.75" transform="rotate(-90)" y="-30" style="text-anchor: middle;"><tspan class="transformed-label"><tspan class="label-block"><tspan class="label-subblock">density</tspan></tspan></tspan><tspan class="axis-label-unit left"/></text></g></g><g class="grid"><g class="vertical" transform="translate(0,235.5)" fill="none" font-size="10" font-family="sans-serif" text-anchor="middle"><g class="tick" opacity="1" transform="translate(16.50236774665724,0)"><line stroke="#000" y2="-235.5" fill="none"/></g><g class="tick" opacity="1" transform="translate(78.79107329694439,0)"><line stroke="#000" y2="-235.5" fill="none"/></g><g class="tick" opacity="1" transform="translate(141.07977884723152,0)"><line stroke="#000" y2="-235.5" fill="none"/></g><g class="tick" opacity="1" transform="translate(203.36848439751867,0)"><line stroke="#000" y2="-235.5" fill="none"/></g><g class="tick" opacity="1" transform="translate(265.6571899478058,0)"><line stroke="#000" y2="-235.5" fill="none"/></g><g class="tick" opacity="1" transform="translate(327.94589549809297,0)"><line stroke="#000" y2="-235.5" fill="none"/></g></g><g class="horizontal" fill="none" font-size="10" font-family="sans-serif" text-anchor="end"><g class="tick" opacity="1" transform="translate(0,236)"><line stroke="#000" x2="361.5" fill="none"/></g><g class="tick" opacity="1" transform="translate(0,180.81005314594256)"><line stroke="#000" x2="361.5" fill="none"/></g><g class="tick" opacity="1" transform="translate(0,125.62010629188514)"><line stroke="#000" x2="361.5" fill="none"/></g><g class="tick" opacity="1" transform="translate(0,70.43015943782771)"><line stroke="#000" x2="361.5" fill="none"/></g><g class="tick" opacity="1" transform="translate(0,15.240212583770273)"><line stroke="#000" x2="361.5" fill="none"/></g></g></g><defs><clipPath id="All-V2-pdf--freehand-guides-clip" class="freehand-guides-clip"><rect x="0" y="0" width="361.5" height="235.5"/></clipPath></defs></g></g><text x="386.5" y="-1em" class="title transformed-label" text-anchor="middle"><tspan class="label-block"/></text></g></g></g></g></svg>
