@@ -1,0 +1,625 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" class="lixoftchart observationPrediction" width="720" height="669" style="font-family: &quot;Source Sans Pro&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;; font-weight: normal;"><style>svg {
+--primary--1:rgba(21, 140, 186, 0.1);
+--primary--2:rgba(21, 140, 186, 0.2);
+--primary--3:rgba(21, 140, 186, 0.3);
+--primary--4:rgba(21, 140, 186, 0.4);
+--primary--5:rgba(21, 140, 186, 0.5);
+--primary--6:rgba(21, 140, 186, 0.6);
+--primary--7:rgba(21, 140, 186, 0.7);
+--primary--8:rgba(21, 140, 186, 0.8);
+--primary--9:rgba(21, 140, 186, 0.9);
+--secondary--1:rgba(240, 240, 240, 0.1);
+--secondary--2:rgba(240, 240, 240, 0.2);
+--secondary--3:rgba(240, 240, 240, 0.3);
+--secondary--4:rgba(240, 240, 240, 0.4);
+--secondary--5:rgba(240, 240, 240, 0.5);
+--secondary--6:rgba(240, 240, 240, 0.6);
+--secondary--7:rgba(240, 240, 240, 0.7);
+--secondary--8:rgba(240, 240, 240, 0.8);
+--secondary--9:rgba(240, 240, 240, 0.9);
+--success--1:rgba(40, 182, 44, 0.1);
+--success--2:rgba(40, 182, 44, 0.2);
+--success--3:rgba(40, 182, 44, 0.3);
+--success--4:rgba(40, 182, 44, 0.4);
+--success--5:rgba(40, 182, 44, 0.5);
+--success--6:rgba(40, 182, 44, 0.6);
+--success--7:rgba(40, 182, 44, 0.7);
+--success--8:rgba(40, 182, 44, 0.8);
+--success--9:rgba(40, 182, 44, 0.9);
+--info--1:rgba(117, 202, 235, 0.1);
+--info--2:rgba(117, 202, 235, 0.2);
+--info--3:rgba(117, 202, 235, 0.3);
+--info--4:rgba(117, 202, 235, 0.4);
+--info--5:rgba(117, 202, 235, 0.5);
+--info--6:rgba(117, 202, 235, 0.6);
+--info--7:rgba(117, 202, 235, 0.7);
+--info--8:rgba(117, 202, 235, 0.8);
+--info--9:rgba(117, 202, 235, 0.9);
+--warning--1:rgba(255, 133, 27, 0.1);
+--warning--2:rgba(255, 133, 27, 0.2);
+--warning--3:rgba(255, 133, 27, 0.3);
+--warning--4:rgba(255, 133, 27, 0.4);
+--warning--5:rgba(255, 133, 27, 0.5);
+--warning--6:rgba(255, 133, 27, 0.6);
+--warning--7:rgba(255, 133, 27, 0.7);
+--warning--8:rgba(255, 133, 27, 0.8);
+--warning--9:rgba(255, 133, 27, 0.9);
+--danger--1:rgba(255, 65, 54, 0.1);
+--danger--2:rgba(255, 65, 54, 0.2);
+--danger--3:rgba(255, 65, 54, 0.3);
+--danger--4:rgba(255, 65, 54, 0.4);
+--danger--5:rgba(255, 65, 54, 0.5);
+--danger--6:rgba(255, 65, 54, 0.6);
+--danger--7:rgba(255, 65, 54, 0.7);
+--danger--8:rgba(255, 65, 54, 0.8);
+--danger--9:rgba(255, 65, 54, 0.9);
+--light--1:rgba(246, 246, 246, 0.1);
+--light--2:rgba(246, 246, 246, 0.2);
+--light--3:rgba(246, 246, 246, 0.3);
+--light--4:rgba(246, 246, 246, 0.4);
+--light--5:rgba(246, 246, 246, 0.5);
+--light--6:rgba(246, 246, 246, 0.6);
+--light--7:rgba(246, 246, 246, 0.7);
+--light--8:rgba(246, 246, 246, 0.8);
+--light--9:rgba(246, 246, 246, 0.9);
+--dark--1:rgba(85, 85, 85, 0.1);
+--dark--2:rgba(85, 85, 85, 0.2);
+--dark--3:rgba(85, 85, 85, 0.3);
+--dark--4:rgba(85, 85, 85, 0.4);
+--dark--5:rgba(85, 85, 85, 0.5);
+--dark--6:rgba(85, 85, 85, 0.6);
+--dark--7:rgba(85, 85, 85, 0.7);
+--dark--8:rgba(85, 85, 85, 0.8);
+--dark--9:rgba(85, 85, 85, 0.9);
+--theme-scheme--1:#158CBA;
+--theme-scheme--2:#3e82bf;
+--theme-scheme--3:#6475bc;
+--theme-scheme--4:#8566b0;
+--theme-scheme--5:#a05599;
+--theme-scheme--6:#b0447c;
+--theme-scheme-lg--1:#158cba;
+--theme-scheme-lg--2:#1dade5;
+--theme-scheme-lg--3:#4abeeb;
+--theme-scheme-lg--4:#78cef0;
+--theme-scheme-lg--5:#b0447c;
+--theme-scheme-lg--6:#c36495;
+--theme-scheme-lg--7:#d189ae;
+--theme-scheme-lg--8:#e0adc7;
+--theme-scheme-lg--9:#618f35;
+--theme-scheme-lg--10:#7ab443;
+--theme-scheme-lg--11:#94c664;
+--theme-scheme-lg--12:#aed38a;
+--blue:#158CBA;
+--indigo:#6610f2;
+--purple:#6f42c1;
+--pink:#e83e8c;
+--red:#FF4136;
+--orange:#fd7e14;
+--yellow:#FF851B;
+--green:#28B62C;
+--teal:#20c997;
+--cyan:#75CAEB;
+--white:#fff;
+--gray:#999;
+--gray-dark:#333;
+--primary:#158CBA;
+--secondary:#f0f0f0;
+--success:#28B62C;
+--info:#75CAEB;
+--warning:#FF851B;
+--danger:#FF4136;
+--light:#f6f6f6;
+--dark:#555;
+--breakpoint-xs:0;
+--breakpoint-sm:576px;
+--breakpoint-md:768px;
+--breakpoint-lg:992px;
+--breakpoint-xl:1200px;
+--font-family-sans-serif:"Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+--font-family-monospace:SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+--mm-color-background:;
+--graphical-mode-icon-display:none;
+
+}
+html, body { height: 100%; }
+body { margin: 0px; overflow: hidden; }
+.lixoftchart-container { display: flex; flex-direction: column; height: 100%; }
+.lixoftchart { width: 100%; height: 100%; flex: 1 1 0%; }
+.lixoftchart-header { height: 34px; }
+.main { flex: 1 1 0%; height: 100%; width: 100%; }
+.footer { margin: 0px; }
+.checkinit-footer { max-height: 230px; overflow-y: auto; }
+.page, .subpage { height: 100%; display: none; }
+.page.active, .subpage.active { display: block; }
+.axes, .grid { pointer-events: none; }
+.axis path, .axis line { fill: none; shape-rendering: crispEdges; }
+.tick { font-family: sans-serif; }
+.line { fill: none; }
+.tick line { stroke-width: 1px; }
+.grid line { opacity: 0.2; }
+.title { pointer-events: none; font-weight: 400; }
+.axis-label { text-anchor: middle; }
+.axis-label-unit { font-family: monospace; font-size: smaller; }
+.label-subscript { baseline-shift: sub; font-size: 0.8em; }
+.zoomable-content, .brushable-content { cursor: crosshair; }
+rect.zoom { fill: rgb(221, 221, 221); stroke: steelblue; fill-opacity: 0.5; }
+g.brush &gt; rect.selection { stroke-width: 0; }
+.handle--custom { fill: rgb(122, 122, 122); fill-opacity: 1; stroke: rgb(122, 122, 122); stroke-width: 2px; display: inline !important; }
+.log-filtered { display: none; }
+.dot { stroke: none; }
+.censObservations.highlighted:not(.lambdaz-observation), .censObservations[data--radius]:not(.lambdaz-observation) { fill: brown !important; }
+.spline { fill: none; }
+.regressionLine { fill: none; }
+.convergence-line { fill: none; }
+.percentile-line, .cdf { stroke-width: 1px; }
+.bar { shape-rendering: crispEdges; }
+.vertical-line, .horizontal-line { shape-rendering: crispEdges; }
+.k1, .bound { shape-rendering: crispEdges; }
+.outlier.dot { fill: none; }
+.boxplot { font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 10px; line-height: normal; font-family: sans-serif; }
+.box-element line, .box-element rect { stroke-opacity: 1; shape-rendering: crispEdges; }
+.boxplot .outlier line { fill: none; }
+.boxplot .box-underlay { fill: white; fill-opacity: 1; }
+.boxplot .label { font-size: 12px; }
+.arrow-marker { stroke-width: 0; font-size: 20px; fill: red; dominant-baseline: central; }
+.layout-link { padding: 1px 5px !important; }
+.sublayout-controls { min-height: 20px; transition: opacity 0.5s ease-in-out; background-color: transparent; opacity: 0.2; cursor: pointer; }
+.pagination { transition: opacity 0.5s ease-in-out; }
+.sublayout-controls .pagination { opacity: 0; }
+.sublayout-controls:hover { transition: none; opacity: 0.9; }
+.sublayout-controls:hover .pagination { transition: none; opacity: 1; }
+.plot-grid, .subplot-grid { margin: 0px; min-width: 0px; }
+.grid-cell { outline: rgb(221, 221, 221) solid 1px; cursor: text; position: absolute; }
+.plot-cell { background-color: rgba(119, 33, 111, 0.298039); }
+.matrix-diagonal-cell { background-color: rgb(174, 167, 159) !important; }
+.plot-cell.selected { background-color: rgb(119, 33, 111); }
+.plot-cell:hover, .plot-cell.hovered { background-color: rgb(243, 152, 20); }
+.plot-cell.ui-selecting { background-color: rgb(233, 84, 32); }
+.cells-selector { cursor: pointer; width: 0px; height: 0px; position: absolute; border: 10px solid rgba(119, 33, 111, 0.298039); }
+.cells-selector.selected { border-color: rgb(119, 33, 111); }
+.cells-selector.rows, .cells-selector.all { border-top-color: transparent !important; border-bottom-color: transparent !important; border-right-color: transparent !important; }
+.cells-selector.cols { border-top-color: transparent !important; border-left-color: transparent !important; border-right-color: transparent !important; }
+.cells-selector.all { transform: rotate(-45deg); }
+.cells-selector:hover { border-color: rgb(243, 152, 20); }
+.layout-grid, .sublayout-grid { padding: 0px; margin: 0px; min-width: 0px; background-color: transparent; border: none; box-shadow: none !important; }
+.layout-grid-content { border-collapse: collapse; border: 1px solid rgb(221, 221, 221); }
+.layout-cell { background-color: rgba(119, 33, 111, 0.298039); border: 1px solid rgb(221, 221, 221); min-width: 20px; width: 20px; height: 20px; cursor: pointer; }
+.layout-cell.selected { background-color: rgb(119, 33, 111); }
+.layout-cell.selecting { background-color: rgb(233, 84, 32); }
+.layout-container { padding: 10px 15px; align-items: center; }
+.layout-controls { display: flex; justify-content: space-between; align-items: center; }
+.layout-controls &gt; .layout-controls-wrapper { display: flex; align-items: baseline; }
+.layout-controls .btn { border: 0px; border-radius: 0px; white-space: nowrap; padding: 4px 8px !important; }
+.layout-controls .btn.toggle-controls-btn { margin-left: 1rem !important; }
+.pagination input { color: inherit; background: transparent; border: 0px; outline: none; }
+.contrasted-chart-header-btn:not(:hover) { background: rgba(255, 255, 255, 0.2) !important; }
+.message-banner { position: fixed; left: 0px; width: 100%; margin-bottom: 0px; z-index: 10; }
+.message-banner.top { top: 0px; }
+.message-banner.bottom { bottom: 0px; }
+.legend { box-shadow: rgba(0, 0, 0, 0.2) 0px 8px 17px 0px, rgba(0, 0, 0, 0.188235) 0px 6px 20px 0px; z-index: 10; }
+.legend:not(.no-move) { cursor: move !important; }
+.legend-glyph:not(.aa) { shape-rendering: crispEdges; }
+.legend-group-label { font-weight: bold; }
+.ui-selectable-helper { z-index: 1100; }
+.ui-selectable-helper.no-top { border-top: 0px; }
+.ui-selectable-helper.no-right { border-right: 0px; }
+.ui-selectable-helper.no-bottom { border-bottom: 0px; }
+.ui-selectable-helper.no-left { border-left: 0px; }
+.print-preview &gt; .modal-dialog { position: absolute; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; }
+.page-preview { border: 1px dashed rgb(51, 51, 51); margin: 0px auto; }
+.page-preview.portrait { height: 60vh; width: 42.42vh; }
+.page-preview.landscape { width: 60vw; height: 42.42vw; }
+.tooltip-key::after { content: ": "; }
+.brushed-out, .bar.brushed-out { fill: rgb(204, 204, 204) !important; }
+.infowrapper { pointer-events: none; }
+.information { overflow-y: overlay; overflow-x: hidden; padding: 0.5em; font-family: monospace; box-shadow: rgba(0, 0, 0, 0.2) 0px 8px 17px 0px, rgba(0, 0, 0, 0.188235) 0px 6px 20px 0px; display: inline-block; float: right; cursor: move; pointer-events: all; }
+.information span { float: left; clear: both; }
+.axis path, .axis line, .grid line{
+stroke: #636363;
+}
+
+.tick text{
+fill: #636363;
+}
+
+.axis path, .axis line{
+stroke-width: 1px;
+}
+
+.bar-label{
+fill: #000000;
+}
+
+.bar-label{
+font-size: 10px;
+}
+
+.bin-value{
+stroke: red;
+}
+
+.bin-value{
+}
+
+.bin-value{
+stroke-width: 1px;
+}
+
+.bound{
+stroke: red;
+}
+
+.bound{
+stroke-width: 2px;
+}
+
+.bound.bounded{
+stroke: limegreen;
+}
+
+.baseline{
+stroke: #000000;
+}
+
+.baseline{
+}
+
+.baseline{
+stroke-width: 1px;
+}
+
+.box-element rect{
+fill: #8fbbd9;
+}
+
+.boxplot .outlier line{
+stroke: #ff0000;
+}
+
+.boxplot .outlier line{
+stroke-width: 1px;
+}
+
+.quartile{
+stroke: #000000;
+}
+
+.quartile{
+stroke-dasharray: 3, 2;
+}
+
+.quartile{
+stroke-width: 1px;
+}
+
+.box-element line{
+stroke: #000000;
+}
+
+.box-element line{
+stroke-width: 1px;
+}
+
+.censEvents{
+fill: #d44242;
+}
+
+.censEvents{
+stroke: #d44242;
+}
+
+.censObservations{
+fill: #d44242;
+}
+.censObsIntervals{stroke:rgb(212,66,66);stroke-opacity:0.498039;}
+
+.censObsIntervals{
+}
+
+.censObsIntervals{
+stroke-width: 5px;
+}
+
+.convergence-line{
+stroke: #4682B4;
+}
+
+.cvIndicator-line{
+stroke: #990099;
+}
+
+.dosingTimes{
+stroke: #000000;
+}
+
+.dosingTimes{
+stroke-dasharray: 8, 8;
+}
+
+.dosingTimes{
+stroke-width: 2px;
+}
+
+line.empirical, path.empirical{
+stroke: #4682B4;
+}
+
+.dot.empirical{
+fill: #4682B4;
+}
+
+line.empirical, path.empirical{
+}
+
+line.empirical, path.empirical{
+stroke-width: 2px;
+}
+
+.fisher_linearization&gt;.bar{
+fill: #4682B4;
+}
+
+.fisher_stochasticApproximation&gt;.bar{
+fill: #98abc5;
+}
+
+.focus &gt; line, .focus &gt; circle{
+stroke: blue;
+}
+
+.lixoftchart{
+background-color: #ffffff;
+}
+
+.sublayout-controls:hover{
+background-color: #ffffff;
+}
+
+.bar:hover, .band-overlay:hover{
+fill: orange !important;
+}
+
+g.bar, g.histogram{
+fill: #4682B4;
+}
+
+g.bar, g.histogram{
+stroke: #ffffff;
+}
+
+g.bar, g.histogram{
+stroke-width: 1px;
+}
+
+.information{
+background-color: #FFFFCC;
+}
+
+.information{
+fill: #FFFFCC;
+}
+
+.information{
+font-size: 12px;
+}
+
+.information{
+color: #000000;
+}
+
+.k1{
+stroke: red;
+}
+
+.k1{
+stroke-width: 1px;
+}
+
+.axis-label.global{
+fill: #000000;
+}
+
+.axis-label.global{
+font-size: 14px;
+}
+
+.legend-frame{
+fill: #ffffff;
+}
+
+.legend-frame{
+stroke: #000000;
+}
+
+.legend-frame{
+stroke-width: 0px;
+}
+
+.legend text{
+fill: #000000;
+}
+
+.legend{
+font-size: 12px;
+}
+
+.ll_importanceSampling&gt;.bar{
+fill: #98abc5;
+}
+
+.ll_linearization&gt;.bar{
+fill: #4682B4;
+}
+
+path.median, line.median{
+stroke: #000000;
+}
+
+path.median, line.median{
+stroke-dasharray: 5,3;
+}
+
+path.median, line.median{
+stroke-width: 1px;
+}
+
+.observation{
+fill: #4682B4;
+}
+
+.observation{
+stroke: #4682B4;
+}
+
+.observation-line{
+stroke-width: 1.5px;
+}
+
+.obsStatisticsValues{
+font-size: 10px;
+}
+
+.outlier.area{
+fill: #ff0000;
+}
+
+.outlier.dot{
+stroke: #ff0000;
+}
+
+.outlier.dot{
+stroke-width: 1px;
+}
+
+.confidenceInterval{
+stroke: #000000;
+}
+.prediction-interval.median{fill:rgb(255,0,0);fill-opacity:0.2;}
+.prediction-interval.low, .prediction-interval.up{fill:rgb(0,128,255);fill-opacity:0.298039;}
+
+.confidenceInterval{
+stroke-dasharray: 3, 4;
+}
+
+.confidenceInterval{
+stroke-width: 1.5px;
+}
+.plot-background{fill:rgb(250,250,255);fill-opacity:0.6;}
+.bar{stroke:rgb(250,250,255);stroke-opacity:0.6;}
+
+.regressionLine{
+stroke: #000000;
+}
+
+.regressionLine{
+}
+
+.regressionLine{
+stroke-width: 1.5px;
+}
+
+.spline{
+stroke: #eba213;
+}
+
+.spline{
+}
+
+.spline{
+stroke-width: 1.5px;
+}
+
+.axis-label.sublabel, .matrix-diagonal-label{
+fill: #000000;
+}
+
+.axis-label.sublabel, .matrix-diagonal-label{
+font-size: 12px;
+}
+
+line.theoretical, path.theoretical{
+stroke: #000000;
+}
+
+.dot.theoretical{
+fill: #000000;
+}
+
+line.theoretical, path.theoretical{
+stroke-dasharray: 5,3;
+}
+
+line.theoretical, path.theoretical{
+stroke-width: 1.5px;
+}
+
+.tick{
+font-size: 10px;
+}
+
+.title{
+fill: #000000;
+}
+
+.title{
+font-size: 14px;
+}
+
+.axis-label-unit{
+fill: #999;
+}
+
+.userGuide-dot{
+fill: red;
+}
+
+.userGuide-line{
+stroke: red;
+}
+
+.userGuide-dot{
+r: 3;
+}
+
+.userGuide-line{
+}
+
+.userGuide-line{
+stroke-width: 1px;
+}
+
+.brushed-out, .brushed-out.bar{
+fill: #ccc !important;
+}
+.not-censObservations{display:none;}
+.not-confidenceInterval{display:none;}
+.not-grid{display:none;}
+.hasCensored,.__hasCensored{display:none;}
+.hasIOV,.__hasIOV{display:none;}
+.not-hasMean{display:none;}
+.not-hasMode{display:none;}
+.not-indivPred{display:none;}
+.not-isIndivEstimMean{display:none;}
+.legend,.__legend{display:none;}
+.linkedZoom,.__linkedZoom{display:none;}
+.not-observations{display:none;}
+.outliers,.__outliers{display:none;}
+.not-popPred{display:none;}
+.not-regressionLine{display:none;}
+.segments,.__segments{display:none;}
+.not-spline{display:none;}
+.splitted,.__splitted{display:none;}
+.not-xEqualDomains{display:none;}
+.xLog,.__xLog{display:none;}
+.not-yEqualDomains{display:none;}
+.yLog,.__yLog{display:none;}
+.not-bottomAxisLine{display:none;}
+.not-bottomAxisTickLabels{display:none;}
+.not-leftAxisLine{display:none;}
+.not-leftAxisTickLabels{display:none;}
+.rightAxisLine,.__rightAxisLine{display:none;}
+.not-rightAxisTickLabels{display:none;}
+.topAxisLine,.__topAxisLine{display:none;}
+.not-topAxisTickLabels{display:none;}
+.freehand-guides-layer,.__freehand-guides-layer{display:none;}
+</style><g class="lixoftchart-scaler"><g class="lixoftchart-translator" transform="translate(50,40)"><g class="x axis" transform="translate(0, 595)"><text class="x axis-label global" x="315" y="-10" style="text-anchor: middle;"><tspan class="axis-label-text"/><tspan class="axis-label-unit"/></text></g><g class="y axis"><text class="y axis-label global" transform="rotate(-90)" x="-297.5" y="-30" style="text-anchor: middle;"><tspan class="axis-label-text">Observations</tspan><tspan class="axis-label-unit"/></text></g><g class="page plot-page active" data-index="0"><g class="plot-container page-element" width="630" height="555" data-index="0" data-col="0" data-row="0" transform="translate(0,0)"><g class="subpage plot-page active" data-index="0"><g class="plot page-element" width="290" height="555" id="All-population" data-index="0" title="population" transform="translate(0,0)"><rect width="290" height="555" class="plot-background"/><svg class="plot-content brushable-content" width="290" height="555"><g class="observations-container"><g class="individual-observations" data-individual="1"><g class="observation colored" data-id="0" data-subject-name="1" style="fill: rgb(70, 130, 180); stroke: rgb(70, 130, 180);"><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable observation-glyph" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" data-legend="Observed data" data-legend-class="observations" data--legend="Observed data" cx="116.11395649580375" cy="145.21500322102702"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="171.52147816955795" cy="25.227272727272975" data-legend="Observed data" data-legend-class="Observed data"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="88.3102139721849" cy="251.7786920435185" data-legend="Observed data" data-legend-class="Observed data"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="58.503291385581356" cy="294.92345148901677" data-legend="Observed data" data-legend-class="Observed data"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="42.96047388433804" cy="320.8692329908123" data-legend="Observed data" data-legend-class="Observed data"/></g></g><g class="individual-observations" data-individual="2"><g class="observation colored" data-id="1" data-subject-name="2" style="fill: rgb(70, 130, 180); stroke: rgb(70, 130, 180);"><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="116.11395649580375" cy="380.49481177208554"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="171.52147816955795" cy="266.5838079607959"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="88.3102139721849" cy="425.8677043344873"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="58.503291385581356" cy="465.93727179219286"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="44.27796128650926" cy="499.04622504998446"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="35.23029654367433" cy="510.8129776260294"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="29.9633631197853" cy="522.3403439994319"/></g></g><g class="individual-observations" data-individual="3"><g class="observation colored" data-id="2" data-subject-name="3" style="fill: rgb(70, 130, 180); stroke: rgb(70, 130, 180);"><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="116.11395649580375" cy="363.59046300086595"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="171.52147816955795" cy="289.03086803935423"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="88.3102139721849" cy="415.1505681854136"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="58.503291385581356" cy="464.5193688996178"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="44.27796128650926" cy="493.5035137426456"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="35.23029654367433" cy="512.8201388635707"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="29.9633631197853" cy="502.43446053354046"/></g></g><g class="individual-observations" data-individual="4"><g class="observation colored" data-id="3" data-subject-name="4" style="fill: rgb(70, 130, 180); stroke: rgb(70, 130, 180);"><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="116.11395649580375" cy="299.3797177228241"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="151.21843717305853" cy="263.6559305592448"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="98.9691154059433" cy="359.53931187922296"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="62.80719588725802" cy="420.74852246259303"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="46.64123330281591" cy="467.0973741588452"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="36.88114140005139" cy="496.7076059933996"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="34.59595260170382" cy="502.30556027057906"/></g></g><g class="individual-observations" data-individual="5"><g class="observation colored" data-id="4" data-subject-name="5" style="fill: rgb(70, 130, 180); stroke: rgb(70, 130, 180);"><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="116.11395649580375" cy="315.8789513818793"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="171.52147816955795" cy="241.39301371348836"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="88.3102139721849" cy="370.09071911877504"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="58.503291385581356" cy="413.36437882723453"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="44.27796128650926" cy="442.42218096338314"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="35.23029654367433" cy="461.84929202398945"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="31.44719539664595" cy="470.0068372371161"/></g></g><g class="individual-observations" data-individual="6"><g class="observation colored" data-id="5" data-subject-name="6" style="fill: rgb(70, 130, 180); stroke: rgb(70, 130, 180);"><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="116.11395649580375" cy="384.5275485704484"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="171.52147816955795" cy="349.55874866135696"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="88.3102139721849" cy="407.9505677828571"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="58.503291385581356" cy="454.35466244894985"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="44.27796128650926" cy="462.5858649551973"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="35.23029654367433" cy="480.09788639466325"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="33.36763827298152" cy="487.2058151808187"/></g></g><g class="individual-observations" data-individual="7"><g class="observation colored" data-id="6" data-subject-name="7" style="fill: rgb(70, 130, 180); stroke: rgb(70, 130, 180);"><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="73.79179936135957" cy="398.5224342633969"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="99.89152204166291" cy="302.5469813270178"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="129.91584607087142" cy="280.1183355717395"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="73.40675267888314" cy="452.5132301209303"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="51.39062633604531" cy="500.5746138822407"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="38.622215413287286" cy="523.7030039221663"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="33.59334553938162" cy="528.9879147035824"/></g></g><g class="individual-observations" data-individual="8"><g class="observation colored" data-id="7" data-subject-name="8" style="fill: rgb(70, 130, 180); stroke: rgb(70, 130, 180);"><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="116.11395649580375" cy="362.835475746378"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="171.52147816955795" cy="255.64569993235972"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="88.3102139721849" cy="423.7500571572649"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="58.503291385581356" cy="474.57358941060454"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="44.27796128650926" cy="503.0789618483473"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="35.23029654367433" cy="514.0723128466241"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="31.61671890445715" cy="521.5485280983835"/></g></g><g class="individual-observations" data-individual="9"><g class="observation colored" data-id="8" data-subject-name="9" style="fill: rgb(70, 130, 180); stroke: rgb(70, 130, 180);"><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="116.11395649580375" cy="308.07127831107636"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="171.52147816955795" cy="243.97101897271574"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="88.3102139721849" cy="395.134198779841"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="58.503291385581356" cy="434.0620781941744"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="44.27796128650926" cy="455.1833069965587"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="35.23029654367433" cy="477.814510307919"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="29.9633631197853" cy="485.6958406718427"/></g></g><g class="individual-observations" data-individual="10"><g class="observation colored" data-id="9" data-subject-name="10" style="fill: rgb(70, 130, 180); stroke: rgb(70, 130, 180);"><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="116.11395649580375" cy="242.65899843900183"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="171.52147816955795" cy="95.05438660577425"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="88.3102139721849" cy="280.3393074511019"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="58.503291385581356" cy="351.6579815152993"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="44.27796128650926" cy="417.1393150996746"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="34.28395694223652" cy="447.209905016234"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="31.61671890445715" cy="459.1239721785205"/></g></g><g class="individual-observations" data-individual="11"><g class="observation colored" data-id="10" data-subject-name="11" style="fill: rgb(70, 130, 180); stroke: rgb(70, 130, 180);"><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="116.11395649580375" cy="368.5439159632386"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="171.52147816955795" cy="300.7423776455586"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="88.3102139721849" cy="418.2625888197666"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="58.503291385581356" cy="460.9654045065401"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="44.27796128650926" cy="498.07026591613413"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="34.28395694223652" cy="508.89788800488907"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="29.9633631197853" cy="516.8344613386533"/></g></g><g class="individual-observations" data-individual="12"><g class="observation colored" data-id="11" data-subject-name="12" style="fill: rgb(70, 130, 180); stroke: rgb(70, 130, 180);"><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="116.11395649580375" cy="332.617571243577"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="171.52147816955795" cy="276.4722995622609"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="88.3102139721849" cy="385.7428939069412"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="58.503291385581356" cy="428.4641239169949"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="44.27796128650926" cy="456.1776804536892"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="35.23029654367433" cy="472.73215708258505"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="29.9633631197853" cy="481.1659171449146"/></g></g><g class="individual-observations" data-individual="13"><g class="observation colored" data-id="12" data-subject-name="13" style="fill: rgb(70, 130, 180); stroke: rgb(70, 130, 180);"><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="116.11395649580375" cy="339.1178273614861"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="171.52147816955795" cy="269.29071348298453"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="88.3102139721849" cy="386.8293389804728"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="58.503291385581356" cy="439.1628457427886"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="44.27796128650926" cy="467.11578848212537"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="35.23029654367433" cy="489.71016314692537"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="29.9633631197853" cy="499.4145115155884"/></g></g><g class="individual-observations" data-individual="14"><g class="observation colored" data-id="13" data-subject-name="14" style="fill: rgb(70, 130, 180); stroke: rgb(70, 130, 180);"><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="116.11395649580375" cy="392.6482651370146"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="171.52147816955795" cy="230.27076245225027"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="88.3102139721849" cy="382.31782977682485"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="58.503291385581356" cy="459.82371646316795"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="44.27796128650926" cy="498.4017237351776"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="35.23029654367433" cy="517.3316480672187"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="31.055356792512583" cy="525.1209068147414"/></g></g></g><g class="spline-container"><path data-legend="Spline" class="line autoscale spline" d="M29.9633631197853,495.4883929181086L31.13880277224096,493.91246333938903L32.352095586579246,491.71160563765386L32.79452542078075,490.8562845104463L33.60446056358981,489.2455194204412L34.89715596004122,486.41348352984625L35.6256877217762,484.8055917281772L36.23148055285721,483.47440028611516L37.60877494400383,480.47510638166256L38.456850022771654,478.64324461227L39.030422907398254,477.4277097178109L40.49785277919269,474.3421307936037L41.28801232376711,472.68065470921783L42.012538892830264,471.1571857145492L43.576003060314434,467.89715598092425L44.11917462476256,466.7792747918377L45.18981610118043,464.59674244238767L46.855599420704806,461.21424042317307L46.95033692575801,461.02478621941657L48.57502663893855,457.77576360910825L49.78149922675346,455.363083400249L50.349825272200945,454.2265561257141L52.18177846872278,450.6013242749695L52.61266152774893,449.7604968770133L54.07272680018368,446.9113180612059L55.44382382874438,444.2357523300402L56.02457011094272,443.10248107440714L58.039269426820645,439.17098655878954L58.27498612973982,438.7110077830672L60.11884892535146,435.1719420741314L61.10614843073528,433.2814120356012L62.2653979694827,431.0616235487202L63.937310731730726,427.89399413913037L64.48107320676793,426.8690493085146L66.76810073616029,422.5582019232362L66.76847303272618,422.5575001766865L69.12877834458415,418.1085305638087L69.59963533372164,417.2210062142427L71.5654778155321,413.51556462524985L72.4307976347171,411.88451225179887L74.08064731200665,408.78255488821856L75.26195993571255,406.5676377953091L76.67681383620047,403.9148395222073L78.09312223670798,401.25931411583827L79.35658576838722,398.8903671356519L80.92428453770346,395.9509904363674L82.12265548757277,393.7040896183731L83.75544683869889,390.64266675689663L84.97780207654084,388.35079629384325L86.58660913969435,385.3343430774258L87.92489411400987,382.82510868399606L89.41777144068979,379.9928574106196L90.96689255670721,377.0419300307392L92.24893374168526,374.59976434351904L94.10685371425556,371.0606047129413L95.08009604268072,369.20667127641843L97.3479323198614,364.8866603397506L97.91125834367615,363.81357820931794L100.69338469988945,358.49189996574L100.74242064467163,358.3978247709998L103.57358294566706,352.96625521543444L104.14657204550866,351.86697872772606L106.40474524666251,347.53468565986907L107.71096378969635,345.028712452765L109.23590754765797,342.1031161043036L111.39014109299289,337.9702307037369L112.06706984865343,336.6715465487382L114.89823214964888,331.23997699317283L115.18780044151025,330.68444179203715L117.72939445064432,325.84947021074925L119.1077573608082,323.2401249947386L120.56055675163978,320.4898658921928L123.1539502493702,315.58037589747767L123.39171905263524,315.1302615736364L126.22288135363067,309.7706572550801L127.33044433553013,307.6739567802348L129.05404365462616,304.4110529365238L131.6414357618258,299.6225607224194L131.8852059556216,299.17657344297L134.71636825661705,293.9968492419123L136.091255800882,291.48143771490163L137.5475305576125,288.81712504085465L140.37869285860796,283.6374008397969L140.68437520706024,283.0781428073069L143.2098551596034,278.4576766387392L145.42540870824547,274.40423317115506L146.04101746059885,273.2779524376815L148.87217976159428,268.0982282366238L150.3191196422844,265.45099409012124L151.70334206258977,262.9724715260333L154.5345043635852,258.1078415378584L155.37042474273238,256.67152566762513L157.36566666458063,253.24321154968362L160.1968289655761,248.37858156150878L160.5843990787183,247.7126412181209L163.02799126657155,243.5139515733341L165.85915356756703,238.64932158515904L165.96628115388896,238.46525016375068L168.69031586856246,233.78469159698437L171.52147816955795,228.92006160880953" data-legend-class="spline" fill="none"/></g><path class="line autoscale regressionLine" data-legend-class="regressionLine" data-legend="y = x line" d="M0,555L0.30847870983581327,554.4096355725555L0.6169574196716265,553.8192711451112L0.9254361295074408,553.2289067176667L1.233914839343254,552.6385422902224L1.5423935491790675,552.048177862778L1.8508722590148805,551.4578134353336L2.1593509688506938,550.8674490078891L2.467829678686508,550.2770845804448L2.7763083885223203,549.6867201530004L3.084787098358135,549.096355725556L3.565882030903785,548.1756395615462L4.046976963449435,547.2549233975365L4.528071895995082,546.3342072335266L5.0091668285407325,545.4134910695169L5.490261761086383,544.4927749055071L5.971356693632032,543.5720587414974L6.452451626177683,542.6513425774875L6.9335465587233305,541.7306264134778L7.41464149126898,540.809910249468L7.895736423814631,539.8891940854583L8.37683135636028,538.9684779214484L8.857926288905931,538.0477617574386L9.339021221451578,537.1270455934289L9.820116153997228,536.206329429419L10.301211086542878,535.2856132654093L10.782306019088528,534.3648971013995L11.263400951634177,533.4441809373898L11.744495884179825,532.5234647733799L12.225590816725477,531.6027486093702L12.706685749271125,530.6820324453604L13.187780681816774,529.7613162813507L13.668875614362426,528.8406001173408L14.149970546908072,527.9198839533311L14.631065479453726,526.9991677893213L15.112160411999374,526.0784516253116L15.593255344545021,525.1577354613017L16.074350277090673,524.237019297292L16.55544520963632,523.3163031332822L17.036540142181973,522.3955869692725L17.51763507472762,521.4748708052626L17.99873000727327,520.5541546412529L18.479824939818922,519.6334384772431L18.960919872364567,518.7127223132334L19.442014804910222,517.7920061492235L19.923109737455867,516.8712899852138L20.404204670001516,515.950573821204L20.88529960254717,515.0298576571942L21.366394535092816,514.1091414931844L21.847489467638468,513.1884253291746L22.328584400184116,512.2677091651649L22.809679332729765,511.3469930011551L23.290774265275417,510.42627683714534L23.771869197821065,509.50556067313556L24.252964130366717,508.5848445091258L24.734059062912362,507.664128345116L25.215153995458014,506.74341218110624L25.696248928003662,505.82269601709646L26.17734386054931,504.9019798530867L26.658438793094966,503.98126368907685L27.13953372564061,503.06054752506714L27.62062865818626,502.1398313610573L28.10172359073191,501.21911519704753L28.58281852327756,500.29839903303775L29.06391345582321,499.377682869028L29.54500838836886,498.4569667050182L30.02610332091451,497.5362505410084L30.507198253460157,496.61553437699865L30.98829318600581,495.6948182129889L31.46938811855146,494.7741020489791L31.950483051097105,493.8533858849693L32.431577983642754,492.93266972095955L32.9126729161884,492.0119535569498L33.39376784873406,491.09123739294L33.87486278127971,490.1705212289302L34.355957713825354,489.24980506492045L34.837052646371006,488.3290889009107L35.31814757891665,487.4083727369009L35.7992425114623,486.48765657289107L36.280337444007955,485.56694040888135L36.76143237655361,484.6462242448715L37.242527309099245,483.7255080808618L37.7236222416449,482.804791916852L38.204717174190556,481.88407575284225L38.6858121067362,480.9633595888324L39.16690703928185,480.04264342482264L39.6480019718275,479.12192726081287L40.12909690437314,478.20121109680315L40.6101918369188,477.2804949327933L41.09128676946445,476.35977876878354L41.5723817020101,475.43906260477377L46.383331027466596,466.231900964676L51.194280352923094,457.0247393245782L56.005229678379585,447.81757768448045L60.81617900383608,438.61041604438265L65.62712832929257,429.4032544042849L70.43807765474907,420.19609276418714L75.24902698020556,410.9889311240894L80.05997630566206,401.7817694839916L84.87092563111855,392.5746078438938L89.68187495657504,383.367446203796L94.49282428203155,374.16028456369827L99.30377360748804,364.9531229236005L104.11472293294453,355.7459612835027L108.92567225840104,346.5387996434049L113.73662158385753,337.33163800330715L118.54757090931402,328.1244763632094L123.35852023477052,318.9173147231116L128.16946956022701,309.7101530830138L132.98041888568352,300.502991442916L137.79136821114,291.2958298028183L142.6023175365965,282.08866816272047L147.413266862053,272.88150652262266L152.22421618750948,263.67434488252496L157.03516551296596,254.4671832424272L161.84611483842244,245.26002160232946L166.65706416387897,236.05285996223165L171.46801348933545,226.8456983221339L176.27896281479195,217.6385366820361L181.08991214024843,208.43137504193834L185.90086146570493,199.22421340184053L190.7118107911614,190.01705176174278L195.52276011661795,180.80989012164497L200.33370944207442,171.60272848154722L205.14465876753093,162.3955668414494L209.9556080929874,153.1884052013517L214.7665574184439,143.9812435612539L219.5775067439004,134.77408192115615L224.38845606935692,125.56692028105834L229.1994053948134,116.35975864096059L234.0103547202699,107.15259700086278L238.82130404572638,97.94543536076503L243.63225337118288,88.73827372066722L248.44320269663936,79.53111208056947L253.2541520220959,70.32395044047166L258.06510134755234,61.11678880037391L262.8760506730089,51.9096271602761L267.68699999846535,42.70246552017841L272.4979493239219,33.49530388008054L277.30889864937836,24.28814223998279L282.11984797483484,15.080980599885038L286.9307973002913,5.873818959787286L290,0" fill="none"/><g class="userGuides"/></svg><g class="axes"><g class="bottom axis bottomAxisLine" transform="translate(0,555)" fill="none" text-anchor="middle"><path class="domain" stroke="#000" d="M0.5,6V0.5H290.5V6" fill="none"/><g class="tick" opacity="1" transform="translate(42.0723817020101,0)"><line stroke="#000" y2="3" fill="none"/><text fill="#000" y="6" dy="0.71em" class="bottomAxisTickLabels transformed-label"><tspan class="label-block"><tspan class="label-subblock">10</tspan></tspan></text></g><g class="tick" opacity="1" transform="translate(90.18187495657504,0)"><line stroke="#000" y2="3" fill="none"/><text fill="#000" y="6" dy="0.71em" class="bottomAxisTickLabels transformed-label"><tspan class="label-block"><tspan class="label-subblock">20</tspan></tspan></text></g><g class="tick" opacity="1" transform="translate(138.29136821114,0)"><line stroke="#000" y2="3" fill="none"/><text fill="#000" y="6" dy="0.71em" class="bottomAxisTickLabels transformed-label"><tspan class="label-block"><tspan class="label-subblock">30</tspan></tspan></text></g><g class="tick" opacity="1" transform="translate(186.40086146570493,0)"><line stroke="#000" y2="3" fill="none"/><text fill="#000" y="6" dy="0.71em" class="bottomAxisTickLabels transformed-label"><tspan class="label-block"><tspan class="label-subblock">40</tspan></tspan></text></g><g class="tick" opacity="1" transform="translate(234.5103547202699,0)"><line stroke="#000" y2="3" fill="none"/><text fill="#000" y="6" dy="0.71em" class="bottomAxisTickLabels transformed-label"><tspan class="label-block"><tspan class="label-subblock">50</tspan></tspan></text></g><g class="tick" opacity="1" transform="translate(282.61984797483484,0)"><line stroke="#000" y2="3" fill="none"/><text fill="#000" y="6" dy="0.71em" class="bottomAxisTickLabels transformed-label"><tspan class="label-block"><tspan class="label-subblock">60</tspan></tspan></text></g><text class="axis-label sublabel bottom" x="145" y="25" style="text-anchor: middle;"><tspan class="transformed-label"><tspan class="label-block"><tspan class="label-subblock">Population </tspan></tspan><tspan class="label-block"><tspan class="label-subblock">predictions</tspan></tspan></tspan><tspan class="axis-label-unit bottom"/></text></g><g class="left axis leftAxisLine" fill="none" text-anchor="end"><path class="domain" stroke="#000" d="M-6,555.5H0.5V0.5H-6" fill="none"/><g class="tick" opacity="1" transform="translate(0,521.9748708052626)"><line stroke="#000" x2="-3" fill="none"/><text fill="#000" x="-6" dy="0.32em" class="leftAxisTickLabels transformed-label"><tspan class="label-block"><tspan class="label-subblock">5</tspan></tspan></text></g><g class="tick" opacity="1" transform="translate(0,475.93906260477377)"><line stroke="#000" x2="-3" fill="none"/><text fill="#000" x="-6" dy="0.32em" class="leftAxisTickLabels transformed-label"><tspan class="label-block"><tspan class="label-subblock">10</tspan></tspan></text></g><g class="tick" opacity="1" transform="translate(0,429.9032544042849)"><line stroke="#000" x2="-3" fill="none"/><text fill="#000" x="-6" dy="0.32em" class="leftAxisTickLabels transformed-label"><tspan class="label-block"><tspan class="label-subblock">15</tspan></tspan></text></g><g class="tick" opacity="1" transform="translate(0,383.867446203796)"><line stroke="#000" x2="-3" fill="none"/><text fill="#000" x="-6" dy="0.32em" class="leftAxisTickLabels transformed-label"><tspan class="label-block"><tspan class="label-subblock">20</tspan></tspan></text></g><g class="tick" opacity="1" transform="translate(0,337.83163800330715)"><line stroke="#000" x2="-3" fill="none"/><text fill="#000" x="-6" dy="0.32em" class="leftAxisTickLabels transformed-label"><tspan class="label-block"><tspan class="label-subblock">25</tspan></tspan></text></g><g class="tick" opacity="1" transform="translate(0,291.7958298028183)"><line stroke="#000" x2="-3" fill="none"/><text fill="#000" x="-6" dy="0.32em" class="leftAxisTickLabels transformed-label"><tspan class="label-block"><tspan class="label-subblock">30</tspan></tspan></text></g><g class="tick" opacity="1" transform="translate(0,245.76002160232946)"><line stroke="#000" x2="-3" fill="none"/><text fill="#000" x="-6" dy="0.32em" class="leftAxisTickLabels transformed-label"><tspan class="label-block"><tspan class="label-subblock">35</tspan></tspan></text></g><g class="tick" opacity="1" transform="translate(0,199.72421340184053)"><line stroke="#000" x2="-3" fill="none"/><text fill="#000" x="-6" dy="0.32em" class="leftAxisTickLabels transformed-label"><tspan class="label-block"><tspan class="label-subblock">40</tspan></tspan></text></g><g class="tick" opacity="1" transform="translate(0,153.6884052013517)"><line stroke="#000" x2="-3" fill="none"/><text fill="#000" x="-6" dy="0.32em" class="leftAxisTickLabels transformed-label"><tspan class="label-block"><tspan class="label-subblock">45</tspan></tspan></text></g><g class="tick" opacity="1" transform="translate(0,107.65259700086278)"><line stroke="#000" x2="-3" fill="none"/><text fill="#000" x="-6" dy="0.32em" class="leftAxisTickLabels transformed-label"><tspan class="label-block"><tspan class="label-subblock">50</tspan></tspan></text></g><g class="tick" opacity="1" transform="translate(0,61.61678880037391)"><line stroke="#000" x2="-3" fill="none"/><text fill="#000" x="-6" dy="0.32em" class="leftAxisTickLabels transformed-label"><tspan class="label-block"><tspan class="label-subblock">55</tspan></tspan></text></g><g class="tick" opacity="1" transform="translate(0,15.580980599885038)"><line stroke="#000" x2="-3" fill="none"/><text fill="#000" x="-6" dy="0.32em" class="leftAxisTickLabels transformed-label"><tspan class="label-block"><tspan class="label-subblock">60</tspan></tspan></text></g></g></g><g class="grid"><g class="vertical" transform="translate(0,555)" fill="none" font-size="10" font-family="sans-serif" text-anchor="middle"><g class="tick" opacity="1" transform="translate(42.0723817020101,0)"><line stroke="#000" y2="-555" fill="none"/></g><g class="tick" opacity="1" transform="translate(90.18187495657504,0)"><line stroke="#000" y2="-555" fill="none"/></g><g class="tick" opacity="1" transform="translate(138.29136821114,0)"><line stroke="#000" y2="-555" fill="none"/></g><g class="tick" opacity="1" transform="translate(186.40086146570493,0)"><line stroke="#000" y2="-555" fill="none"/></g><g class="tick" opacity="1" transform="translate(234.5103547202699,0)"><line stroke="#000" y2="-555" fill="none"/></g><g class="tick" opacity="1" transform="translate(282.61984797483484,0)"><line stroke="#000" y2="-555" fill="none"/></g></g><g class="horizontal" fill="none" font-size="10" font-family="sans-serif" text-anchor="end"><g class="tick" opacity="1" transform="translate(0,521.9748708052626)"><line stroke="#000" x2="290" fill="none"/></g><g class="tick" opacity="1" transform="translate(0,475.93906260477377)"><line stroke="#000" x2="290" fill="none"/></g><g class="tick" opacity="1" transform="translate(0,429.9032544042849)"><line stroke="#000" x2="290" fill="none"/></g><g class="tick" opacity="1" transform="translate(0,383.867446203796)"><line stroke="#000" x2="290" fill="none"/></g><g class="tick" opacity="1" transform="translate(0,337.83163800330715)"><line stroke="#000" x2="290" fill="none"/></g><g class="tick" opacity="1" transform="translate(0,291.7958298028183)"><line stroke="#000" x2="290" fill="none"/></g><g class="tick" opacity="1" transform="translate(0,245.76002160232946)"><line stroke="#000" x2="290" fill="none"/></g><g class="tick" opacity="1" transform="translate(0,199.72421340184053)"><line stroke="#000" x2="290" fill="none"/></g><g class="tick" opacity="1" transform="translate(0,153.6884052013517)"><line stroke="#000" x2="290" fill="none"/></g><g class="tick" opacity="1" transform="translate(0,107.65259700086278)"><line stroke="#000" x2="290" fill="none"/></g><g class="tick" opacity="1" transform="translate(0,61.61678880037391)"><line stroke="#000" x2="290" fill="none"/></g><g class="tick" opacity="1" transform="translate(0,15.580980599885038)"><line stroke="#000" x2="290" fill="none"/></g></g></g><defs><clipPath id="All-population--freehand-guides-clip" class="freehand-guides-clip"><rect x="0" y="0" width="290" height="555"/></clipPath></defs></g><g class="plot page-element" width="290" height="555" id="All-individual" data-index="1" title="individual" transform="translate(340,0)"><rect width="290" height="555" class="plot-background"/><svg class="plot-content brushable-content" width="290" height="555"><g class="observations-container"><g class="individual-observations" data-individual="1"><g class="observation colored" data-id="0" data-subject-name="1" style="fill: rgb(70, 130, 180); stroke: rgb(70, 130, 180);"><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable observation-glyph" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" data-legend="Observed data" data-legend-class="observations" data--legend="Observed data" cx="195.31675080546617" cy="145.21500322102702"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="260.4169679098992" cy="25.227272727272975" data-legend="Observed data" data-legend-class="Observed data"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="161.1650767310823" cy="251.7786920435185" data-legend="Observed data" data-legend-class="Observed data"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="130.86123892330565" cy="294.92345148901677" data-legend="Observed data" data-legend-class="Observed data"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="112.30273419519476" cy="320.8692329908123" data-legend="Observed data" data-legend-class="Observed data"/></g></g><g class="individual-observations" data-individual="2"><g class="observation colored" data-id="1" data-subject-name="2" style="fill: rgb(70, 130, 180); stroke: rgb(70, 130, 180);"><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="94.4530841708535" cy="380.49481177208554"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="144.03359990547457" cy="266.5838079607959"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="70.73276334147607" cy="425.8677043344873"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="43.1902676951725" cy="465.93727179219286"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="30.256623339574755" cy="499.04622504998446"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="22.5041587236398" cy="510.8129776260294"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="18.225283895150156" cy="522.3403439994319"/></g></g><g class="individual-observations" data-individual="3"><g class="observation colored" data-id="2" data-subject-name="3" style="fill: rgb(70, 130, 180); stroke: rgb(70, 130, 180);"><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="97.52703209017139" cy="363.59046300086595"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="146.04044907572035" cy="289.03086803935423"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="73.00365715555905" cy="415.1505681854136"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="46.52820735706912" cy="464.5193688996178"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="34.10995182580285" cy="493.5035137426456"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="26.450822744648793" cy="512.8201388635707"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="22.090218146742103" cy="502.43446053354046"/></g></g><g class="individual-observations" data-individual="4"><g class="observation colored" data-id="3" data-subject-name="4" style="fill: rgb(70, 130, 180); stroke: rgb(70, 130, 180);"><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="120.7865877319" cy="299.3797177228241"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="162.1633745782178" cy="263.6559305592448"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="111.11440105061544" cy="359.53931187922296"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="65.16445824652685" cy="420.74852246259303"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="43.60466711201501" cy="467.0973741588452"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="32.234274654476245" cy="496.7076059933996"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="29.89804882550561" cy="502.30556027057906"/></g></g><g class="individual-observations" data-individual="5"><g class="observation colored" data-id="4" data-subject-name="5" style="fill: rgb(70, 130, 180); stroke: rgb(70, 130, 180);"><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="119.85884756873202" cy="315.8789513818793"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="169.55929021144132" cy="241.39301371348836"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="96.21798752887507" cy="370.09071911877504"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="72.09570060945533" cy="413.36437882723453"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="58.503878764138705" cy="442.42218096338314"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="48.22895101931186" cy="461.84929202398945"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="43.59344964332321" cy="470.0068372371161"/></g></g><g class="individual-observations" data-individual="6"><g class="observation colored" data-id="5" data-subject-name="6" style="fill: rgb(70, 130, 180); stroke: rgb(70, 130, 180);"><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="84.90417952491026" cy="384.5275485704484"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="120.7379286123009" cy="349.55874866135696"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="74.44680123068281" cy="407.9505677828571"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="57.629694257899246" cy="454.35466244894985"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="46.31535374911696" cy="462.5858649551973"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="37.252900899242256" cy="480.09788639466325"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="35.24921071764998" cy="487.2058151808187"/></g></g><g class="individual-observations" data-individual="7"><g class="observation colored" data-id="6" data-subject-name="7" style="fill: rgb(70, 130, 180); stroke: rgb(70, 130, 180);"><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="80.15283623342675" cy="398.5224342633969"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="117.25347343184475" cy="302.5469813270178"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="150.22827685463426" cy="280.1183355717395"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="55.1349340986734" cy="452.5132301209303"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="26.65294123094093" cy="500.5746138822407"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="16.145108041231254" cy="523.7030039221663"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="13.343396763086208" cy="528.9879147035824"/></g></g><g class="individual-observations" data-individual="8"><g class="observation colored" data-id="7" data-subject-name="8" style="fill: rgb(70, 130, 180); stroke: rgb(70, 130, 180);"><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="100.58954160413708" cy="362.835475746378"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="152.92916600944042" cy="255.64569993235972"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="69.22194160608586" cy="423.7500571572649"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="40.12890448076285" cy="474.57358941060454"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="27.486575101268258" cy="503.0789618483473"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="20.28223656379282" cy="514.0723128466241"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="17.585018651073685" cy="521.5485280983835"/></g></g><g class="individual-observations" data-individual="9"><g class="observation colored" data-id="8" data-subject-name="9" style="fill: rgb(70, 130, 180); stroke: rgb(70, 130, 180);"><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="121.07811119177914" cy="308.07127831107636"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="169.76829046998407" cy="243.97101897271574"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="86.41365331354697" cy="395.134198779841"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="64.04572394665563" cy="434.0620781941744"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="51.370142270878745" cy="455.1833069965587"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="41.56851214654669" cy="477.814510307919"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="35.3804815943057" cy="485.6958406718427"/></g></g><g class="individual-observations" data-individual="10"><g class="observation colored" data-id="9" data-subject-name="10" style="fill: rgb(70, 130, 180); stroke: rgb(70, 130, 180);"><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="156.7571797108809" cy="242.65899843900183"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="236.4439100932982" cy="95.05438660577425"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="145.13237853663222" cy="280.3393074511019"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="98.50270115538878" cy="351.6579815152993"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="73.2763244232271" cy="417.1393150996746"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="57.03118553906991" cy="447.209905016234"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="53.17964664983584" cy="459.1239721785205"/></g></g><g class="individual-observations" data-individual="11"><g class="observation colored" data-id="10" data-subject-name="11" style="fill: rgb(70, 130, 180); stroke: rgb(70, 130, 180);"><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="93.68058395849752" cy="368.5439159632386"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="142.56741374090024" cy="300.7423776455586"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="73.28390567787122" cy="418.2625888197666"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="46.037016991432566" cy="460.9654045065401"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="32.84022030984654" cy="498.07026591613413"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="24.006744120658194" cy="508.89788800488907"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="20.367256153913356" cy="516.8344613386533"/></g></g><g class="individual-observations" data-individual="12"><g class="observation colored" data-id="11" data-subject-name="12" style="fill: rgb(70, 130, 180); stroke: rgb(70, 130, 180);"><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="110.93533825790809" cy="332.617571243577"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="157.39545232798883" cy="276.4722995622609"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="88.80009083794786" cy="385.7428939069412"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="66.44357124051025" cy="428.4641239169949"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="53.566593959774025" cy="456.1776804536892"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="43.739404119139365" cy="472.73215708258505"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="37.53826848162612" cy="481.1659171449146"/></g></g><g class="individual-observations" data-individual="13"><g class="observation colored" data-id="12" data-subject-name="13" style="fill: rgb(70, 130, 180); stroke: rgb(70, 130, 180);"><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="108.68235303775111" cy="339.1178273614861"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="160.50918945400227" cy="269.29071348298453"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="86.95325864025621" cy="386.8293389804728"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="59.34391881073043" cy="439.1628457427886"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="45.319476552246726" cy="467.11578848212537"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="36.008620670291336" cy="489.71016314692537"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="30.503717243048055" cy="499.4145115155884"/></g></g><g class="individual-observations" data-individual="14"><g class="observation colored" data-id="13" data-subject-name="14" style="fill: rgb(70, 130, 180); stroke: rgb(70, 130, 180);"><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="95.50881485503118" cy="392.6482651370146"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="155.31528142233765" cy="230.27076245225027"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="85.4502559816617" cy="382.31782977682485"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="49.222510985706656" cy="459.82371646316795"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="30.03742228131808" cy="498.4017237351776"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="19.528304736507653" cy="517.3316480672187"/><circle data-tooltip="true" class="observation-dot dot obsDots autoscale observations colored highlightable brushable" data-highlight-key="observation-dot" data-highlight-grow="true" r="3" cx="15.623582677889859" cy="525.1209068147414"/></g></g></g><g class="spline-container"><path data-legend="Spline" class="line autoscale spline" d="M13.343396763086208,529.7727272727232L14.403418286109945,527.8680986303967L15.519959773886773,525.861915876768L16.69603485052366,523.7026295520857L17.934817825476518,521.4041873692317L18.284868186022464,520.7486442132958L19.23965226123494,518.9472099514403L20.61405999783287,516.3313444149359L22.061750658542856,513.5501187998912L23.226339608958725,511.29146254293966L23.586631662410504,510.5912900790483L25.19281877065366,507.45263318275715L26.884647195391814,504.1369301266649L28.16781103189498,501.6128608531646L28.66668330068884,500.63113485485985L30.543736927491302,496.9385567062856L32.5208743757278,493.061706128982L33.109282454831245,491.9128877921388L34.6034320786093,489.00471340629133L36.79703100603817,484.75896918025643L38.0507538777675,482.3441263534379L39.10759183600186,480.313286116175L41.541350934899654,475.64481679708285L42.99222530070376,472.86912637166324L44.10487718993484,470.74165355277137L46.805089739003854,465.5781976185561L47.93369672364001,463.41771915490926L49.649276645936745,460.1273668301716L52.64511457149472,454.3590032058451L52.87516814657628,453.9150139110965L55.80068949321811,448.2452973046518L57.81663956951253,444.32268752707154L59.124518530049265,441.77045018418744L62.625572930636345,434.9114702162642L62.75811099244879,434.65175581555263L66.31330228736525,427.6695724580038L67.69958241538505,424.93904738395037L70.19766004147489,420.0161611065532L72.6410538383213,415.1965065568436L74.28913034809615,411.94483113080514L77.58252526125756,405.4519494968489L78.59875637372477,403.4485428741134L82.52399668419383,395.725315335132L83.13817010250557,394.5184202619323L87.46546810713008,386.0341195079602L87.9196237317769,385.1465437791624L92.40693953006634,376.40040886393564L92.9560227416137,375.33090754193654L97.3484109530026,366.8035176356036L98.26096072762762,365.0363864824081L102.28988237593884,357.2562286734071L103.84875609103852,354.25226251335664L107.23135379887512,347.73396090304584L109.73449068504786,342.91657622441494L112.17282522181138,338.23433437314065L115.93405052182253,331.02433462080785L117.11429664474764,328.7619886436483L122.05576806768389,319.30629649402084L122.46416864996067,318.5257130786427L126.99723949062015,309.8615728386194L129.34247031816795,305.3790907642507L131.9387109135564,300.4180666464807L136.58752054704524,291.53796556891416L136.88018233649265,290.97892648649764L141.82165375942893,281.5397863265146L144.21887423738664,276.9589254020889L146.76312518236517,272.0940369743078L151.70459660530142,262.6384314768891L152.25712895023378,261.5804747819523L156.6460680282377,253.16929237626852L160.72398050114373,245.34120490134097L161.5875394511739,243.68163107464403L166.52901087411024,234.165119256838L169.64228151872297,228.16758319631288L171.47048229704646,224.60627819608686L176.4119537199827,214.97396878917993L179.03610312548165,209.85876790257885L181.35342514291895,205.34165938227295L186.29489656585525,195.7093499753658L188.93079990748794,190.5712373809153L191.2363679887915,186.07704056845887L196.17783941172775,176.38137132093158L199.35307834818192,169.95830530666404L201.11931083466402,166.38546304683513L206.0607822576003,156.38955477273862L210.33106891105493,147.7513597820921L211.0022536805365,146.39364649864228L215.94372510347273,136.39773822454578L220.88519652640906,126.40182995044916L221.89440196575146,124.36034794276986L225.8266679493453,116.40592167635265L230.76813937228152,106.4100134022562L234.0742877625239,99.72213580045138L235.70961079521786,96.41410512815969L240.65108221815407,85.97728938084629L245.5925536410903,75.46351979411452L246.90360067089557,72.6740578689151L250.53402506402657,64.94975020738264L255.47549648696287,54.43598062065081L260.4169679098992,43.92221103391887" data-legend-class="spline" fill="none"/></g><path class="line autoscale regressionLine" data-legend-class="regressionLine" data-legend="y = x line" d="M0,555L0.30847870983581327,554.4096355725555L0.6169574196716265,553.8192711451112L0.9254361295074408,553.2289067176667L1.233914839343254,552.6385422902224L1.5423935491790675,552.048177862778L1.8508722590148805,551.4578134353336L2.1593509688506938,550.8674490078891L2.467829678686508,550.2770845804448L2.7763083885223203,549.6867201530004L3.084787098358135,549.096355725556L3.565882030903785,548.1756395615462L4.046976963449435,547.2549233975365L4.528071895995082,546.3342072335266L5.0091668285407325,545.4134910695169L5.490261761086383,544.4927749055071L5.971356693632032,543.5720587414974L6.452451626177683,542.6513425774875L6.9335465587233305,541.7306264134778L7.41464149126898,540.809910249468L7.895736423814631,539.8891940854583L8.37683135636028,538.9684779214484L8.857926288905931,538.0477617574386L9.339021221451578,537.1270455934289L9.820116153997228,536.206329429419L10.301211086542878,535.2856132654093L10.782306019088528,534.3648971013995L11.263400951634177,533.4441809373898L11.744495884179825,532.5234647733799L12.225590816725477,531.6027486093702L12.706685749271125,530.6820324453604L13.187780681816774,529.7613162813507L13.668875614362426,528.8406001173408L14.149970546908072,527.9198839533311L14.631065479453726,526.9991677893213L15.112160411999374,526.0784516253116L15.593255344545021,525.1577354613017L16.074350277090673,524.237019297292L16.55544520963632,523.3163031332822L17.036540142181973,522.3955869692725L17.51763507472762,521.4748708052626L17.99873000727327,520.5541546412529L18.479824939818922,519.6334384772431L18.960919872364567,518.7127223132334L19.442014804910222,517.7920061492235L19.923109737455867,516.8712899852138L20.404204670001516,515.950573821204L20.88529960254717,515.0298576571942L21.366394535092816,514.1091414931844L21.847489467638468,513.1884253291746L22.328584400184116,512.2677091651649L22.809679332729765,511.3469930011551L23.290774265275417,510.42627683714534L23.771869197821065,509.50556067313556L24.252964130366717,508.5848445091258L24.734059062912362,507.664128345116L25.215153995458014,506.74341218110624L25.696248928003662,505.82269601709646L26.17734386054931,504.9019798530867L26.658438793094966,503.98126368907685L27.13953372564061,503.06054752506714L27.62062865818626,502.1398313610573L28.10172359073191,501.21911519704753L28.58281852327756,500.29839903303775L29.06391345582321,499.377682869028L29.54500838836886,498.4569667050182L30.02610332091451,497.5362505410084L30.507198253460157,496.61553437699865L30.98829318600581,495.6948182129889L31.46938811855146,494.7741020489791L31.950483051097105,493.8533858849693L32.431577983642754,492.93266972095955L32.9126729161884,492.0119535569498L33.39376784873406,491.09123739294L33.87486278127971,490.1705212289302L34.355957713825354,489.24980506492045L34.837052646371006,488.3290889009107L35.31814757891665,487.4083727369009L35.7992425114623,486.48765657289107L36.280337444007955,485.56694040888135L36.76143237655361,484.6462242448715L37.242527309099245,483.7255080808618L37.7236222416449,482.804791916852L38.204717174190556,481.88407575284225L38.6858121067362,480.9633595888324L39.16690703928185,480.04264342482264L39.6480019718275,479.12192726081287L40.12909690437314,478.20121109680315L40.6101918369188,477.2804949327933L41.09128676946445,476.35977876878354L41.5723817020101,475.43906260477377L46.383331027466596,466.231900964676L51.194280352923094,457.0247393245782L56.005229678379585,447.81757768448045L60.81617900383608,438.61041604438265L65.62712832929257,429.4032544042849L70.43807765474907,420.19609276418714L75.24902698020556,410.9889311240894L80.05997630566206,401.7817694839916L84.87092563111855,392.5746078438938L89.68187495657504,383.367446203796L94.49282428203155,374.16028456369827L99.30377360748804,364.9531229236005L104.11472293294453,355.7459612835027L108.92567225840104,346.5387996434049L113.73662158385753,337.33163800330715L118.54757090931402,328.1244763632094L123.35852023477052,318.9173147231116L128.16946956022701,309.7101530830138L132.98041888568352,300.502991442916L137.79136821114,291.2958298028183L142.6023175365965,282.08866816272047L147.413266862053,272.88150652262266L152.22421618750948,263.67434488252496L157.03516551296596,254.4671832424272L161.84611483842244,245.26002160232946L166.65706416387897,236.05285996223165L171.46801348933545,226.8456983221339L176.27896281479195,217.6385366820361L181.08991214024843,208.43137504193834L185.90086146570493,199.22421340184053L190.7118107911614,190.01705176174278L195.52276011661795,180.80989012164497L200.33370944207442,171.60272848154722L205.14465876753093,162.3955668414494L209.9556080929874,153.1884052013517L214.7665574184439,143.9812435612539L219.5775067439004,134.77408192115615L224.38845606935692,125.56692028105834L229.1994053948134,116.35975864096059L234.0103547202699,107.15259700086278L238.82130404572638,97.94543536076503L243.63225337118288,88.73827372066722L248.44320269663936,79.53111208056947L253.2541520220959,70.32395044047166L258.06510134755234,61.11678880037391L262.8760506730089,51.9096271602761L267.68699999846535,42.70246552017841L272.4979493239219,33.49530388008054L277.30889864937836,24.28814223998279L282.11984797483484,15.080980599885038L286.9307973002913,5.873818959787286L290,0" fill="none"/><g class="confidenceInterval-container"><path data-legend="90% prediction interval" class="line autoscale confidenceInterval" d="M13.343396763086208,532.9966038074886L14.403418286109945,531.1691433985451L15.519959773886773,529.2449221311092L16.69603485052366,527.2188166855782L17.934817825476518,525.0854324714642L18.284868186022464,524.4827237450801L19.23965226123494,522.8390892640709L20.61405999783287,520.4738060806584L22.061750658542856,517.9832852558258L23.226339608958725,515.9804190930481L23.586631662410504,515.360895673714L25.19281877065366,512.5996551123828L26.884647195391814,509.69221165335216L28.16781103189498,507.48773615859L28.66668330068884,506.6308241068123L30.543736927491302,503.40734140038205L32.5208743757278,500.0131808765373L33.109282454831245,499.0032860821869L34.6034320786093,496.4393054409271L36.79703100603817,492.67619950073123L38.0507538777675,490.52603041373544L39.10759183600186,488.71384362899687L41.541350934899654,484.5416878874952L42.99222530070376,482.0551632000687L44.10487718993484,480.1486237370691L46.805089739003854,475.522954460684L47.93369672364001,473.59004070361146L49.649276645936745,470.65236402042876L52.64511457149472,465.52388426554995L52.87516814657628,465.13013688130184L55.80068949321811,460.12386040420824L57.81663956951253,456.6750138017245L59.124518530049265,454.4379146470235L62.625572930636345,448.45090792561L62.75811099244879,448.22430121555635L66.31330228736525,442.14689958417296L67.69958241538505,439.7776819912486L70.19766004147489,435.50910493684637L72.6410538383213,431.33488145104L74.28913034809615,428.5198505777643L77.58252526125756,422.8956593830826L78.59875637372477,421.160527324879L82.52399668419383,414.4598039395108L83.13817010250557,413.41154067223573L87.46546810713008,406.02712689474646L87.9196237317769,405.25225861878005L92.40693953006634,397.5974599049425L92.9560227416137,396.66095673479333L97.3484109530026,389.1706515175538L98.26096072762762,387.6147603196889L102.28988237593884,380.7465647519525L103.84875609103852,378.08958349716625L107.23135379887512,372.32507512098425L109.73449068504786,368.0600650855572L112.17282522181138,363.90606899738157L115.93405052182253,357.4995010726187L117.11429664474764,355.4894422530332L122.05576806768389,347.0750991164243L122.46416864996067,346.37977351498444L126.99723949062015,338.6629512062095L129.34247031816795,334.6712756729636L131.9387109135564,330.2529167082381L136.58752054704524,322.3428331813592L136.88018233649265,321.84491967037L141.82165375942893,313.438889394739L144.21887423738664,309.36162104641596L146.76312518236517,305.03475991119194L151.70459660530142,296.63246951879194L152.25712895023378,295.6930762479018L156.6460680282377,288.23196038473435L160.72398050114373,281.3008057136213L161.5875394511739,279.8331781919594L166.52901087411024,271.43607182829425L169.64228151872297,266.14648942133886L171.47048229704646,263.04059311117913L176.4119537199827,254.64669654303003L179.03610312548165,250.18977837011613L181.35342514291895,246.2543390930914L186.29489656585525,237.863480002289L188.93079990748794,233.38818714941033L191.2363679887915,229.4740806081292L196.17783941172775,221.08610418713664L199.35307834818192,215.69698081989122L201.11931083466402,212.69951581268634L206.0607822576003,204.31428222640022L210.33106891105493,197.0690558047944L211.0022536805365,195.9303717215202L215.94372510347273,187.5477540369056L220.88519652640906,179.1664002604619L221.89440196575146,177.45481447467824L225.8266679493453,170.78628274098548L230.76813937228152,162.40737500751794L234.0742877625239,156.80203309166058L235.70961079521786,154.0296516954333L240.65108221815407,145.65308847856699L245.5925536410903,137.27766200678434L246.90360067089557,135.05572276153265L250.53402506402657,128.9033498484506L255.47549648696287,120.53013043733557L260.4169679098992,112.15798302352914" data-legend-class="confidenceInterval" fill="none"/><path data-legend="90% prediction interval" class="line autoscale confidenceInterval" d="M13.343396763086208,525.5687212571872L14.403418286109945,523.3168095906375L15.519959773886773,520.9439902119503L16.69603485052366,518.4437714478194L17.934817825476518,515.8093130795758L18.284868186022464,515.0647122153266L19.23965226123494,513.0334076293898L20.61405999783287,510.108460641706L22.061750658542856,507.0264699059671L23.226339608958725,504.5464032114024L23.586631662410504,503.7790035637814L25.19281877065366,500.35717704063956L26.884647195391814,496.7516287390684L28.16781103189498,494.01617795071695L28.66668330068884,492.9524944267228L30.543736927491302,488.9493802493445L32.5208743757278,484.73133429475604L33.109282454831245,483.47573495801316L34.6034320786093,480.2868166300933L36.79703100603817,475.60366773030233L38.0507538777675,472.9263467471163L39.10759183600186,470.6690752115259L41.541350934899654,465.4695387783687L42.99222530070376,462.3690026393267L44.10487718993484,459.9908332891395L46.805089739003854,454.21796983802534L47.93369672364001,451.8044940434521L49.649276645936745,448.13515474772214L52.64511457149472,441.7257463603336L52.87516814657628,441.2334685635636L55.80068949321811,434.9722095083233L57.81663956951253,430.656466002614L59.124518530049265,427.8560675409608L62.625572930636345,420.3578517750125L62.75811099244879,420.0739432577403L66.31330228736525,412.45704823138146L67.69958241538505,409.48629208883875L70.19766004147489,404.132041511979L72.6410538383213,398.89385214259494L74.28913034809615,395.360055663278L77.58252526125756,388.29692071779164L78.59875637372477,386.1170918647655L82.52399668419383,377.69576023188125L83.13817010250557,376.3778627718157L87.46546810713008,367.0906040281127L87.9196237317769,366.1157233333572L92.40693953006634,356.4816609602724L92.9560227416137,355.30259789506147L97.3484109530026,345.8691190608029L98.26096072762762,343.9089033886183L102.28988237593884,335.2531485106067L103.84875609103852,331.90346839695553L107.23135379887512,324.63390406925953L109.73449068504786,319.25344787397836L112.17282522181138,314.0115270829258L115.93405052182253,305.9242332855129L117.11429664474764,303.3861471579331L122.05576806768389,292.7578835668541L122.46416864996067,291.87935792561524L126.99723949062015,282.1268464385061L129.34247031816795,277.08039714920477L131.9387109135564,271.49313777186757L136.58752054704524,261.4868632480729L136.88018233649265,260.85685230532977L141.82165375942893,250.21807826620892L144.21887423738664,245.05609468266505L146.76312518236517,239.5768980204591L151.70459660530142,228.93338863867012L152.25712895023378,227.74313936659007L156.6460680282377,218.28762239141696L160.72398050114373,209.50063168454227L161.5875394511739,207.63966718465633L166.52901087411024,196.98958694397612L169.64228151872297,190.278662907173L171.47048229704646,186.3374419550018L176.4119537199827,175.68328916603355L179.03610312548165,170.0246446483916L181.35342514291895,165.0271824580227L186.29489656585525,154.36917288617298L188.93079990748794,148.6831649915302L191.2363679887915,143.70930889680255L196.17783941172775,133.04763652255576L199.35307834818192,126.19583689075961L201.11931083466402,122.38419955860155L206.0607822576003,111.71903972207895L210.33106891105493,102.50113843300073L211.0022536805365,101.0521967967357L215.94372510347273,90.3837087644385L220.88519652640906,79.71361192501644L221.89440196575146,77.53424452332047L225.8266679493453,69.0419410056989L230.76813937228152,58.36872926125528L234.0742877625239,51.22684953331952L235.70961079521786,47.69400856580734L240.65108221815407,37.017809497154644L245.5925536410903,26.34016141437121L246.90360067089557,23.506980427311078L250.53402506402657,15.661092529321195L255.47549648696287,4.980629972689371L260.4169679098992,-5.701200144968425" data-legend-class="confidenceInterval" fill="none"/></g><g class="userGuides"/></svg><g class="axes"><g class="bottom axis bottomAxisLine" transform="translate(0,555)" fill="none" text-anchor="middle"><path class="domain" stroke="#000" d="M0.5,6V0.5H290.5V6" fill="none"/><g class="tick" opacity="1" transform="translate(42.0723817020101,0)"><line stroke="#000" y2="3" fill="none"/><text fill="#000" y="6" dy="0.71em" class="bottomAxisTickLabels transformed-label"><tspan class="label-block"><tspan class="label-subblock">10</tspan></tspan></text></g><g class="tick" opacity="1" transform="translate(90.18187495657504,0)"><line stroke="#000" y2="3" fill="none"/><text fill="#000" y="6" dy="0.71em" class="bottomAxisTickLabels transformed-label"><tspan class="label-block"><tspan class="label-subblock">20</tspan></tspan></text></g><g class="tick" opacity="1" transform="translate(138.29136821114,0)"><line stroke="#000" y2="3" fill="none"/><text fill="#000" y="6" dy="0.71em" class="bottomAxisTickLabels transformed-label"><tspan class="label-block"><tspan class="label-subblock">30</tspan></tspan></text></g><g class="tick" opacity="1" transform="translate(186.40086146570493,0)"><line stroke="#000" y2="3" fill="none"/><text fill="#000" y="6" dy="0.71em" class="bottomAxisTickLabels transformed-label"><tspan class="label-block"><tspan class="label-subblock">40</tspan></tspan></text></g><g class="tick" opacity="1" transform="translate(234.5103547202699,0)"><line stroke="#000" y2="3" fill="none"/><text fill="#000" y="6" dy="0.71em" class="bottomAxisTickLabels transformed-label"><tspan class="label-block"><tspan class="label-subblock">50</tspan></tspan></text></g><g class="tick" opacity="1" transform="translate(282.61984797483484,0)"><line stroke="#000" y2="3" fill="none"/><text fill="#000" y="6" dy="0.71em" class="bottomAxisTickLabels transformed-label"><tspan class="label-block"><tspan class="label-subblock">60</tspan></tspan></text></g><text class="axis-label sublabel bottom" x="145" y="25" style="text-anchor: middle;"><tspan class="transformed-label"><tspan class="label-block"><tspan class="label-subblock">Individual </tspan></tspan><tspan class="label-block"><tspan class="label-subblock">predictions</tspan></tspan></tspan><tspan class="axis-label-unit bottom"/></text></g><g class="left axis leftAxisLine" fill="none" text-anchor="end"><path class="domain" stroke="#000" d="M-6,555.5H0.5V0.5H-6" fill="none"/><g class="tick" opacity="1" transform="translate(0,521.9748708052626)"><line stroke="#000" x2="-3" fill="none"/><text fill="#000" x="-6" dy="0.32em" class="leftAxisTickLabels transformed-label"><tspan class="label-block"><tspan class="label-subblock">5</tspan></tspan></text></g><g class="tick" opacity="1" transform="translate(0,475.93906260477377)"><line stroke="#000" x2="-3" fill="none"/><text fill="#000" x="-6" dy="0.32em" class="leftAxisTickLabels transformed-label"><tspan class="label-block"><tspan class="label-subblock">10</tspan></tspan></text></g><g class="tick" opacity="1" transform="translate(0,429.9032544042849)"><line stroke="#000" x2="-3" fill="none"/><text fill="#000" x="-6" dy="0.32em" class="leftAxisTickLabels transformed-label"><tspan class="label-block"><tspan class="label-subblock">15</tspan></tspan></text></g><g class="tick" opacity="1" transform="translate(0,383.867446203796)"><line stroke="#000" x2="-3" fill="none"/><text fill="#000" x="-6" dy="0.32em" class="leftAxisTickLabels transformed-label"><tspan class="label-block"><tspan class="label-subblock">20</tspan></tspan></text></g><g class="tick" opacity="1" transform="translate(0,337.83163800330715)"><line stroke="#000" x2="-3" fill="none"/><text fill="#000" x="-6" dy="0.32em" class="leftAxisTickLabels transformed-label"><tspan class="label-block"><tspan class="label-subblock">25</tspan></tspan></text></g><g class="tick" opacity="1" transform="translate(0,291.7958298028183)"><line stroke="#000" x2="-3" fill="none"/><text fill="#000" x="-6" dy="0.32em" class="leftAxisTickLabels transformed-label"><tspan class="label-block"><tspan class="label-subblock">30</tspan></tspan></text></g><g class="tick" opacity="1" transform="translate(0,245.76002160232946)"><line stroke="#000" x2="-3" fill="none"/><text fill="#000" x="-6" dy="0.32em" class="leftAxisTickLabels transformed-label"><tspan class="label-block"><tspan class="label-subblock">35</tspan></tspan></text></g><g class="tick" opacity="1" transform="translate(0,199.72421340184053)"><line stroke="#000" x2="-3" fill="none"/><text fill="#000" x="-6" dy="0.32em" class="leftAxisTickLabels transformed-label"><tspan class="label-block"><tspan class="label-subblock">40</tspan></tspan></text></g><g class="tick" opacity="1" transform="translate(0,153.6884052013517)"><line stroke="#000" x2="-3" fill="none"/><text fill="#000" x="-6" dy="0.32em" class="leftAxisTickLabels transformed-label"><tspan class="label-block"><tspan class="label-subblock">45</tspan></tspan></text></g><g class="tick" opacity="1" transform="translate(0,107.65259700086278)"><line stroke="#000" x2="-3" fill="none"/><text fill="#000" x="-6" dy="0.32em" class="leftAxisTickLabels transformed-label"><tspan class="label-block"><tspan class="label-subblock">50</tspan></tspan></text></g><g class="tick" opacity="1" transform="translate(0,61.61678880037391)"><line stroke="#000" x2="-3" fill="none"/><text fill="#000" x="-6" dy="0.32em" class="leftAxisTickLabels transformed-label"><tspan class="label-block"><tspan class="label-subblock">55</tspan></tspan></text></g><g class="tick" opacity="1" transform="translate(0,15.580980599885038)"><line stroke="#000" x2="-3" fill="none"/><text fill="#000" x="-6" dy="0.32em" class="leftAxisTickLabels transformed-label"><tspan class="label-block"><tspan class="label-subblock">60</tspan></tspan></text></g></g></g><g class="grid"><g class="vertical" transform="translate(0,555)" fill="none" font-size="10" font-family="sans-serif" text-anchor="middle"><g class="tick" opacity="1" transform="translate(42.0723817020101,0)"><line stroke="#000" y2="-555" fill="none"/></g><g class="tick" opacity="1" transform="translate(90.18187495657504,0)"><line stroke="#000" y2="-555" fill="none"/></g><g class="tick" opacity="1" transform="translate(138.29136821114,0)"><line stroke="#000" y2="-555" fill="none"/></g><g class="tick" opacity="1" transform="translate(186.40086146570493,0)"><line stroke="#000" y2="-555" fill="none"/></g><g class="tick" opacity="1" transform="translate(234.5103547202699,0)"><line stroke="#000" y2="-555" fill="none"/></g><g class="tick" opacity="1" transform="translate(282.61984797483484,0)"><line stroke="#000" y2="-555" fill="none"/></g></g><g class="horizontal" fill="none" font-size="10" font-family="sans-serif" text-anchor="end"><g class="tick" opacity="1" transform="translate(0,521.9748708052626)"><line stroke="#000" x2="290" fill="none"/></g><g class="tick" opacity="1" transform="translate(0,475.93906260477377)"><line stroke="#000" x2="290" fill="none"/></g><g class="tick" opacity="1" transform="translate(0,429.9032544042849)"><line stroke="#000" x2="290" fill="none"/></g><g class="tick" opacity="1" transform="translate(0,383.867446203796)"><line stroke="#000" x2="290" fill="none"/></g><g class="tick" opacity="1" transform="translate(0,337.83163800330715)"><line stroke="#000" x2="290" fill="none"/></g><g class="tick" opacity="1" transform="translate(0,291.7958298028183)"><line stroke="#000" x2="290" fill="none"/></g><g class="tick" opacity="1" transform="translate(0,245.76002160232946)"><line stroke="#000" x2="290" fill="none"/></g><g class="tick" opacity="1" transform="translate(0,199.72421340184053)"><line stroke="#000" x2="290" fill="none"/></g><g class="tick" opacity="1" transform="translate(0,153.6884052013517)"><line stroke="#000" x2="290" fill="none"/></g><g class="tick" opacity="1" transform="translate(0,107.65259700086278)"><line stroke="#000" x2="290" fill="none"/></g><g class="tick" opacity="1" transform="translate(0,61.61678880037391)"><line stroke="#000" x2="290" fill="none"/></g><g class="tick" opacity="1" transform="translate(0,15.580980599885038)"><line stroke="#000" x2="290" fill="none"/></g></g></g><defs><clipPath id="All-individual--freehand-guides-clip" class="freehand-guides-clip"><rect x="0" y="0" width="290" height="555"/></clipPath></defs></g></g><text x="315" y="-1em" class="title transformed-label" text-anchor="middle"><tspan class="label-block"/></text></g></g></g></g></svg>

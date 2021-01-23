@@ -35,7 +35,7 @@ input = {a, b}
 file = 'lib:infusion_2cpt_ClV1QV2.txt'
 
 DEFINITION:
-y2 = {distribution=normal, prediction=Cc, errorModel=combined1(a, b)}
+y2 = {distribution=logNormal, prediction=Cc, errorModel=combined1(a, b)}
 
 <FIT>
 data = y2

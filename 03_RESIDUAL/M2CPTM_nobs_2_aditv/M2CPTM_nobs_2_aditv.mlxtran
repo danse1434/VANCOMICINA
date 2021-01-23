@@ -35,8 +35,8 @@ input = {a1, a2}
 file = 'model/model.txt'
 
 DEFINITION:
-y1 = {distribution=normal, prediction=Cc_1, errorModel=constant(a1)}
-y2 = {distribution=normal, prediction=Cc_2, errorModel=constant(a2)}
+y1 = {distribution=logNormal, prediction=Cc_1, errorModel=constant(a1)}
+y2 = {distribution=logNormal, prediction=Cc_2, errorModel=constant(a2)}
 
 <FIT>
 data = {y1,y2}
