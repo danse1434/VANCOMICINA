@@ -1,6 +1,6 @@
 ********************************************************************************
 *                         M2CPTM_nobs_2_comb2.mlxtran                          *
-*                         January 21, 2021 at 13:48:23                         *
+*                         January 22, 2021 at 20:18:59                         *
 *                         Sycomore version : 2020R1                            *
 ********************************************************************************
 
@@ -25,7 +25,7 @@ b1       :                           0.211    0.0356      16.9
 a2       :                          0.0174     0.162       932
 b2       :                          0.0594    0.0142      23.9
 
-Elapsed time (seconds) :      14
+Elapsed time (seconds) :     7.7
 
  _______________________________________________________________________________
 
@@ -41,7 +41,7 @@ V1 :      25.1      35.6      42.3      47.1      61.3
 Q  :      3.59      10.9      16.7      20.7      34.9
 V2 :      35.5      44.2      49.7      56.3      65.9
 
-Elapsed time (seconds) :     1.5
+Elapsed time (seconds) :    0.96
 
  -------------------------------------------------------------------------------
 
@@ -53,7 +53,7 @@ V1 :      25.4      36.5      43.2      46.5      61.8
 Q  :       3.6      10.2      16.3      20.6      31.4
 V2 :      29.2      42.3      48.1      52.6      65.2
 
-Elapsed time (seconds) :   0.036
+Elapsed time (seconds) :   0.023
 
  -------------------------------------------------------------------------------
 
@@ -83,7 +83,7 @@ omega_V2 0.0053541 0.0043644   0.04089  -0.11833-0.0099614     0.183  -0.17308  
                                min       max   max/min
 Eigen values           :     0.097       2.5        26
 
-Elapsed time (seconds) :    0.11
+Elapsed time (seconds) :   0.073
 
  -------------------------------------------------------------------------------
 
@@ -99,8 +99,8 @@ Akaike Information Criteria               (AIC) :         957.72
 Corrected Bayesian Information Criteria  (BICc) :         986.34
 Bayesian Information Criteria             (BIC) :         965.39
 
-Elapsed time                          (seconds) :           3.16
-CPU time                              (seconds) :           3.00
+Elapsed time                          (seconds) :           2.16
+CPU time                              (seconds) :           2.00
 
 
 [Importance Sampling] Standard error        : 0.121
