@@ -61,7 +61,7 @@ populationParameters()
 individualParameters(method = {conditionalMean, conditionalMode })
 fim(method = StochasticApproximation)
 logLikelihood(method = ImportanceSampling)
-plotResult(method = {indfits, parameterdistribution, covariancemodeldiagnosis, covariatemodeldiagnosis, obspred, vpc, npc, residualsscatter, residualsdistribution, randomeffects, blq, predictiondistribution, likelihoodcontribution, categorizedoutput, saemresults, condmeanresults, fisher, likelihoodresults })
+plotResult(method = {indfits, parameterdistribution, covariancemodeldiagnosis, covariatemodeldiagnosis, obspred, residualsscatter, residualsdistribution, randomeffects, categorizedoutput })
 
 [SETTINGS]
 GLOBAL:
