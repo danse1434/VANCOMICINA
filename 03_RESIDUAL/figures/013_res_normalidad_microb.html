@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<style>body{background-color:white;}</style>
+
+
+</head>
+<body>
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+#qghbqhbsym .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: smaller;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#qghbqhbsym .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#qghbqhbsym .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#qghbqhbsym .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 0;
+  padding-bottom: 4px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#qghbqhbsym .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#qghbqhbsym .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#qghbqhbsym .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: smaller;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#qghbqhbsym .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: smaller;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#qghbqhbsym .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#qghbqhbsym .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#qghbqhbsym .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#qghbqhbsym .gt_group_heading {
+  padding: 8px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#qghbqhbsym .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#qghbqhbsym .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#qghbqhbsym .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#qghbqhbsym .gt_row {
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#qghbqhbsym .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 12px;
+}
+
+#qghbqhbsym .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#qghbqhbsym .gt_first_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+}
+
+#qghbqhbsym .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#qghbqhbsym .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#qghbqhbsym .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#qghbqhbsym .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#qghbqhbsym .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#qghbqhbsym .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding: 4px;
+}
+
+#qghbqhbsym .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#qghbqhbsym .gt_sourcenote {
+  font-size: 90%;
+  padding: 4px;
+}
+
+#qghbqhbsym .gt_left {
+  text-align: left;
+}
+
+#qghbqhbsym .gt_center {
+  text-align: center;
+}
+
+#qghbqhbsym .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#qghbqhbsym .gt_font_normal {
+  font-weight: normal;
+}
+
+#qghbqhbsym .gt_font_bold {
+  font-weight: bold;
+}
+
+#qghbqhbsym .gt_font_italic {
+  font-style: italic;
+}
+
+#qghbqhbsym .gt_super {
+  font-size: 65%;
+}
+
+#qghbqhbsym .gt_footnote_marks {
+  font-style: italic;
+  font-size: 65%;
+}
+</style>
+<div id="qghbqhbsym" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;"><table class="gt_table">
+  <thead class="gt_header">
+    <tr>
+      <th colspan="8" class="gt_heading gt_title gt_font_normal" style><strong>Batería de Pruebas de Normalidad - Modelo de Residuales</strong></th>
+    </tr>
+    <tr>
+      <th colspan="8" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border" style><strong>Modelos con determinaciones por quimioluminiscencia y microbiología</strong></th>
+    </tr>
+  </thead>
+  <thead class="gt_col_headings">
+    <tr>
+      <th class="gt_col_heading gt_center gt_columns_bottom_border" rowspan="2" colspan="1"><strong>Residuales</strong></th>
+      <th class="gt_col_heading gt_center gt_columns_bottom_border" rowspan="2" colspan="1"><strong>Modelo</strong></th>
+      <th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="6">
+        <span class="gt_column_spanner"><strong>Prueba Normalidad</strong></span>
+      </th>
+    </tr>
+    <tr>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1"><strong>Shapiro-Wilk</strong></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1"><strong>Andersen-Darling</strong></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1"><strong>Cramer von Mises</strong></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1"><strong>Liliefors</strong></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1"><strong>Pearson</strong></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1"><strong>Shapiro-Francia</strong></th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr>
+      <td class="gt_row gt_left">pwRes</td>
+      <td class="gt_row gt_left">Aditivo</td>
+      <td class="gt_row gt_right">4.35 &times; 10<sup class='gt_super'>&minus;4</sup></td>
+      <td class="gt_row gt_right">8.72 &times; 10<sup class='gt_super'>&minus;4</sup></td>
+      <td class="gt_row gt_right">5.74 &times; 10<sup class='gt_super'>&minus;3</sup></td>
+      <td class="gt_row gt_right">1.48 &times; 10<sup class='gt_super'>&minus;2</sup></td>
+      <td class="gt_row gt_right">2.22 &times; 10<sup class='gt_super'>&minus;2</sup></td>
+      <td class="gt_row gt_right">3.11 &times; 10<sup class='gt_super'>&minus;4</sup></td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left">pwRes</td>
+      <td class="gt_row gt_left">Proporcional</td>
+      <td class="gt_row gt_right">1.44 &times; 10<sup class='gt_super'>&minus;4</sup></td>
+      <td class="gt_row gt_right">2.93 &times; 10<sup class='gt_super'>&minus;4</sup></td>
+      <td class="gt_row gt_right">2.38 &times; 10<sup class='gt_super'>&minus;3</sup></td>
+      <td class="gt_row gt_right">1.13 &times; 10<sup class='gt_super'>&minus;2</sup></td>
+      <td class="gt_row gt_right">2.49 &times; 10<sup class='gt_super'>&minus;1</sup></td>
+      <td class="gt_row gt_right">1.17 &times; 10<sup class='gt_super'>&minus;4</sup></td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left">pwRes</td>
+      <td class="gt_row gt_left">Combinado 1</td>
+      <td class="gt_row gt_right">3.93 &times; 10<sup class='gt_super'>&minus;4</sup></td>
+      <td class="gt_row gt_right">8.52 &times; 10<sup class='gt_super'>&minus;4</sup></td>
+      <td class="gt_row gt_right">5.79 &times; 10<sup class='gt_super'>&minus;3</sup></td>
+      <td class="gt_row gt_right">1.44 &times; 10<sup class='gt_super'>&minus;2</sup></td>
+      <td class="gt_row gt_right">5.25 &times; 10<sup class='gt_super'>&minus;2</sup></td>
+      <td class="gt_row gt_right">2.77 &times; 10<sup class='gt_super'>&minus;4</sup></td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left">pwRes</td>
+      <td class="gt_row gt_left">Combinado 2</td>
+      <td class="gt_row gt_right">8.07 &times; 10<sup class='gt_super'>&minus;4</sup></td>
+      <td class="gt_row gt_right">2.04 &times; 10<sup class='gt_super'>&minus;3</sup></td>
+      <td class="gt_row gt_right">1.32 &times; 10<sup class='gt_super'>&minus;2</sup></td>
+      <td class="gt_row gt_right">3.28 &times; 10<sup class='gt_super'>&minus;2</sup></td>
+      <td class="gt_row gt_right">2.22 &times; 10<sup class='gt_super'>&minus;1</sup></td>
+      <td class="gt_row gt_right">5.37 &times; 10<sup class='gt_super'>&minus;4</sup></td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left">pwRes</td>
+      <td class="gt_row gt_left">Combinado P</td>
+      <td class="gt_row gt_right">1.09 &times; 10<sup class='gt_super'>&minus;4</sup></td>
+      <td class="gt_row gt_right">1.98 &times; 10<sup class='gt_super'>&minus;4</sup></td>
+      <td class="gt_row gt_right">1.76 &times; 10<sup class='gt_super'>&minus;3</sup></td>
+      <td class="gt_row gt_right">9.86 &times; 10<sup class='gt_super'>&minus;3</sup></td>
+      <td class="gt_row gt_right">9.64 &times; 10<sup class='gt_super'>&minus;2</sup></td>
+      <td class="gt_row gt_right">9.16 &times; 10<sup class='gt_super'>&minus;5</sup></td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left">iwResMean</td>
+      <td class="gt_row gt_left">Aditivo</td>
+      <td class="gt_row gt_right">4.35 &times; 10<sup class='gt_super'>&minus;5</sup></td>
+      <td class="gt_row gt_right">2.15 &times; 10<sup class='gt_super'>&minus;4</sup></td>
+      <td class="gt_row gt_right">8.11 &times; 10<sup class='gt_super'>&minus;4</sup></td>
+      <td class="gt_row gt_right">7.46 &times; 10<sup class='gt_super'>&minus;3</sup></td>
+      <td class="gt_row gt_right">1.76 &times; 10<sup class='gt_super'>&minus;1</sup></td>
+      <td class="gt_row gt_right">4.92 &times; 10<sup class='gt_super'>&minus;5</sup></td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left">iwResMean</td>
+      <td class="gt_row gt_left">Proporcional</td>
+      <td class="gt_row gt_right">1.23 &times; 10<sup class='gt_super'>&minus;9</sup></td>
+      <td class="gt_row gt_right">1.06 &times; 10<sup class='gt_super'>&minus;5</sup></td>
+      <td class="gt_row gt_right">8.80 &times; 10<sup class='gt_super'>&minus;5</sup></td>
+      <td class="gt_row gt_right">2.12 &times; 10<sup class='gt_super'>&minus;4</sup></td>
+      <td class="gt_row gt_right">1.05 &times; 10<sup class='gt_super'>&minus;2</sup></td>
+      <td class="gt_row gt_right">5.74 &times; 10<sup class='gt_super'>&minus;9</sup></td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left">iwResMean</td>
+      <td class="gt_row gt_left">Combinado 1</td>
+      <td class="gt_row gt_right">4.17 &times; 10<sup class='gt_super'>&minus;5</sup></td>
+      <td class="gt_row gt_right">4.34 &times; 10<sup class='gt_super'>&minus;4</sup></td>
+      <td class="gt_row gt_right">2.76 &times; 10<sup class='gt_super'>&minus;3</sup></td>
+      <td class="gt_row gt_right">2.29 &times; 10<sup class='gt_super'>&minus;2</sup></td>
+      <td class="gt_row gt_right">2.49 &times; 10<sup class='gt_super'>&minus;1</sup></td>
+      <td class="gt_row gt_right">4.04 &times; 10<sup class='gt_super'>&minus;5</sup></td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left">iwResMean</td>
+      <td class="gt_row gt_left">Combinado 2</td>
+      <td class="gt_row gt_right">2.19 &times; 10<sup class='gt_super'>&minus;5</sup></td>
+      <td class="gt_row gt_right">1.35 &times; 10<sup class='gt_super'>&minus;4</sup></td>
+      <td class="gt_row gt_right">8.35 &times; 10<sup class='gt_super'>&minus;4</sup></td>
+      <td class="gt_row gt_right">1.08 &times; 10<sup class='gt_super'>&minus;2</sup></td>
+      <td class="gt_row gt_right">2.14 &times; 10<sup class='gt_super'>&minus;1</sup></td>
+      <td class="gt_row gt_right">2.49 &times; 10<sup class='gt_super'>&minus;5</sup></td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left">iwResMean</td>
+      <td class="gt_row gt_left">Combinado P</td>
+      <td class="gt_row gt_right">1.62 &times; 10<sup class='gt_super'>&minus;9</sup></td>
+      <td class="gt_row gt_right">3.97 &times; 10<sup class='gt_super'>&minus;6</sup></td>
+      <td class="gt_row gt_right">2.01 &times; 10<sup class='gt_super'>&minus;5</sup></td>
+      <td class="gt_row gt_right">1.17 &times; 10<sup class='gt_super'>&minus;4</sup></td>
+      <td class="gt_row gt_right">1.05 &times; 10<sup class='gt_super'>&minus;2</sup></td>
+      <td class="gt_row gt_right">5.96 &times; 10<sup class='gt_super'>&minus;9</sup></td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left">iwResMode</td>
+      <td class="gt_row gt_left">Aditivo</td>
+      <td class="gt_row gt_right">9.10 &times; 10<sup class='gt_super'>&minus;6</sup></td>
+      <td class="gt_row gt_right">7.80 &times; 10<sup class='gt_super'>&minus;5</sup></td>
+      <td class="gt_row gt_right">8.39 &times; 10<sup class='gt_super'>&minus;4</sup></td>
+      <td class="gt_row gt_right">4.16 &times; 10<sup class='gt_super'>&minus;3</sup></td>
+      <td class="gt_row gt_right">1.62 &times; 10<sup class='gt_super'>&minus;2</sup></td>
+      <td class="gt_row gt_right">1.27 &times; 10<sup class='gt_super'>&minus;5</sup></td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left">iwResMode</td>
+      <td class="gt_row gt_left">Proporcional</td>
+      <td class="gt_row gt_right">2.58 &times; 10<sup class='gt_super'>&minus;10</sup></td>
+      <td class="gt_row gt_right">4.86 &times; 10<sup class='gt_super'>&minus;7</sup></td>
+      <td class="gt_row gt_right">9.17 &times; 10<sup class='gt_super'>&minus;6</sup></td>
+      <td class="gt_row gt_right">2.74 &times; 10<sup class='gt_super'>&minus;4</sup></td>
+      <td class="gt_row gt_right">5.14 &times; 10<sup class='gt_super'>&minus;4</sup></td>
+      <td class="gt_row gt_right">1.40 &times; 10<sup class='gt_super'>&minus;9</sup></td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left">iwResMode</td>
+      <td class="gt_row gt_left">Combinado 1</td>
+      <td class="gt_row gt_right">5.11 &times; 10<sup class='gt_super'>&minus;5</sup></td>
+      <td class="gt_row gt_right">6.80 &times; 10<sup class='gt_super'>&minus;4</sup></td>
+      <td class="gt_row gt_right">4.79 &times; 10<sup class='gt_super'>&minus;3</sup></td>
+      <td class="gt_row gt_right">2.07 &times; 10<sup class='gt_super'>&minus;2</sup></td>
+      <td class="gt_row gt_right">3.31 &times; 10<sup class='gt_super'>&minus;1</sup></td>
+      <td class="gt_row gt_right">4.55 &times; 10<sup class='gt_super'>&minus;5</sup></td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left">iwResMode</td>
+      <td class="gt_row gt_left">Combinado 2</td>
+      <td class="gt_row gt_right">2.66 &times; 10<sup class='gt_super'>&minus;5</sup></td>
+      <td class="gt_row gt_right">3.08 &times; 10<sup class='gt_super'>&minus;4</sup></td>
+      <td class="gt_row gt_right">2.54 &times; 10<sup class='gt_super'>&minus;3</sup></td>
+      <td class="gt_row gt_right">1.93 &times; 10<sup class='gt_super'>&minus;2</sup></td>
+      <td class="gt_row gt_right">1.55 &times; 10<sup class='gt_super'>&minus;1</sup></td>
+      <td class="gt_row gt_right">2.80 &times; 10<sup class='gt_super'>&minus;5</sup></td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left">iwResMode</td>
+      <td class="gt_row gt_left">Combinado P</td>
+      <td class="gt_row gt_right">1.67 &times; 10<sup class='gt_super'>&minus;9</sup></td>
+      <td class="gt_row gt_right">7.05 &times; 10<sup class='gt_super'>&minus;6</sup></td>
+      <td class="gt_row gt_right">3.84 &times; 10<sup class='gt_super'>&minus;5</sup></td>
+      <td class="gt_row gt_right">2.87 &times; 10<sup class='gt_super'>&minus;4</sup></td>
+      <td class="gt_row gt_right">1.17 &times; 10<sup class='gt_super'>&minus;2</sup></td>
+      <td class="gt_row gt_right">5.90 &times; 10<sup class='gt_super'>&minus;9</sup></td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left">npde</td>
+      <td class="gt_row gt_left">Aditivo</td>
+      <td class="gt_row gt_right">1.09 &times; 10<sup class='gt_super'>&minus;4</sup></td>
+      <td class="gt_row gt_right">1.30 &times; 10<sup class='gt_super'>&minus;4</sup></td>
+      <td class="gt_row gt_right">1.53 &times; 10<sup class='gt_super'>&minus;3</sup></td>
+      <td class="gt_row gt_right">4.16 &times; 10<sup class='gt_super'>&minus;3</sup></td>
+      <td class="gt_row gt_right">3.36 &times; 10<sup class='gt_super'>&minus;2</sup></td>
+      <td class="gt_row gt_right">1.57 &times; 10<sup class='gt_super'>&minus;4</sup></td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left">npde</td>
+      <td class="gt_row gt_left">Proporcional</td>
+      <td class="gt_row gt_right">8.37 &times; 10<sup class='gt_super'>&minus;5</sup></td>
+      <td class="gt_row gt_right">9.85 &times; 10<sup class='gt_super'>&minus;5</sup></td>
+      <td class="gt_row gt_right">1.05 &times; 10<sup class='gt_super'>&minus;3</sup></td>
+      <td class="gt_row gt_right">3.17 &times; 10<sup class='gt_super'>&minus;3</sup></td>
+      <td class="gt_row gt_right">3.90 &times; 10<sup class='gt_super'>&minus;2</sup></td>
+      <td class="gt_row gt_right">1.12 &times; 10<sup class='gt_super'>&minus;4</sup></td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left">npde</td>
+      <td class="gt_row gt_left">Combinado 1</td>
+      <td class="gt_row gt_right">2.46 &times; 10<sup class='gt_super'>&minus;4</sup></td>
+      <td class="gt_row gt_right">2.65 &times; 10<sup class='gt_super'>&minus;4</sup></td>
+      <td class="gt_row gt_right">2.48 &times; 10<sup class='gt_super'>&minus;3</sup></td>
+      <td class="gt_row gt_right">7.14 &times; 10<sup class='gt_super'>&minus;3</sup></td>
+      <td class="gt_row gt_right">1.70 &times; 10<sup class='gt_super'>&minus;2</sup></td>
+      <td class="gt_row gt_right">3.25 &times; 10<sup class='gt_super'>&minus;4</sup></td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left">npde</td>
+      <td class="gt_row gt_left">Combinado 2</td>
+      <td class="gt_row gt_right">2.17 &times; 10<sup class='gt_super'>&minus;4</sup></td>
+      <td class="gt_row gt_right">3.77 &times; 10<sup class='gt_super'>&minus;4</sup></td>
+      <td class="gt_row gt_right">4.04 &times; 10<sup class='gt_super'>&minus;3</sup></td>
+      <td class="gt_row gt_right">1.67 &times; 10<sup class='gt_super'>&minus;2</sup></td>
+      <td class="gt_row gt_right">3.19 &times; 10<sup class='gt_super'>&minus;2</sup></td>
+      <td class="gt_row gt_right">2.88 &times; 10<sup class='gt_super'>&minus;4</sup></td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left">npde</td>
+      <td class="gt_row gt_left">Combinado P</td>
+      <td class="gt_row gt_right">9.76 &times; 10<sup class='gt_super'>&minus;5</sup></td>
+      <td class="gt_row gt_right">1.04 &times; 10<sup class='gt_super'>&minus;4</sup></td>
+      <td class="gt_row gt_right">1.12 &times; 10<sup class='gt_super'>&minus;3</sup></td>
+      <td class="gt_row gt_right">1.83 &times; 10<sup class='gt_super'>&minus;3</sup></td>
+      <td class="gt_row gt_right">2.73 &times; 10<sup class='gt_super'>&minus;2</sup></td>
+      <td class="gt_row gt_right">1.25 &times; 10<sup class='gt_super'>&minus;4</sup></td>
+    </tr>
+  </tbody>
+  
+  
+</table></div>
+</body>
+</html>
