@@ -22,10 +22,10 @@ require(rlang)
 require(glue)
 
 #-------------------------------------------------------------------------------#
-auxdir  <- file.path('.', 'M2CPTM_nobs_1_prop')
+auxdir  <- file.path('.', 'M2CPTM_nobs_2_aditv')
 bootdir <- file.path(auxdir, 'results')
-project.file <- file.path(auxdir, 'M2CPTM_nobs_1_prop.mlxtran')
-paramet.file <- file.path(auxdir, 'M2CPTM_nobs_1_prop')
+project.file <- file.path(auxdir, 'M2CPTM_nobs_2_aditv.mlxtran')
+paramet.file <- file.path(auxdir, 'M2CPTM_nobs_2_aditv')
 dir.create(file.path(bootdir))
 # dir.create(file.path(bootdir))
 
@@ -59,27 +59,30 @@ for (i in 1:1000) {
 }
 
 for (i in 1:1000) {
-  file.copy(file.path(auxdir, glue('M2CPTM_nobs_1_prop.properties')),
+  file.copy(file.path(auxdir, glue('M2CPTM_nobs_2_aditv.properties')),
             file.path(bootdir, glue('B{i}/')))
 }
 
 #-------------------------------------------------------------------------------#
 # Apertura del archivo de control
-fileName <- file.path(auxdir, 'M2CPTM_nobs_1_prop.mlxtran')
+fileName <- file.path(auxdir, 'M2CPTM_nobs_2_aditv.mlxtran')
 A = readChar(fileName, file.info(fileName)$size)
 
 # Modificación de efectos aleatorios para mejorar la estimación SAEM
 # Con esto se modifican los valores iniciales se dejan en 1.00 y esto permite una 
 # mejor búsqueda en el espacio muestral. 
 
-A1 <- A %>% 
+A1 <-
+  A %>% 
   str_replace('(?<=ANTU)\\}', ', new_ID}') %>% 
   str_replace('ID(?=\\s\\=\\s)', 'new_ID') %>% 
-  str_replace_all('(?<=b\\s\\=\\s\\{value\\=)(\\-0|.)\\.\\d+(?=\\,)','0.3') %>%
+  str_replace_all('(?<=a1\\s\\=\\s\\{value\\=)\\d+(?=\\,)','1.0') %>%
+  str_replace_all('(?<=a2\\s\\=\\s\\{value\\=)\\d+(?=\\,)','1.0') %>%
   str_replace_all('(?<=omega_Cl\\s\\=\\s\\{value\\=)(\\-0|.)\\.\\d+(?=\\,)','1.00') %>%
   str_replace_all('(?<=omega_Q\\s\\=\\s\\{value\\=)(\\-0|.)\\.\\d+(?=\\,)','1.00') %>%
   str_replace_all('(?<=omega_V1\\s\\=\\s\\{value\\=)(\\-0|.)\\.\\d+(?=\\,)','1.00') %>%
   str_replace_all('(?<=omega_V2\\s\\=\\s\\{value\\=)(\\-0|.)\\.\\d+(?=\\,)','1.00') %>% 
+  str_replace_all("(?<=file\\s\\=\\s)\\'(?=model\\/model\\.txt\\')", "'../../") %>% 
   str_replace_all('data\\/', '') %>% 
   # Selección de tarea a ejecutar en archivo de control
   str_replace(regex("(?<=\\[TASKS\\]).+(?=\\[SETTINGS\\])", dotall = TRUE),
@@ -92,5 +95,5 @@ for (i in 1:1000) {
     str_replace("(?<=\\_)TAD", glue('{i}'))
   
   write_lines(B,
-              file.path(bootdir, glue('B{i}/M2CPTM_nobs_1_prop.mlxtran')), sep = '\n')
+              file.path(bootdir, glue('B{i}/M2CPTM_nobs_2_aditv.mlxtran')), sep = '\n')
 }
