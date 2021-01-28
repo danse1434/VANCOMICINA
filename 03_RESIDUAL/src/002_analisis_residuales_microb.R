@@ -22,6 +22,7 @@ require(gt)
 theme_set(theme_bw())
 # Ejecutar script de funciones
 source(file.path('src', '009_funciones.R'), encoding = 'UTF-8')
+source(file.path('src', '011_formatoCondicionalGT.R'), encoding = 'UTF-8')
 
 #-------------------------------------------------------------------------------#
 # 1 Introducción ------------------
@@ -228,6 +229,10 @@ gt_res_norm <- res_norm %>%
     table.font.size = "smaller",
     data_row.padding = px(3)
   )
+
+gt_res_norm <- gt_res_norm %>% 
+  formatoCondicional(c('SW', 'AD', 'CM', 'Lf', 'Pe', 'SF'), alpha = 0.5)
+
 # Almacenar en gt()
 gt_res_norm %>% 
   gtsave('013_res_normalidad_microb.html', file.path('figures') %>% normalizePath())
@@ -339,3 +344,127 @@ plot_acum_comp <- res_norm %>%
 
 ggsave('016_res_ecdf_microb.pdf', plot_acum_comp, 'pdf', 
        'figures', 1, 8, 6, 'in')
+
+#-------------------------------------------------------------------------------#
+# 6 Verificación de distribución t de algunos residuales ---------------
+#-------------------------------------------------------------------------------#
+res_tdist <- res_nobs2 %>%
+  select(Resid, pwRes, iwResMean = iwRes_mean, iwResMode = iwRes_mode, npde) %>%
+  pivot_longer(cols = -Resid,
+               names_to = 'Residuales',
+               values_to = 'Val') %>%
+  group_by(Resid, Residuales) %>%
+  nest() %>%
+  mutate(ks = map(data, ~ ks.test(.x, "pt", dim(.x)[1] - 1)),
+         p_ks = map_dbl(ks, "p.value")) %>%
+  select(-data,-ks) %>% 
+  pivot_wider(id_cols = 'Resid', names_from = 'Residuales', values_from = 'p_ks')
+
+gt_res_tdist <- res_tdist %>% 
+  ungroup() %>% 
+  gt() %>% 
+  tab_header(title = md('**Prueba de distribución t - Modelo de Residuales**'),
+             subtitle = md('**Prueba KS para evaluar si residuales provienen de distribución t**')) %>% 
+  cols_label(
+    Resid     = md('**Residuales**'),
+    pwRes     = md('**PWRES**'),
+    iwResMean = md('**IWRES (media)**'),
+    iwResMode = md('**IWRES (moda)**'),
+    npde      = md('**NPDE**')
+  ) %>% 
+  fmt_scientific(2:5, decimals = 3) %>% 
+  cols_align('left', 1) %>%
+  tab_options(
+    column_labels.font.size = "smaller",
+    table.font.size = "smaller",
+    data_row.padding = px(3)
+  ) %>% 
+  formatoCondicional(c('pwRes', 'iwResMean', 'iwResMode', 'npde'), alpha = 0.5)
+
+
+# Almacenar en gt()
+gt_res_tdist %>% 
+  gtsave('017_res_distr_t_microb.html', file.path('figures') %>% normalizePath())
+
+plotML <- function(data) {
+  df <- data.frame(x = seq(1, 50, 1),
+                   y = map_dbl(seq(1, 50, 1), ~ -sum(dt(data, df = .x, log = T))))
+  
+  g <- df %>%
+    ggplot(aes(x, y)) +
+    geom_line() +
+    xlab(expression(nu)) + ylab(expression(LL(x~"|"~mu))) +
+    coord_cartesian(ylim = c(118, 160))
+  
+  f <- MASS::fitdistr(data, 't', 
+                      list(m = 0, s = 1, df = 2), 
+                      lower = c(-Inf,-Inf, 1))
+  
+  g +
+    annotate(label = glue::glue(
+      "m  = {f$estimate[['m']] %>% round(3)}
+       s  = {f$estimate[['s']] %>% round(3)}
+       df = {f$estimate[['df']] %>% round(3)}"
+    ), geom='label', x = 40, y = 150) %>%  return()
+}
+
+plotML(res_nobs2[res_nobs2$Resid == 'aditv', 'pwRes']$pwRes) +
+  ggtitle('PWRES') +
+  plotML(res_nobs2[res_nobs2$Resid == 'aditv', 'iwRes_mean']$iwRes_mean) +
+  ggtitle('IWRES (media)') +
+  plotML(res_nobs2[res_nobs2$Resid == 'aditv', 'iwRes_mode']$iwRes_mode) +
+  ggtitle('IWRES (moda)') +
+  plotML(res_nobs2[res_nobs2$Resid == 'aditv', 'npde']$npde) +
+  ggtitle('NPDE') + plot_layout(ncol=2) -> gML
+
+
+ggsave('018_res_ML_dist_t_microb.pdf', gML, 'pdf', 
+       'figures', 1, 8, 6, 'in')
+
+
+MASS::fitdistr(res_nobs2[res_nobs2$Resid == 'aditv', 'pwRes']$pwRes, 'normal')
+# res_nobs2 %>% 
+#   filter(Resid == 'aditv') %>% 
+#   ggplot(aes(iwRes_mean)) + 
+#   geom_density(fill=alpha("blue", 0.1)) +
+#   geom_histogram(aes(y = ..density..), bins = 12, fill=alpha("blue", 0.1)) +
+#   stat_function(aes(color="2"), fun = 'dt', args = list(df = 2)) +
+#   stat_function(aes(color="3"), fun = 'dt', args = list(df = 3)) +
+#   stat_function(aes(color="4"), fun = 'dt', args = list(df = 4)) +
+#   stat_function(aes(color="7"), fun = 'dt', args = list(df = 7)) + 
+#   stat_function(aes(color="20"), fun = 'dt', args = list(df = 20)) + 
+#   stat_function(aes(color="30"), fun = 'dt', args = list(df = 30)) + 
+#   stat_function(aes(color="Norm"), fun = 'dnorm', size=1.2, lty='dashed') + 
+#   scale_color_discrete()
+# 
+#     df <- data.frame(x = seq(1, 50, 1),
+#                      y = map_dbl(seq(1, 50, 1), ~ -sum(dt(m1, df = .x, log = T)))
+#     )
+
+#   m <- vector('list', 20L)
+#   
+#   
+# for (i in 1:20) {
+#   m1 <- rt(n = 900, df = i)
+#   # print(m1)
+#   df <- data.frame(x = seq(1, 50, 1),
+#                    y = map_dbl(seq(1, 50, 1), ~ -sum(dt(m1, df = .x, log = T)))
+#   )
+#   m[[i]] = df %>%
+#     ggplot(aes(x = x, y = y)) +
+#     geom_line()
+# }
+# 
+# MASS::fitdistr(
+#     xdistribution,
+#     't',
+#     list(m = 0, s = 1, df = 1),
+#     lower = c(-1e-16, 1 - 1E-16, 1),
+#     upper = c(+1e-16, 1 + 1E-16, Inf)
+#   )
+#   MASS::fitdistr(xdistribution, pt, list(df = 1))
+# 
+# 
+# 
+# m1 <- rt(n = 900, df = 2)
+# MASS::fitdistr(m1, 't', list(m=0, s=1, df=1), lower=c(-1e-16, 1-1E-16, 1), upper=c(+1e-16, 1+1E-16, Inf))

@@ -24,6 +24,7 @@ require(gt)
 theme_set(theme_bw())
 # Ejecutar script de funciones
 source(file.path('src', '009_funciones.R'), encoding = 'UTF-8')
+source(file.path('src', '011_formatoCondicionalGT.R'), encoding = 'UTF-8')
 
 #-------------------------------------------------------------------------------#
 # 1 Introducción ------------------
@@ -187,6 +188,10 @@ gt_res_norm <- res_norm %>%
     table.font.size = "smaller",
     data_row.padding = px(3)
   )
+
+gt_res_norm <- gt_res_norm %>% 
+  formatoCondicional(c('SW', 'AD', 'CM', 'Lf', 'Pe', 'SF'), alpha = 0.5)
+
 # Almacenar en gt()
 gt_res_norm %>% 
   gtsave('003_res_normalidad_quimiol.html', file.path('figures') %>% normalizePath())
