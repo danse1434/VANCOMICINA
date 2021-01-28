@@ -349,7 +349,7 @@ g_percs <-
 #-------------------------------------------------------------------------------#
 # Almacenamiento en formato PDF
 ggsave(file.path(auxdir, 'figures', '011_pcVPC_percentil.pdf'), g_percs, 'pdf',
-       width = 6, height = 3.8)
+       width = 6, height = 3.5)
 
 # Almacenar RDS
 saveRDS(g_percs, file.path(auxdir, 'figures', 'RDS', '012_pcVPC_percentil.rds'))

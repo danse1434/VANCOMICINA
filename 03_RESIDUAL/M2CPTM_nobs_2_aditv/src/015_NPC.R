@@ -170,7 +170,7 @@ NPC_plot <-  df %>%
   geom_point(col = 'black') + 
   facet_grid(Tipo ~ Metodo) + 
   geom_hline(yintercept = 1, lty = 'dotted') +
-  ylab('Ratio O/E') + xlab('IP') + 
+  ylab('Ratio O/E') + xlab('Intervalo de Predicción') + 
   theme_bw() +
   theme(panel.border = element_rect(fill = NULL, colour = 'black'),
         legend.position = "none") +
@@ -182,9 +182,8 @@ NPC_plot
 # Almacenamiento del archivo PDF
 ggsave(
   file.path('M2CPTM_nobs_2_aditv', 'figures', '012_NPC_plot.pdf'), NPC_plot, device = 'pdf', 
-       width = 6, height = 4)
+       width = 5, height = 4)
 
 # Almacenamiento como RDS
 saveRDS(NPC_plot,
         file.path('M2CPTM_nobs_2_aditv', 'figures', 'RDS', '012_NPC_percentil.RDS'))
-
