@@ -1,0 +1,16 @@
+Cl_pop,0.00479,0.00119,0.000707,-0.00331,-0.00019,nan,nan,nan,-0.00021,-5.71e-9,nan,-0.000277,nan,-0.000637,-2.22e-5,-4.89e-5
+V1_pop,0.00119,0.00544,0.00326,0.0136,9.98e-5,nan,nan,nan,0.000114,3.55e-9,nan,0.000149,nan,0.000347,-1.21e-5,6.92e-5
+Q_pop,0.000707,0.00326,0.0131,-0.0185,-0.000238,nan,nan,nan,-0.000281,-1.38e-8,nan,-0.000363,nan,-0.000866,-1.7e-5,-0.000129
+V2_pop,-0.00331,0.0136,-0.0185,0.107,0.00125,nan,nan,nan,0.00145,5.58e-8,nan,0.00188,nan,0.00442,2e-5,0.00067
+omega_Cl,-0.00019,9.98e-5,-0.000238,0.00125,0.000892,nan,nan,nan,0.000953,9e-9,nan,0.00129,nan,0.00286,2.83e-5,5.41e-6
+corr_V1_Cl,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan
+corr_Q_Cl,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan
+corr_V2_Cl,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan
+omega_V1,-0.00021,0.000114,-0.000281,0.00145,0.000953,nan,nan,nan,0.00102,1.01e-8,nan,0.00138,nan,0.00306,3.2e-5,5.12e-6
+corr_V1_Q,-5.71e-9,3.55e-9,-1.38e-8,5.58e-8,9e-9,nan,nan,nan,1.01e-8,7.91e-13,nan,1.32e-8,nan,3.1e-8,1.25e-9,-5.43e-10
+corr_V2_V1,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan
+omega_Q,-0.000277,0.000149,-0.000363,0.00188,0.00129,nan,nan,nan,0.00138,1.32e-8,nan,0.00187,nan,0.00414,4e-5,8.14e-6
+corr_V2_Q,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan
+omega_V2,-0.000637,0.000347,-0.000866,0.00442,0.00286,nan,nan,nan,0.00306,3.1e-8,nan,0.00414,nan,0.00918,9.73e-5,1.44e-5
+a1,-2.22e-5,-1.21e-5,-1.7e-5,2e-5,2.83e-5,nan,nan,nan,3.2e-5,1.25e-9,nan,4e-5,nan,9.73e-5,0.000502,-1.92e-5
+a2,-4.89e-5,6.92e-5,-0.000129,0.00067,5.41e-6,nan,nan,nan,5.12e-6,-5.43e-10,nan,8.14e-6,nan,1.44e-5,-1.92e-5,5.32e-5
