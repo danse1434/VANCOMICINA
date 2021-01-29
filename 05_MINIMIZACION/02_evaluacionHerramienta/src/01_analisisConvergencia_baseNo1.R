@@ -21,22 +21,28 @@ require(tidyverse)
 
 # Vector con orden de parámetros
 level_par <- c('Cl_pop', 'V1_pop', 'Q_pop', 'V2_pop', 
-               'omega_Cl', 'omega_V1', 'omega_V2', 'omega_Q', 'b')
+               'omega_Cl', 'omega_V1', 'omega_V2', 'omega_Q', 'a1', 'a2', 'corr_V2_V1')
 
 # Selección directorio auxiliar
-aux_dir <- file.path(getwd(), 'M2CPTM_nobs_1_prop', 'Assessment')
+aux_dir <- file.path(getwd(), 'Base_corr2', 'Assessment')
 
 #-------------------------------------------------------------------------------#
 # 1 Resumen Parámetros de Diseño Factorial --------------------------------------
 #-------------------------------------------------------------------------------#
 # Lista vacía *d_fct_ls*
-d_fct_ls <- vector('list', 30)
+d_fct_ls <- vector('list', 60)
+# Lista vacía con Assessment
+m_fct_ls <- vector('list', 60)
+
 # Lectura de datos de parámetros estimados
-for (i in 1:30) {
+for (i in 1:60) {
   subdir <- file.path(aux_dir, paste0('Run', i))
   # Asignación a vector
   d_fct_ls[[i]] <-
     read_csv(file.path(subdir, 'populationParameters.txt'),
+             col_types = cols())
+  m_fct_ls[[i]] <- 
+    read_csv(file.path(subdir, 'Assessment', 'assessment.txt'),
              col_types = cols())
 }
 # Conversión en data.frame unificado
@@ -105,3 +111,10 @@ if (!file.exists(glue('{getwd()}/figures/03_resultadosPCA.png'))) {
   ggsave('03_resultadosPCA.pdf', PCAbiplot_comp, 'pdf', 'figures', 1, 7, 5)
   ggsave('03_resultadosPCA.png', PCAbiplot_comp, 'png', 'figures', 1, 7, 5, dpi = 720*2)
 }
+
+pdf(file.path('figures', '04_biplotPCA.pdf'), 8, 4)
+  par(mar = c(3, 4.5, 3, 4.5), mfrow = c(1, 2))
+  
+  biplot(pca_fct_ls1, cex = rep(0.5, 2))
+  biplot(pca_fct_ls1, choices = c(1,3), cex = rep(0.5, 2))
+dev.off()
