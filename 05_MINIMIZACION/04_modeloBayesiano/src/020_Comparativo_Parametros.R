@@ -7,11 +7,15 @@ df3 <- read_csv(file.path('reports', '102_modeltwoCptmDiagProp_Results.txt'))
 df4 <- read_csv(file.path('reports', '103_modeltwoCptmDiagPropCov_Results.txt'))
 df5 <- read_csv(file.path('reports', '104_modeltwoCptmDiagProp_errResNor_Results.txt'))
 df6 <- read_csv(file.path('reports', '105_modeltwoCptmDiagProp_errResNor_NoInfo_Results.txt'))
+df7 <- read_csv(file.path('reports', '107_modeloBaseArreglado_Results.txt'))
 
 parameters <- unique(c(df1$P, df2$P, df3$P, df4$P, df5$P, df6$P)) %>% 
-  keep(~ str_detect(.x, 'CLHat|QHat|V1Hat|V2Hat|omega|rho|^b\\d{0,}$|sigma')) %>% 
-  discard(~ str_detect(.x, 'rho\\[1,1\\]|rho\\[2,2\\]|rho\\[3,3\\]|rho\\[4,4\\]'))%>% 
-  discard(~ str_detect(.x, 'rho\\[2,1\\]|rho\\[3,1\\]|rho\\[4,1\\]|rho\\[3,2\\]|rho\\[4,2\\]|rho\\[4,3\\]'))
+  keep(~ str_detect(.x, 'CLHat|QHat|V1Hat|V2Hat|omega|rho|^b\\d{0,}$|sigma|^a\\d$')) %>% 
+  discard(~ str_detect(.x, 'rho\\[1,1\\]|rho\\[2,2\\]|rho\\[3,3\\]|rho\\[4,4\\]')) %>%
+  discard(~ str_detect(.x, 'rho\\[1,2\\]|rho\\[1,3\\]|rho\\[1,4\\]')) %>%
+  discard(~ str_detect(.x, 'rho\\[2,1\\]|rho\\[2,3\\]|rho\\[2,4\\]')) %>%
+  discard(~ str_detect(.x, 'rho\\[3,1\\]|rho\\[3,2\\]|rho\\[4,1\\]|rho\\[4,2\\]')) %>% 
+  discard(~ str_detect(.x, 'rho1'))
 
 
 df1 %>% 
@@ -66,3 +70,6 @@ crearTabla(df5, 'Modelo Base Vancomicina - Método Quimioluminiscencia') %>%
 
 crearTabla(df6, 'Modelo Base Vancomicina - Método Quimioluminiscencia (a priori difuso)') %>% 
   gtsave('105_modeltwoCptmDiagProp_errResNor_NoInfo_Results.html', normalizePath(file.path('reports')))
+
+crearTabla(df7, 'Modelo Base Corregido') %>% 
+  gtsave('107_modeloBaseArreglado_Results.html', file.path(getwd(), 'reports'))

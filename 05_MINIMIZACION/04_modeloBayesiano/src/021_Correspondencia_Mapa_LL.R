@@ -14,11 +14,11 @@
 ## Email: dsparrag@unal.edu.co 
 ##------------------------------------------------------------------------------#
 
-source('./src/002_prepro_102_modeltwoCptmDiagProp.R', encoding = 'UTF8')
+source('./src/007_prepro_107_modelBaseArreglado.R', encoding = 'UTF8')
 source('./src/051_fun_funcion2Cptm.R', encoding = 'UTF8')
 source('./src/052_fun_funcionesVerosimilitud.R', encoding = 'UTF8')
 
-modelName <- '104_modeltwoCptmDiagProp_errResNor'
+modelName <- '107_modeloBaseArreglado'
 load(file = file.path('models', paste0(modelName, "Fit.Rsave")))
 
 #-------------------------------------------------------------------------------#
@@ -109,7 +109,7 @@ lista_2D[[4]] <- modificarInserto(grafico_2D_LS[[4]], fit_mcmc,
 (lista_2D %>% 
   reduce(., `+`)+
   plot_layout(ncol=2)) %>% 
-  ggsave('figures/110_comparacion_Bayesiana_Mas_Verosimilitud.pdf', plot = ., 'pdf', 
+  ggsave('figures/117_comparacion_Bayesiana_LL_Base.pdf', plot = ., 'pdf', 
          width = 8, height = 6)
 
 
@@ -130,7 +130,7 @@ stat_density_2d(
    data = popParam, aes(omega_V1, omega_V2), color='green', shape='*'
  ) 
 
-ggsave('111_comparacion_Bayesiana_Omegas_LL.pdf', graficoOmegas, 'pdf', 
+ggsave('117_comparacion_Bayesiana_Omegas_LL.pdf', graficoOmegas, 'pdf', 
        'figures', 1, 8, 6)  
 
 
