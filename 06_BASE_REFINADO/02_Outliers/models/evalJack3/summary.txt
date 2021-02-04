@@ -1,0 +1,41 @@
+********************************************************************************
+*                        evalJack3.mlxtran                                     *
+*                        February 04, 2021 at 17:09:57                         *
+*                        Monolix version : 2020R1                              *
+********************************************************************************
+
+
+ESTIMATION OF THE POPULATION PARAMETERS ________________________________________
+
+Fixed Effects ----------------------------
+Cl_pop     :                          10.2
+V1_pop     :                            40
+Q_pop      :                          12.7
+V2_pop     :                          42.6
+
+Standard Deviation of the Random Effects -
+omega_Cl   :                         0.258
+omega_V1   :                         0.289
+omega_Q    :                         0.663
+omega_V2   :                         0.293
+
+Correlations -----------------------------
+corr_V2_V1 :                         0.998
+
+Error Model Parameters -------------------
+a1         :                         0.317
+a2         :                        0.0553
+
+Elapsed time (seconds) :     6.4
+
+ _______________________________________________________________________________
+
+
+
+
+DATASET INFORMATION
+Number of individuals: 13
+Number of observations (obsid 1): 89
+Number of observations (obsid 2): 89
+Number of doses: 78
+
