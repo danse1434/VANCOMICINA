@@ -32,11 +32,11 @@ aux_dir =  file.path(getwd(), 'results')
 source('src/20_funciones_resultados.R', encoding = 'UTF-8')
 # Directorio externo donde se ubica el modelo base 1
 dirModeloBase <- file.path(
-  "..", "..", "03_RESIDUAL", "M2CPTM_nobs_1_prop"
+  "..", "..", "04_CORRELACION"
 )
 # Apertura de archivo de datos de parámetros de modelo base final
 populationParameters <-
-  read_csv(file.path(dirModeloBase, 'M2CPTM_nobs_1_prop', "populationParameters.txt"))
+  read_csv(file.path(dirModeloBase, 'M2CPTM_nobs_2_aditv_corr2', "populationParameters.txt"))
 
 popParam <- populationParameters %>% 
   select(parameter, value) %>% 

@@ -19,14 +19,14 @@ require(glue)
 
 # Directorio externo donde se ubica el modelo base 1
 dirModeloBase <- file.path(
-  "..", "..", "03_RESIDUAL", "M2CPTM_nobs_1_prop"
+  "..", "..", "04_CORRELACION"
 )
 
 # Leer archivo *csv con parámetros de modelo base 
 parametrosPoblacionales <-
   read_csv(file.path(
     dirModeloBase,
-    'M2CPTM_nobs_1_prop',
+    'M2CPTM_nobs_2_aditv_corr2',
     'populationParameters.txt'
   ))
 
@@ -69,7 +69,7 @@ dir.create(file.path(aux_dir), showWarnings = FALSE)
 ##  5 Almacenar el archivo en el directorio correspondiente con el nombre
 ##  de "BASE_NEW.mlxtran", con formato de texto.
 #................................................................................
-fileName <- file.path(dirModeloBase, 'M2CPTM_nobs_1_prop.mlxtran')
+fileName <- file.path(dirModeloBase, 'M2CPTM_nobs_2_aditv_corr2.mlxtran')
 Z = readChar(fileName, file.info(fileName)$size)
 
 global_task <- glue(
@@ -89,7 +89,7 @@ global_conf <- glue(
   "exploratoryinterval = 0\r\n",
   "smoothinginterval = 0\r\n\r\n",
   "LL:\r\n",
-  "fixedsimulations = 10000\r\n\r\n"
+  "fixedsimulations = 5000\r\n\r\n"
 )
 
 # Quitar tareas innecesarias, sólo estimación de parámetros
@@ -99,29 +99,22 @@ Z1 <- Z %>%
   ), global_task) %>%
   str_replace_all('data/(?=1_data)', '../')  %>%
   # Lee el archivo de datos en el mismo directorio
-  str_replace("data/data_TAD.csv", "data_TAD.csv") %>% 
+  str_replace("data/data_TAD.csv", "../../../data/data_TAD.csv") %>% 
+  str_replace_all('model/model.txt', '../../../model/model.txt')  %>%
   # Reemplazar en [SETTINGS] las configuraciones del algoritmo SAEM
   str_replace(
     regex(
       '(?<=POPULATION\\:\\r\\n).+(?=\\r\\n\\r\\n\\[COMMENTS\\])', dotall=TRUE
     ), global_conf)
 
-str1 <- glue('(?<={{par_eval1}}\\s\\=\\s\\{value\\=)\\d+\\.\\d+(?=\\,\\smethod)',
+str1 <- glue('(?<={{par_eval1}}\\s\\=\\s\\{value\\=)(\\d+\\.\\d+|\\d)(?=\\,\\smethod)',
              .open='{{', .close='}}')
-str2 <- glue('(?<={{par_eval2}}\\s\\=\\s\\{value\\=)\\d+\\.\\d+(?=\\,\\smethod)',
+str2 <- glue('(?<={{par_eval2}}\\s\\=\\s\\{value\\=)(\\d+\\.\\d+|\\d)(?=\\,\\smethod)',
              .open='{{', .close='}}')
 
 # Creación de directorios para cada item
 for (i in 1:dim(pop_vec_df)[1]) {
   dir.create(file.path(aux_dir, glue('A{i}')), showWarnings = FALSE)
-}
-
-# Copiar el archivo de datos desde el modelo Base
-for (i in 1:dim(pop_vec_df)[1]) {
-  file.copy(
-    from = file.path(dirModeloBase, 'data', 'data_TAD.csv'),
-    to = file.path(aux_dir, glue('A{i}'))
-  )
 }
 
 for (i in 1:dim(pop_vec_df)[1]) {
@@ -132,6 +125,6 @@ for (i in 1:dim(pop_vec_df)[1]) {
                 paste(pop_vec_df[i, 2]))
   
   write_lines(Y,
-              file.path(aux_dir, glue('A{i}'), 'M2CPTM_nobs_1_prop.mlxtran'),
+              file.path(aux_dir, glue('A{i}'), 'M2CPTM_nobs_2_aditv_corr2.mlxtran'),
               sep = '\n')
 }

@@ -20,11 +20,10 @@ require(patchwork)
 #-------------------------------------------------------------------------------#
 # 1. Lectura y procesamiento de Matriz FIM ---------------------
 #-------------------------------------------------------------------------------#
-
-# Especificación de modelo
-model_1 <- file.path('models', 'M2CPTM_nobs_1_prop')
+# Especificación de modelo base
+model_1 <- file.path('models', 'M2CPTM_nobs_2_aditv_corr2')
 # Lectura de archivo de correlación
-dfCorr_1 <- read_csv(file.path(model_1, 'M2CPTM_nobs_1_prop', 
+dfCorr_1 <- read_csv(file.path(model_1, 
                                'FisherInformation', 'correlationEstimatesSA.txt'), 
                      col_names = FALSE)
 # Cambiar los nombres de columnas
@@ -40,15 +39,15 @@ dfCorr_2
 # 1.1. Crear gráficos 
 
 label_vec <- c('Cl', bquote('V'[1]), 'Q', bquote('V'[2]), 
-               bquote(omega['Cl']^2), bquote(omega['V'[1]]^2), 
-               bquote(omega['Q']^2), bquote(omega['V'[2]]^2), 'b')
+               bquote(omega['Cl']^2), bquote(omega['V'[1]]^2), bquote('corr-V'[2]~V[1]),
+               bquote(omega['Q']^2), bquote(omega['V'[2]]^2), 
+               bquote(a[1]), bquote(a[2]))
 
 
-df_Corr_plot <-
-  dfCorr_2 %>%
+df_Corr_plot <- dfCorr_2 %>%
   rplot(
     colours = c('red', 'white', 'green'),
-    shape = 16,
+    shape = 19,
     print_cor = TRUE
   ) +
   scale_x_discrete(labels = label_vec) +
@@ -74,7 +73,7 @@ gtsave(df_Corr_gt, '02_Correlacion_Base_1.html', normalizePath(file.path('figure
 #-------------------------------------------------------------------------------#
 # 1.3. Precisión de Estimación
 
-dfPrec_1 <- read_csv(file.path(model_1, 'M2CPTM_nobs_1_prop', 
+dfPrec_1 <- read_csv(file.path(model_1, 
                                'populationParameters.txt'))
 
 dfPrec_2 <- dfPrec_1 %>% 
@@ -82,11 +81,21 @@ dfPrec_2 <- dfPrec_1 %>%
   add_column(algorithm = 'SAEM')
 
 # Carga de modelo bayesiano
-load(file = file.path('models', paste0('104_modeltwoCptmDiagProp_errResNor', "Fit.Rsave")))
+load(file = file.path('models', paste0('107_modeloBaseArreglado', "Fit.Rsave")))
 
-dfPrec_3 <- as.matrix(fit) %>% 
-  as_tibble() %>% 
-  select(1:9)
+parameters <- as.matrix(fit) %>% 
+  colnames() %>% 
+  keep(~ str_detect(.x, 'CLHat|QHat|V1Hat|V2Hat|omega|rho|^a\\d$')) %>% 
+  discard(~ str_detect(.x, 'rho\\[1,1\\]|rho\\[2,2\\]|rho\\[3,3\\]|rho\\[4,4\\]')) %>%
+  discard(~ str_detect(.x, 'rho\\[1,2\\]|rho\\[1,3\\]|rho\\[1,4\\]')) %>%
+  discard(~ str_detect(.x, 'rho\\[2,1\\]|rho\\[2,3\\]|rho\\[2,4\\]')) %>%
+  discard(~ str_detect(.x, 'rho\\[3,1\\]|rho\\[3,2\\]|rho\\[4,1\\]|rho\\[4,2\\]|rho\\[3,4\\]')) %>% 
+  discard(~ str_detect(.x, 'rho1')) 
+
+dfPrec_3 <- as.matrix(fit) %>%
+  as_tibble() %>%
+  select(parameters) %>% 
+  relocate(`rho[4,3]`, .after = `omega[4]`)
 
 colnames(dfPrec_3) <- dfPrec_1$parameter
 
@@ -97,7 +106,6 @@ dfPrec_4 <- dfPrec_3 %>%
   rownames_to_column('parameter') %>% 
   rename(rse_sa=V1) %>% 
   add_column(algorithm = 'NUTS') 
-
 
 # Creación de un gráfico con medidas unificadas para ambos algoritmos
 
@@ -110,7 +118,7 @@ df_Prec_plot <- dfPrec_2 %>%
   geom_bar(stat = 'identity', position = 'dodge', colour='black') +
   xlab('RSE (%)') + 
   theme_bw() +
-  scale_y_discrete(labels = rev(label_vec[c(8,6,3,7,5,9,1,4,2)])) +
+  scale_y_discrete(labels = rev(label_vec[c(9, 6, 8, 3, 5, 4, 11, 2, 10, 1, 7)])) +
   scale_fill_manual(name='Algoritmo', values = c('red2', 'blue2')) +
   geom_text(
     aes(
@@ -124,7 +132,6 @@ df_Prec_plot <- dfPrec_2 %>%
   theme(
     legend.position = c(0.85, 0.2), 
     axis.title.y = element_blank())
-
 
 # Almacenamiento de gráfico
 (df_Prec_plot + df_Corr_plot + plot_annotation(tag_levels = 'A')) %>% 

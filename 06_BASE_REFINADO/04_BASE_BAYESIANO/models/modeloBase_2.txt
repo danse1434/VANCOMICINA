@@ -1,0 +1,55 @@
+;########################################################################
+DESCRIPTION:
+;########################################################################
+Se describe el modelo base para observaciones de vancomicina estimado mediante 
+método bayesiano Stan, en este caso se añade un nivel superior de variabilidad. Este 
+nivel de variabilidad superior corresponde a hiperparámetros estimados a partir de las 
+muestras de NUTS, mediante máxima verosimilitud por distfitr del paquete MASS de R.
+;########################################################################
+
+[POPULATION]
+input = {muCl, muQ, muV1, muV2, sdCl, sdQ, sdV1, sdV2, 
+sh_omega_Cl, sh_omega_Q, sh_omega_V1, sh_omega_V2,
+sc_omega_Cl, sc_omega_Q, sc_omega_V1, sc_omega_V2, 
+mu_b, sd_b}
+
+DEFINITION:
+Cl_pop = {distribution = lognormal, mean = muCl, sd = sdCl}
+Q_pop = {distribution = lognormal, mean = muQ, sd = sdQ}
+V1_pop = {distribution = lognormal, mean = muV1, sd = sdV1}
+V2_pop = {distribution = lognormal, mean = muV2, sd = sdV2}
+b = {distribution = lognormal, mean = mu_b, sd = sd_b}
+omega_Cl = {distribution = gamma, shape = sh_omega_Cl, scale= sc_omega_Cl}
+omega_Q = {distribution = gamma, shape = sh_omega_Q, scale= sc_omega_Q}
+omega_V1 = {distribution = gamma, shape = sh_omega_V1, scale= sc_omega_V1}
+omega_V2 = {distribution = gamma, shape = sh_omega_V2, scale= sc_omega_V2}
+
+;########################################################################
+[INDIVIDUAL]
+input = {Cl_pop, omega_Cl, Q_pop, omega_Q, V1_pop, omega_V1, V2_pop, omega_V2}
+
+DEFINITION:
+Cl = {distribution=logNormal, typical=Cl_pop, sd=omega_Cl}
+Q = {distribution=logNormal, typical=Q_pop, sd=omega_Q}
+V1 = {distribution=logNormal, typical=V1_pop, sd=omega_V1}
+V2 = {distribution=logNormal, typical=V2_pop, sd=omega_V2}
+
+;########################################################################
+[LONGITUDINAL]
+input = {Cl, V1, Q, V2, b}
+
+EQUATION:
+; Parameter transformations 
+V = V1
+k = Cl/V1
+k12 = Q/V1
+k21 = Q/V2
+
+; PK model definition
+Cc = pkmodel(V, k, k12, k21)
+
+DEFINITION:
+y1 = {distribution=logNormal, prediction=Cc, errorModel=proportional(b)}
+
+OUTPUT:
+output = {y1}
