@@ -1,11 +1,17 @@
 require(Rsmlx)
+library(lixoftConnectors)
+initializeLixoftConnectors(
+  software = "monolix", 
+  path = file.path('C:', 'ProgramData', 'Lixoft', 'MonolixSuite2020R1')
+)
+
 require(openxlsx)
 require(readxl)
 require(tidyverse)
 
 # Directorio externo donde se ubica el modelo base 1
 dirModeloBase <- file.path(
-  "..", "..", "03_RESIDUAL", "M2CPTM_nobs_1_prop"
+  "..", "..", "04_CORRELACION"
 
 )
 
@@ -13,7 +19,7 @@ dirModeloBase <- file.path(
 if (!file.exists('./results/01_listaResultados_1D.xlsx')) {
   # Tiempo de corrida ~ 30 minutos
   r <- confintmlx(
-    file.path(dirModeloBase, 'M2CPTM_nobs_1_prop.mlxtran'),
+    file.path(dirModeloBase, 'M2CPTM_nobs_2_aditv_corr2.mlxtran'),
     parameters = "all",
     method = "proflike",
     level = 0.90,
@@ -45,7 +51,9 @@ r <- append(r, list(
   'proflike' = read_excel("results/01_listaResultados_1D.xlsx", sheet = 'proflike')
 ))
 
-par_order <- c('Cl_pop', 'V1_pop', 'Q_pop', 'V2_pop', 'omega_Cl', 'omega_Q', 'omega_V1', 'omega_V2', 'b')
+par_order <- c('Cl_pop', 'V1_pop', 'Q_pop', 'V2_pop', 
+               'omega_Cl', 'omega_Q', 'omega_V1', 'omega_V2', 
+               'corr_V2_V1', 'a1', 'a2')
 
 #' Generación de perfil de verosimilitud
 #'

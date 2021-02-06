@@ -28,14 +28,14 @@ require(gt)
 # Definición de directorio principal
 aux_dir =  file.path(getwd(), 'results')
 # Lectura de archivo funciones
-source('src/20_funciones_resultados.R', encoding = 'UTF-8')
+source(file.path('src', '20_funciones_resultados.R'), encoding = 'UTF-8')
 # Directorio externo donde se ubica el modelo base 1
 dirModeloBase <- file.path(
-  "..", "..", "03_RESIDUAL", "M2CPTM_nobs_1_prop"
+  "..", "..", "04_CORRELACION"
 )
 # Apertura de archivo de datos de parámetros de modelo base final
 populationParameters <-
-  read_csv(file.path(dirModeloBase, 'M2CPTM_nobs_1_prop', "populationParameters.txt"))
+  read_csv(file.path(dirModeloBase, 'M2CPTM_nobs_2_aditv_corr2', "populationParameters.txt"))
 
 popParam <- populationParameters %>% 
   select(parameter, value) %>% 
@@ -151,15 +151,16 @@ x_omegaCl <- extractor('omega_Cl', mode='interval')
 x_omegaQ  <- extractor('omega_Q', mode='interval')
 x_omegaV1 <- extractor('omega_V1', mode='interval')
 x_omegaV2 <- extractor('omega_V2', mode='interval')
-x_b       <- extractor('b', mode='interval')
+x_a1      <- extractor('a1', mode='interval')
+x_a2      <- extractor('a2', mode='interval')
 
 # Cálculo de valores mínimos y adición de 3.84
 x_omegaCl_1 <- x_omegaCl %>% xval.func(omega_Cl, LL_mn)
 x_omegaQ_1  <- x_omegaQ  %>% xval.func(omega_Q, LL_mn)
 x_omegaV1_1 <- x_omegaV1 %>% xval.func(omega_V1, LL_mn)
 x_omegaV2_1 <- x_omegaV2 %>% xval.func(omega_V2, LL_mn)
-x_b_1       <- x_b %>% xval.func(b, LL_mn)
-
+x_a1_1      <- x_a1 %>% xval.func(a1, LL_mn)
+x_a2_1      <- x_a2 %>% xval.func(a2, LL_mn)
 
 x_ll_5 <- ggplot(x_omegaCl, aes(x = omega_Cl, y = LL_mn)) +
   geom_ribbon(aes(ymin=LL_li, ymax=LL_ls), fill=alpha('blue', 0.1)) +
@@ -193,15 +194,21 @@ x_ll_8 <- ggplot(x_omegaV2, aes(x = omega_V2, y = LL_mn)) +
   scale_x_continuous(guide=guide_axis(n.dodge = 2)) +
   aux_plot
 
-x_ll_9 <- ggplot(x_b, aes(x = b, y = LL_mn)) +
+x_ll_9 <- ggplot(x_a1, aes(x = a1, y = LL_mn)) +
   geom_ribbon(aes(ymin=LL_li, ymax=LL_ls), fill=alpha('blue', 0.1)) +
-  geom_point(data = x_b_1$Minimo, col = 'red3', shape = 8) +
-  geom_point(data = x_b_1$Punto_Corte, col = 'green1') +
-  geom_vline(data = popParam, aes(xintercept = b), lty='dashed', col='blue4') + 
-  xlab(bquote(b)) + aux_plot
+  geom_point(data = x_a1_1$Minimo, col = 'red3', shape = 8) +
+  geom_point(data = x_a1_1$Punto_Corte, col = 'green1') +
+  geom_vline(data = popParam, aes(xintercept = a1), lty='dashed', col='blue4') + 
+  xlab(bquote(a[1])) + aux_plot
 
+x_ll_10 <- ggplot(x_a2, aes(x = a2, y = LL_mn)) +
+  geom_ribbon(aes(ymin=LL_li, ymax=LL_ls), fill=alpha('blue', 0.1)) +
+  geom_point(data = x_a2_1$Minimo, col = 'red3', shape = 8) +
+  geom_point(data = x_a2_1$Punto_Corte, col = 'green1') +
+  geom_vline(data = popParam, aes(xintercept = a2), lty='dashed', col='blue4') + 
+  xlab(bquote(a[2])) + aux_plot
 
-x_ll_total <- paste0('x_ll_', 1:9) %>% 
+x_ll_total <- paste0('x_ll_', 1:10) %>% 
   paste(., collapse = ' + ') %>% 
   parse_expr() %>% 
   eval_bare() + 
@@ -224,7 +231,8 @@ modelLs[['omega_CL']] = x_omegaCl_1
 modelLs[['omega_Q']]  = x_omegaQ_1
 modelLs[['omega_V1']] = x_omegaV1_1
 modelLs[['omega_V2']] = x_omegaV2_1
-modelLs[['b']]        = x_b_1
+modelLs[['a1']]       = x_a1_1
+modelLs[['a2']]       = x_a2_1
 
 modelLS_df_1 <- map_dfr(modelLs, 'Minimo') %>%
   pivot_longer(

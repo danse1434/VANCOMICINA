@@ -20,20 +20,20 @@ require(glue)
 
 # Directorio externo donde se ubica el modelo base 1
 dirModeloBase <- file.path(
-  "..", "..", "03_RESIDUAL", "M2CPTM_nobs_1_prop"
+  "..", "..", "04_CORRELACION"
 )
 
 # Leer archivo *csv con parámetros de modelo base 
 parametrosPoblacionales <-
   read_csv(file.path(
     dirModeloBase,
-    'M2CPTM_nobs_1_prop',
+    'M2CPTM_nobs_2_aditv_corr2',
     'populationParameters.txt'
   ))
 
 #-------------------------------------------------------------------------------#
 # Selección de parámetro a evaluar
-par_eval = 'b'
+par_eval = 'omega_V2'
 
 # Cálculo de valor mínimo (50%) y valor máximo (500%) respecto al valor 
 # nominal estimado en el modelo base.
@@ -64,7 +64,7 @@ dir.create(file.path('results', par_eval), showWarnings = FALSE)
 #  5 Almacenar el archivo en el directorio correspondiente con el nombre
 #  de "BASE_NEW.mlxtran", con formato de texto.
 #................................................................................
-fileName <- file.path(dirModeloBase, 'M2CPTM_nobs_1_prop.mlxtran')
+fileName <- file.path(dirModeloBase, 'M2CPTM_nobs_2_aditv_corr2.mlxtran')
 Z = readChar(fileName, file.info(fileName)$size)
 
 global_task <- glue(
@@ -93,7 +93,8 @@ Z1 <- Z %>%
     ), global_task) %>%
   str_replace_all('data/(?=1_data)', '../')  %>%
   # Lee el archivo de datos en el mismo directorio
-  str_replace("data/data_TAD.csv", "data_TAD.csv") %>% 
+  str_replace("data/data_TAD.csv", "../../../data/data_TAD.csv") %>% 
+  str_replace_all('model/model.txt', '../../../model/model.txt')  %>%
   # Reemplazar en [SETTINGS] las configuraciones del algoritmo SAEM
   str_replace(
     regex(
@@ -105,19 +106,11 @@ for (i in 1:length(pop_vector)) {
   dir.create(file.path('results', par_eval, paste0('A', i)), showWarnings = FALSE)
 }
 
-# Copiar el archivo de datos desde el modelo Base
-for (i in 1:length(pop_vector)) {
-  file.copy(
-    from = file.path(dirModeloBase, 'data', 'data_TAD.csv'),
-    to = file.path('results', par_eval, paste0('A', i))
-  )
-}
-
 
 for (i in 1:length(pop_vector)) {
   Y <- Z1 %>%
     str_replace(
-      glue("(?<={{par_eval}}\\s\\=\\s\\{value\\=)\\d+\\.\\d+(?=\\,\\smethod)",
+      glue("(?<={{par_eval}}\\s\\=\\s\\{value\\=)(\\d+\\.\\d+|\\d)(?=\\,\\smethod)",
            .open='{{', .close='}}'),
       paste(pop_vector[i])
     )
@@ -125,7 +118,7 @@ for (i in 1:length(pop_vector)) {
   # Escribir archivo de control SAEM con cambio de parámetro seleccionado
   write_lines(Y,
               file.path('results', par_eval, paste0('A', i),
-                        'M2CPTM_nobs_1_prop.mlxtran'),
+                        'M2CPTM_nobs_2_aditv_corr2.mlxtran'),
               sep = '\n')
 }
 

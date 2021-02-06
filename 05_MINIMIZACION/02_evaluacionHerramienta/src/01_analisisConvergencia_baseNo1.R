@@ -112,6 +112,10 @@ if (!file.exists(glue('{getwd()}/figures/03_resultadosPCA.png'))) {
   ggsave('03_resultadosPCA.png', PCAbiplot_comp, 'png', 'figures', 1, 7, 5, dpi = 720*2)
 }
 
+
+pca_fct_ls1 %>% `$`('sdev') %>% 
+  sapply(function(x){x/sum(x)})
+
 pdf(file.path('figures', '04_biplotPCA.pdf'), 8, 4)
   par(mar = c(3, 4.5, 3, 4.5), mfrow = c(1, 2))
   

@@ -31,12 +31,13 @@
 #    f Seleccionar columnas importanceSampling y la que contiene al parámetro
 #................................................................................
 
-extractor <- function(popVal, n = 100, mode='naive', n_tail=10) {
+extractor <- function(popVal, n = 100, mode='naive', n_tail=10, 
+                      modelName = 'M2CPTM_nobs_2_aditv_corr2') {
   X = vector('list', length = n); 
   Y = vector('list', length = n); 
   
   for (i in 1:n) {
-    dir_m = file.path(aux_dir, popVal, paste0('A',i), 'M2CPTM_nobs_1_prop')
+    dir_m = file.path(aux_dir, popVal, paste0('A',i), modelName)
     
     X[[i]] = read_csv(file.path(dir_m, 'LogLikelihood', 'logLikelihood.txt'), 
                       col_types = cols())
@@ -46,22 +47,22 @@ extractor <- function(popVal, n = 100, mode='naive', n_tail=10) {
   }
   
   X1 <- X %>% 
-    map_dfr(~ as_tibble(.x), .id = 'Run') %>%
+    map_dfr(~ .x, .id = 'Run') %>%
     pivot_wider(id_cols = 'Run', names_from = 'criteria', values_from = 'importanceSampling')
   
   Y1 <- Y %>% 
-    map_dfr(~ as_tibble(.x), .id = 'Run') %>% 
+    map_dfr(~ .x, .id = 'Run') %>% 
     pivot_wider(id_cols = 'Run', names_from = 'parameter', values_from = 'value')
   
   W = left_join(X1, Y1, by = 'Run') %>% 
     # left_join(Z1, by = 'Run') %>%
-    mutate(LL1 = `-2LL` - min(`-2LL`))
+    mutate(LL1 = OFV - min(OFV))
   
   if (mode == 'interval') {
     Z = vector('list', length = n);  
     
     for (i in 1:n) {
-      dir_m = file.path(aux_dir, popVal, paste0('A',i), 'M2CPTM_nobs_1_prop')
+      dir_m = file.path(aux_dir, popVal, paste0('A',i), modelName)
       
       Z[[i]] = read_csv(file.path(dir_m, 'ChartsData', 'ImportanceSampling',
                                   'convergence.txt'), 
@@ -69,20 +70,20 @@ extractor <- function(popVal, n = 100, mode='naive', n_tail=10) {
     }
     
     Z1 <- Z %>%
-      map_dfr(~ as_tibble(.x), .id = 'Run') %>%
+      map_dfr(~ .x, .id = 'Run') %>%
       group_by(Run) %>% 
       slice_tail(n = n_tail) %>% 
       summarise(
-        LL_mn = mean(`-2LL`),
-        LL_li = quantile(`-2LL`, 0.05),
-        LL_ls = quantile(`-2LL`, 0.95)
+        LL_mn = mean(OFV),
+        LL_li = quantile(OFV, 0.05),
+        LL_ls = quantile(OFV, 0.95)
       )
     
     W <- left_join(W, Z1, by = 'Run') %>%
       mutate(
-        LL_mn = LL_mn - min(`-2LL`),
-        LL_li = LL_li - min(`-2LL`),
-        LL_ls = LL_ls - min(`-2LL`),
+        LL_mn = LL_mn - min(OFV),
+        LL_li = LL_li - min(OFV),
+        LL_ls = LL_ls - min(OFV),
       )
   }
   
@@ -131,11 +132,11 @@ xval.func <- function(data, x, y, v0 = 3.84,
   
   A[[1]] <- optimize(
     function(t0) abs(f1(t0) - v0),
-    interval = c(x_min, x_max), upper = m)$minimum
+    interval = c(x_min, x_max), upper = ceiling(m))$minimum
   
   A[[2]] <- optimize(
     function(t0) abs(f1(t0) - v0),
-    interval = c(x_min, x_max), lower = m)$minimum
+    interval = c(x_min, x_max), lower = floor(m))$minimum
   
   Minimo  = tibble(!!x_quo := m, !!y_quo := f1(m))
   p_corte = tibble(!!x_quo := A, !!y_quo := f1(A))
