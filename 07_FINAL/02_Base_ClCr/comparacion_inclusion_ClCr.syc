@@ -1,0 +1,21 @@
+[projectList]
+1\path=../../06_BASE_REFINADO/05_BASE_REFINADO/BASE.mlxtran
+1\used=true
+1\selected=true
+1\rating=2
+2\path=base_ClCr.mlxtran
+2\used=true
+2\selected=true
+2\rating=3
+size=2
+
+[relationship]
+1\path=../../06_BASE_REFINADO/05_BASE_REFINADO/BASE.mlxtran
+1\parent=
+1\children\1\child=base_ClCr.mlxtran
+1\children\size=1
+2\path=base_ClCr.mlxtran
+2\info=Adici\xf3n de covariable ClCr con Cl
+2\parent=../../06_BASE_REFINADO/05_BASE_REFINADO/BASE.mlxtran
+2\children\size=0
+size=2
