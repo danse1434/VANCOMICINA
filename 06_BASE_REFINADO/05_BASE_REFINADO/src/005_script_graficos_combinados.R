@@ -185,8 +185,8 @@ yobs <- bind_rows(
 )
 
 
-G_CP_col_vec  <- c('red', 'blue')
-G_CP_fill_vec <- c('red', 'blue')
+G_CP_col_vec  <- c('#FACD00', '#0000FA')
+G_CP_fill_vec <- c('#FACD00', '#0000FA')
 G_CP_lty_vec  <- c('solid', 'dashed')
 
 names(G_CP_col_vec) <-
@@ -201,12 +201,12 @@ G_CP_TAD <-  yfits %>%
                             color = ifelse(YTYPE==1, 'Micro.', 'Quimiol.'),
                             fill = ifelse(YTYPE==1, 'Micro.', 'Quimiol.')
               ), alpha=0.05) +
-  geom_line(aes(y = popPred, lty = 'PRED'), color='black') +
-  geom_line(aes(y = indivPredMean, lty = 'IPRED'), color='green4') + 
   geom_point(yobs, 
              mapping = aes(x = time, y = y, color=ifelse(YTYPE==1, 'Micro.', 'Quimiol.')), 
              alpha = 0.5) +
-  facet_wrap( ~ ID, ncol = 4, labeller = labeller(.cols = label_both)) +
+  geom_line(aes(y = popPred, lty = 'PRED'), color='gray10') +
+  geom_line(aes(y = indivPredMean, lty = 'IPRED'), color='black') + 
+  facet_wrap( ~ ID, ncol = 5, labeller = labeller(.cols = label_both)) +
   # 
   scale_x_continuous(breaks = seq(0, 12, 2), minor_breaks = seq(0, 12, 1)) +
   coord_cartesian(xlim = c(0, 12)) +
@@ -219,11 +219,15 @@ G_CP_TAD <-  yfits %>%
     linetype = guide_legend(ncol = 1)
   ) +
   xlab('TAD (h)') + ylab(expression(C[P]~"(mg/L)")) +
-  theme(legend.position = c(0.8, 0.1), legend.box = 'horizontal')
+  theme(
+    legend.position = c(0.9, 0.1),
+    legend.box = 'vertical',
+    panel.grid = element_blank()
+  )
 
-
+# Original width = 5, height = 6; 4 Columnas
 ggsave(file.path(homedir, 'figures', '003_y_G_CP_TAD.pdf'), G_CP_TAD, 'pdf', 
-       width = 5, height = 6)
+       width = 8, height = 4.5)
 
 #-------------------------------------------------------------------------------#
 # 4. Cálculo post-hoc de encogimiento eta y epsilon ----------------------------
