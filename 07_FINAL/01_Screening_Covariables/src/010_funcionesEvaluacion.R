@@ -58,7 +58,7 @@ et_pf <- function(data, x, y, xlab, ylab, col = "blue", type = 1,
   if (type == 1) {
     c <- pull(data,!!xquo)
     xpos <- min(c) + (0.8 * (max(c) - min(c)))
-    lab_df <- tribble( ~ x, ~ y, xpos, 1)
+    lab_df <- tribble( ~ x, ~ y, xpos, 0.35)
     
     G1 <- ggplot(data, aes(x = !!xquo, y = !!yquo)) +
       geom_hline(yintercept = 0, lty = 'dashed') +
