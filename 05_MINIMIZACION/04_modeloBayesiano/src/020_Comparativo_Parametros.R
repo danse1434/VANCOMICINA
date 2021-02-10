@@ -9,7 +9,7 @@ df5 <- read_csv(file.path('reports', '104_modeltwoCptmDiagProp_errResNor_Results
 df6 <- read_csv(file.path('reports', '105_modeltwoCptmDiagProp_errResNor_NoInfo_Results.txt'))
 df7 <- read_csv(file.path('reports', '107_modeloBaseArreglado_Results.txt'))
 
-parameters <- unique(c(df1$P, df2$P, df3$P, df4$P, df5$P, df6$P)) %>% 
+parameters <- unique(c(df1$P, df2$P, df3$P, df4$P, df5$P, df6$P, df7$P)) %>% 
   keep(~ str_detect(.x, 'CLHat|QHat|V1Hat|V2Hat|omega|rho|^b\\d{0,}$|sigma|^a\\d$')) %>% 
   discard(~ str_detect(.x, 'rho\\[1,1\\]|rho\\[2,2\\]|rho\\[3,3\\]|rho\\[4,4\\]')) %>%
   discard(~ str_detect(.x, 'rho\\[1,2\\]|rho\\[1,3\\]|rho\\[1,4\\]')) %>%
