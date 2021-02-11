@@ -31,6 +31,20 @@ ANTU = {use=covariate, type=categorical}
 
 <MODEL>
 
+[COVARIATE]
+input = {AGEA, ALBGDL, CLCRMLMIN, HCM, PROGDL, RAL, RAN, SCRMGDL, WTKG}
+
+EQUATION:
+logtAGEA = log(AGEA/44)
+logtABGDL = log(ALBGDL/3.12)
+logtCLCRMLMIN = log(CLCRMLMIN/144)
+logtHCM = log(HCM/164)
+logtPROGDL = log(PROGDL/5.6)
+logtRAL = log(RAL/1470)
+logtRAN = log(RAN/264)
+logtSCRMGDL = log(SCRMGDL/0.58)
+logtWTKG = log(WTKG/62)
+
 [INDIVIDUAL]
 input = {Cl_pop, omega_Cl, Q_pop, omega_Q, V1_pop, omega_V1, V2_pop, omega_V2, corr_V2_V1}
 
