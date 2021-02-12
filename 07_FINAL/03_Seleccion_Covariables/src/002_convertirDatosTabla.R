@@ -145,6 +145,8 @@ ggsave('009_trayectoriaAlgoritmosOFV.pdf', gIndic_OFV, 'pdf',
 ggsave('010_trayectoriaAlgoritmosBIC.pdf', gIndic_BIC, 'pdf', 
        'figures', 1, 10, 4)
 
+# Creación de gráficos Plotly
+
 pIndic_OFV <- plotlyTrayectoriaIndicador(ls2, 'OFV')
 pIndic_BIC <- plotlyTrayectoriaIndicador(ls2, 'BICc')
   
@@ -156,3 +158,13 @@ htmlwidgets::saveWidget(
   as_widget(pIndic_BIC),
   file.path('figures', '012_trayectoriaAlgoritmosBIC.html') %>% normalizePath()
 )
+
+# Creación de gráfico sólo COSSAC y SCM
+gIndic_BIC_1 <- ls2 %>% 
+  filter(model %in% c('COSSAC', 'SCM')) %>%
+  graficoTrayecIndicador(., 'BICc', 
+                         crit = ls2$BICc %>% quantile(., prob = c(15/length(.))),
+                         xlim = c(5, NA), ylim = c(975, NA))
+
+ggsave('013_trayectoriaAlgoritmosBIC_1.pdf', gIndic_BIC_1, 'pdf', 
+       'figures', 1, 8, 4)
