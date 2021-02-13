@@ -1,0 +1,107 @@
+********************************************************************************
+*                        modeloFinal.mlxtran                                   *
+*                        February 12, 2021 at 22:01:27                         *
+*                        Monolix version : 2020R1                              *
+********************************************************************************
+
+
+ESTIMATION OF THE POPULATION PARAMETERS ________________________________________
+
+Fixed Effects ----------------------------     se_sa    rse(%)
+Cl_pop             :                  5.58      1.25      22.3
+beta_Cl_logtWTKG   :                 0.759     0.343      45.2
+beta_Cl_tCLCRMLMIN :                 0.616     0.218      35.4
+V1_pop             :                  41.7      5.15      12.3
+Q_pop              :                  10.8       nan       nan
+V2_pop             :                  66.4      7.51      11.3
+
+Standard Deviation of the Random Effects -
+omega_Cl           :                 0.185    0.0363      19.6
+omega_V1           :                 0.291     0.139      47.7
+omega_Q            :                 0.719     0.229      31.8
+omega_V2           :                 0.251     0.122      48.7
+
+Correlations -----------------------------
+corr_V2_V1         :                 0.999    0.0035      0.35
+
+Error Model Parameters -------------------
+a1                 :                 0.305    0.0232       7.6
+a2                 :                0.0624    0.0103      16.6
+
+Elapsed time (seconds) :     8.6
+
+ _______________________________________________________________________________
+
+
+
+ESTIMATION OF THE INDIVIDUAL PARAMETERS ________________________________________
+
+
+Estimation of the individual parameters by Conditional Distribution ------------
+           min        Q1    median        Q3       max
+Cl :      5.27      9.91        11      12.4      13.3
+V1 :      25.2      36.1      42.9      49.2      60.9
+Q  :      3.44      8.58      14.3      21.8      37.2
+V2 :        43      58.6      67.8      76.4      91.8
+
+Elapsed time (seconds) :     1.4
+
+ -------------------------------------------------------------------------------
+
+ _______________________________________________________________________________
+
+
+
+ESTIMATION OF THE FISHER INFORMATION MATRIX ____________________________________
+
+
+Estimation of the Fisher information matrix by Stochastic Approximation --------
+
+Correlation Matrix :
+            Cl_pop         1
+  beta_Cl_logtWTKG -0.022657         1
+beta_Cl_tCLCRMLMIN   -0.9743    0.0388         1
+            V1_pop -0.016338 0.0082086 0.0083205         1
+             Q_pop       nan       nan       nan       nan       nan
+            V2_pop -0.015007 0.0034409 0.0041569    0.9701       nan         1
+          omega_Cl -0.016578 -0.006897  0.011347 -0.046108       nan -0.052794         1
+          omega_V1  0.015864 -0.010255 -0.011513  -0.47864       nan  -0.44187  0.033749         1
+        corr_V2_V1-0.0014293 -0.018131-0.0084069 -0.059521       nan   0.10539 -0.032855   0.39338         1
+           omega_Q  0.014589-0.0027168 -0.004346  -0.57275       nan  -0.60512  0.060426   0.39656 -0.090725         1
+          omega_V2  0.012683 -0.012076-0.0074404  -0.45149       nan  -0.41708  0.032591   0.98734   0.38797   0.37132         1
+                a1-0.0092385-0.0045788 0.0090511  -0.12477       nan  -0.13004  0.043177   0.13669 -0.019931   0.11748   0.13412         1
+                a2-0.0087171 0.0098233 0.0033695   0.54749       nan   0.56694 -0.086892  -0.64126 -0.021862  -0.54823  -0.62258  -0.19614         1
+
+WARNING : Impossible to compute the eigen values of the correlation matrix.
+
+Elapsed time (seconds) :     2.5
+
+ -------------------------------------------------------------------------------
+
+ _______________________________________________________________________________
+
+
+
+ESTIMATION OF THE LOG-LIKELIHOOD _______________________________________________
+
+                                                            (is)
+-2 x log-likelihood                       (OFV) :         936.76
+Akaike Information Criteria               (AIC) :         962.76
+Corrected Bayesian Information Criteria  (BICc) :         986.78
+Bayesian Information Criteria             (BIC) :         971.07
+
+Elapsed time                          (seconds) :           2.92
+CPU time                              (seconds) :           2.00
+
+
+[Importance Sampling] Standard error        : 0.697
+                      Sampling distribution : T-distribution with 5 degrees of freedom
+
+ _______________________________________________________________________________
+
+DATASET INFORMATION
+Number of individuals: 14
+Number of observations (obsid 1): 96
+Number of observations (obsid 2): 96
+Number of doses: 84
+
