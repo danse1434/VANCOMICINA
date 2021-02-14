@@ -1,0 +1,78 @@
+********************************************************************************
+*                        modeloFinal.mlxtran                                   *
+*                        February 13, 2021 at 17:38:12                         *
+*                        Monolix version : 2020R1                              *
+********************************************************************************
+
+
+ESTIMATION OF THE POPULATION PARAMETERS ________________________________________
+
+Fixed Effects ----------------------------
+Cl_pop             :                  14.2
+beta_Cl_logtWTKG   :                 0.758
+beta_Cl_tCLCRMLMIN :                  1.92
+V1_pop             :                  40.6
+Q_pop              :                  12.5
+V2_pop             :                  47.7
+
+Standard Deviation of the Random Effects -
+omega_Cl           :                 0.183
+omega_V1           :                 0.285
+omega_Q            :                 0.679
+omega_V2           :                 0.228
+
+Correlations -----------------------------
+corr_V2_V1         :                 0.999
+
+Error Model Parameters -------------------
+a1                 :                 0.303
+a2                 :                0.0629
+
+Elapsed time (seconds) :       0
+
+ _______________________________________________________________________________
+
+
+
+ESTIMATION OF THE INDIVIDUAL PARAMETERS ________________________________________
+
+
+Estimation of the individual parameters by Conditional Distribution ------------
+           min        Q1    median        Q3       max
+Cl :      5.65      10.2      11.8      13.3      14.3
+V1 :      26.3      36.3      45.4        50      66.7
+Q  :      4.32      15.2      18.8      20.7      36.2
+V2 :      33.5      43.4        52      56.2      70.8
+
+Elapsed time (seconds) :     8.3
+
+ -------------------------------------------------------------------------------
+
+ _______________________________________________________________________________
+
+
+
+
+ESTIMATION OF THE LOG-LIKELIHOOD _______________________________________________
+
+                                                            (is)
+-2 x log-likelihood                       (OFV) :        3001.30
+Akaike Information Criteria               (AIC) :        3027.30
+Corrected Bayesian Information Criteria  (BICc) :        3051.32
+Bayesian Information Criteria             (BIC) :        3035.61
+
+Elapsed time                          (seconds) :           0.98
+CPU time                              (seconds) :           1.00
+
+
+[Importance Sampling] Standard error        : 0.662
+                      Sampling distribution : T-distribution with 5 degrees of freedom
+
+ _______________________________________________________________________________
+
+DATASET INFORMATION
+Number of individuals: 14
+Number of observations (obsid 1): 96
+Number of observations (obsid 2): 96
+Number of doses: 84
+
