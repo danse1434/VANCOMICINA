@@ -147,7 +147,7 @@ G2 <- s_fct_ls1[s_fct_ls1$iteration%%10 == 0,] %>%
     aes(label = label), color='red',
     method = list(dl.trans(x = x + 0.13), "last.bumpup", cex = 0.35)) +
   
-  coord_cartesian(xlim=c(0, 1e3)) +
+  coord_cartesian(xlim=c(0, 2.5e3)) +
   scale_x_continuous(labels = function(x) format(x, scientific = TRUE)) +
   theme(legend.position = 'none', 
         axis.title = element_blank(), axis.text.x = element_text(angle = -45))
