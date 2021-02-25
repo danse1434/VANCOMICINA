@@ -112,7 +112,7 @@ s_fct_ls1 <- s_fct_ls %>%
   map_dfr(~ as_tibble(.x), .id = 'I') %>%
   rename(LL = convergenceIndicator) %>% 
   pivot_longer(
-    cols = matches('\\_pop|omega\\_|^a1$|^a2$|corr_V2_V1|^LL$'),
+    cols = matches('\\_pop|omega\\_|^a1$|^a2$|corr_V2_V1|beta|^LL$'),
     names_to = 'parameter',
     values_to = 'value'
   ) %>% 
@@ -234,7 +234,8 @@ aov_1 <- PCdf[,c('label')] %>%
 # > 4.2 Respuesta: logaritmo de verosimilitud --------
 aov_2 <- s_fct_ls1[s_fct_ls1$parameter=='LL',] %>% 
   distinct(I, last_value) %>% 
-  left_join(d_fct_ls1[, c('ID', 'label')], by=c('I'='ID')) %>% 
+  mutate(I = as.integer(I)) %>% 
+  left_join(d_fct_ls1[, c('ID', 'label')] %>% mutate(ID = as.integer(ID)), by=c('I'='ID')) %>% 
   separate(label, c('Cl', 'V1', 'Q', 'V2'), '\\-') %>% 
   aov(last_value ~ Cl+V1+Q+V2, .)
   
@@ -277,11 +278,11 @@ yb <- import('yellowbrick.features')
 np <- import('numpy')
 
 s_fct_ls1_DF <- s_fct_ls1 %>%
-  distinct(I, label, parameter, last_value) %>% 
-  pivot_wider(id_cols = c('I', 'label'), names_from=parameter, values_from=last_value)
+  distinct(I, label.x, parameter, last_value) %>% 
+  pivot_wider(id_cols = c('I', 'label.x'), names_from=parameter, values_from=last_value)
 
-X <- s_fct_ls1_DF %>% select(-I, -label, -LL) %>% as.matrix()
-Y <- s_fct_ls1_DF %>% pull(label)
+X <- s_fct_ls1_DF %>% select(-I, -label.x, -LL) %>% as.matrix()
+Y <- s_fct_ls1_DF %>% pull(label.x)
 
 Y1 <- Y %>% 
   as.factor() %>% 
