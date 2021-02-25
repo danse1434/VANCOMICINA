@@ -132,18 +132,24 @@ updateMenu = [
         yanchor="top"
     ),
     dict(
-        buttons=[
+        buttons=list([
             {'args': [
-                {'template': 'plotly_dark'},
-                # {"layout": {'plot_bgcolor': 'rgba(0,0,0,0)', 'paper_bgcolor': 'rgba(0,0,0,0)'}}
+                {'template': 'plotly_dark'}
+                # {'plot_bgcolor': 'rgb(10,10,10)',
+                #  'paper_bgcolor': 'rgb(0,0,0)', 
+                #  'xaxis': {'color': 'white'},
+                #  'yaxis': {'color': 'white'}},
             ],
-                'label': 'Modo oscuro', 'method': 'restyle'},
+                'label': 'Modo oscuro', 'method': 'relayout'},
             {'args': [
                 {'template': 'simple_white'},
-                # {"layout": {'plot_bgcolor': 'rgba(255,255,255)', 'paper_bgcolor': 'rgba(255,255,255)'}}
+                # {'plot_bgcolor': 'rgb(255,255,255)',
+                #  'paper_bgcolor': 'rgb(255,255,255)', 
+                #  'xaxis': {'color': 'black'},
+                #  'yaxis': {'color': 'black'}},
             ],
-                'label': 'Modo claro', 'method': 'restyle'}
-        ],
+                'label': 'Modo claro', 'method': 'relayout'}
+        ]),
         direction="down",
         pad={"r": 10, "t": 10, "b": 20},
         showactive=True,
@@ -160,7 +166,7 @@ fig.update_layout(
     xaxis = {'title': 'Iteración'},
     yaxis = {'title': 'Cl (L/h)'},
     template = 'plotly_dark',
-     plot_bgcolor='rgb(10,10,10)',
+    hovermode = 'closest',
     updatemenus = updateMenu)
 
 # fig.show()
