@@ -1,0 +1,43 @@
+********************************************************************************
+*                        evalJack4.mlxtran                                     *
+*                        February 26, 2021 at 11:27:06                         *
+*                        Monolix version : 2020R1                              *
+********************************************************************************
+
+
+ESTIMATION OF THE POPULATION PARAMETERS ________________________________________
+
+Fixed Effects ----------------------------
+Cl_pop             :                  5.67
+beta_Cl_logtWTKG   :                 0.759
+beta_Cl_tCLCRMLMIN :                 0.609
+V1_pop             :                  42.1
+Q_pop              :                  11.8
+V2_pop             :                  48.3
+
+Standard Deviation of the Random Effects -
+omega_Cl           :                 0.191
+omega_V1           :                 0.255
+omega_Q            :                 0.674
+omega_V2           :                  0.17
+
+Correlations -----------------------------
+corr_V2_V1         :                 0.999
+
+Error Model Parameters -------------------
+a1                 :                 0.305
+a2                 :                0.0631
+
+Elapsed time (seconds) :      29
+
+ _______________________________________________________________________________
+
+
+
+
+DATASET INFORMATION
+Number of individuals: 13
+Number of observations (obsid 1): 89
+Number of observations (obsid 2): 89
+Number of doses: 78
+
