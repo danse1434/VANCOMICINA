@@ -1,0 +1,43 @@
+********************************************************************************
+*                        FINAL.mlxtran                                         *
+*                        February 26, 2021 at 17:29:01                         *
+*                        Monolix version : 2020R1                              *
+********************************************************************************
+
+
+ESTIMATION OF THE POPULATION PARAMETERS ________________________________________
+
+Fixed Effects ----------------------------
+Cl_pop             :                  10.1
+beta_Cl_logtWTKG   :                 0.431
+beta_Cl_tCLCRMLMIN :                0.0985
+V1_pop             :                  44.3
+Q_pop              :                  8.73
+V2_pop             :                  52.3
+
+Standard Deviation of the Random Effects -
+omega_Cl           :                0.0897
+omega_V1           :                 0.188
+omega_Q            :                 0.794
+omega_V2           :                 0.236
+
+Correlations -----------------------------
+corr_V2_V1         :                 0.997
+
+Error Model Parameters -------------------
+a1                 :                 0.243
+a2                 :                0.0551
+
+Elapsed time (seconds) :     6.1
+
+ _______________________________________________________________________________
+
+
+
+
+DATASET INFORMATION
+Number of individuals: 14
+Number of observations (obsid 1): 98
+Number of observations (obsid 2): 98
+Number of doses: 84
+
