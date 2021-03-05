@@ -301,7 +301,7 @@ visualizer <- yb$radviz(
 visualizer$show(outpath = file.path('figures', '07_radviz.png'))
 
 # > 4.4 Comparación en iteracions
-gComparativoParLL <- 
+gComparativoParLL <-
   s_fct_ls1 %>% 
   pivot_wider(id_cols = c(I, iteration, phase), names_from = parameter, values_from = value) %>% 
   group_by(I) %>%
@@ -309,15 +309,16 @@ gComparativoParLL <-
   mutate(outlier = LL < 400) %>% 
   select(-phase, -iteration) %>% 
   pivot_longer(cols = matches('\\_|^a|LL'), names_to = 'parameter') %>%
-  mutate(parameter = rev(factor(parameter, levels = append(level_par, 'LL')))) %>% 
-  ggplot(aes(x = value, col = outlier)) + 
+  mutate(parameter = factor(parameter, levels = append(level_par, 'LL'))) %>%
+  ggplot(aes(x = value, col = outlier, lty = outlier)) + 
   geom_density() + 
   facet_wrap(. ~ parameter, ncol = 4, scales = 'free') + 
   ylab('Densidad') + xlab('Valores') +
   labs(
     title = 'Influencia en valores iniciales',
     subtitle = 'Comparación de parámetros de acuerdo a LL en trayectoria de convergencia') + 
-  scale_color_manual(values = c('red', 'blue'), breaks = c(FALSE, TRUE), name = 'LL < 400')
+  scale_color_manual(values = c('red', 'blue'), breaks = c(FALSE, TRUE), name = 'LL < 400') +
+  scale_linetype_manual(values = c('solid', 'dashed'), breaks = c(F, T), name = 'LL < 400')
 
 ggsave('09_comparativoParametrosLL.pdf', gComparativoParLL, 'pdf', 'figures', 
        width=8, height=5)
