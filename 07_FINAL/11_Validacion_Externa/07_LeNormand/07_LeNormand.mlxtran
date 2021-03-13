@@ -1,0 +1,13 @@
+DESCRIPTION:
+Modelo estructural descrito por Le Normand et al 2010
+
+[LONGITUDINAL]
+input = {V, Cl}
+
+EQUATION:
+; PK model definition
+Cc = pkmodel(V, Cl)
+
+OUTPUT:
+output = {Cc}
+

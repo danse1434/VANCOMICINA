@@ -1,0 +1,36 @@
+DESCRIPTION:
+Modelo estructural descrito por Jarkowski III A et al (2014)
+
+[LONGITUDINAL]
+input = {Cl, V1, Q, V2}
+
+EQUATION:
+; Transformación de Parámetros
+V = V1 
+k = Cl/V1 
+k12 = Q/V1 
+k21 = Q/V2
+
+; Definición de modelos PK 
+Cc = pkmodel(V, k, k12, k21)
+
+OUTPUT:
+output = {Cc}
+
+[INDIVIDUAL]
+input = {V1_mn, Vss_mn, TBW, Cl_slope, CrCl, Cl_nr, Q_mn}
+
+EQUATION:
+V1 = V1_mn*TBW/65
+V2 = (Vss_mn - V1_mn)*TBW/65
+; El input en R es mL/min para Cl, y L/h para Q
+Cl = ((Cl_slope * CrCl) + (Cl_nr * TBW / 65)) * (60/1000) ; Conversión a L/h
+Q = Q_mn * TBW / 65
+
+[COVARIATE]
+input = {gTBW, sTBW, gCrCl, sCrCl}
+
+DEFINITION:
+TBW = {distribution = lognormal, mean = gTBW, variance = sTBW}
+CrCl = {distribution = lognormal, mean = gCrCl, variance = sCrCl}
+

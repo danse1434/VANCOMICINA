@@ -1,0 +1,20 @@
+DESCRIPTION:
+Modelo estructural descrito por Al Khofide H. et al 2010
+
+[LONGITUDINAL]
+input = {V, Cl}
+
+EQUATION:
+; PK model definition
+Cc = pkmodel(V, Cl)
+
+OUTPUT:
+output = {Cc}
+
+[POPULATION]
+input = {mCl, gCl, mV, gV}
+
+DEFINITION:
+Cl = {distribution = lognormal, mean = mCl, variance = gCl }
+V  = {distribution = lognormal, mean = mV,  variance = gV }
+

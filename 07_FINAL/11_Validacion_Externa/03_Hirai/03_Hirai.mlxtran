@@ -1,0 +1,33 @@
+DESCRIPTION:
+Modelo estructural descrito por Hirai 2016
+
+[LONGITUDINAL]
+input = {V, Cl}
+
+EQUATION:
+; PK model definition
+Cc = pkmodel(V, Cl)
+
+OUTPUT:
+output = {Cc}
+
+[INDIVIDUAL]
+input = {theta_Cl, theta_V, TBW}
+
+EQUATION:
+Cl = theta_Cl * TBW
+V  = theta_V * TBW
+
+[COVARIATE]
+input = {mTBW, gTBW}
+
+DEFINITION:
+TBW = {distribution = lognormal, mean=mTBW, variance = gTBW}
+
+[POPULATION]
+input = {mCl, gCl, mV, gV}
+
+DEFINITION:
+theta_Cl = {distribution = lognormal, mean = mCl, variance = gCl }
+theta_V  = {distribution = lognormal, mean = mV,  variance = gV }
+

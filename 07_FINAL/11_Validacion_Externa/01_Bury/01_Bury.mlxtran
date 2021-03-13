@@ -24,13 +24,13 @@ OUTPUT:
 output = {Cc, y}
 
 [INDIVIDUAL]
-input = {Cl_pop, theta_2, ClCr, theta_3, ANC, omega_Cl, Q_pop, FFM, V1_pop, omega_V1, V2_pop, omega_V2}
+input = {theta_1, theta_2, ClCr, theta_3, ANC, omega_Cl, Q_pop, FFM, V1_pop, omega_V1, V2_pop, omega_V2}
 
 EQUATION:
 if ANC < 1500
-  Cl_pred = Cl_pop + (1 + theta_2 * (ClCr - 104)) * theta_3
+  Cl_pred = theta_1 + (1 + theta_2 * (ClCr - 104)) * theta_3
 else
-  Cl_pred = Cl_pop + (1 + theta_2 * (ClCr - 104))
+  Cl_pred = theta_1 + (1 + theta_2 * (ClCr - 104))
 end;
 
 Q = Q_pop * (FFM/57.2)^0.75
@@ -38,35 +38,35 @@ V1_pred = V1_pop * (FFM/57.2)
 V2_pred = V2_pop * (FFM/57.2)
 
 DEFINITION:
-Cl  = {distribution = lognormal, typical = Cl_pred,  variance = omega_Cl}
-V1 = {distribution = lognormal, typical = V1_pred, variance = omega_V1}
-V2 = {distribution = lognormal, typical = V2_pred, variance = omega_V2}
+Cl  = {distribution = lognormal, prediction = Cl_pred,  sd = omega_Cl}
+V1 = {distribution = lognormal, prediction = V1_pred, sd = omega_V1}
+V2 = {distribution = lognormal, prediction = V2_pred, sd= omega_V2}
 
 [COVARIATE]
-input = {lnClCr_pop, sd_lnClCr, FFM_pop, omega_FFM, ANC_pop, omega_ANC}
+input = {lnClCr_pop, sd_lnClCr, FFM_pop, omega_FFM, ANC_li, ANC_ls}
 
 DEFINITION:
 ClCr = {distribution = lognormal, mean = lnClCr_pop, sd = sd_lnClCr}
 FFM = {distribution = normal, mean = FFM_pop, sd = omega_FFM}
-ANC = {distribution = lognormal, prediction = ANC_pop, sd = omega_ANC}
+ANC = {distribution = uniform, min = ANC_li, max = ANC_ls}
 
 [POPULATION]
 
-input = {mCl, gCl, mTheta_2, gTheta_2, mTheta_3, gTheta_3, 
+input = {mtheta_1, gtheta_1, mTheta_2, gTheta_2, mTheta_3, gTheta_3, 
 mQ, gQ, mV1, gV1, mV2, gV2,
 mOmega_Cl, gOmega_Cl, mOmega_V1, gOmega_V1, mOmega_V2, gOmega_V2,
 mA, gA, mB, gB}
 
 DEFINITION:
-Cl_pop = {distribution = lognormal, mean = mCl, sd = gCl}
-theta_2 = {distribution = lognormal, mean = mTheta_2, sd = gTheta_2}
-theta_3 = {distribution = lognormal, mean = mTheta_3, sd = gTheta_3}
-Q_pop = {distribution = lognormal, mean = mQ, sd = gQ}
-V1_pop = {distribution = lognormal, mean = mV1, sd = gV1}
-V2_pop = {distribution = lognormal, mean = mV2, sd = gV2}
+theta_1 = {distribution = lognormal, mean = mtheta_1, variance = gtheta_1}
+theta_2 = {distribution = lognormal, mean = mTheta_2, variance= gTheta_2}
+theta_3 = {distribution = lognormal, mean = mTheta_3, variance = gTheta_3}
+Q_pop = {distribution = lognormal, mean = mQ, variance = gQ}
+V1_pop = {distribution = lognormal, mean = mV1, variance= gV1}
+V2_pop = {distribution = lognormal, mean = mV2, variance = gV2}
 
-omega_Cl = {distribution = lognormal, mean = mOmega_Cl, sd = gOmega_Cl}
-omega_V1 = {distribution = lognormal, mean = mOmega_V1, sd = gOmega_V1}
-omega_V2 = {distribution = lognormal, mean = mOmega_V2, sd = gOmega_V2}
-a = {distribution = lognormal,  mean=mA, sd = gA}
-b = {distribution = lognormal,  mean=mB, sd = gB}
+omega_Cl = {distribution = lognormal, mean = mOmega_Cl, variance= gOmega_Cl}
+omega_V1 = {distribution = lognormal, mean = mOmega_V1, variance= gOmega_V1}
+omega_V2 = {distribution = lognormal, mean = mOmega_V2, variance= gOmega_V2}
+a = {distribution = lognormal,  mean=mA, variance= gA}
+b = {distribution = lognormal,  mean=mB, variance= gB}

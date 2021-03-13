@@ -1,0 +1,48 @@
+DESCRIPTION:
+Modelo estructural descrito por Santos-Buelga 2005
+
+[LONGITUDINAL]
+input = {V, Cl, a}
+
+EQUATION:
+
+; PK model definition
+Cc = pkmodel(V, Cl)
+
+DEFINITION:
+y = {distribution = normal, prediction = Cc, errorModel = constant(a)}
+
+OUTPUT:
+output = {Cc, y}
+
+[INDIVIDUAL]
+input = {Cl_pop, omega_Cl, V_pop, omega_V, corr_V_Cl, ClCr, TBW}
+
+EQUATION:
+Cl_pred = Cl_pop * ClCr
+V_pred = V_pop * TBW
+
+DEFINITION:
+Cl = {distribution = lognormal, prediction = Cl_pred, sd = omega_Cl}
+V  = {distribution = lognormal, prediction = V_pred, sd = omega_V}
+correlation = {level=id, r(V, Cl)=corr_V_Cl}
+
+[COVARIATE]
+input = {mClCr, gClCr, mTBW, gTBW}
+
+DEFINITION:
+ClCr  = {distribution = lognormal, mean=mClCr,  variance = gClCr}
+TBW = {distribution = lognormal, mean=mTBW, variance = gTBW}
+
+[POPULATION]
+input = {mCl_pop, gCl_pop, mOmega_Cl, gOmega_Cl, 
+mV_pop, gV_pop, mOmega_V, gOmega_V, mA, gA}
+
+DEFINITION:
+Cl_pop = {distribution = lognormal, mean = mCl_pop, variance = gCl_pop}
+V_pop = {distribution = lognormal, mean = mV_pop, variance = gV_pop}
+
+omega_Cl = {distribution = lognormal, mean = mOmega_Cl, variance = gOmega_Cl}
+omega_V  = {distribution = lognormal, mean = mOmega_V, variance = gOmega_V}
+
+a = {distribution = lognormal, mean = mA, variance = gA}
