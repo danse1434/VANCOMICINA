@@ -64,7 +64,6 @@ perfilDF <- perfilLS %>%
   mutate(estudio  = as.numeric(estudio),
          estudio1 = vectorEstudios[estudio])
 
-
 #-------------------------------------------------------------------------------#
 # 3. Simulación para este modelo --------------------------
 #-------------------------------------------------------------------------------#
@@ -191,22 +190,15 @@ pred_df <- predictivoLS %>%
   mutate(estudio  = as.numeric(estudio),
          estudio2 = nombresEstudios[estudio]) 
 
+ov <- c(1:2,4:7,3)
+
 G_PRED <- pred_df %>%
   mutate(
     PE = MAPE * 100,
-    orden = case_when(
-      estudio == 1 ~ 1,
-      estudio == 2 ~ 2,
-      estudio == 3 ~ 7,
-      estudio == 4 ~ 3,
-      estudio == 5 ~ 4,
-      estudio == 6 ~ 5,
-      estudio == 7 ~ 6
-    )
-    estudio = factor(estudio, level = c(1:2, 7, 3:6)),
-    estudio2 = reorder(estudio2, estudio)
+    orden = ov[estudio],
+    estudio2 = reorder(estudio2, orden)
   ) %>%
-  ggplot(aes(x = PE, y = estudio2))+
+  ggplot(aes(x = PE, y = fct_rev(estudio2)))+
   geom_boxplot(fill = alpha('gray', 0.4)) + 
   coord_cartesian(xlim = c(-20, 300)) + 
   geom_vline(xintercept = c(-20, +20), lty = 'dashed', col = 'red3') +
@@ -214,7 +206,6 @@ G_PRED <- pred_df %>%
   theme(axis.title.y = element_blank())
 
 ggsave('005_predMAPE.pdf', G_PRED, 'pdf', 'figures', 1, 6.5, 4)
-
 
 G_COMP_1 <- ((gPerfil1 + theme(legend.position = 'bottom')) + G_PRED) +
   plot_annotation(tag_levels = 'A')
@@ -224,3 +215,97 @@ G_COMP_2 <- (gPerfil2 + G_PRED) +
   plot_layout(widths = c(1.5, 1)) +
   plot_annotation(tag_levels = 'A')
 ggsave('007_predMAPE_comp2.pdf', G_COMP_2, 'pdf', 'figures', 1, 14, 6)
+
+
+
+require(boot)
+
+#-------------------------------------------------------------------------------#
+# Resumen de parámetros
+#' Calcular resumen de parámetros de predicción
+#'  funciones para calcular bootstrap
+statBoot <- function(data, stat, indices) {
+  d <- data[indices, ]
+  m <- mean(pull(d, stat))
+  return(m)
+}
+
+pred_df1 <- pred_df %>%
+  filter(MAPE != Inf) %>%
+  group_by(estudio, estudio2) %>%
+  summarise(across(c(MAE, RMSE, MAPE), list(
+    'mn' = mean, 'sd' = sd, 'med' = median
+  ))) %>%
+  pivot_longer(cols = matches('(mn|sd|med)$')) %>%
+  separate(name,
+           into = c('parameter', 'statistic'),
+           sep = '\\_') %>%
+  pivot_wider(names_from = 'statistic', values_from = 'value') %>%
+  ungroup()
+
+
+pred_df2 <- pred_df %>% 
+  group_by(estudio) %>% 
+  nest() %>% 
+  mutate(
+    MAE_bt = map(data, ~boot(.x, statistic = statBoot, 1E3, stat = 'MAE')),
+    RMSE_bt= map(data, ~boot(.x, statistic = statBoot, 1E3, stat = 'RMSE')),
+    MAPE_bt= map(data, ~boot(.x, statistic = statBoot, 1E3, stat = 'MAPE')),
+    MAE_ci = map(MAE_bt,  ~boot.ci(.x, type = 'perc')$perc[4:5]),
+    RMSE_ci= map(RMSE_bt,  ~boot.ci(.x, type = 'perc')$perc[4:5]),
+    MAPE_ci= map(MAPE_bt,  ~boot.ci(.x, type = 'perc')$perc[4:5])
+  ) %>% 
+  unnest(c('MAE_ci', 'RMSE_ci', 'MAPE_ci')) %>% 
+  add_column(L = rep(c('li', 'ls'), 7)) %>% 
+  pivot_wider(names_from = L, values_from = c(MAE_ci, RMSE_ci, MAPE_ci))
+
+
+pred_dfT <- pred_df2 %>% 
+  select(-data, -matches('bt$')) %>% 
+  pivot_longer(cols = matches('(li|ls)$')) %>% 
+  separate(name, c('parameter', 'type', 'statistic'), sep = '\\_') %>% 
+  select(-type) %>% 
+  pivot_wider(names_from = statistic, values_from = value) %>% 
+  right_join(pred_df1, by = c('estudio', 'parameter')) %>% 
+  relocate(c(li, ls), .after = mn)
+
+nota_pie <- glue::glue(
+  "
+  [1] Bury D, ter Heine R, van de Garde EMW, Nijziel MR, Grouls RJ, Deenen MJ. The effect of neutropenia on the clinical pharmacokinetics of vancomycin in adults. European Journal of Clinical Pharmacology 2019;75:921–8. https://doi.org/10.1007/s00228-019-02657-6.
+  [2] Hirai K, Ishii H, Shimoshikiryo T, Shimomura T, Tsuji D, Inoue K, et al. Augmented renal clearance in patients with febrile neutropenia is associated with increased risk for subtherapeutic concentrations of vancomycin. Therapeutic Drug Monitoring 2016;38:706–10. https://doi.org/10.1097/FTD.0000000000000346.
+  [3] Haeseker MB, Croes S, Neef C, Bruggeman CA, Stolk LML, Verbon A. Vancomycin dosing in neutropenic patients. PLoS ONE 2014;9. https://doi.org/10.1371/journal.pone.0112008.
+  [4] Jarkowski III A, Forrest A, Sweeney RP, Tan W, Segal BH, Almyroudis N, et al. Characterization of vancomycin pharmacokinetics in the adult acute myeloid leukemia population. Journal of Oncology Pharmacy Practice 2012;18:91–6. https://doi.org/10.1177/1078155211402107.
+  [5] Al-Kofide H, Zaghloul I, Al-Naim L. Pharmacokinetics of vancomycin in adult cancer patients. Journal of Oncology Pharmacy Practice 2010;16:245–50. https://doi.org/10.1177/1078155209355847.
+  [6] Santos Buelga D, Del Mar Fernandez De Gatta M, Herrera E V, Dominguez-Gil A, García MJ. Population pharmacokinetic analysis of vancomycin in patients with hematological malignancies. Antimicrobial Agents and Chemotherapy 2005;49:4934–41. https://doi.org/10.1128/AAC.49.12.4934-4941.2005.
+  [7] Le Normand Y, Milpiedb N, Kergueris M-F, Harousseau J. Pharmacokinetic parameters of vancomycin for therapeutic regimens in neutropenic adult patients. International Journal of Bio-Medical Computing 1994;36:121–5.
+  "
+)
+
+pred_gt <- pred_dfT %>%
+  ungroup() %>%
+  select(-estudio) %>%
+  gt(groupname_col = 'estudio2') %>%
+  fmt_number(columns = c('mn', 'sd', 'med', 'li' , 'ls'),
+             n_sigfig = 3) %>%
+  cols_merge(columns = c('li', 'ls'), pattern = '[{1}, {2}]') %>%
+  cols_label(
+    parameter = md('**Parameter**'),
+    mn = md('**Media**'),
+    sd = md('**Desv. Est.**'),
+    med = md('**Mediana**'),
+    li = md('**IC95%**')
+  ) %>%
+  tab_footnote(locations = cells_column_labels(columns = vars(parameter)),
+               footnote = nota_pie) %>%
+  opt_row_striping(row_striping = TRUE) %>%
+  tab_header('Estadísticos de Redimiento predictivo VAN - Modelo Final') %>%
+  tab_options(
+    table.font.size = '12px',
+    footnotes.font.size = px(10),
+    container.width = pct(50)
+  )
+
+gtsave(pred_gt,
+       "008_tabla_resultados.html",
+       normalizePath(file.path(getwd(), "figures")),
+       inline_css = TRUE)
