@@ -1,0 +1,43 @@
+[COVARIATE]
+input = {CLCRMLMIN, WTKG}
+
+EQUATION:
+logtCLCRMLMIN = log(CLCRMLMIN/144)
+logtWTKG = log(WTKG/62)
+tCLCRMLMIN = CLCRMLMIN/144
+
+[INDIVIDUAL]
+input = {Cl_pop, omega_Cl, Q_pop, omega_Q, V1_pop, omega_V1, V2_pop, omega_V2, corr_V2_V1, tCLCRMLMIN, beta_Cl_tCLCRMLMIN, logtWTKG, beta_Cl_logtWTKG}
+
+DEFINITION:
+Cl = {distribution=logNormal, typical=Cl_pop, covariate={tCLCRMLMIN, logtWTKG}, coefficient={beta_Cl_tCLCRMLMIN, beta_Cl_logtWTKG}, sd=omega_Cl}
+Q = {distribution=logNormal, typical=Q_pop, sd=omega_Q}
+V1 = {distribution=logNormal, typical=V1_pop, sd=omega_V1}
+V2 = {distribution=logNormal, typical=V2_pop, sd=omega_V2}
+correlation = {level=id, r(V2, V1)=corr_V2_V1}
+
+[LONGITUDINAL]
+input = {a1, a2}
+
+DESCRIPTION:
+The administration is via an infusion (requires INFUSION RATE or INFUSION DURATION column-type in the data set).
+The PK model has a central compartment (volume V1), a peripheral compartment 
+(volume V2, intercompartmental clearance Q), and a linear elimination (clearance Cl).
+
+input = {Cl, V1, Q, V2}
+
+EQUATION:
+V = V1 
+k = Cl/V1 
+k12 = Q/V1 
+k21 = Q/V2
+Cc_1 = pkmodel(V, k, k12, k21)
+Cc_2 = pkmodel(V, k, k12, k21)
+
+OUTPUT:
+output = {Cc_1, Cc_2}
+
+DEFINITION:
+y1 = {distribution=logNormal, prediction=Cc_1, errorModel=constant(a1)}
+y2 = {distribution=logNormal, prediction=Cc_2, errorModel=constant(a2)}
+
