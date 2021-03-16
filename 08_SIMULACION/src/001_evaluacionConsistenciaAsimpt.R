@@ -1,3 +1,17 @@
+##------------------------------------------------------------------------------#
+## Nombre del Script: Evaluación de consistencia asintótica de estimadores -------
+##
+## Propósito del Script: Este procedimiento se realiza para encontrar el número 
+## mínimo de configuraciones para estimar de forma apropiada a estadísticos de 
+## exposición AUC, y Cmax.
+##  
+## Autor: Daniel S. Parra González 
+## Fecha de creación:  14-03-2021
+##  
+## Copyright (c) Daniel S. Parra, 2020 
+##  
+## Email: dsparrag@unal.edu.co 
+##------------------------------------------------------------------------------#
 
 source(file.path('src', '069_paquetesSimulacion.R'), encoding = 'UTF-8')
 require(patchwork)
