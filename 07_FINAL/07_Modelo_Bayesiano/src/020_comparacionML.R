@@ -81,13 +81,13 @@ grafico_2D_LS <- list()
 grafico_2D_LS[[1]] <- 
   generarGrafico2D(df_Cl_pop_beta_Cl_tCLCRMLMIN, popParam, 
                    'Cl_pop', 'beta_Cl_tCLCRMLMIN', 'LL1', 
-                   expression(CL~'(L/h)'), bquote(beta~'Cl-ClCr'), n_bins = 20, 
+                   expression(theta[0]~'TVCL (L/h)'), bquote(theta[1]~'Cl-ClCr'), n_bins = 20, 
                    barheight = 6)
 
 grafico_2D_LS[[2]] <- 
   generarGrafico2D(df_beta_Cl_logtWTKG_beta_Cl_tCLCRMLMIN, popParam, 
                    'beta_Cl_logtWTKG', 'beta_Cl_tCLCRMLMIN', 'LL1', 
-                   bquote(beta~'Cl-logtWT'), bquote(beta~'Cl-tClCr'), n_bins = 20,
+                   bquote(theta[2]~'Cl-logtWT'), bquote(theta[1]~'Cl-tClCr'), n_bins = 20,
                    barheight = 6)
 
 
