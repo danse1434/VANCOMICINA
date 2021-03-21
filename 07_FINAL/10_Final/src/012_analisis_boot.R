@@ -55,7 +55,7 @@ popParameters <- read_csv(file.path(paramet.file, 'populationParameters.txt'))
 popParameters1 <- popParameters %>% 
   pivot_wider(id_cols=parameter, names_from = parameter, values_from = value) %>% 
   mutate(
-    List = pmap(list(2000, Cl_pop, Q_pop, V1_pop, V2_pop), constants_fun)
+    List = pmap(list(1000, Cl_pop, Q_pop, V1_pop, V2_pop), constants_fun)
   ) %>%
   unnest(cols = c(List)) %>%
   pivot_longer(-contains('ID'), names_to = 'parameter', values_to = 'value') %>% 
@@ -107,7 +107,7 @@ param_df <- param_list %>%
 param_df1 <- param_df %>%
   pivot_wider(names_from = parameter, values_from = value) %>%
   mutate(
-    List = pmap(list(2000, Cl_pop, Q_pop, V1_pop, V2_pop), constants_fun)
+    List = pmap(list(1000, Cl_pop, Q_pop, V1_pop, V2_pop), constants_fun)
   ) %>%
   unnest(cols = c(List)) %>%
   pivot_longer(-contains('ID'), names_to = 'parameter', values_to = 'value') %>%
@@ -398,7 +398,7 @@ param_df2 <- param_df %>%
   filter(ID %in% as.character(clean_df$B)) %>% 
   pivot_wider(names_from = parameter, values_from=value) %>% 
   mutate(
-    List = pmap(list(2000, Cl_pop, Q_pop, V1_pop, V2_pop), constants_fun)
+    List = pmap(list(1000, Cl_pop, Q_pop, V1_pop, V2_pop), constants_fun)
   ) %>%
   unnest(cols = c(List)) %>%
   pivot_longer(-contains('ID'), names_to = 'parameter', values_to = 'value') %>% 
@@ -527,7 +527,7 @@ param_df3_gt <- param_df3 %>%
   ) %>%
   gt::fmt_missing(1:15, 1:18, missing_text = '-') %>% 
   gt::tab_header(gt::md('**Resultados bootstrap no parámétrico**'),
-                 gt::md('**Modelo base VAN por dos métodos - error aditivo**')) %>% 
+                 gt::md('**Modelo final VAN por dos métodos - error aditivo**')) %>% 
   gt::tab_options(table.font.size = "smaller",
                   data_row.padding = gt::px(3)) %>% 
   gt::tab_footnote('Obtenido mediante bootstrap no paramétrico', 
