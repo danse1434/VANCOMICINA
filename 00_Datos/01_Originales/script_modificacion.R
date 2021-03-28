@@ -6,7 +6,7 @@
 ## Autor: Daniel S. Parra González 
 ##
 ## Fecha de creación: 07/07/2020
-## Fecha de modificación: 20/01/2021
+## Fecha de modificación: 20/01/2021 --- 28/03/2021
 ##  
 ## Copyright (c) Daniel S. Parra, 2020 
 ##  
@@ -17,7 +17,8 @@ require(tidyverse)
 require(readxl)
 
 # Lectura de archivo con datos original
-dataVAN <- read_xlsx('01_Originales/original_200219.xlsx')
+dataVAN <- read_xlsx('01_Originales/original_200219.xlsx') %>%
+  filter(record_id != 15)
 
 #-------------------------------------------------------------------------------#
 # 1 Manipulación inicial --------------------------------
@@ -39,8 +40,7 @@ dataVAN <- read_xlsx('01_Originales/original_200219.xlsx')
 #' 12 Eliminar variables no necesarias
 #................................................................................
 
-dataVAN1 <- dataVAN %>%
-  filter(record_id != 15) %>% 
+dataVAN1 <- dataVAN %>% 
   rename(
     ID        = record_id,
     SEXF      = sexo,
@@ -58,7 +58,8 @@ dataVAN1 <- dataVAN %>%
   mutate(
     SEXF = if_else(SEXF == 1, 0, 1),
     HCM  = as.numeric(HCM),
-    HCM  = if_else(HCM < 30, HCM * 100, HCM)
+    HCM  = if_else(HCM < 30, HCM * 100, HCM), 
+    AMT  = as.numeric(dosis_suministrada) * WTKG,
   ) %>% 
   rowwise(ID) %>% 
   mutate(antibioticos_recibidos = 
@@ -96,7 +97,7 @@ dataVAN1 <- dataVAN %>%
 #-------------------------------------------------------------------------------#
 # 2 Observaciones y fechas ----------------------------
 #-------------------------------------------------------------------------------#
-#' Crear tabla *dataVAN1a* con valores de concentración de cefepime
+#' Crear tabla *dataVAN1a* con valores de concentración de vancomicina
 #................................................................................
 #' 1 Seleccionar columnas con valores de resultado y muestra, e id en *dataVAN*
 #' 2 Expandir con estas columnas, y crear dos columnas _muestra_(id de muestra), 
@@ -151,7 +152,8 @@ dataVAN2 <- dataVAN1b %>%
   summarise(mn = mean(valor, na.rm = TRUE),
             sd = sd(valor, na.rm = TRUE),
             n  = n()) %>% 
-  group_by(record_id, tipo, .drop = TRUE) %>% 
+  ungroup() %>% 
+  group_by(record_id, tipo) %>% 
   mutate(TAD = difftime(tiempo, min(tiempo, na.rm = TRUE), 
                         units = "hours") + 1)
 
@@ -196,7 +198,7 @@ dataVAN3 <- dataVAN1 %>%
     DV    = NA_real_,  # Concentración
     MDV   = 0,         # Dosis faltante?
     EVID  = 1L,        # Identificador de DV
-    AMT   = 2000,      # Dosis (cantidad en mg)
+    # AMT   = 2000,      # Dosis (cantidad en mg) # Esto estaba mál se colocó la verdadera
     TINF  = 2,         # Tiempo de infusión (hrs)
     ADDL  = NA_integer_, # Dosis adicionales
     II    = 12,          # Intervalos entre dosis
@@ -256,4 +258,20 @@ dataVAN2 %>%
 ggsave('results/spaguet_original.pdf', device = 'pdf', width = 8, height = 6)
 
 
+dataVAN2 %>% 
+  pivot_wider(id_cols = c(record_id, muestra), 
+              names_from = tipo, values_from = mn) %>%
+  mutate(ID = factor(record_id)) %>% 
+  ggplot(aes(x = Quimiolumin., y = Microbiol., col = ID)) + 
+  theme_bw() + 
+  geom_abline(slope = 1, intercept = 0, lty = 'dashed') + 
+  geom_point() +
+  xlab('C. plasmática (mg/L) - Quimiolum.') + 
+  ylab('C. plasmática (mg/L) - Microbiológ.') + 
+  coord_cartesian(xlim = c(0, 60), ylim = c(0, 60)) + 
+  theme(legend.position = 'bottom') +
+  guides(colour=guide_legend(ncol=7))
+
+
+ggsave('results/correspondenciaMetodos.pdf', device = 'pdf', width = 6, height = 6)
 
