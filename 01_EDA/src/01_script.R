@@ -344,10 +344,11 @@ df2_comp_a <- df2_ls[[3]] + df2_ls[[4]] + df2_ls[[8]] +
 df2_comp_b <- df2_ls[[10+2]] + df2_ls[[10+5]] + df2_ls[[10+6]] +
   guide_area() + plot_layout(guides = 'collect')
 
-df2_comp_c <- df2_ls[[3]] + df2_ls[[4]] + df2_ls[[8]] + df2_ls[[10]] +
+df2_comp_c <- (df2_ls[[3]] + df2_ls[[4]] + df2_ls[[8]] + df2_ls[[10]] +
   df2_ls[[12]] + df2_ls[[15]] + df2_ls[[16]] +
-  guide_area() + plot_layout(guides = 'collect')
-
+  guide_area()) +
+  plot_layout(guides = 'collect') &
+  theme(legend.position = 'bottom', legend.box.margin = margin(0,0,0,30))
 
 ggsave('Correl_Discret_a.pdf', df2_comp_a, 'pdf', 'output/figs/', 1, 8, 6)
 ggsave('Correl_Discret_b.pdf', df2_comp_b, 'pdf', 'output/figs/', 1, 8, 6)
