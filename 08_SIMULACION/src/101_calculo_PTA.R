@@ -1,4 +1,21 @@
+##------------------------------------------------------------------------------#
+## Nombre del Script: Calculo indicador PK/PD: AUC/MIC > 400 -------------------
+##  
+## Propósito del Script: Cálculo indicador PK/PD - AUC/MIC >= 400
+##  
+## Autor: Daniel S. Parra González 
+## Fecha de creación:  15-03-2021
+##  
+## Copyright (c) Daniel S. Parra, 2021 
+##  
+## Email: dsparrag@unal.edu.co 
+##------------------------------------------------------------------------------#
 
+#-------------------------------------------------------------------------------#
+# 1. Introducción -----------------------------------------------------
+#-------------------------------------------------------------------------------#
+
+# Cargar paquetes
 require(data.table)
 require(progress)
 require(scales)
@@ -16,6 +33,10 @@ outexposure <- c(
   '061_exp_CLCR150_'
 )
 
+#-------------------------------------------------------------------------------#
+# 2. Cálculo indicador -----------------------------------------------------
+#-------------------------------------------------------------------------------#
+# Vector con MIC etiquetas principales y secundarias
 MIC_vec_0 = c(1 * (2 ^ (seq(-4, 6, 1))))
 MIC_vec_1 = c(1 * (2 ^ (seq(-4, 6, length = 1e2))))
 
@@ -30,8 +51,9 @@ for (k in seq_len(length(outexposure))) {
   
   dataDF <- data.table()
   
-  for (i in 1:21) {
+  for (i in 1:35) {
     data0 <- fread(file.path('results', paste0(outexposure[k], i, '.csv')))
+    # Aclaramiento
     data1 <- resPTA_Tabla(data0, MIC_vec_1, resPTA1_AUC, crit = 400, g = i)
     
     dataDF <- rbind(dataDF, data1)
@@ -42,6 +64,7 @@ for (k in seq_len(length(outexposure))) {
   rm(dataDF)
 }
 
+# Vector con valores de aclaramiento
 CLCR <- data.table(Tipo = 1:6,
                    CLCR = c(90, 100, 110, 120, 130, 150))
 
@@ -53,20 +76,12 @@ dataTotal <- dataTotal[, Tipo := as.integer(Tipo)] %>%
   .[CLCR, on = .(Tipo)] %>% 
   .[admDF, on = .(g = ID)]
 
+fwrite(dataTotal, file = file.path('results', 'datosFunRenal.csv'))
+
 #-------------------------------------------------------------------------------#
-# Graficos -----------------------------------------------------
+# 3. Gráficos -----------------------------------------------------
 #-------------------------------------------------------------------------------#
 
-dataTotal <-dataTotal
-
-
-dataTotal <- map_df(dataTotal, ~ .x) %>%
-  mutate(
-    DD = map_dbl(g, ~ admDF[admDF$ID == .x, ]$DD),
-    II = map_dbl(g, ~ admDF[admDF$ID == .x, ]$ii),
-    Tinf = map_dbl(g, ~ admDF[admDF$ID == .x, ]$tinf)
-  )
-
-graficoPTA_AUC(dfLS, MIC_vec_1, MIC_vec_0, color = DD, format = 'P') + 
-  facet_grid(DD ~ II)
+graficoPTA_AUC(dataTotal, MIC_vec_1, MIC_vec_0, color = CLCR, format = 'P') + 
+  facet_grid(DD ~ ii)
 
