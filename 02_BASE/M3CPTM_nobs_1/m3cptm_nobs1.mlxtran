@@ -44,12 +44,12 @@ data = y_2
 model = y2
 
 <PARAMETER>
-Cl_pop = {value=10.24414145334172, method=MLE}
-Q2_pop = {value=10.71525048736745, method=MLE}
-Q3_pop = {value=0.7407194824164144, method=MLE}
-V1_pop = {value=42.78050242058402, method=MLE}
-V2_pop = {value=56.16631214094936, method=MLE}
-V3_pop = {value=1.322407912711289, method=MLE}
+Cl_pop = {value=4.79, method=MLE}
+Q2_pop = {value=5.28, method=MLE}
+Q3_pop = {value=0.0032, method=MLE}
+V1_pop = {value=19.73, method=MLE}
+V2_pop = {value=14.34, method=MLE}
+V3_pop = {value=22.43, method=MLE}
 a = {value=3.342197070140577, method=MLE}
 omega_Cl = {value=1.5, method=MLE}
 omega_Q2 = {value=1, method=MLE}
@@ -70,15 +70,6 @@ plotResult(method = {indfits, obspred, vpc, npc, residualsscatter, residualsdist
 [SETTINGS]
 GLOBAL:
 exportpath = 'm3cptm_nobs1'
-
-POPULATION:
-smoothingiterations = 5000
-exploratoryiterations = 5000
-simulatedannealingiterations = 2000
-exploratoryinterval = 1000
-smoothinginterval = 1000
-omegatau = 0.8
-errormodeltau = 0.8
 
 [COMMENTS]
 ; Modelo de 3CPTM con observaciones del metodo de quimioluminiscencia
