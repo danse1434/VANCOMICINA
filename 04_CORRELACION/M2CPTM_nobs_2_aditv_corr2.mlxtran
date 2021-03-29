@@ -44,17 +44,17 @@ data = {y1, y2}
 model = {y1, y2}
 
 <PARAMETER>
-Cl_pop = {value=10.35391799367459, method=MLE}
-Q_pop = {value=12.56280285266156, method=MLE}
-V1_pop = {value=40.70427176264, method=MLE}
-V2_pop = {value=48.00967397771, method=MLE}
-a1 = {value=0.3038664856987711, method=MLE}
-a2 = {value=0.0620148745910284, method=MLE}
+Cl_pop = {value=5, method=MLE}
+Q_pop = {value=5, method=MLE}
+V1_pop = {value=25, method=MLE}
+V2_pop = {value=25, method=MLE}
+a1 = {value=1, method=MLE}
+a2 = {value=1, method=MLE}
 corr_V2_V1 = {value=0.9987608583791298, method=MLE}
-omega_Cl = {value=0.2516965510484701, method=MLE}
-omega_Q = {value=0.6123915557854274, method=MLE}
-omega_V1 = {value=0.297034685187857, method=MLE}
-omega_V2 = {value=0.3539757711690714, method=MLE}
+omega_Cl = {value=1.5, method=MLE}
+omega_Q = {value=1.5, method=MLE}
+omega_V1 = {value=1.5, method=MLE}
+omega_V2 = {value=1.5, method=MLE}
 
 <MONOLIX>
 
@@ -62,7 +62,7 @@ omega_V2 = {value=0.3539757711690714, method=MLE}
 populationParameters()
 individualParameters(method = {conditionalMean, conditionalMode })
 fim(method = StochasticApproximation)
-logLikelihood(run = false,method = ImportanceSampling)
+logLikelihood(method = ImportanceSampling)
 plotResult(method = {parameterdistribution, covariancemodeldiagnosis, covariatemodeldiagnosis, randomeffects, categorizedoutput, fisher })
 
 [SETTINGS]
