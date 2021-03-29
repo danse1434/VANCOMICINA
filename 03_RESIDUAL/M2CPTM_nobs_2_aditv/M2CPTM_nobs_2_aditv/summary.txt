@@ -1,29 +1,29 @@
 ********************************************************************************
 *                         M2CPTM_nobs_2_aditv.mlxtran                          *
-*                         January 22, 2021 at 20:36:25                         *
-*                         Sycomore version : 2020R1                            *
+*                         March 28, 2021 at 19:08:45                           *
+*                         Monolix version : 2020R1                             *
 ********************************************************************************
 
 
 ESTIMATION OF THE POPULATION PARAMETERS ________________________________________
 
 Fixed Effects ----------------------------     se_sa    rse(%)
-Cl_pop   :                            10.3     0.725      7.03
-V1_pop   :                              41      3.45       8.4
-Q_pop    :                            12.1      2.73      22.6
-V2_pop   :                            49.2      8.23      16.7
+Cl_pop   :                            5.16     0.357      6.92
+V1_pop   :                            20.3      1.76      8.66
+Q_pop    :                            6.18      1.44      23.3
+V2_pop   :                            23.6      3.42      14.5
 
 Standard Deviation of the Random Effects -
-omega_Cl :                           0.261    0.0519      19.9
-omega_V1 :                            0.26    0.0641      24.7
-omega_Q  :                           0.671     0.172      25.7
-omega_V2 :                           0.358     0.188      52.6
+omega_Cl :                           0.258    0.0502      19.5
+omega_V1 :                           0.268    0.0678      25.3
+omega_Q  :                           0.683     0.173      25.4
+omega_V2 :                           0.299     0.133      44.5
 
 Error Model Parameters -------------------
-a1       :                           0.306    0.0231      7.56
-a2       :                          0.0602   0.00632      10.5
+a1       :                           0.306    0.0232      7.58
+a2       :                          0.0606   0.00699      11.5
 
-Elapsed time (seconds) :     5.3
+Elapsed time (seconds) :      11
 
  _______________________________________________________________________________
 
@@ -34,24 +34,24 @@ ESTIMATION OF THE INDIVIDUAL PARAMETERS ________________________________________
 
 Estimation of the individual parameters by Conditional Distribution ------------
            min        Q1    median        Q3       max
-Cl :      5.23      9.89        11      12.5      13.1
-V1 :      25.2      34.9      42.7      48.2      64.1
-Q  :      3.48      10.2      13.6      19.4      31.8
-V2 :      32.5      46.2      51.6      58.7      69.7
+Cl :      2.63      4.94      5.52      6.19      6.58
+V1 :      12.6      17.8      21.6        24        32
+Q  :      1.78      5.65      7.19        10      16.2
+V2 :      16.1      22.2        24      28.2      32.8
 
-Elapsed time (seconds) :     1.1
+Elapsed time (seconds) :     1.6
 
  -------------------------------------------------------------------------------
 
 
 Estimation of the individual parameters by Conditional Mode --------------------
            min        Q1    median        Q3       max
-Cl :      5.22      9.93        11      12.5      13.2
-V1 :      25.5        36        44      48.8      64.5
-Q  :      3.55       9.9      13.2      18.5      27.8
-V2 :      26.5      45.2      48.1      54.1      70.9
+Cl :      2.61      4.96      5.51      6.21      6.59
+V1 :      12.7        18      21.9      24.3      32.4
+Q  :      1.78         5      6.67      9.79      13.8
+V2 :      13.9      22.2      23.3      26.2      32.1
 
-Elapsed time (seconds) :   0.027
+Elapsed time (seconds) :   0.044
 
  -------------------------------------------------------------------------------
 
@@ -66,20 +66,20 @@ Estimation of the Fisher information matrix by Stochastic Approximation --------
 
 Correlation Matrix :
   Cl_pop         1
-  V1_pop -0.013427         1
-   Q_pop   0.03125  -0.29159         1
-  V2_pop -0.036708   0.12458  -0.17809         1
-omega_Cl  -0.01245 0.0068276 -0.005321  0.041202         1
-omega_V1 0.0084214 -0.076984  0.065201  -0.12516  -0.01738         1
- omega_Q  0.005595  -0.20321   0.20933  0.084636  0.013261  -0.10847         1
-omega_V2-0.0063357-0.0056924  0.077275 -0.089913 -0.017693    0.2165  -0.24558         1
-      a1-0.0093179 -0.0176240.00062762  0.016395  0.023843  0.014595 0.0083876 0.0092116         1
-      a2   0.01702  0.072118 -0.062819  0.027143 -0.042637 -0.066368 -0.020253  -0.14592  -0.11264         1
+  V1_pop -0.010165         1
+   Q_pop    0.0264  -0.30491         1
+  V2_pop -0.025316   0.11196  -0.15397         1
+omega_Cl-0.0056771 0.0035542 0.0020909  0.029923         1
+omega_V1 0.0073998 -0.082995  0.056184 -0.092044-0.0058067         1
+ omega_Q 0.0012025  -0.22263   0.26631   0.10933 0.0046404 -0.074055         1
+omega_V2-0.0085357 -0.016346   0.04096  -0.05116  0.014879   0.14798  -0.12242         1
+      a1-0.0093105 -0.027756  0.012782 0.0066285   0.02251  0.021445  0.012126  0.042908         1
+      a2  0.015199   0.10578 -0.098921 -0.026455 -0.049128  -0.12496 -0.053066  -0.27844  -0.12588         1
 
                                min       max   max/min
-Eigen values           :       0.6       1.6       2.6
+Eigen values           :      0.62       1.6       2.7
 
-Elapsed time (seconds) :    0.06
+Elapsed time (seconds) :    0.12
 
  -------------------------------------------------------------------------------
 
@@ -90,16 +90,16 @@ Elapsed time (seconds) :    0.06
 ESTIMATION OF THE LOG-LIKELIHOOD _______________________________________________
 
                                                             (is)
--2 x log-likelihood                       (OFV) :         943.49
-Akaike Information Criteria               (AIC) :         963.49
-Corrected Bayesian Information Criteria  (BICc) :         985.59
-Bayesian Information Criteria             (BIC) :         969.88
+-2 x log-likelihood                       (OFV) :         943.44
+Akaike Information Criteria               (AIC) :         963.44
+Corrected Bayesian Information Criteria  (BICc) :         985.54
+Bayesian Information Criteria             (BIC) :         969.83
 
-Elapsed time                          (seconds) :           2.54
-CPU time                              (seconds) :           2.00
+Elapsed time                          (seconds) :           3.52
+CPU time                              (seconds) :           3.00
 
 
-[Importance Sampling] Standard error        : 0.116
+[Importance Sampling] Standard error        : 0.103
                       Sampling distribution : T-distribution with 5 degrees of freedom
 
  _______________________________________________________________________________

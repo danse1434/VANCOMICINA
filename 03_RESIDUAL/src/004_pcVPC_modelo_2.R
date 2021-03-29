@@ -91,8 +91,8 @@ param <-
   select(-se_sa, -rse_sa) %>%
   column_to_rownames(var = "parameter")
 
-N = 1e3 # N.° diseños a simular
-param <- setNames(pull(param), as.character(rownames(param)))
+N = 5e2 # N.° diseños a simular
+param <- setNames(pull(param, value), as.character(rownames(param)))
 out1  <- list(name = 'y1', time = seq(0, 12, length.out = 1e3))
 out2  <- list(name = 'y2', time = seq(0, 12, length.out = 1e3))
 

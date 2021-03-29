@@ -23,6 +23,7 @@ initMlxR(path = monolix2019R2.path)   #(adapt the path if necessary).
 require(data.table)
 require(tidyverse)
 require(rlang)
+require(progress)
 
 #-------------------------------------------------------------------------------#
 auxdir <- file.path('.', 'M2CPTM_nobs_2_comb1')
