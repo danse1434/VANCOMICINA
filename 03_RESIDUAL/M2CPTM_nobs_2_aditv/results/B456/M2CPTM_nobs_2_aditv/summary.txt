@@ -1,6 +1,6 @@
 ********************************************************************************
 *                         M2CPTM_nobs_2_aditv.mlxtran                          *
-*                         January 28, 2021 at 01:53:45                         *
+*                         March 28, 2021 at 21:44:04                           *
 *                         Monolix version : 2020R1                             *
 ********************************************************************************
 
@@ -8,22 +8,22 @@
 ESTIMATION OF THE POPULATION PARAMETERS ________________________________________
 
 Fixed Effects ----------------------------
-Cl_pop   :                             9.7
-V1_pop   :                            38.5
-Q_pop    :                            11.6
-V2_pop   :                            59.4
+Cl_pop   :                            4.63
+V1_pop   :                            19.7
+Q_pop    :                            5.69
+V2_pop   :                            37.9
 
 Standard Deviation of the Random Effects -
-omega_Cl :                           0.312
-omega_V1 :                           0.287
-omega_Q  :                            0.61
-omega_V2 :                           0.366
+omega_Cl :                           0.315
+omega_V1 :                           0.324
+omega_Q  :                           0.408
+omega_V2 :                           0.868
 
 Error Model Parameters -------------------
-a1       :                           0.363
-a2       :                          0.0716
+a1       :                           0.364
+a2       :                           0.069
 
-Elapsed time (seconds) :     5.4
+Elapsed time (seconds) :     4.8
 
  _______________________________________________________________________________
 

@@ -50,7 +50,7 @@ ptm <- proc.time()
 pb <-
   progress_bar$new(total = N, format = "[:bar] :percent :percent in :elapsed eta: :eta")
 
-for (i in 64:N) {
+for (i in 1:N) {
   pb$tick()
   loadProject(glue('{aux_dir}/E{i}/Base_corr2.mlxtran'))
   runPopulationParameterEstimation()

@@ -1,97 +1,199 @@
-id,time,y2,popPred_medianCOV,popPred,indivPred_SAEM,indWRes_SAEM
-1,1,19.874,24.4705,24.4705,18.9177,0.846405
-1,2,23.672,34.8313,34.8313,26.3736,-1.85487
-1,4,17.33,19.2958,19.2958,16.8276,0.504945
-1,6,12.29,14.028,14.028,13.2786,-1.32791
-1,8,11.396,11.298,11.298,10.9671,0.65838
-1,10,9.494,9.37525,9.37525,9.13409,0.66331
-1,10.5,8.722,8.96253,8.96253,8.7286,-0.0129923
-2,1,24.806,24.4705,24.4705,24.0872,0.504687
-2,2,32.39,34.8313,34.8313,34.4583,-1.06243
-2,4,19.624,19.2958,19.2958,18.9129,0.633498
-2,6,13.94,14.028,14.028,13.6521,0.358228
-2,8,10.904,11.298,11.298,10.8972,0.0107808
-2,10,8.45,9.37525,9.37525,8.95079,-0.988191
-2,11.5,7.396,8.19772,8.19772,7.76412,-0.83369
-3,1,22.23,24.4705,24.4705,22.4213,-0.147105
-3,2,33.872,34.8313,34.8313,33.0804,0.405858
-3,4,15.614,19.2958,19.2958,15.4052,0.231112
-3,6,10.094,14.028,14.028,9.64281,0.784864
-3,8,6.998,11.298,11.298,7.13469,-0.332014
-3,10,5.804,9.37525,9.37525,5.64278,0.483492
-3,11,4.992,8.57064,8.57064,5.06773,-0.258428
-4,1,24.806,24.4705,24.4705,24.2523,0.38748
-4,2,32.39,34.8313,34.8313,34.4654,-1.06593
-4,4,19.624,19.2958,19.2958,18.6543,0.869809
-4,6,13.94,14.028,14.028,13.6137,0.406466
-4,8,10.904,11.298,11.298,10.9095,-0.0086499
-4,10,8.45,9.37525,9.37525,8.94258,-0.972433
-4,11.5,7.396,8.19772,8.19772,7.73198,-0.762488
-5,1,24.806,24.4705,24.4705,23.9303,0.61683
-5,2,32.39,34.8313,34.8313,34.271,-0.968852
-5,4,19.624,19.2958,19.2958,18.9264,0.621265
-5,6,13.94,14.028,14.028,13.6739,0.330848
-5,8,10.904,11.298,11.298,10.9047,-0.00111846
-5,10,8.45,9.37525,9.37525,8.94596,-0.978917
-5,11.5,7.396,8.19772,8.19772,7.75257,-0.808128
-6,1,22.148,24.4705,24.4705,21.5889,0.438817
-6,2,30.246,34.8313,34.8313,31.4786,-0.685565
-6,4,16.548,19.2958,19.2958,16.256,0.30561
-6,6,11.186,14.028,14.028,10.9485,0.368358
-6,8,8.038,11.298,11.298,8.45414,-0.866346
-6,10,5.94,9.37525,9.37525,6.87847,-2.51764
-6,11.5,7.068,8.19772,8.19772,5.96602,2.90914
-7,1,22.23,24.4705,24.4705,22.3401,-0.0848021
-7,2,33.872,34.8313,34.8313,32.9722,0.462083
-7,4,15.614,19.2958,19.2958,15.3851,0.253499
-7,6,10.094,14.028,14.028,9.62975,0.808114
-7,8,6.998,11.298,11.298,7.12325,-0.304464
-7,10,5.804,9.37525,9.37525,5.6344,0.508998
-7,11,4.992,8.57064,8.57064,5.06107,-0.235858
-8,1,27.33,24.4705,24.4705,26.3316,0.638765
-8,2,35.42,34.8313,34.8313,36.3945,-0.465817
-8,4,21.442,19.2958,19.2958,21.1306,0.251085
-8,6,16.742,14.028,14.028,16.3707,0.384974
-8,8,13.586,11.298,11.298,13.6136,-0.0348301
-8,10,11.476,9.37525,9.37525,11.4791,-0.00462394
-8,11.05,10.59,8.53252,8.53252,10.509,0.131723
-9,1,35.2825,24.4705,24.4705,34.1395,0.565233
-9,2,51.314,34.8313,34.8313,50.4909,0.277531
-9,4,31.19,19.2958,19.2958,31.2411,-0.028095
-9,6,23.444,14.028,14.028,21.7024,1.32485
-9,8,16.332,11.298,11.298,16.6361,-0.316657
-9,10.25,13.066,9.16615,9.16615,13.3804,-0.408099
-9,11,11.772,8.57064,8.57064,12.6018,-1.16908
-10,1,28.178,24.4705,24.4705,26.6228,0.974436
-10,2,35.14,34.8313,34.8313,36.6825,-0.737312
-10,4,18.722,19.2958,19.2958,19.2396,-0.468059
-10,6,14.494,14.028,14.028,14.6199,-0.148401
-10,8,12.2,11.298,11.298,12.0516,0.210117
-10,10,9.742,9.37525,9.37525,10.0697,-0.567858
-10,11.5,8.886,8.19772,8.19772,8.81385,0.139922
-11,1,19.874,24.4705,24.4705,18.9351,0.830647
-11,2,23.672,34.8313,34.8313,26.3102,-1.81355
-11,4,17.33,19.2958,19.2958,16.7488,0.585519
-11,6,12.29,14.028,14.028,13.282,-1.33222
-11,8,11.396,11.298,11.298,10.976,0.644494
-11,10,9.494,9.37525,9.37525,9.13062,0.669824
-11,10.5,8.722,8.96253,8.96253,8.72189,0.000214804
-12,1,25.512,24.4705,24.4705,24.2585,0.864723
-12,2,31.61,34.8313,34.8313,33.7653,-1.1321
-12,4,19.742,19.2958,19.2958,19.7113,0.0267229
-12,6,15.102,14.028,14.028,15.1498,-0.0541925
-12,8,12.092,11.298,11.298,12.5173,-0.593364
-12,10,10.294,9.37525,9.37525,10.5014,-0.342421
-12,11.5,9.378,8.19772,8.19772,9.2258,0.280829
-13,1,20.312,24.4705,24.4705,21.2329,-0.760989
-13,2,32.684,34.8313,34.8313,31.0577,0.876016
-13,4,15.384,19.2958,19.2958,15.3445,0.0441627
-13,6,11.032,14.028,14.028,10.2355,1.28625
-13,8,7.436,11.298,11.298,7.76986,-0.753795
-13,10,6.158,9.37525,9.37525,6.14598,0.0335378
-13,11.5,4.906,8.19772,8.19772,5.19798,-0.992223
-14,1,45.866,24.4705,24.4705,42.4854,1.31409
-14,2,58.898,34.8313,34.8313,55.8266,0.919207
-14,4,34.292,19.2958,19.2958,34.9901,-0.345874
-14,6,29.606,14.028,14.028,28.8788,0.426871
-14,8.25,26.788,11.0276,11.0276,25.1238,1.10081
+rollerCommands:Do", "ControllerCommands:DoWithParams"],
+    },
+  },
+
+  DateTimePicker: {
+    child: {
+      module: "resource://gre/actors/DateTimePickerChild.jsm",
+      events: {
+        MozOpenDateTimePicker: {},
+      },
+    },
+  },
+
+  ExtFind: {
+    child: {
+      module: "resource://gre/actors/ExtFindChild.jsm",
+      messages: [
+        "ext-Finder:CollectResults",
+        "ext-Finder:HighlightResults",
+        "ext-Finder:clearHighlighting",
+      ],
+    },
+  },
+
+  FindBar: {
+    child: {
+      module: "resource://gre/actors/FindBarChild.jsm",
+      events: {
+        keypress: { mozSystemGroup: true },
+      },
+    },
+  },
+
+  Finder: {
+    child: {
+      module: "resource://gre/actors/FinderChild.jsm",
+      messages: ["Finder:Initialize"],
+    },
+  },
+
+  FormSubmit: {
+    child: {
+      module: "resource://gre/actors/FormSubmitChild.jsm",
+      allFrames: true,
+      events: {
+        DOMFormBeforeSubmit: {},
+      },
+    },
+  },
+
+  KeyPressEventModelChecker: {
+    child: {
+      module: "resource://gre/actors/KeyPressEventModelCheckerChild.jsm",
+      events: {
+        CheckKeyPressEventModel: { capture: true, mozSystemGroup: true },
+      },
+    },
+  },
+
+  ManifestMessages: {
+    child: {
+      module: "resource://gre/modules/ManifestMessagesChild.jsm",
+      messages: [
+        "DOM:Manifest:FireAppInstalledEvent",
+        "DOM:ManifestObtainer:Obtain",
+        "DOM:WebManifest:fetchIcon",
+        "DOM:WebManifest:hasManifestLink",
+      ],
+    },
+  },
+
+  PictureInPicture: {
+    child: {
+      module: "resource://gre/actors/PictureInPictureChild.jsm",
+      events: {
+        MozTogglePictureInPicture: { capture: true },
+      },
+
+      messages: [
+        "PictureInPicture:SetupPlayer",
+        "PictureInPicture:Play",
+        "PictureInPicture:Pause",
+      ],
+    },
+  },
+
+  PictureInPictureToggle: {
+    child: {
+      allFrames: true,
+      module: "resource://gre/actors/PictureInPictureChild.jsm",
+      events: {
+        canplay: { capture: true, mozSystemGroup: true },
+        pagehide: { capture: true },
+      },
+    },
+  },
+
+  PopupBlocking: {
+    child: {
+      module: "resource://gre/actors/PopupBlockingChild.jsm",
+      events: {
+        DOMPopupBlocked: { capture: true },
+      },
+    },
+  },
+
+  Printing: {
+    child: {
+      module: "resource://gre/actors/PrintingChild.jsm",
+      events: {
+        PrintingError: { capture: true },
+        printPreviewUpdate: { capture: true },
+      },
+      messages: [
+        "Printing:Preview:Enter",
+        "Printing:Preview:Exit",
+        "Printing:Preview:Navigate",
+        "Printing:Preview:ParseDocument",
+        "Printing:Print",
+      ],
+    },
+  },
+
+  PurgeSessionHistory: {
+    child: {
+      module: "resource://gre/actors/PurgeSessionHistoryChild.jsm",
+      messages: ["Browser:PurgeSessionHistory"],
+    },
+  },
+
+  Select: {
+    child: {
+      module: "resource://gre/actors/SelectChild.jsm",
+      events: {
+        mozshowdropdown: {},
+        "mozshowdropdown-sourcetouch": {},
+      },
+    },
+  },
+
+  SelectionSource: {
+    child: {
+      module: "resource://gre/actors/SelectionSourceChild.jsm",
+      messages: ["ViewSource:GetSelection"],
+    },
+  },
+
+  Thumbnails: {
+    child: {
+      module: "resource://gre/actors/ThumbnailsChild.jsm",
+      messages: [
+        "Browser:Thumbnail:Request",
+        "Browser:Thumbnail:CheckState",
+        "Browser:Thumbnail:GetOriginalURL",
+      ],
+    },
+  },
+
+  UAWidgets: {
+    child: {
+      module: "resource://gre/actors/UAWidgetsChild.jsm",
+      events: {
+        UAWidgetSetupOrChange: {},
+        UAWidgetTeardown: {},
+      },
+    },
+  },
+
+  UnselectedTabHover: {
+    child: {
+      module: "resource://gre/actors/UnselectedTabHoverChild.jsm",
+      events: {
+        "UnselectedTabHover:Enable": {},
+        "UnselectedTabHover:Disable": {},
+      },
+      messages: ["Browser:UnselectedTabHover"],
+    },
+  },
+
+  WebChannel: {
+    child: {
+      module: "resource://gre/actors/WebChannelChild.jsm",
+      events: {
+        WebChannelMessageToChrome: { capture: true, wantUntrusted: true },
+      },
+      messages: ["WebChannelMessageToContent"],
+    },
+  },
+
+  WebNavigation: {
+    child: {
+      module: "resource://gre/actors/WebNavigationChild.jsm",
+      messages: [
+        "WebNavigation:GoBack",
+        "WebNavigation:GoForward",
+        "WebNavigation:GotoIndex",
+        "WebNavigation:LoadURI",
+        "WebNavigation:Reload",
+        "WebNavi

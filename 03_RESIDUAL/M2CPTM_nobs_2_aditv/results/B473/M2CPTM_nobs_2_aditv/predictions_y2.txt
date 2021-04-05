@@ -1,97 +1,139 @@
-id,time,y2,popPred_medianCOV,popPred,indivPred_SAEM,indWRes_SAEM
-1,1,18.992,24.3971,24.3971,21.2361,-1.80399
-1,2,36.628,36.9588,36.9588,33.8313,1.28295
-1,4,20.114,20.7585,20.7585,19.3426,0.631699
-1,6,11.696,13.4163,13.4163,11.7198,-0.0327704
-1,8,7.506,9.74654,9.74654,7.63143,-0.267681
-1,10,5.45,7.65275,7.65275,5.37088,0.236213
-1,11.1667,4.604,6.7936,6.7936,4.52756,0.270424
-2,1,20.312,24.3971,24.3971,21.1376,-0.643518
-2,2,32.684,36.9588,36.9588,31.4591,0.616996
-2,4,15.384,20.7585,20.7585,16.0386,-0.673052
-2,6,11.032,13.4163,13.4163,10.4027,0.948644
-2,8,7.436,9.74654,9.74654,7.71421,-0.593299
-2,10,6.158,7.65275,7.65275,6.05065,0.284067
-2,11.5,4.906,6.5796,6.5796,5.11632,-0.678016
-3,1,35.2825,24.3971,24.3971,32.8573,1.15027
-3,2,51.314,36.9588,36.9588,49.1434,0.698145
-3,4,31.19,20.7585,20.7585,31.7383,-0.28148
-3,6,23.444,13.4163,13.4163,22.267,0.832024
-3,8,16.332,9.74654,9.74654,16.8646,-0.518318
-3,10.25,13.066,7.45204,7.45204,13.2577,-0.235212
-3,11,11.772,6.90526,6.90526,12.392,-0.82912
-4,1,18.992,24.3971,24.3971,21.3444,-1.88617
-4,2,36.628,36.9588,36.9588,33.8862,1.25675
-4,4,20.114,20.7585,20.7585,19.2242,0.730841
-4,6,11.696,13.4163,13.4163,11.6306,0.0905625
-4,8,7.506,9.74654,9.74654,7.60829,-0.218646
-4,10,5.45,7.65275,7.65275,5.40028,0.148026
-4,11.1667,4.604,6.7936,6.7936,4.57727,0.0940397
-5,1,20.312,24.3971,24.3971,21.1125,-0.624369
-5,2,32.684,36.9588,36.9588,31.394,0.65045
-5,4,15.384,20.7585,20.7585,15.9863,-0.620349
-5,6,11.032,13.4163,13.4163,10.3861,0.974495
-5,8,7.436,9.74654,9.74654,7.71298,-0.590722
-5,10,6.158,7.65275,7.65275,6.05304,0.277682
-5,11.5,4.906,6.5796,6.5796,5.11841,-0.684609
-6,1,25.512,24.3971,24.3971,24.3603,0.746187
-6,2,31.61,36.9588,36.9588,34.4154,-1.37346
-6,4,19.742,20.7585,20.7585,20.3284,-0.472793
-6,6,15.102,13.4163,13.4163,15.3585,-0.272031
-6,8,12.092,9.74654,9.74654,12.5085,-0.547037
-6,10,10.294,7.65275,7.65275,10.3785,-0.131992
-6,11.5,9.378,6.5796,6.5796,9.05053,0.574108
-7,1,20.312,24.3971,24.3971,20.9699,-0.514879
-7,2,32.684,36.9588,36.9588,31.1563,0.773226
-7,4,15.384,20.7585,20.7585,15.9146,-0.547715
-7,6,11.032,13.4163,13.4163,10.3759,0.990397
-7,8,7.436,9.74654,9.74654,7.72264,-0.610941
-7,10,6.158,7.65275,7.65275,6.06779,0.238378
-7,11.5,4.906,6.5796,6.5796,5.13352,-0.732252
-8,1,18.992,24.3971,24.3971,21.296,-1.84948
-8,2,36.628,36.9588,36.9588,33.9402,1.23103
-8,4,20.114,20.7585,20.7585,19.4069,0.578099
-8,6,11.696,13.4163,13.4163,11.7531,-0.0786846
-8,8,7.506,9.74654,9.74654,7.64611,-0.298738
-8,10,5.45,7.65275,7.65275,5.37563,0.221936
-8,11.1667,4.604,6.7936,6.7936,4.52924,0.264432
-9,1,18.992,24.3971,24.3971,21.2863,-1.84216
-9,2,36.628,36.9588,36.9588,33.888,1.25589
-9,4,20.114,20.7585,20.7585,19.3538,0.622276
-9,6,11.696,13.4163,13.4163,11.726,-0.0413181
-9,8,7.506,9.74654,9.74654,7.64354,-0.293307
-9,10,5.45,7.65275,7.65275,5.38967,0.1798
-9,11.1667,4.604,6.7936,6.7936,4.54934,0.192901
-10,1,45.866,24.3971,24.3971,40.0515,2.18962
-10,2,58.898,36.9588,36.9588,54.1932,1.34471
-10,4,34.292,20.7585,20.7585,36.4059,-0.966246
-10,6,29.606,13.4163,13.4163,29.147,0.252381
-10,8.25,26.788,9.42374,9.42374,24.7204,1.29744
-11,1,22.23,24.3971,24.3971,22.0595,0.124356
-11,2,33.872,36.9588,36.9588,33.0245,0.409296
-11,4,15.614,20.7585,20.7585,15.9043,-0.297572
-11,6,10.094,13.4163,13.4163,9.78628,0.500088
-11,8,6.998,9.74654,9.74654,7.06743,-0.159462
-11,10,5.804,7.65275,7.65275,5.50634,0.850386
-11,11,4.992,6.90526,6.90526,4.92371,0.22248
-12,1,29.122,24.3971,24.3971,26.0515,1.7997
-12,1.58333,33.002,32.2579,32.2579,34.5856,-0.757061
-12,3.58333,22.588,23.1355,23.1355,24.4593,-1.28561
-12,5.58333,15.94,14.5352,14.5352,15.0202,0.96
-12,7.58333,10.906,10.3373,10.3373,10.4875,0.632025
-12,9.58333,7.69,8.01152,8.01152,8.05043,-0.739871
-12,10.1667,7.082,7.51782,7.51782,7.54529,-1.02355
-13,1,35.2825,24.3971,24.3971,33.0486,1.05652
-13,2,51.314,36.9588,36.9588,49.3137,0.642248
-13,4,31.19,20.7585,20.7585,31.5736,-0.197467
-13,6,23.444,13.4163,13.4163,22.1096,0.94661
-13,8,16.332,9.74654,9.74654,16.7864,-0.443274
-13,10.25,13.066,7.45204,7.45204,13.2539,-0.230621
-13,11,11.772,6.90526,6.90526,12.4052,-0.846295
-14,1,22.23,24.3971,24.3971,21.9735,0.18745
-14,2,33.872,36.9588,36.9588,32.8228,0.50824
-14,4,15.614,20.7585,20.7585,15.7716,-0.162169
-14,6,10.094,13.4163,13.4163,9.76133,0.541308
-14,8,6.998,9.74654,9.74654,7.08215,-0.193085
-14,10,5.804,7.65275,7.65275,5.52348,0.800191
-14,11,4.992,6.90526,6.90526,4.93658,0.180322
+ervices.perms.ALLOW_ACTION,
+            Services.perms.EXPIRE_SESSION
+          );
+        }
+      } else if (
+        reason !== "APP_STARTUP" &&
+        testPermission("geo") === Services.perms.ALLOW_ACTION
+      ) {
+        Services.perms.removeFromPrincipal(principal, "geo");
+      }
+    }
+  }
+
+  static async migratePrivateBrowsing(addonData) {
+    if (addonData.incognito !== "not_allowed") {
+      ExtensionPermissions.add(addonData.id, {
+        permissions: [PRIVATE_ALLOWED_PERMISSION],
+        origins: [],
+      });
+      await StartupCache.clearAddonData(addonData.id);
+
+      // Record a telemetry event for the extension automatically allowed on private browsing as
+      // part of the Firefox upgrade.
+      AMTelemetry.recordActionEvent({
+        extra: { addonId: addonData.id },
+        object: "appUpgrade",
+        action: "privateBrowsingAllowed",
+        value: "on",
+      });
+    }
+  }
+
+  async startup() {
+    this.state = "Startup";
+
+    let resolveReadyPromise;
+    let readyPromise = new Promise(resolve => {
+      resolveReadyPromise = resolve;
+    });
+
+    // Create a temporary policy object for the devtools and add-on
+    // manager callers that depend on it being available early.
+    this.policy = new WebExtensionPolicy({
+      id: this.id,
+      mozExtensionHostname: this.uuid,
+      baseURL: this.resourceURL,
+      allowedOrigins: new MatchPatternSet([]),
+      localizeCallback() {},
+      readyPromise,
+    });
+
+    this.policy.extension = this;
+    if (!WebExtensionPolicy.getByID(this.id)) {
+      this.policy.active = true;
+    }
+
+    pendingExtensions.set(this.id, {
+      mozExtensionHostname: this.uuid,
+      baseURL: this.resourceURL,
+    });
+    sharedData.set("extensions/pending", pendingExtensions);
+
+    ExtensionTelemetry.extensionStartup.stopwatchStart(this);
+    try {
+      this.state = "Startup: Loading manifest";
+      await this.loadManifest();
+      this.state = "Startup: Loaded manifest";
+
+      if (!this.hasShutdown) {
+        this.state = "Startup: Init locale";
+        await this.initLocale();
+        this.state = "Startup: Initted locale";
+      }
+
+      if (this.errors.length) {
+        return Promise.reject({ errors: this.errors });
+      }
+
+      if (this.hasShutdown) {
+        return;
+      }
+
+      // We automatically add permissions to system/built-in extensions.
+      // Extensions expliticy stating not_allowed will never get permission.
+      if (
+        !allowPrivateBrowsingByDefault &&
+        this.manifest.incognito !== "not_allowed" &&
+        !this.permissions.has(PRIVATE_ALLOWED_PERMISSION)
+      ) {
+        if (this.isPrivileged && !this.addonData.temporarilyInstalled) {
+          // Add to EP so it is preserved after ADDON_INSTALL.  We don't wait on the add here
+          // since we are pushing the value into this.permissions.  EP will eventually save.
+          ExtensionPermissions.add(this.id, {
+            permissions: [PRIVATE_ALLOWED_PERMISSION],
+            origins: [],
+          });
+          this.permissions.add(PRIVATE_ALLOWED_PERMISSION);
+        }
+      }
+
+      GlobalManager.init(this);
+
+      this.initSharedData();
+
+      this.policy.active = false;
+      this.policy = ExtensionProcessScript.initExtension(this);
+      this.policy.extension = this;
+
+      this.updatePermissions(this.startupReason);
+
+      // Select the storage.local backend if it is already known,
+      // and start the data migration if needed.
+      if (this.hasPermission("storage")) {
+        if (!ExtensionStorageIDB.isBackendEnabled) {
+          this.setSharedData("storageIDBBackend", false);
+        } else if (ExtensionStorageIDB.isMigratedExtension(this)) {
+          this.setSharedData("storageIDBBackend", true);
+          this.setSharedData(
+            "storageIDBPrincipal",
+            ExtensionStorageIDB.getStoragePrincipal(this)
+          );
+        }
+      }
+
+      resolveReadyPromise(this.policy);
+
+      // The "startup" Management event sent on the extension instance itself
+      // is emitted just before the Management "startup" event,
+      // and it is used to run code that needs to be executed before
+      // any of the "startup" listeners.
+      this.emit("startup", this);
+
+      this.startupStates.clear();
+      await Promise.all([
+        this.addStartupStatePromise("Startup: Emit startup", () =>
+          Management.emit("startup", this)
+        ),
+        this.addStartupStatePromise("Startup: Run manifest", () =>
+          thi
