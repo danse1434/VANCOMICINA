@@ -1,38 +1,70 @@
-********************************************************************************
-*                         M2CPTM_nobs_2_aditv.mlxtran                          *
-*                         March 28, 2021 at 21:07:51                           *
-*                         Monolix version : 2020R1                             *
-********************************************************************************
+ight: 100%;
+  width: 100%;
+}
 
+#shortest-paths-select-node-msg {
+  justify-self: center;
+}
 
-ESTIMATION OF THE POPULATION PARAMETERS ________________________________________
+/**
+ * Heap tree view body
+ */
 
-Fixed Effects ----------------------------
-Cl_pop   :                             4.7
-V1_pop   :                            18.9
-Q_pop    :                            6.85
-V2_pop   :                            28.7
+.tree {
+  /**
+   * Flexing to fill out remaining vertical space. @see .heap-view-panel
+   */
+  flex: 1;
+  overflow-y: auto;
+  background-color: var(--theme-body-background);
+}
 
-Standard Deviation of the Random Effects -
-omega_Cl :                           0.382
-omega_V1 :                           0.234
-omega_Q  :                           0.355
-omega_V2 :                           0.677
+.tree-node {
+  height: var(--heap-tree-row-height);
+  line-height: var(--heap-tree-row-height);
+  cursor: default;
+}
 
-Error Model Parameters -------------------
-a1       :                           0.409
-a2       :                          0.0504
+.children-pointer {
+  padding-inline-end: 5px;
+}
 
-Elapsed time (seconds) :     8.1
+.children-pointer:dir(rtl) {
+  transform: scaleX(-1);
+}
 
- _______________________________________________________________________________
+/**
+ * Heap tree view columns
+ */
 
+.heap-tree-item {
+  /**
+   * Flex: contains several span columns, all of which need to be laid out
+   * horizontally. All columns except the last one have percentage widths, and
+   * the last one needs to flex to fill out all remaining horizontal space.
+   */
+  display: flex;
+}
 
+.tree-node-odd {
+  background-color: var(--row-alt-background-color);
+}
 
+.tree-node:hover {
+  background-color: var(--row-hover-background-color);
+}
 
-DATASET INFORMATION
-Number of individuals: 14
-Number of observations (obsid 1): 92
-Number of observations (obsid 2): 92
-Number of doses: 84
+.heap-tree-item.focused {
+  background-color: var(--theme-selection-background);
+  color: var(--theme-selection-color);
+}
 
+.heap-tree-item.focused ::-moz-selection {
+  background-color: var(--theme-selection-color);
+  color: var(--theme-selection-background);
+}
+
+.heap-tree-item-individuals,
+.heap-tree-item-bytes,
+.heap-tree-item-count,
+.heap-tree-item-total

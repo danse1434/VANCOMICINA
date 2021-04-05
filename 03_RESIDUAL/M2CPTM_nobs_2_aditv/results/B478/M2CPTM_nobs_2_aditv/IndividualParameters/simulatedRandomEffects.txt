@@ -1,57 +1,131 @@
-rep,id,eta_Cl,eta_V1,eta_Q,eta_V2
-1,1,0.310167177997552,0.174738089771405,0.159722377940552,-0.368021635061829
-2,1,0.249207711489995,-0.106473351921701,-0.0118815937136199,-0.193326370851144
-3,1,0.261219619105838,0.0933531514005965,-0.313211479369004,-0.203909946957091
-4,1,0.247436220911326,0.154132079209668,-0.72660521581294,-0.0759180638706907
-1,2,-0.68609306474078,-0.221519618678646,-0.147341915241418,0.101862456753651
-2,2,-0.658608433754865,0.0127761770306818,-0.162212598113273,0.186376501569184
-3,2,-0.679388319237198,-0.266389410016048,-0.302201296310383,-0.0402730442517782
-4,2,-0.645854097795788,-0.377545003750638,0.0936666347335016,0.189561622497331
-1,3,-0.0153724536131443,-0.523164943526963,1.2147176745319,0.320020653035078
-2,3,0.0273639716353524,0.137338360807403,0.329221706883126,0.137401158254006
-3,3,-0.0417668830092865,0.179177939127252,-0.0742542496155751,0.13927486961762
-4,3,-0.0278419823268479,0.194524313174632,-0.412706832272201,-0.036535025970807
-1,4,-0.62047624323823,-0.357852154057472,0.28222105804103,-0.0207872698412781
-2,4,-0.602936391140155,-0.642698601815753,0.311554219603692,0.330549958253978
-3,4,-0.596476217128067,-0.541753411273934,0.397116468369265,0.089262945506198
-4,4,-0.634915536250718,-0.36779795759088,-0.11363849133594,-0.142011365901731
-1,5,0.307004694141991,0.163489446721472,-0.399891345218766,-0.0127363795953306
-2,5,0.286445795768561,0.0103081253735868,-0.203045781613997,-0.210134878942036
-3,5,0.292801693094402,0.147431959029794,-0.547011008110414,0.120996669782559
-4,5,0.290227025388647,-0.178520363318317,0.259692747136339,-0.146172408440786
-1,6,-0.0219938477662347,-0.0660369679280564,0.641248755687322,-0.0557942539286
-2,6,-0.0401292692582802,-0.0976300619318935,0.340904652545319,-0.185420489870191
-3,6,-0.0190087133917169,0.117688669377376,0.0457566291486056,-0.429706135461981
-4,6,0.0390652035695374,0.0678370232694663,0.52798238444536,0.341112193826482
-1,7,0.148507866751686,0.567397618127994,0.50913282459382,0.332787419406622
-2,7,0.228629414150195,0.659502957371696,0.548181688803249,0.170214200534333
-3,7,0.196239232088336,0.272910491068602,1.59222362587977,0.50676914983626
-4,7,0.165548623176476,0.712832342123177,0.371086023091489,0.296751855573162
-1,8,0.0337729978462233,-0.379097301769008,0.295339590398247,-0.73152001948918
-2,8,0.0192205402412475,-0.108086327086505,-0.593532519632999,-0.544035604887798
-3,8,0.0394711272655435,-0.533261601145766,0.835696868808678,-0.386279797266443
-4,8,0.0158246770161921,-0.353349196300202,0.523516481770702,-0.763159461063452
-1,9,-0.0941222234240531,-0.179607021803314,0.558823808645158,-0.190550900607762
-2,9,-0.0644040416979419,-0.0348083594380815,0.187202946624771,0.0923344458113982
-3,9,-0.132774581560997,-0.00137417775953885,-0.0519042346946366,0.364288853957956
-4,9,-0.0988487468710648,0.0118036729774054,0.149725578039862,0.223510452795634
-1,10,0.235468415861006,0.224166744045485,-0.237848456676651,0.231107734502386
-2,10,0.216869030460098,0.0660609419207763,-0.423942585593614,0.125992835089931
-3,10,0.200710719614694,0.0691288466878563,-0.396690731940074,0.155548721524327
-4,10,0.171100956936969,0.0840102805054781,-0.266031672746336,-0.110261345151456
-1,11,0.295620790130377,0.0647945325178529,-0.478806026511359,-0.0278392258462556
-2,11,0.266435585472326,0.0561790326504985,-0.610568542094776,0.0320350215496812
-3,11,0.289068021820114,0.0726531547758209,-0.543384791034387,-0.390047920605923
-4,11,0.292701694765491,0.182235942297178,-0.425944186761338,-0.479653556568301
-1,12,-0.135800664805421,0.100666312919842,-0.167037902825369,-0.204222547008337
-2,12,-0.110453127461724,0.0749721740777343,-0.0636176855952488,-0.0295563777348629
-3,12,-0.0777143589900349,-0.175559481610228,0.601839975486646,0.17444654596661
-4,12,-0.0821227182907676,-0.252215186060798,0.775048273857594,0.040197582133068
-1,13,0.135646369674951,-0.505769862679055,-1.10327998672995,0.118016011477976
-2,13,0.102736954580908,-0.45469278066939,-1.29853200382761,0.151199485422356
-3,13,0.148431963999337,-0.477648683891882,-1.12510175538408,-0.0147608241327735
-4,13,0.144837059322898,-0.544179128125993,-0.956285284916887,-0.581006403881599
-1,14,0.198165249460627,0.589927698933167,0.515636066227318,0.477750602116613
-2,14,0.172486436916119,0.408880751429124,1.05612673111951,0.278807981824022
-3,14,0.192280270671793,0.550618369033677,0.35445111910092,0.0935030717674663
-4,14,0.179153311113992,0.541787663413952,0.527318192528972,-0.0405122007106598
+ true;
+    }
+  },
+
+  // Open the toolbox on the selected tab once the browser starts up.
+  handleDevToolsFlag: async function(window) {
+    const require = this.initDevTools("CommandLine");
+    const { gDevTools } = require("devtools/client/framework/devtools");
+    const { TargetFactory } = require("devtools/client/framework/target");
+    const target = await TargetFactory.forTab(window.gBrowser.selectedTab);
+    gDevTools.showToolbox(target);
+  },
+
+  _isRemoteDebuggingEnabled() {
+    let remoteDebuggingEnabled = false;
+    try {
+      remoteDebuggingEnabled = kDebuggerPrefs.every(pref => {
+        return Services.prefs.getBoolPref(pref);
+      });
+    } catch (ex) {
+      console.error(ex);
+      return false;
+    }
+    if (!remoteDebuggingEnabled) {
+      const errorMsg =
+        "Could not run chrome debugger! You need the following " +
+        "prefs to be set to true: " +
+        kDebuggerPrefs.join(", ");
+      console.error(new Error(errorMsg));
+      // Dump as well, as we're doing this from a commandline, make sure people
+      // don't miss it:
+      dump(errorMsg + "\n");
+    }
+    return remoteDebuggingEnabled;
+  },
+
+  handleDebuggerFlag: function(cmdLine) {
+    if (!this._isRemoteDebuggingEnabled()) {
+      return;
+    }
+
+    let devtoolsThreadResumed = false;
+    const pauseOnStartup = cmdLine.handleFlag("wait-for-jsdebugger", false);
+    if (pauseOnStartup) {
+      const observe = function(subject, topic, data) {
+        devtoolsThreadResumed = true;
+        Services.obs.removeObserver(observe, "devtools-thread-resumed");
+      };
+      Services.obs.addObserver(observe, "devtools-thread-resumed");
+    }
+
+    const { BrowserToolboxProcess } = ChromeUtils.import(
+      "resource://devtools/client/framework/ToolboxProcess.jsm"
+    );
+    BrowserToolboxProcess.init();
+
+    if (pauseOnStartup) {
+      // Spin the event loop until the debugger connects.
+      const tm = Cc["@mozilla.org/thread-manager;1"].getService();
+      tm.spinEventLoopUntil(() => {
+        return devtoolsThreadResumed;
+      });
+    }
+
+    if (cmdLine.state == Ci.nsICommandLine.STATE_REMOTE_AUTO) {
+      cmdLine.preventDefault = true;
+    }
+  },
+
+  /**
+   * Handle the --start-debugger-server command line flag. The options are:
+   * --start-debugger-server
+   *   The portOrPath parameter is boolean true in this case. Reads and uses the defaults
+   *   from devtools.debugger.remote-port and devtools.debugger.remote-websocket prefs.
+   *   The default values of these prefs are port 6000, WebSocket disabled.
+   *
+   * --start-debugger-server 6789
+   *   Start the non-WebSocket server on port 6789.
+   *
+   * --start-debugger-server /path/to/filename
+   *   Start the server on a Unix domain socket.
+   *
+   * --start-debugger-server ws:6789
+   *   Start the WebSocket server on port 6789.
+   *
+   * --start-debugger-server ws:
+   *   Start the WebSocket server on the default port (taken from d.d.remote-port)
+   */
+  handleDebuggerServerFlag: function(cmdLine, portOrPath) {
+    if (!this._isRemoteDebuggingEnabled()) {
+      return;
+    }
+
+    let webSocket = false;
+    const defaultPort = Services.prefs.getIntPref(
+      "devtools.debugger.remote-port"
+    );
+    if (portOrPath === true) {
+      // Default to pref values if no values given on command line
+      webSocket = Services.prefs.getBoolPref(
+        "devtools.debugger.remote-websocket"
+      );
+      portOrPath = defaultPort;
+    } else if (portOrPath.startsWith("ws:")) {
+      webSocket = true;
+      const port = portOrPath.slice(3);
+      portOrPath = Number(port) ? port : defaultPort;
+    }
+
+    const { DevToolsLoader } = ChromeUtils.import(
+      "resource://devtools/shared/Loader.jsm"
+    );
+
+    try {
+      // Create a separate loader instance, so that we can be sure to receive
+      // a separate instance of the DebuggingServer from the rest of the
+      // devtools.  This allows us to safely use the tools against even the
+      // actors and DebuggingServer itself, especially since we can mark
+      // serverLoader as invisible to the debugger (unlike the usual loader
+      // settings).
+      const serverLoader = new DevToolsLoader();
+      serverLoader.invisibleToDebugger = true;
+      const { DebuggerServer: debuggerServer } = serverLoader.require(
+        "devtools/server/main"
+      );
+      const { SocketListener } = serverLoader.require(
+        "devtools/shared/security/socket"
+      );
+      debuggerServer.init();
+      debuggerServer.registerAllActors();
+      debug

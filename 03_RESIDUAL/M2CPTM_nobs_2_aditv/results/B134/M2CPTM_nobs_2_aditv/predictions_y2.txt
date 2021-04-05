@@ -1,93 +1,182 @@
-id,time,y2,popPred_medianCOV,popPred,indivPred_SAEM,indWRes_SAEM
-1,1,20.312,28.1236,28.1236,21.2893,-0.932193
-1,2,32.684,39.5314,39.5314,31.3468,0.828668
-1,4,15.384,20.5901,20.5901,15.6789,-0.376613
-1,6,11.032,14.8229,14.8229,10.4586,1.05876
-1,8,7.436,12.1102,12.1102,7.84329,-1.05784
-1,10,6.158,10.2595,10.2595,6.09727,0.196622
-1,11.5,4.906,9.12035,9.12035,5.08387,-0.706492
-2,1,45.866,28.065,28.065,45.2303,0.276859
-2,2,58.898,39.4491,39.4491,58.3465,0.186618
-2,4,34.292,20.5472,20.5472,35.5657,-0.723483
-2,6,29.606,14.792,14.792,29.6792,-0.0490145
-2,8.25,26.788,11.8242,11.8242,26.4627,0.24236
-3,1,45.866,28.065,28.065,45.1253,0.322988
-3,2,58.898,39.4491,39.4491,58.225,0.227996
-3,4,34.292,20.5472,20.5472,35.4917,-0.682131
-3,6,29.606,14.792,14.792,29.6665,-0.0404889
-3,8.25,26.788,11.8242,11.8242,26.3836,0.301736
-4,1,20.312,28.1236,28.1236,21.3334,-0.973262
-4,2,32.684,39.5314,39.5314,31.4324,0.774616
-4,4,15.384,20.5901,20.5901,15.7117,-0.418071
-4,6,11.032,14.8229,14.8229,10.494,0.991785
-4,8,7.436,12.1102,12.1102,7.84699,-1.06719
-4,10,6.158,10.2595,10.2595,6.06665,0.296492
-4,11.5,4.906,9.12035,9.12035,5.03386,-0.510381
-5,1,18.354,18.7781,18.7781,19.7554,-1.45967
-5,2,28.778,24.1307,24.1307,27.6895,0.764926
-5,4,31.214,30.0667,30.0667,34.5542,-2.0167
-5,6,12.49,17.71,17.71,14.1109,-2.4205
-5,8,7.27,13.4692,13.4692,8.15296,-2.27387
-5,10.25,4.758,10.9557,10.9557,6.19203,-5.2259
-5,11.5,4.184,9.90162,9.90162,5.76333,-6.35293
-6,1,27.33,28.1252,28.1252,26.7417,0.431685
-6,2,35.42,39.5338,39.5338,37.1468,-0.94429
-6,4,21.442,20.5913,20.5913,21.5956,-0.14162
-6,6,16.742,14.8237,14.8237,16.3248,0.500603
-6,8,13.586,12.1109,12.1109,13.6355,-0.072104
-6,10,11.476,10.2602,10.2602,11.7313,-0.436499
-6,11.05,10.59,9.44616,9.44616,10.8816,-0.538794
-7,1,29.122,28.1196,28.1196,27.2001,1.35441
-7,1.58333,33.002,35.4111,35.4111,35.2722,-1.31973
-7,3.58333,22.588,22.7858,22.7858,22.7589,-0.149558
-7,5.58333,15.94,15.6281,15.6281,15.3888,0.698086
-7,7.58333,10.906,12.5711,12.5711,11.0078,-0.184398
-7,9.58333,7.69,10.6059,10.6059,7.91942,-0.583177
-7,10.1667,7.082,10.1232,10.1232,7.19528,-0.314795
-8,1,22.23,28.1241,28.1241,22.6722,-0.390731
-8,2,33.872,39.5322,39.5322,33.3691,0.296759
-8,4,15.614,20.5905,20.5905,15.4683,0.185929
-8,6,10.094,14.8231,14.8231,9.77383,0.63942
-8,8,6.998,12.1104,12.1104,7.25231,-0.708105
-8,10,5.804,10.2597,10.2597,5.70793,0.331101
-8,11,4.992,9.48273,9.48273,5.1052,-0.444817
-9,1,21.61,28.1326,28.1326,21.0488,0.521938
-9,2,28.974,39.544,39.544,30.9326,-1.29762
-9,4,16.21,20.5967,20.5967,16.1953,0.0180085
-9,6,11.572,14.8276,14.8276,10.8354,1.30467
-9,8,7.542,12.114,12.114,8.27056,-1.8293
-9,10.25,6.366,10.0613,10.0613,6.49239,-0.389982
-9,11.5,5.504,9.12327,9.12327,5.73642,-0.820498
-10,1,28.178,28.1252,28.1252,27.1001,0.773748
-10,2,35.14,39.5338,39.5338,36.9708,-1.00753
-10,4,18.722,20.5913,20.5913,18.8072,-0.0900592
-10,6,14.494,14.8237,14.8237,14.3272,0.229551
-10,8,12.2,12.1109,12.1109,11.9618,0.391126
-10,10,9.742,10.2602,10.2602,10.1408,-0.795907
-10,11.5,8.886,9.1209,9.1209,8.97497,-0.197633
-11,1,45.866,28.065,28.065,45.2354,0.274635
-11,2,58.898,39.4491,39.4491,58.377,0.176248
-11,4,34.292,20.5472,20.5472,35.642,-0.765954
-11,6,29.606,14.792,14.792,29.6813,-0.0503861
-11,8.25,26.788,11.8242,11.8242,26.5081,0.208351
-12,1,21.61,28.1326,28.1326,22.0266,-0.37876
-12,2,28.974,39.544,39.544,31.9756,-1.95547
-12,4,16.21,20.5967,20.5967,17.1671,-1.13805
-12,6,11.572,14.8276,14.8276,11.6204,-0.0828188
-12,8,7.542,12.114,12.114,9.08468,-3.6918
-12,10.25,6.366,10.0613,10.0613,7.44166,-3.09708
-12,11.5,5.504,9.12327,9.12327,6.76096,-4.08038
-13,1,28.178,28.1252,28.1252,27.0522,0.808848
-13,2,35.14,39.5338,39.5338,37.0381,-1.04358
-13,4,18.722,20.5913,20.5913,18.9135,-0.201838
-13,6,14.494,14.8237,14.8237,14.2816,0.292865
-13,8,12.2,12.1109,12.1109,11.9395,0.428137
-13,10,9.742,10.2602,10.2602,10.1768,-0.866201
-13,11.5,8.886,9.1209,9.1209,9.05014,-0.363081
-14,1,20.312,28.1236,28.1236,21.2789,-0.922491
-14,2,32.684,39.5314,39.5314,31.3557,0.823067
-14,4,15.384,20.5901,20.5901,15.689,-0.389432
-14,6,11.032,14.8229,14.8229,10.426,1.12079
-14,8,7.436,12.1102,12.1102,7.81817,-0.994214
-14,10,6.158,10.2595,10.2595,6.094,0.207253
-14,11.5,4.906,9.12035,9.12035,5.09553,-0.751936
+r: rgba(0,0,0,0.3);
+  --row-alt-background-color: rgba(76,158,217,0.1);
+  --row-hover-background-color: rgba(76,158,217,0.2);
+  --link-color: var(--blue-60);
+  --link-color-active: var(--blue-70);
+}
+
+html, body, #app, #memory-tool {
+  height: 100%;
+}
+
+#memory-tool {
+  /**
+   * Flex: contains two children: .devtools-toolbar and #memory-tool-container,
+   * which need to be laid out vertically. The toolbar has a fixed height and
+   * the container needs to flex to fill out all remaining vertical space.
+   */
+  display: flex;
+  flex-direction: column;
+  --sidebar-width: 185px;
+  /**
+   * If --heap-tree-row-height changes, be sure to change HEAP_TREE_ROW_HEIGHT
+   * in `devtools/client/memory/components/Heap.js`.
+   */
+  --heap-tree-row-height: 18px;
+  --heap-tree-header-height: 18px;
+}
+
+/**
+ * Toolbar
+ */
+
+.devtools-toolbar {
+  /**
+   * Flex: contains several children, which need to be laid out horizontally,
+   * and aligned vertically in the middle of the container.
+   */
+  display: flex;
+  line-height: initial;
+  align-items: stretch;
+}
+
+.devtools-toolbar > .toolbar-group:nth-of-type(1) {
+  /**
+   * We want this to be exactly at a `--sidebar-width` distance from the
+   * toolbar's start boundary. A `.devtools-toolbar` has a 3px start padding.
+   */
+  flex: 0 0 calc(var(--sidebar-width) - 4px);
+  border-inline-end: 1px solid var(--theme-splitter-color);
+  margin-inline-end: 5px;
+  padding-right: 1px;
+}
+
+.devtools-toolbar > .toolbar-group {
+  /**
+   * Flex: contains several children, which need to be laid out horizontally,
+   * and aligned vertically in the middle of the container.
+   */
+  display: flex;
+  align-items: center;
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.devtools-toolbar > .toolbar-group > label {
+  /**
+   * Flex: contains form controls and text, which need to be laid out
+   * horizontally, vertically aligned in the middle of the container.
+   */
+  display: flex;
+  align-items: center;
+  margin-inline-end: 5px;
+}
+
+.devtools-toolbar > .toolbar-group > label.display-by > span {
+  margin-inline-end: 5px;
+}
+
+.devtools-toolbar > .toolbar-group > label.label-by > span {
+  margin-inline-end: 5px;
+}
+
+.devtools-toolbar > label {
+  margin-inline-end: 5px;
+  display: flex;
+  align-items: center;
+}
+
+#select-view {
+  margin-inline-start: 5px;
+}
+
+#take-snapshot::before {
+  background-image: url(images/command-screenshot.svg);
+}
+
+#clear-snapshots::before {
+  background-image: url(chrome://devtools/skin/images/clear.svg);
+}
+
+#diff-snapshots::before {
+  background-image: url(chrome://devtools/skin/images/diff.svg);
+}
+
+#import-snapshot::before {
+  background-image: url(chrome://devtools/skin/images/import.svg);
+}
+
+#record-allocation-stacks-label,
+#pop-view-button-label {
+  border-inline-end: 1px solid var(--theme-splitter-color);
+  padding-inline-end: 5px;
+}
+
+.spacer {
+  flex: 1;
+}
+
+#filter {
+  box-sizing: border-box;
+  height: 100%;
+}
+
+/**
+ * Container (sidebar + main panel)
+ */
+
+#memory-tool-container {
+  /**
+   * Flex: contains two children: .list (sidebar) and #heap-view (main panel),
+   * which need to be laid out horizontally. The sidebar has a fixed width and
+   * the main panel needs to flex to fill out all remaining horizontal space.
+   */
+  display: flex;
+  /**
+   * Flexing to fill out remaining vertical space. The preceeding sibling is
+   * the toolbar. @see #memory-tool.
+   */
+  flex: 1;
+  overflow: hidden;
+}
+
+/**
+ * Sidebar
+ */
+
+.list {
+  width: var(--sidebar-width);
+  min-width: var(--sidebar-width);
+  overflow-y: auto;
+  margin: 0;
+  padding: 0;
+  background-color: var(--theme-sidebar-background);
+  border-inline-end: 1px solid var(--theme-splitter-color);
+}
+
+.snapshot-list-item {
+  /**
+   * Flex: contains several children, which need to be laid out vertically.
+   */
+  display: flex;
+  flex-direction: column;
+  color: var(--theme-body-color);
+  border-bottom: 1px solid rgba(128,128,128,0.15);
+  padding: 8px;
+  cursor: default;
+}
+
+.snapshot-list-item.selected {
+  background-color: var(--theme-selection-background);
+  color: var(--theme-selection-color);
+}
+
+.snapshot-list-item.selected ::-moz-selection {
+  background-color: var(--theme-selection-color);
+  color: var(--theme-selection-background);
+}
+
+.snapshot-list-item .snapshot-info {
+  display: flex;

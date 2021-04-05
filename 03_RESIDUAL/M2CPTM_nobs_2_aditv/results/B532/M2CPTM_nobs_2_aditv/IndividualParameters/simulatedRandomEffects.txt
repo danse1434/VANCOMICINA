@@ -1,57 +1,99 @@
-rep,id,eta_Cl,eta_V1,eta_Q,eta_V2
-1,1,0.248748839672349,-0.0799270852804996,0.451366494865587,-0.131575294098351
-2,1,0.210373597500507,-0.0190339054458599,0.0949423078157612,-0.0695485159574418
-3,1,0.200413638169993,0.137142258206365,-0.151643542070975,0.0778927115284795
-4,1,0.199011802109305,-0.0261396706057635,-0.104526116093657,-0.217084522282741
-1,2,0.105632632671258,0.0320171225551444,-0.067069081469824,0.0642478060406471
-2,2,0.20677445954968,0.0899486529102869,0.737676940652934,-0.0447490259191659
-3,2,0.160854217106887,0.061417339710705,0.00589075238590708,0.156985221045835
-4,2,0.162622552632185,0.0368064577184586,0.00925137605036097,0.0253144112774684
-1,3,-0.0603720968659649,-0.000225038074064265,0.352002241898245,0.252574585504458
-2,3,-0.0639790758580248,-0.199788702563752,0.575197578790467,0.136348215030297
-3,3,-0.102935474161759,-0.0575391070846143,-0.0782739209472612,0.246266955418022
-4,3,-0.0234386825321302,0.0417559948794608,0.515246370101142,-0.0380158820985828
-1,4,-0.167208733431588,-0.0951886506846824,0.652284901572071,-0.161257891777533
-2,4,-0.17051035170767,-0.0490611748256127,0.0398226514239359,-0.11390533304867
-3,4,-0.167178386467955,0.109796246106458,0.50560933473242,0.114340872061752
-4,4,-0.206003468845821,0.0721291895777023,-0.142963715022886,0.141516784231493
-1,5,-0.0827132188677624,0.0857442257954992,0.204853755079013,-0.123888208794135
-2,5,-0.0932581877658567,-0.0604097776192707,0.682256470288793,-0.0121611381911988
-3,5,-0.0805254388626042,0.110551469800898,0.526639905989101,0.0359895265324437
-4,5,-0.127156329554797,-0.00026833735940146,0.571235499427152,-0.119724953323853
-1,6,-0.0752696538915818,-0.0243524116161646,0.162890742243159,0.0179529296043723
-2,6,-0.0796266897712401,-0.0219400792490765,0.295379201935714,0.0338718580358832
-3,6,-0.0335914140607714,-0.221364906687774,0.570784060305911,-0.0723235785222487
-4,6,-0.114803959081571,-0.139776232202266,0.31159430560458,-0.0668581288854977
-1,7,0.246328057725072,-0.0153926479329267,-0.156735977232147,0.0362864598078447
-2,7,0.246101311926102,-0.114555582541346,-0.0179809534954072,-0.00526188076544232
-3,7,0.235512071932308,-0.037917967585904,-0.0983997716579925,0.214960612725253
-4,7,0.182813285000486,0.00341546769159917,-0.628782012886851,0.0225107419171762
-1,8,0.147023298015718,-0.000116922160136479,0.0288349414705433,-0.199318544863012
-2,8,0.145215927359498,-0.0545997928459698,0.164044570654819,-0.224173834999624
-3,8,0.19815452735835,0.100472854358341,0.180438640029382,0.177210880530006
-4,8,0.175178844011119,0.0630162459929022,0.0031594957377421,0.00296365517218211
-1,9,-0.461396804718588,-0.166013042431774,-1.01374681432229,0.0587677153673387
-2,9,-0.430063155292781,-0.0518429421703019,-0.780250076381907,0.131409428921978
-3,9,-0.421788766005408,-0.247153471289137,-0.265808407315056,-0.125198539196026
-4,9,-0.516400781367019,-0.186950764166243,-0.764459765171186,0.0516410043239879
-1,10,-0.119060902978851,0.105294100602211,0.0450692517467788,-0.042247220915236
-2,10,-0.09443780089445,-0.00408108784339722,0.28175519305904,0.166363247164574
-3,10,-0.0847164856559879,0.000568141887676177,0.259051077210977,0.0680730573952562
-4,10,-0.0863344059362294,0.0105225425858109,0.137407352324436,0.305017228664206
-1,11,0.215439109488354,-0.0670098531348371,-0.439126593014524,0.0272869405390272
-2,11,0.260554877867542,0.0220770766438378,-0.00181696531863329,-0.0166652105979153
-3,11,0.240925093496422,0.0686430367152338,-0.363278110201061,0.196277468538162
-4,11,0.281416091456707,0.0402126932546891,-0.0991113946632838,-0.0583909415367954
-1,12,0.128231374797822,0.0730198975762106,-0.0284581157648032,0.108936546655515
-2,12,0.131418711885262,0.110362696981465,-0.220497198900144,-0.0711833282746031
-3,12,0.1474323517664,-0.0477888773292166,0.231056262027284,-0.00703955921927912
-4,12,0.105741663227168,0.0747243590917099,-0.13267705858427,0.0475563959752399
-1,13,0.173912299622405,-0.0267398820473335,0.107815709188477,0.0139558937845896
-2,13,0.213341724679057,0.157676687465289,0.163801782713951,-0.248120076453733
-3,13,0.121596030137121,0.157706727476202,-0.313239567630452,0.256099445213365
-4,13,0.136571057374266,0.0189703604179425,-0.0806056531869694,-0.178483770993219
-1,14,-0.43291568640242,-0.140005226612483,-0.731258205599077,-0.0609567068524104
-2,14,-0.407763991047533,-0.181742417603818,-0.586965698601375,-0.0290896002088994
-3,14,-0.47996477401224,-0.184602335572783,-0.870718723656956,0.0118850508109789
-4,14,-0.383921889612857,-0.113848458579193,-0.814310065004878,0.119936911793442
+son parameter indicates which of
+   *     these is the case.
+   */
+  addListener(aListener) {
+    CustomizableUIInternal.addListener(aListener);
+  },
+  /**
+   * Remove a listener added with addListener
+   * @param aListener the listener object to remove
+   */
+  removeListener(aListener) {
+    CustomizableUIInternal.removeListener(aListener);
+  },
+
+  /**
+   * Register a customizable area with CustomizableUI.
+   * @param aName   the name of the area to register. Can only contain
+   *                alphanumeric characters, dashes (-) and underscores (_).
+   * @param aProps  the properties of the area. The following properties are
+   *                recognized:
+   *                - type:   the type of area. Either TYPE_TOOLBAR (default) or
+   *                          TYPE_MENU_PANEL;
+   *                - anchor: for a menu panel or overflowable toolbar, the
+   *                          anchoring node for the panel.
+   *                - overflowable: set to true if your toolbar is overflowable.
+   *                                This requires an anchor, and only has an
+   *                                effect for toolbars.
+   *                - defaultPlacements: an array of widget IDs making up the
+   *                                     default contents of the area
+   *                - defaultCollapsed: (INTERNAL ONLY) applies if the type is TYPE_TOOLBAR, specifies
+   *                                    if toolbar is collapsed by default (default to true).
+   *                                    Specify null to ensure that reset/inDefaultArea don't care
+   *                                    about a toolbar's collapsed state
+   */
+  registerArea(aName, aProperties) {
+    CustomizableUIInternal.registerArea(aName, aProperties);
+  },
+  /**
+   * Register a concrete node for a registered area. This method needs to be called
+   * with any toolbar in the main browser window that has its "customizable" attribute
+   * set to true.
+   *
+   * Note that ideally, you should register your toolbar using registerArea
+   * before calling this. If you don't, the node will be saved for processing when
+   * you call registerArea. Note that CustomizableUI won't restore state in the area,
+   * allow the user to customize it in customize mode, or otherwise deal
+   * with it, until the area has been registered.
+   */
+  registerToolbarNode(aToolbar) {
+    CustomizableUIInternal.registerToolbarNode(aToolbar);
+  },
+  /**
+   * Register the menu panel node. This method should not be called by anyone
+   * apart from the built-in PanelUI.
+   * @param aPanelContents the panel contents DOM node being registered.
+   * @param aArea the area for which to register this node.
+   */
+  registerMenuPanel(aPanelContents, aArea) {
+    CustomizableUIInternal.registerMenuPanel(aPanelContents, aArea);
+  },
+  /**
+   * Unregister a customizable area. The inverse of registerArea.
+   *
+   * Unregistering an area will remove all the (removable) widgets in the
+   * area, which will return to the panel, and destroy all other traces
+   * of the area within CustomizableUI. Note that this means the *contents*
+   * of the area's DOM nodes will be moved to the panel or removed, but
+   * the area's DOM nodes *themselves* will stay.
+   *
+   * Furthermore, by default the placements of the area will be kept in the
+   * saved state (!) and restored if you re-register the area at a later
+   * point. This is useful for e.g. add-ons that get disabled and then
+   * re-enabled (e.g. when they update).
+   *
+   * You can override this last behaviour (and destroy the placements
+   * information in the saved state) by passing true for aDestroyPlacements.
+   *
+   * @param aName              the name of the area to unregister
+   * @param aDestroyPlacements whether to destroy the placements information
+   *                           for the area, too.
+   */
+  unregisterArea(aName, aDestroyPlacements) {
+    CustomizableUIInternal.unregisterArea(aName, aDestroyPlacements);
+  },
+  /**
+   * Add a widget to an area.
+   * If the area to which you try to add is not known to CustomizableUI,
+   * this will throw.
+   * If the area to which you try to add is the same as the area in which
+   * the widget is currently placed, this will do the same as
+   * moveWidgetWithinArea.
+   * If the widget cannot be removed from its original location, this will
+   * no-op.
+   *
+   * This will fire an onWidgetAdded notification,
+   * and an onWidgetBeforeDOMChange and onWidgetAfterDOMChange notification
+   * for each window CustomizableUI knows about.
+   *
+   * @param

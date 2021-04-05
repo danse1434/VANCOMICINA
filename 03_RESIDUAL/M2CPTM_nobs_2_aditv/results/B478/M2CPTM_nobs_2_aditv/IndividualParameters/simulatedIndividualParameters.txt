@@ -1,57 +1,115 @@
-rep,id,Cl,V1,Q,V2
-1,1,6.81590042056803,24.8155336291746,8.78602052471474,18.1094762621455
-2,1,6.41281744428895,18.7324698061856,7.40057655466103,21.5662720657058
-3,1,6.49031211260503,22.875921047811,5.47519572713363,21.3392273756635
-4,1,6.40146725494865,24.3094169126134,3.62130438349482,24.2529660890164
-1,2,2.51682437205828,16.6967168561794,6.46302573674198,28.9716986100314
-2,2,2.58695774119708,21.1049561255322,6.36762720924984,31.5266584617033
-3,2,2.53375573576538,15.9640977978875,5.5358117186102,25.1330557655024
-4,2,2.62016398096363,14.2846669334259,8.2244065199115,31.6272347701879
-1,3,4.92201770044103,12.3488974008952,25.2331139667224,36.0345297961314
-2,3,5.13692665399849,23.9045802812465,10.408900011944,30.0198294500315
-3,3,4.79380336730175,24.925955807703,6.95308366559273,30.0761306752566
-4,3,4.8610235339766,25.3114290923792,4.95666269937494,25.2271793957384
-1,4,2.68750904364697,14.5687608606601,9.93099388052504,25.627595416665
-2,4,2.73506338367623,10.9575982695907,10.2266158960303,36.4159528949807
-3,4,2.75278956452686,12.1214706260309,11.1401530373677,28.60895933498
-4,4,2.64898213314768,14.4245810081666,6.68456416418007,22.7018318807076
-1,5,6.79437929357181,24.5379566582759,5.02059352337069,25.8347531578097
-2,5,6.6561204348464,21.0529322288336,6.11285372389627,21.2068047252469
-3,5,6.69856078329399,24.1470853256438,4.33372953414459,29.5313867835219
-4,5,6.68133639821913,17.4303224664422,9.70976665707315,22.6075648531072
-1,6,4.88953474113507,19.5054664178924,14.220552244323,24.7459721113557
-2,6,4.80166019708605,18.8988611078054,10.5312197613853,21.737448203362
-3,6,4.90415246644848,23.4394474789291,7.83966522712914,17.0261577261868
-4,6,5.19738807087952,22.2996001230843,12.6977128681701,36.8026252354457
-1,7,5.79849771018068,36.749673507274,12.4606082486896,36.4975233963036
-2,7,6.28220112018064,40.295293708537,12.9568057739177,31.0212107190156
-3,7,6.08197959247597,27.3753292210529,36.8060829680866,43.4332873416823
-4,7,5.89815520524431,42.5025496314312,10.8539115525363,35.2057296074487
-1,8,5.16995507853138,14.2625100747251,10.062132235772,12.5904295677825
-2,8,5.09526431166626,18.7022791525456,4.13673563995056,15.1867203049294
-3,8,5.19949824211011,12.2248421375023,17.2728580817849,17.781830711868
-4,8,5.07799083674711,14.6345113000171,12.6411325534374,12.1983113187181
-1,9,4.54927908858447,17.411391946006,13.0954299730845,21.626211754018
-2,9,4.68650433436752,20.1242058950991,9.03081348501575,28.6969668506751
-3,9,4.37679368181284,20.8084165268458,7.11023481284276,37.6655483839435
-4,9,4.52782754984134,21.0844414470767,8.69862599623312,32.719375963069
-1,10,6.32531235526156,26.0729523192438,5.9037695106029,32.9689009350955
-2,10,6.20875276155928,22.2600293700627,4.90128256137978,29.6792996645715
-3,10,6.10923598124636,22.3284258836316,5.03668824441803,30.5695895193511
-4,10,5.93099481538702,22.6631895796041,5.73970508983698,23.4341800283255
-1,11,6.71747131893698,22.2318569022634,4.63962468990025,25.4475064772314
-2,11,6.52425380470229,22.0411410778356,4.06685901850935,27.0176946368837
-3,11,6.67359719124161,22.4072569664812,4.34947310573666,17.7149526620462
-4,11,6.69789097190013,25.0022961245512,4.89148196020106,16.1966337940376
-1,12,4.36356915913287,23.0438295760847,6.33697547911454,21.3325577746054
-2,12,4.47558860223288,22.4592801259305,7.02743530714919,25.4038467393523
-3,12,4.62453878011934,17.4820080691171,13.6710366139608,31.1527814284521
-4,12,4.60419702140985,16.1919877616008,16.2564178844196,27.2391307194258
-1,13,5.72439788760898,12.5655866692856,2.48471885654938,29.4434948632225
-2,13,5.53907742077383,13.2240738185241,2.04399760343525,30.4369238632452
-3,13,5.7980576049478,12.9239611179647,2.43108521524576,25.7825050374584
-4,13,5.77725156082912,12.0921030036301,2.87816868538287,14.6355072973809
-1,14,6.09370487875691,37.5870442150131,12.5419066601146,42.1910278750052
-2,14,5.93921778502472,31.3624862968537,21.5325605735711,34.5796365070676
-3,14,6.05794886967222,36.1381860779182,10.6748512306815,28.7305224741647
-4,14,5.9789460874776,35.8204653090119,12.6892819501102,25.1270457515802
+Id("menuWebDeveloperPopup");
+    systemMenuItem.appendChild(item);
+  },
+
+  /**
+   * Update the visibility the menu item to enable DevTools.
+   */
+  updateDevToolsMenuItems(window) {
+    const item = window.document.getElementById("enableDeveloperTools");
+    item.hidden = Services.prefs.getBoolPref(DEVTOOLS_ENABLED_PREF);
+  },
+
+  /**
+   * Loop on all windows and update the hidden attribute of the "enable DevTools" menu
+   * item.
+   */
+  onEnabledPrefChanged() {
+    for (const window of Services.wm.getEnumerator("navigator:browser")) {
+      if (window.gBrowserInit && window.gBrowserInit.delayedStartupFinished) {
+        this.updateDevToolsMenuItems(window);
+      }
+    }
+  },
+
+  /**
+   * Check if the user is a DevTools user by looking at our selfxss pref.
+   * This preference is incremented everytime the console is used (up to 5).
+   *
+   * @return {Boolean} true if the user can be considered as a devtools user.
+   */
+  isDevToolsUser() {
+    const selfXssCount = Services.prefs.getIntPref("devtools.selfxss.count", 0);
+    return selfXssCount > 0;
+  },
+
+  /**
+   * Depending on some runtime parameters (command line arguments as well as existing
+   * preferences), the DEVTOOLS_ENABLED_PREF might be forced to true.
+   *
+   * @param {Boolean} hasDevToolsFlag
+   *        true if any DevTools command line argument was passed when starting Firefox.
+   */
+  setupEnabledPref(hasDevToolsFlag) {
+    // Read the current experiment state.
+    const experimentState = Services.prefs.getCharPref(
+      "devtools.onboarding.experiment"
+    );
+    const isRegularExperiment = experimentState == "on";
+    const isForcedExperiment = experimentState == "force";
+    const isInExperiment = isRegularExperiment || isForcedExperiment;
+
+    // Force devtools.enabled to true for users that are not part of the experiment.
+    if (!isInExperiment) {
+      Services.prefs.setBoolPref(DEVTOOLS_ENABLED_PREF, true);
+      return;
+    }
+
+    // Force devtools.enabled to false once for each experiment user.
+    if (!Services.prefs.getBoolPref("devtools.onboarding.experiment.flipped")) {
+      Services.prefs.setBoolPref(DEVTOOLS_ENABLED_PREF, false);
+      Services.prefs.setBoolPref(
+        "devtools.onboarding.experiment.flipped",
+        true
+      );
+    }
+
+    if (Services.prefs.getBoolPref(DEVTOOLS_ENABLED_PREF)) {
+      // Nothing to do if DevTools are already enabled.
+      return;
+    }
+
+    // We only consider checking the actual isDevToolsUser() if the user is in the
+    // "regular" experiment group.
+    const isDevToolsUser = isRegularExperiment && this.isDevToolsUser();
+
+    if (hasDevToolsFlag || isDevToolsUser) {
+      Services.prefs.setBoolPref(DEVTOOLS_ENABLED_PREF, true);
+    }
+  },
+
+  hookKeyShortcuts(window) {
+    const doc = window.document;
+
+    // hookKeyShortcuts can be called both from hookWindow and from the developer toggle
+    // onBeforeCreated. Make sure shortcuts are only added once per window.
+    if (doc.getElementById("devtoolsKeyset")) {
+      return;
+    }
+
+    const keyset = doc.createXULElement("keyset");
+    keyset.setAttribute("id", "devtoolsKeyset");
+
+    for (const key of KeyShortcuts) {
+      const xulKey = this.createKey(doc, key, () => this.onKey(window, key));
+      keyset.appendChild(xulKey);
+    }
+
+    // Appending a <key> element is not always enough. The <keyset> needs
+    // to be detached and reattached to make sure the <key> is taken into
+    // account (see bug 832984).
+    const mainKeyset = doc.getElementById("mainKeyset");
+    mainKeyset.parentNode.insertBefore(keyset, mainKeyset);
+  },
+
+  async onKey(window, key) {
+    try {
+      if (!Services.prefs.getBoolPref(DEVTOOLS_ENABLED_PREF)) {
+        const id = key.toolId || key.id;
+        this.openInstallPage("KeyShortcut", id);
+      } else {
+        // Record the timing at which this event started in order to compute later in
+        // gDevTools.showToolbox, the complete time it takes to open the toolbox.
+        // i.e. especially take `initDevTools` into account.
+        const startTime = Cu.now();
+        const require = this.initDevTools("KeyShortcut", key

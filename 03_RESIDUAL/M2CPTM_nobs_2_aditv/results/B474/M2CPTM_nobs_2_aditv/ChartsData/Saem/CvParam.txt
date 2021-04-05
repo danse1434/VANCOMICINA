@@ -1,208 +1,650 @@
-iteration,convergenceIndicator,phase,Cl_pop,V1_pop,Q_pop,V2_pop,omega_Cl,omega_V1,omega_Q,omega_V2,a1,a2
-1,1541.38,1,10.2275,43.2233,11.1604,60.344,1,1,1,1,1,1
-2,1521.96,1,5.38907,32.446,13.2803,58.9153,0.974679,0.974679,1.07427,1.13613,0.974679,0.974679
-3,1497.03,1,5.13374,29.6038,14.1575,81.5826,0.95,0.95,1.04707,1.10736,0.95,0.95
-4,1491.98,1,4.67913,28.415,13.3318,102.072,0.925945,0.925945,1.02056,1.09983,0.925945,0.925945
-5,1480.93,1,4.73649,32.915,12.8284,117.74,0.9025,0.9025,0.994719,1.07198,0.9025,0.9025
-6,1473.76,1,4.44886,34.2345,9.02876,130.793,0.879648,0.879648,1.01299,1.06664,0.879648,0.879648
-7,1460.94,1,4.54856,37.2033,9.56956,133.089,0.857375,0.857375,0.987341,1.03963,0.857375,0.857375
-8,1440.92,1,4.38791,33.507,10.2949,117.137,0.835666,0.835666,0.962341,1.04468,0.835666,0.835666
-9,1442.85,1,4.60191,31.852,7.87643,118.349,0.814506,0.814506,1.02787,1.01823,0.814506,0.814506
-10,1426.59,1,4.43597,29.1911,6.93799,122.764,0.793882,0.793882,1.04131,0.999931,0.793882,0.793882
-11,1415.57,1,4.84738,28.1788,6.19167,108.654,0.773781,0.773781,1.01495,0.990044,0.773781,0.773781
-12,1394.97,1,4.67446,26.9724,6.4333,112.119,0.754188,0.754188,0.989247,0.964975,0.754188,0.754188
-13,1392.88,1,4.4494,25.407,6.61886,143.047,0.735092,0.735092,0.98858,1.01713,0.735092,0.735092
-14,1379.76,1,4.42209,29.8496,5.56191,133.491,0.716479,0.716479,0.963549,1.03289,0.716479,0.716479
-15,1361.85,1,4.27927,28.165,6.43827,144.225,0.698337,0.698337,0.939151,1.00674,0.698337,0.698337
-16,1352.14,1,4.30196,29.1033,6.52295,127.062,0.680655,0.680655,0.915371,0.982452,0.680655,0.680655
-17,1341.65,1,4.40421,26.5351,5.81917,131.358,0.66342,0.66342,0.892194,0.957576,0.66342,0.66342
-18,1340.13,1,4.34526,25.7416,6.21428,111.947,0.646622,0.646622,0.892846,1.1864,0.646622,0.646622
-19,1319.22,1,4.34932,27.1695,6.34402,119.331,0.630249,0.630249,0.870239,1.15636,0.630249,0.630249
-20,1312.72,1,4.47137,28.1835,6.1911,120.883,0.614291,0.614291,0.848204,1.19819,0.614291,0.614291
-21,1302.7,1,4.55095,26.4178,6.66708,111.246,0.598737,0.598737,0.826727,1.16785,0.598737,0.598737
-22,1281.4,1,4.42987,26.3228,6.39135,117.419,0.583577,0.583577,0.805793,1.15002,0.583577,0.583577
-23,1280.6,1,4.59909,24.5428,5.81268,123.209,0.5688,0.5688,0.78539,1.1209,0.5688,0.5688
-24,1260.25,1,3.97046,26.3189,5.37629,167.092,0.554398,0.554398,0.765504,1.12595,0.554398,0.554398
-25,1258.15,1,4.58028,22.9831,5.78821,126.311,0.54036,0.54036,0.746121,1.09744,0.54036,0.54036
-26,1245.85,1,4.42654,24.3393,5.91521,139.691,0.526678,0.526678,0.727229,1.06965,0.526678,0.526678
-27,1237.16,1,4.40973,24.9697,6.22778,139.159,0.513342,0.513342,0.708815,1.04257,0.513342,0.513342
-28,1212.92,1,4.52306,26.4644,5.53559,111.654,0.500344,0.500344,0.690867,1.01617,0.500344,0.500344
-29,1203.55,1,4.65514,25.9714,6.05989,111.351,0.487675,0.487675,0.673374,0.990438,0.487675,0.487675
-30,1197.17,1,4.755,25.1493,6.13539,103.141,0.475327,0.475327,0.656324,0.965359,0.475327,0.475327
-31,1190.7,1,4.70345,26.3453,5.33474,110.668,0.463291,0.463291,0.639705,0.940916,0.463291,0.463291
-32,1173.69,1,4.65485,26.438,5.5845,118.789,0.45156,0.45156,0.623508,0.917091,0.45156,0.45156
-33,1162.71,1,4.91419,25.9121,5.03711,106.748,0.440127,0.440127,0.60772,0.89387,0.440127,0.440127
-34,1153.49,1,4.87671,26.7548,4.85283,108.357,0.428982,0.428982,0.595505,0.871237,0.428982,0.428982
-35,1143.02,1,5.04052,25.938,4.82223,89.4898,0.41812,0.41812,0.580426,0.849176,0.41812,0.41812
-36,1130.24,1,4.9896,25.8621,5.36907,92.4862,0.407533,0.407533,0.56573,0.827675,0.407533,0.407533
-37,1133.68,1,4.94485,26.5019,5.23659,85.3364,0.397214,0.397214,0.584737,0.834588,0.397214,0.397214
-38,1116.64,1,5.02555,27.5036,4.92059,81.6709,0.387157,0.387157,0.569931,0.813456,0.387157,0.387157
-39,1111.83,1,4.87235,28.0307,4.86901,103.974,0.377354,0.377354,0.5555,0.898943,0.377354,0.377354
-40,1098.85,1,4.67239,27.9103,5.10778,122.129,0.367799,0.367799,0.551766,0.876181,0.367799,0.367799
-41,1081.56,1,4.77895,27.1638,4.79497,121.638,0.358486,0.358486,0.537794,0.853996,0.358486,0.358486
-42,1065.69,1,4.86673,27.0322,4.51819,116.252,0.349409,0.349409,0.524177,0.832372,0.349409,0.349409
-43,1060.46,1,4.84985,26.3457,4.44586,118.116,0.340562,0.340562,0.510905,0.811296,0.340562,0.340562
-44,1050.52,1,4.64814,26.3404,5.19901,132.019,0.331938,0.331938,0.497968,0.790754,0.331938,0.331938
-45,1040.14,1,4.65331,25.6776,4.95047,133.019,0.323534,0.323534,0.48536,0.770731,0.323534,0.323534
-46,1032.52,1,4.5122,25.6479,4.84111,136.587,0.315341,0.315341,0.47307,0.751216,0.315341,0.315341
-47,1020.26,1,4.45535,26.0994,4.50887,153.514,0.307357,0.307357,0.461092,0.732195,0.307357,0.307357
-48,1011.88,1,4.36275,25.8158,4.4228,154.205,0.299574,0.299574,0.449416,0.713655,0.299574,0.299574
-49,992.241,1,4.4097,25.6684,4.46888,156.768,0.291989,0.291989,0.438037,0.695585,0.291989,0.291989
-50,993.512,1,4.48978,25.7346,4.39354,144.956,0.284596,0.284596,0.426946,0.683104,0.284596,0.284596
-51,982.555,1,4.52611,26.814,4.07752,141.846,0.27739,0.27739,0.416135,0.665807,0.27739,0.27739
-52,972.835,1,4.48883,26.7022,4.51447,143.139,0.274969,0.270366,0.405598,0.648949,0.270366,0.270366
-53,981.785,1,4.49615,26.2854,4.7463,151.405,0.270453,0.26352,0.395328,0.632517,0.26352,0.26352
-54,976.274,1,4.46034,26.4734,4.29833,152.789,0.280172,0.256848,0.440999,0.616501,0.256848,0.256848
-55,961.796,1,4.44741,27.1648,4.65802,157.956,0.273078,0.250344,0.429833,0.600891,0.250344,0.250344
-56,954.921,1,4.46756,26.8116,4.40949,154.17,0.266163,0.244005,0.418949,0.585676,0.244005,0.244005
-57,938.607,1,4.49207,26.8145,4.51979,162.346,0.259424,0.237827,0.408341,0.570846,0.237827,0.237827
-58,933.896,1,4.36883,25.2392,4.57037,162.727,0.252855,0.231805,0.398002,0.556392,0.231805,0.231805
-59,919.317,1,4.38976,25.3859,4.75261,165.773,0.246453,0.225936,0.387924,0.542304,0.225936,0.225936
-60,907.398,1,4.53938,25.7048,4.72748,146.985,0.251021,0.220215,0.378101,0.528573,0.220215,0.220215
-61,913.036,1,4.64649,25.6986,4.99407,143.873,0.245261,0.214639,0.368528,0.515189,0.214639,0.214639
-62,908.261,1,4.62373,26.0213,5.31884,143.249,0.239051,0.209204,0.359196,0.518213,0.209204,0.209204
-63,900.941,1,4.53091,25.4282,4.93035,150.043,0.23634,0.203907,0.350101,0.530908,0.203907,0.203907
-64,884.756,1,4.55892,26.5976,4.91779,154.573,0.24179,0.198744,0.341237,0.517465,0.198744,0.198744
-65,889.251,1,4.62117,26.1389,5.12425,149.959,0.235668,0.193711,0.332596,0.504363,0.193711,0.193711
-66,884.338,1,4.69847,26.4519,5.37356,141.058,0.2297,0.188807,0.324175,0.53375,0.188807,0.188807
-67,877.01,1,4.63431,26.8194,5.16379,144.588,0.223884,0.184026,0.315966,0.537195,0.184026,0.184026
-68,875.972,1,4.6689,26.1267,5.02925,148.632,0.218215,0.179366,0.327945,0.537665,0.179366,0.179366
-69,871.207,1,4.51814,25.6628,4.88486,153.278,0.21269,0.174825,0.319641,0.524051,0.174825,0.174839
-70,869.728,1,4.43472,26.6066,4.98812,164.081,0.227369,0.170398,0.311547,0.569688,0.178061,0.170412
-71,871.62,1,4.47604,26.6823,5.11153,166.377,0.221612,0.166083,0.303659,0.555264,0.176934,0.168768
-72,876.418,1,4.45743,27.1416,4.89019,164.818,0.225183,0.161878,0.29597,0.603221,0.179886,0.166103
-73,868.893,1,4.47459,26.2351,4.93687,160.781,0.219482,0.157779,0.288476,0.626746,0.188216,0.161897
-74,868.788,1,4.45902,26.1766,5.04599,152.636,0.213924,0.153784,0.281172,0.660974,0.18816,0.157798
-75,862.882,1,4.60132,26.2637,5.08385,153.798,0.208508,0.14989,0.274052,0.644238,0.192692,0.153802
-76,858.404,1,4.49527,26.1352,4.7821,145.91,0.220551,0.146095,0.267113,0.627926,0.203998,0.149908
-77,859.516,1,4.50509,26.1495,4.57782,146.293,0.214966,0.142396,0.260349,0.612026,0.20653,0.146112
-78,851.934,1,4.46908,26.3363,4.62163,151.05,0.209523,0.13879,0.253757,0.596529,0.211884,0.142412
-79,855.757,1,4.40849,25.5909,4.85131,160.413,0.218922,0.135276,0.247332,0.581425,0.214351,0.138806
-80,858.231,1,4.38393,25.3747,4.87273,163.268,0.213379,0.131851,0.241069,0.566703,0.213901,0.138378
-81,855.295,1,4.39965,25.2243,4.96684,158.753,0.226062,0.128512,0.241062,0.552354,0.216337,0.134875
-82,858.843,1,4.4686,25.329,4.62363,149.923,0.220338,0.125258,0.278821,0.538368,0.223604,0.13146
-83,865.633,1,4.48277,25.5818,4.62446,144.917,0.226943,0.122087,0.292593,0.544134,0.228735,0.128131
-84,848.788,1,4.50615,25.1002,4.66205,137.918,0.231999,0.118995,0.285184,0.530357,0.234259,0.124887
-85,843.383,1,4.55037,25.425,4.50534,135.664,0.226125,0.115982,0.277963,0.544933,0.230961,0.121724
-86,838.501,1,4.50193,24.9636,4.47992,133.332,0.220399,0.113045,0.270925,0.539394,0.239927,0.118642
-87,829.79,1,4.43591,24.9503,4.58689,143.067,0.219912,0.110183,0.264065,0.525736,0.243366,0.115638
-88,825.84,1,4.50359,24.8659,4.45389,139.831,0.223013,0.107393,0.257379,0.514563,0.237204,0.11271
-89,821.075,1,4.50502,24.7378,4.75271,139.132,0.217366,0.104674,0.250862,0.539968,0.244,0.109856
-90,823.999,1,4.48239,24.4093,4.65813,140.902,0.219237,0.102024,0.256491,0.526296,0.242172,0.107075
-91,812.691,1,4.48517,24.3502,4.58767,133.099,0.231402,0.0994403,0.249996,0.518721,0.255769,0.104363
-92,813.151,1,4.48179,24.4034,4.64498,137.57,0.225543,0.0969224,0.243666,0.521542,0.249783,0.101721
-93,821.491,1,4.4488,24.6324,4.61969,137.698,0.225054,0.0944682,0.237496,0.57317,0.249445,0.0993681
-94,821.226,1,4.43477,24.1277,4.58365,132.423,0.238721,0.096243,0.262531,0.578871,0.261504,0.096852
-95,818.292,1,4.45305,24.4306,4.56683,132.135,0.245716,0.0938061,0.257094,0.564213,0.258137,0.0943997
-96,814.944,1,4.49539,24.4655,4.54982,124.662,0.255671,0.0976628,0.250584,0.583688,0.262508,0.0920094
-97,817.774,1,4.45566,24.4938,4.53179,125.401,0.262684,0.09519,0.244239,0.642444,0.270704,0.0896797
-98,817.724,1,4.48059,24.5936,4.57237,122.642,0.256041,0.0927797,0.244092,0.675658,0.266135,0.0874089
-99,808.866,1,4.54748,24.7089,4.65582,119.917,0.249558,0.0904305,0.240689,0.65855,0.263856,0.0851957
-100,818.388,1,4.57594,24.3547,4.59219,113.03,0.255156,0.0916934,0.234595,0.70275,0.270802,0.0845274
-101,818.673,1,4.59373,24.0256,4.62402,109.371,0.248696,0.0893716,0.23578,0.717076,0.267159,0.0868224
-102,811.58,1,4.646,24.5056,4.51859,108.375,0.242399,0.0871087,0.22981,0.698919,0.271716,0.0854919
-103,804.902,1,4.70322,24.2547,4.41403,105.709,0.244478,0.0851492,0.223991,0.681222,0.271941,0.0833272
-104,802.103,1,4.61427,24.1845,4.36296,113.433,0.24681,0.0829932,0.21832,0.663973,0.269362,0.083833
-105,803.122,1,4.5658,24.0408,4.46626,113.526,0.254132,0.0858999,0.212792,0.647161,0.27092,0.0823555
-106,790.883,1,4.62155,23.7396,4.59792,113.397,0.247697,0.0866277,0.207404,0.630774,0.269779,0.0802702
-107,798.684,1,4.58695,24.1174,4.49923,117.422,0.243105,0.0944882,0.202152,0.637969,0.271094,0.0789045
-108,794.681,1,4.48096,23.8978,4.5273,122.718,0.238817,0.0920957,0.197034,0.701529,0.273756,0.0772007
-109,797.252,1,4.56105,23.797,4.49177,106.3,0.23379,0.0897638,0.205128,0.789004,0.273232,0.0777881
-110,796.551,1,4.54265,23.8478,4.4009,110.869,0.230203,0.0874909,0.199935,0.769026,0.275541,0.0776856
-111,795.344,1,4.48409,23.9305,4.41247,121.031,0.237946,0.0852756,0.194872,0.749554,0.273923,0.0803521
-112,794.306,1,4.51393,23.7786,4.37065,115.633,0.253361,0.0831164,0.212894,0.730575,0.275321,0.0783176
-113,804.607,1,4.45327,23.9547,4.30704,117.058,0.261826,0.0810118,0.231754,0.712077,0.279006,0.0781053
-114,799.995,1,4.53122,23.9309,4.46298,115.926,0.265944,0.0789606,0.23557,0.694046,0.277915,0.0782
-115,803.984,1,4.52808,24.1828,4.3575,115.675,0.265645,0.0769612,0.229606,0.680642,0.272511,0.0823261
-116,796.379,1,4.53061,24.4061,4.33809,112.964,0.268016,0.0750125,0.223792,0.687628,0.273925,0.0802416
-117,801.631,1,4.57418,24.6285,4.24323,110.776,0.26123,0.0731132,0.219472,0.703702,0.275275,0.0789122
-118,793.634,1,4.59239,24.6995,4.31482,109.64,0.261427,0.0712619,0.213915,0.698186,0.269904,0.0782799
-119,800.114,1,4.56596,24.7201,4.41546,112.494,0.262663,0.0694575,0.216509,0.70459,0.270163,0.0804629
-120,797.07,1,4.62121,24.5907,4.52372,102.605,0.285566,0.0676988,0.211156,0.728564,0.270822,0.0790409
-121,804.548,1,4.76293,24.393,4.60099,95.4695,0.278335,0.0699348,0.205809,0.737412,0.266482,0.0830768
-122,804.13,1,4.74215,24.5503,4.63814,94.5915,0.271288,0.0730208,0.200598,0.71874,0.266204,0.0838025
-123,807.058,1,4.74084,24.5074,4.61603,97.1358,0.268877,0.0835424,0.209124,0.710645,0.262925,0.083361
-124,808.424,1,4.71207,24.3614,4.57124,94.6512,0.270913,0.081427,0.220239,0.765695,0.265041,0.0836024
-125,811.391,1,4.68109,24.4155,4.46814,98.4395,0.269536,0.0916195,0.214662,0.759127,0.265415,0.0831545
-126,808.869,1,4.67996,24.2835,4.39723,91.9175,0.265697,0.0892996,0.209618,0.810699,0.274962,0.081049
-127,810.956,1,4.67542,24.3743,4.44455,96.2745,0.258969,0.0870385,0.222669,0.821135,0.268,0.0818046
-128,813.691,1,4.67717,24.13,4.45196,93.8059,0.260966,0.087546,0.217031,0.871555,0.264637,0.0833412
-129,803.41,1,4.67003,24.2476,4.5522,98.9263,0.25816,0.0869968,0.211536,0.849486,0.27148,0.0812309
-130,811.568,1,4.6096,24.2793,4.51324,101.624,0.251623,0.084794,0.221932,0.827977,0.271682,0.0829289
-131,798.793,1,4.53117,24.2573,4.57224,119.606,0.245252,0.086204,0.216312,0.807012,0.272327,0.0808291
-132,798.871,1,4.51928,24.175,4.33903,117.525,0.239042,0.0840213,0.21502,0.786578,0.269792,0.07982
-133,793.328,1,4.42974,24.3099,4.36948,128.317,0.234262,0.0818938,0.209575,0.766661,0.270965,0.0787324
-134,793.27,1,4.47301,24.3564,4.43129,125.303,0.235495,0.0886662,0.204269,0.747249,0.274112,0.0767389
-135,797.383,1,4.42302,24.3647,4.39485,128.724,0.236496,0.0864211,0.215612,0.806406,0.26816,0.0785241
-136,796.848,1,4.28828,24.0929,4.6144,134.283,0.230508,0.0842329,0.210153,0.79281,0.273137,0.078527
-137,803.958,1,4.38253,24.0529,4.55943,126.613,0.224672,0.0897755,0.204832,0.839205,0.275089,0.0791196
-138,801.679,1,4.34776,24.1606,4.57295,127.222,0.240211,0.0875023,0.199645,0.865537,0.268124,0.0804878
-139,801.084,1,4.38491,24.1393,4.68746,120.808,0.245637,0.0856805,0.19459,0.924847,0.270631,0.0784498
-140,809.115,1,4.41823,24.027,4.67715,110.879,0.255302,0.0835111,0.189663,0.986935,0.278126,0.0784186
-141,807.175,1,4.36115,24.1522,4.68931,120.137,0.266541,0.0813965,0.192131,0.961945,0.275756,0.0780106
-142,802.304,1,4.33298,24.0413,4.55396,118.187,0.270965,0.0793355,0.187266,0.952954,0.272933,0.0782106
-143,806.181,1,4.34985,24.3816,4.51434,115.478,0.275177,0.0773267,0.182524,0.991534,0.271035,0.07981
-144,805.135,1,4.38474,24.508,4.57402,111.276,0.26821,0.0779727,0.177902,0.969475,0.273581,0.0794932
-145,799.991,1,4.4064,24.1246,4.7511,111.123,0.263387,0.08191,0.173398,0.97845,0.272801,0.0774804
-146,805.164,1,4.36498,23.9782,4.61273,112.814,0.262398,0.0825054,0.169007,0.964828,0.271621,0.0805903
-147,802.012,1,4.35391,24.0139,4.61377,118.753,0.275094,0.0830202,0.164728,0.947617,0.270451,0.080376
-148,797.912,1,4.33396,23.8424,4.68722,118.304,0.274747,0.0809181,0.172461,0.984808,0.275675,0.0783408
-149,796.466,1,4.28564,23.8003,4.69155,118.428,0.273771,0.0788692,0.16969,1.01265,0.27735,0.0763572
-150,798.229,1,4.31271,23.637,4.665,121.475,0.275081,0.0768722,0.179871,0.987013,0.284892,0.0744238
-151,800.398,1,4.43815,23.8503,4.86908,114.388,0.281091,0.0769069,0.175317,0.973482,0.277679,0.0776371
-152,801.098,1,4.41546,24.2289,4.87101,112.151,0.284172,0.0835274,0.170878,0.977195,0.273002,0.076658
-153,800.208,1,4.39072,24.1662,4.86609,114.697,0.276976,0.0814125,0.170635,0.995697,0.270231,0.0785113
-154,799.021,1,4.49153,23.6193,4.6592,105.414,0.269963,0.0860794,0.166315,0.972225,0.275268,0.0765234
-155,796.069,1,4.43885,23.8054,4.68366,110.412,0.274879,0.0838999,0.162104,0.947608,0.271757,0.0760776
-156,796.503,1,4.49597,23.8384,4.6744,102.033,0.280249,0.0817755,0.157999,0.928122,0.27539,0.0770141
-157,808.545,1,4.56273,23.9931,4.43318,91.7561,0.293369,0.0797049,0.170448,0.990127,0.278095,0.0779191
-158,808.487,1,4.56706,24.0876,4.41192,90.7875,0.291643,0.0805261,0.179112,0.992466,0.277487,0.0770231
-159,803.033,1,4.55001,24.0218,4.56035,97.4616,0.287846,0.0784871,0.190776,0.967337,0.272769,0.0768648
-160,797.786,1,4.60323,23.9185,4.57958,101.735,0.288749,0.0764997,0.204313,0.942843,0.272462,0.0749919
-161,797.291,1,4.58682,23.9949,4.52842,102.658,0.281438,0.0837776,0.205477,0.91897,0.275402,0.0735648
-162,797.328,1,4.57053,24.2025,4.50306,103.035,0.276226,0.0830807,0.200274,0.895701,0.275296,0.0743226
-163,803.234,1,4.56121,24.3656,4.30378,102.036,0.271163,0.080977,0.195203,0.900592,0.28102,0.0754095
-164,797.707,1,4.50197,24.6382,4.34118,104.425,0.264297,0.0789267,0.19026,0.941883,0.279547,0.0749604
-165,801.32,1,4.49328,24.6532,4.36943,109.794,0.269156,0.0769282,0.185443,0.918034,0.277816,0.0784528
-166,793.579,1,4.55752,24.315,4.4379,110.274,0.262341,0.0749803,0.180747,0.894789,0.273456,0.0782396
-167,791.533,1,4.54201,24.1291,4.49673,111.644,0.255699,0.0730818,0.176171,0.872132,0.275284,0.0770647
-168,791.753,1,4.46992,23.9072,4.56164,111.32,0.256909,0.0712313,0.17171,0.85005,0.274183,0.0793246
-169,791.311,1,4.48224,24.0163,4.57919,111.865,0.260738,0.0694277,0.17275,0.829814,0.276108,0.0773161
-170,791.195,1,4.51562,24.2412,4.55241,110.797,0.254136,0.0676697,0.17024,0.857293,0.27587,0.0771319
-171,793.163,1,4.55054,24.293,4.48135,107.22,0.247701,0.0659563,0.179582,0.900474,0.268885,0.0789892
-172,789.562,1,4.5215,24.2599,4.55041,107.444,0.241429,0.0642863,0.182352,0.912163,0.275545,0.0779244
-173,792.849,1,4.46232,24.5573,4.53146,110.419,0.235971,0.0626585,0.177735,0.892361,0.273621,0.0805307
-174,799.264,1,4.44207,24.518,4.5595,116.077,0.244731,0.0610719,0.207941,0.869765,0.273393,0.0806094
-175,800.027,1,4.52781,24.3569,4.52956,117.79,0.238534,0.0602253,0.23069,0.847743,0.272785,0.0799544
-176,796.656,1,4.48623,24.3896,4.72572,117.277,0.244751,0.0587004,0.226474,0.832464,0.270007,0.0799601
-177,796.093,1,4.40119,24.3625,4.61546,117.42,0.250202,0.0572141,0.238402,0.906607,0.273603,0.078617
-178,793.532,1,4.49642,24.075,4.59987,110.451,0.243867,0.059578,0.232366,0.93633,0.272005,0.078434
-179,798.716,1,4.47057,23.9182,4.68924,113.173,0.237692,0.0644815,0.226482,0.912622,0.278857,0.0776327
-180,801.357,1,4.44927,23.9575,4.50948,114.575,0.238372,0.0700192,0.220748,0.889514,0.274066,0.0799081
-181,795.753,1,4.48005,24.3296,4.4809,118.145,0.236006,0.0696197,0.215158,0.866991,0.268694,0.0798502
-182,797.154,1,4.47391,23.9272,4.45614,115.964,0.232528,0.068936,0.21805,0.845038,0.271962,0.0783984
-183,801.007,1,4.47953,24.0389,4.60247,111.129,0.237446,0.0671905,0.226716,0.839482,0.275217,0.0782856
-184,798.558,1,4.54147,23.5909,4.68881,104.413,0.233508,0.0728351,0.220976,0.892722,0.27035,0.0779351
-185,804.852,1,4.48583,23.8565,4.79062,114.353,0.244356,0.0791621,0.234368,0.870118,0.279176,0.0766106
-186,799.253,1,4.47692,23.9791,4.64759,118.926,0.238168,0.0787967,0.253904,0.848086,0.272107,0.0764462
-187,797.599,1,4.47319,23.8758,4.72359,116.53,0.232138,0.0768015,0.247475,0.852385,0.277075,0.0745105
-188,808.517,1,4.45415,24.053,4.96821,120.816,0.226642,0.0754908,0.264535,0.830802,0.27223,0.0798234
-189,788.816,1,4.49206,24.032,4.86189,118.698,0.220903,0.0735793,0.257837,0.814401,0.271305,0.0778022
-190,787.217,1,4.49242,23.9899,4.66314,119.853,0.21531,0.0717163,0.251309,0.793779,0.273232,0.0758322
-191,797,1,4.53511,23.7007,4.6917,110.71,0.213704,0.0699004,0.258465,0.809445,0.271221,0.0782449
-192,798.767,1,4.4985,23.8313,4.60686,111.59,0.222259,0.0681304,0.251921,0.84768,0.275399,0.0774727
-193,801.603,1,4.57038,24.0494,4.61317,112.144,0.224865,0.0711249,0.272463,0.826216,0.276407,0.0766339
-194,801.857,1,4.53242,24.0923,4.47991,106.08,0.226721,0.0693239,0.265564,0.859336,0.272642,0.0798654
-195,805.544,1,4.50371,23.966,4.52736,113.888,0.227274,0.0689538,0.25884,0.837578,0.275814,0.0792094
-196,797.898,1,4.45393,24.0371,4.6547,118.221,0.234277,0.0672078,0.252286,0.81637,0.269387,0.080061
-197,796.104,1,4.48735,24.2424,4.64523,118.299,0.241554,0.0659304,0.255974,0.795699,0.2681,0.0780338
-198,786.221,1,4.48541,24.0276,4.75055,115.524,0.235438,0.064261,0.256836,0.792455,0.272098,0.076058
-199,796.544,1,4.5129,24.1935,4.63247,116.597,0.229476,0.0626338,0.253389,0.77239,0.271866,0.0786567
-200,803.776,1,4.54783,24.1751,4.58517,108.568,0.223666,0.0610479,0.246973,0.829092,0.274995,0.0820367
-201,793.544,1,4.45355,23.8567,4.76333,117.241,0.234434,0.0595022,0.24072,0.825213,0.2776,0.0799595
-202,802.556,1,4.49841,23.9034,4.71265,110.791,0.228498,0.0579955,0.23465,0.843997,0.273901,0.0816712
-203,805.262,1,4.49196,24.1318,4.68519,115.525,0.222712,0.0639919,0.239012,0.840773,0.266965,0.0845254
-204,792.927,1,4.53003,24.1243,4.64605,113.691,0.217073,0.0623716,0.23296,0.827241,0.262887,0.0833394
+= "childList") {
+          // If there has been removals, flash the parent
+          if (removed.length) {
+            removedContainers.add(container);
+          }
+
+          // If there has been additions, flash the nodes if their associated
+          // container exist (so if their parent is expanded in the inspector).
+          added.forEach(node => {
+            const addedContainer = this.getContainer(node);
+            if (addedContainer) {
+              addedOrEditedContainers.add(addedContainer);
+
+              // The node may be added as a result of an append, in which case
+              // it will have been removed from another container first, but in
+              // these cases we don't want to flash both the removal and the
+              // addition
+              removedContainers.delete(container);
+            }
+          });
+        }
+      }
+    }
+
+    for (const container of removedContainers) {
+      container.flashMutation();
+    }
+    for (const container of addedOrEditedContainers) {
+      container.flashMutation();
+    }
+  },
+
+  /**
+   * Make sure the given node's parents are expanded and the
+   * node is scrolled on to screen.
+   */
+  showNode: function(
+    node,
+    { centered = true, slotted, smoothScroll = false } = {}
+  ) {
+    if (slotted && !this.hasContainer(node, slotted)) {
+      throw new Error("Tried to show a slotted node not previously imported");
+    } else {
+      this._ensureNodeImported(node);
+    }
+
+    return this._waitForChildren()
+      .then(() => {
+        if (this._destroyed) {
+          return promise.reject("markupview destroyed");
+        }
+        return this._ensureVisible(node);
+      })
+      .then(() => {
+        const container = this.getContainer(node, slotted);
+        scrollIntoViewIfNeeded(container.editor.elt, centered, smoothScroll);
+      }, this._handleRejectionIfNotDestroyed);
+  },
+
+  _ensureNodeImported: function(node) {
+    let parent = node;
+
+    this.importNode(node);
+
+    while ((parent = this._getParentInTree(parent))) {
+      this.importNode(parent);
+      this.expandNode(parent);
+    }
+  },
+
+  /**
+   * Expand the container's children.
+   */
+  _expandContainer: function(container) {
+    return this._updateChildren(container, { expand: true }).then(() => {
+      if (this._destroyed) {
+        // Could not expand the node, the markup-view was destroyed in the meantime. Just
+        // silently give up.
+        return;
+      }
+      container.setExpanded(true);
+    });
+  },
+
+  /**
+   * Expand the node's children.
+   */
+  expandNode: function(node) {
+    const container = this.getContainer(node);
+    return this._expandContainer(container);
+  },
+
+  /**
+   * Expand the entire tree beneath a container.
+   *
+   * @param  {MarkupContainer} container
+   *         The container to expand.
+   */
+  _expandAll: function(container) {
+    return this._expandContainer(container)
+      .then(() => {
+        let child = container.children.firstChild;
+        const promises = [];
+        while (child) {
+          promises.push(this._expandAll(child.container));
+          child = child.nextSibling;
+        }
+        return promise.all(promises);
+      })
+      .catch(console.error);
+  },
+
+  /**
+   * Expand the entire tree beneath a node.
+   *
+   * @param  {DOMNode} node
+   *         The node to expand, or null to start from the top.
+   * @return {Promise} promise that resolves once all children are expanded.
+   */
+  expandAll: function(node) {
+    node = node || this._rootNode;
+    return this._expandAll(this.getContainer(node));
+  },
+
+  /**
+   * Collapse the node's children.
+   */
+  collapseNode: function(node) {
+    const container = this.getContainer(node);
+    container.setExpanded(false);
+  },
+
+  _collapseAll: function(container) {
+    container.setExpanded(false);
+    const children = container.getChildContainers() || [];
+    children.forEach(child => this._collapseAll(child));
+  },
+
+  /**
+   * Collapse the entire tree beneath a node.
+   *
+   * @param  {DOMNode} node
+   *         The node to collapse.
+   * @return {Promise} promise that resolves once all children are collapsed.
+   */
+  collapseAll: function(node) {
+    this._collapseAll(this.getContainer(node));
+
+    // collapseAll is synchronous, return a promise for consistency with expandAll.
+    return Promise.resolve();
+  },
+
+  /**
+   * Returns either the innerHTML or the outerHTML for a remote node.
+   *
+   * @param  {NodeFront} node
+   *         The NodeFront to get the outerHTML / innerHTML for.
+   * @param  {Boolean} isOuter
+   *         If true, makes the function return the outerHTML,
+   *         otherwise the innerHTML.
+   * @return {Promise} that will be resolved with the outerHTML / innerHTML.
+   */
+  _getNodeHTML: function(node, isOuter) {
+    let walkerPromise = null;
+
+    if (isOuter) {
+      walkerPromise = node.walkerFront.outerHTML(node);
+    } else {
+      walkerPromise = node.walkerFront.innerHTML(node);
+    }
+
+    return getLongString(walkerPromise);
+  },
+
+  /**
+   * Retrieve the outerHTML for a remote node.
+   *
+   * @param  {NodeFront} node
+   *         The NodeFront to get the outerHTML for.
+   * @return {Promise} that will be resolved with the outerHTML.
+   */
+  getNodeOuterHTML: function(node) {
+    return this._getNodeHTML(node, true);
+  },
+
+  /**
+   * Retrieve the innerHTML for a remote node.
+   *
+   * @param  {NodeFront} node
+   *         The NodeFront to get the innerHTML for.
+   * @return {Promise} that will be resolved with the innerHTML.
+   */
+  getNodeInnerHTML: function(node) {
+    return this._getNodeHTML(node);
+  },
+
+  /**
+   * Listen to mutations, expect a given node to be removed and try and select
+   * the node that sits at the same place instead.
+   * This is useful when changing the outerHTML or the tag name so that the
+   * newly inserted node gets selected instead of the one that just got removed.
+   */
+  reselectOnRemoved: function(removedNode, reason) {
+    // Only allow one removed node reselection at a time, so that when there are
+    // more than 1 request in parallel, the last one wins.
+    this.cancelReselectOnRemoved();
+
+    // Get the removedNode index in its parent node to reselect the right node.
+    const isHTMLTag = removedNode.tagName.toLowerCase() === "html";
+    const oldContainer = this.getContainer(removedNode);
+    const parentContainer = this.getContainer(removedNode.parentNode());
+    const childIndex = parentContainer
+      .getChildContainers()
+      .indexOf(oldContainer);
+
+    const onMutations = (this._removedNodeObserver = mutations => {
+      let isNodeRemovalMutation = false;
+      for (const mutation of mutations) {
+        const containsRemovedNode =
+          mutation.removed && mutation.removed.some(n => n === removedNode);
+        if (
+          mutation.type === "childList" &&
+          (containsRemovedNode || isHTMLTag)
+        ) {
+          isNodeRemovalMutation = true;
+          break;
+        }
+      }
+      if (!isNodeRemovalMutation) {
+        return;
+      }
+
+      this.inspector.off("markupmutation", onMutations);
+      this._removedNodeObserver = null;
+
+      // Don't select the new node if the user has already changed the current
+      // selection.
+      if (
+        this.inspector.selection.nodeFront === parentContainer.node ||
+        (this.inspector.selection.nodeFront === removedNode && isHTMLTag)
+      ) {
+        const childContainers = parentContainer.getChildContainers();
+        if (childContainers?.[childIndex]) {
+          const childContainer = childContainers[childIndex];
+          this._markContainerAsSelected(childContainer, reason);
+          if (childContainer.hasChildren) {
+            this.expandNode(childContainer.node);
+          }
+          this.emit("reselectedonremoved");
+        }
+      }
+    });
+
+    // Start listening for mutations until we find a childList change that has
+    // removedNode removed.
+    this.inspector.on("markupmutation", onMutations);
+  },
+
+  /**
+   * Make sure to stop listening for node removal markupmutations and not
+   * reselect the corresponding node when that happens.
+   * Useful when the outerHTML/tagname edition failed.
+   */
+  cancelReselectOnRemoved: function() {
+    if (this._removedNodeObserver) {
+      this.inspector.off("markupmutation", this._removedNodeObserver);
+      this._removedNodeObserver = null;
+      this.emit("canceledreselectonremoved");
+    }
+  },
+
+  /**
+   * Replace the outerHTML of any node displayed in the inspector with
+   * some other HTML code
+   *
+   * @param  {NodeFront} node
+   *         Node which outerHTML will be replaced.
+   * @param  {String} newValue
+   *         The new outerHTML to set on the node.
+   * @param  {String} oldValue
+   *         The old outerHTML that will be used if the user undoes the update.
+   * @return {Promise} that will resolve when the outer HTML has been updated.
+   */
+  updateNodeOuterHTML: function(node, newValue) {
+    const container = this.getContainer(node);
+    if (!container) {
+      return promise.reject();
+    }
+
+    // Changing the outerHTML removes the node which outerHTML was changed.
+    // Listen to this removal to reselect the right node afterwards.
+    this.reselectOnRemoved(node, "outerhtml");
+    return node.walkerFront.setOuterHTML(node, newValue).catch(() => {
+      this.cancelReselectOnRemoved();
+    });
+  },
+
+  /**
+   * Replace the innerHTML of any node displayed in the inspector with
+   * some other HTML code
+   * @param  {Node} node
+   *         node which innerHTML will be replaced.
+   * @param  {String} newValue
+   *         The new innerHTML to set on the node.
+   * @param  {String} oldValue
+   *         The old innerHTML that will be used if the user undoes the update.
+   * @return {Promise} that will resolve when the inner HTML has been updated.
+   */
+  updateNodeInnerHTML: function(node, newValue, oldValue) {
+    const container = this.getContainer(node);
+    if (!container) {
+      return promise.reject();
+    }
+
+    return new Promise((resolve, reject) => {
+      container.undo.do(
+        () => {
+          node.walkerFront.setInnerHTML(node, newValue).then(resolve, reject);
+        },
+        () => {
+          node.walkerFront.setInnerHTML(node, oldValue);
+        }
+      );
+    });
+  },
+
+  /**
+   * Insert adjacent HTML to any node displayed in the inspector.
+   *
+   * @param  {NodeFront} node
+   *         The reference node.
+   * @param  {String} position
+   *         The position as specified for Element.insertAdjacentHTML
+   *         (i.e. "beforeBegin", "afterBegin", "beforeEnd", "afterEnd").
+   * @param  {String} newValue
+   *         The adjacent HTML.
+   * @return {Promise} that will resolve when the adjacent HTML has
+   *         been inserted.
+   */
+  insertAdjacentHTMLToNode: function(node, position, value) {
+    const container = this.getContainer(node);
+    if (!container) {
+      return promise.reject();
+    }
+
+    let injectedNodes = [];
+
+    return new Promise((resolve, reject) => {
+      container.undo.do(
+        () => {
+          // eslint-disable-next-line no-unsanitized/method
+          node.walkerFront
+            .insertAdjacentHTML(node, position, value)
+            .then(nodeArray => {
+              injectedNodes = nodeArray.nodes;
+              return nodeArray;
+            })
+            .then(resolve, reject);
+        },
+        () => {
+          node.walkerFront.removeNodes(injectedNodes);
+        }
+      );
+    });
+  },
+
+  /**
+   * Open an editor in the UI to allow editing of a node's html.
+   *
+   * @param  {NodeFront} node
+   *         The NodeFront to edit.
+   */
+  beginEditingHTML: function(node) {
+    // We use outer html for elements, but inner html for fragments.
+    const isOuter = node.nodeType == nodeConstants.ELEMENT_NODE;
+    const html = isOuter
+      ? this.getNodeOuterHTML(node)
+      : this.getNodeInnerHTML(node);
+    html.then(oldValue => {
+      const container = this.getContainer(node);
+      if (!container) {
+        return;
+      }
+      // Load load and create HTML Editor as it is rarely used and fetch complex deps
+      if (!this.htmlEditor) {
+        const HTMLEditor = require("devtools/client/inspector/markup/views/html-editor");
+        this.htmlEditor = new HTMLEditor(this.doc);
+      }
+      this.htmlEditor.show(container.tagLine, oldValue);
+      const start = this.telemetry.msSystemNow();
+      this.htmlEditor.once("popuphidden", (commit, value) => {
+        // Need to focus the <html> element instead of the frame / window
+        // in order to give keyboard focus back to doc (from editor).
+        this.doc.documentElement.focus();
+
+        if (commit) {
+          if (isOuter) {
+            this.updateNodeOuterHTML(node, value, oldValue);
+          } else {
+            this.updateNodeInnerHTML(node, value, oldValue);
+          }
+        }
+
+        const end = this.telemetry.msSystemNow();
+        this.telemetry.recordEvent("edit_html", "inspector", null, {
+          made_changes: commit,
+          time_open: end - start,
+          session_id: this.toolbox.sessionId,
+        });
+      });
+
+      this.emit("begin-editing");
+    });
+  },
+
+  /**
+   * Expand or collapse the given node.
+   *
+   * @param  {NodeFront} node
+   *         The NodeFront to update.
+   * @param  {Boolean} expanded
+   *         Whether the node should be expanded/collapsed.
+   * @param  {Boolean} applyToDescendants
+   *         Whether all descendants should also be expanded/collapsed
+   */
+  setNodeExpanded: function(node, expanded, applyToDescendants) {
+    if (expanded) {
+      if (applyToDescendants) {
+        this.expandAll(node);
+      } else {
+        this.expandNode(node);
+      }
+    } else if (applyToDescendants) {
+      this.collapseAll(node);
+    } else {
+      this.collapseNode(node);
+    }
+  },
+
+  /**
+   * Mark the given node selected, and update the inspector.selection
+   * object's NodeFront to keep consistent state between UI and selection.
+   *
+   * @param  {NodeFront} aNode
+   *         The NodeFront to mark as selected.
+   * @param  {String} reason
+   *         The reason for marking the node as selected.
+   * @return {Boolean} False if the node is already marked as selected, true
+   *         otherwise.
+   */
+  markNodeAsSelected: function(node, reason = "nodeselected") {
+    const container = this.getContainer(node);
+    return this._markContainerAsSelected(container);
+  },
+
+  _markContainerAsSelected: function(container, reason) {
+    if (!container || this._selectedContainer === container) {
+      return false;
+    }
+
+    const { node } = container;
+
+    // Un-select and remove focus from the previous container.
+    if (this._selectedContainer) {
+      this._selectedContainer.selected = false;
+      this._selectedContainer.clearFocus();
+    }
+
+    // Select the new container.
+    this._selectedContainer = container;
+    if (node) {
+      this._selectedContainer.selected = true;
+    }
+
+    // Change the current selection if needed.
+    if (!this._isContainerSelected(this._selectedContainer)) {
+      const isSlotted = container.isSlotted();
+      this.inspector.selection.setNodeFront(node, { reason, isSlotted });
+    }
+
+    return true;
+  },
+
+  /**
+   * Make sure that every ancestor of the selection are updated
+   * and included in the list of visible children.
+   */
+  _ensureVisible: function(node) {
+    while (node) {
+      const container = this.getContainer(node);
+      const parent = this._getParentInTree(node);
+      if (!container.elt.parentNode) {
+        const parentContainer = this.getContainer(parent);
+        if (parentContainer) {
+          this._forceUpdateChildren(parentContainer, { expand: true });
+        }
+      }
+
+      node = parent;
+    }
+    return this._waitForChildren();
+  },
+
+  /**
+   * Unmark selected node (no node selected).
+   */
+  unmarkSelectedNode: function() {
+    if (this._selectedContainer) {
+      this._selectedContainer.selected = false;
+      this._selectedContainer = null;
+    }
+  },
+
+  /**
+   * Check if the current selection is a descendent of the container.
+   * if so, make sure it's among the visible set for the container,
+   * and set the dirty flag if needed.
+   *
+   * @return The node that should be made visible, if any.
+   */
+  _checkSelectionVisible: function(container) {
+    let centered = null;
+    let node = this.inspector.selection.nodeFront;
+    while (node) {
+      if (this._getParentInTree(node) === container.node) {
+        centered = node;
+        break;
+      }
+      node = this._getParentInTree(node);
+    }
+
+    return centered;
+  },
+
+  _forceUpdateChildren: async function(container, options = {}) {
+    const { flash, updateLevel, expand } = options;
+
+    // Set childrenDirty to true to force fetching new children.
+    container.childrenDirty = true;
+
+    // Update the children to take care of changes in the markup view DOM
+    await this._updateChildren(container, { expand, flash });
+
+    if (updateLevel) {
+      // Update container (and its subtree) DOM tree depth level for
+      // accessibility where necessary.
+      container.updateLevel();
+    }
+  },
+
+  /**
+   * Make sure all children of the given container's node are
+   * imported and attached to the container in the right order.
+   *
+   * Children need to be updated only in the following circumstances:
+   * a) We just imported this node and have never seen its children.
+   *    container.childrenDirty will be set by importNode in this case.
+   * b) We received a childList mutation on the node.
+   *    container.childrenDirty will be set in that case too.
+   * c) We have changed the selection, and the path to that selection
+   *    wasn't loaded in a previous children request (because we only
+   *    grab a subset).
+   *    container.childrenDirty should be set in that case too!
+   *
+   * @param  {MarkupContainer} container
+   *         The markup container whose children need updating
+   * @param  {Object} options
+   *         Options are {expand:boolean,flash:boolean}
+   * @return {Promise} that will be resolved when the children are ready
+   *         (which may be immediately).
+   */
+  _updateChildren: function(container, options) {
+    // Slotted containers do not display any children.
+    if (container.isSlotted()) {
+      return promise.resolve(container);
+    }
+
+    const expand = options?.expand;
+    const flash = options?.flash;
+
+    container.hasChildren = container.node.hasChildren;
+    // Accessibility should either ignore empty children or semantically
+    // consider them a group.
+    container.setChildrenRole();
+
+    if (!this._queuedChildUpdates) {
+      this._queuedChildUpdates = new Map();
+    }
+
+    if (this._queuedChildUpdates.has(container)) {
+      return this._queuedChildUpdates.get(container);
+    }
+
+    if (!container.childrenDirty) {
+      return promise.resolve(container);
+    }
+
+    if (
+      container.inlineTextChild &&
+      container.inlineTextChild != container.node.inlineTextChild
+    ) {
+      // This container was doing double duty as a container for a single
+      // text child, back that out.
+      this._containers.delete(container.inlineTextChild);
+      container.clearInlineTextChild();
+
+      if (container.hasChildren && container.selected) {
+        container.setExpanded(true);
+      }
+    }
+
+    if (container.node.inlineTextChild) {
+      container.setExpanded(false);
+      // this container will do double duty as the container for the single
+      // text child.
+      while (container.children.firstChild) {
+        container.children.firstChild.remove();
+      }
+
+      container.setInlineTextChild(container.node.inlineTextChild);
+
+      this.setContainer(container.node.inlineTextChild, container);
+      container.childrenDirty = false;
+      return promise.resolve(container);
+    }
+
+    if (!container.hasChildren) {
+      while (container.children.firstChild) {
+        container.children.firstChild.remove();
+      }
+      container.childrenDirty = false;
+      container.setExpanded(false);
+      return promise.resolve(container);
+    }
+
+    // If we're not expanded (or asked to update anyway), we're done for
+    // now.  Note that this will leave the childrenDirty flag set, so when
+    // expanded we'll refresh the child list.
+    if (!(container.expanded || expand)) {
+      return promise.resolve(container);
+    }
+
+    // We're going to issue a children request, make sure it includes the
+    // centered node.
+    const centered = this._checkSelectionVisible(container);
+
+    // Children aren't updated yet, but clear the childrenDirty.0833394
 205,788.121,1,4.46079,23.9333,4.5394,122.694,0.211577,0.0607923,0.227061,0.826667,0.269177,0.0812292
 206,796.448,1,4.45202,23.9992,4.55816,122.347,0.214624,0.0599674,0.221312,0.87087,0.265119,0.0817771
 207,798.831,1,4.42921,24.0527,4.60417,122.8,0.216237,0.0650157,0.215708,0.848819,0.264343,0.0845186
