@@ -51,22 +51,6 @@ vpc%3Ay1%3A0\split=true
 vpc%3Ay2%3A0\color=true
 vpc%3Ay2%3A0\filter=true
 vpc%3Ay2%3A0\split=true
-npc%3Ay1%3A1\filter=true
-npc%3Ay1%3A1\split=true
-npc%3Ay2%3A1\filter=true
-npc%3Ay2%3A1\split=true
-predictiondistribution%3Ay1%3A1\color=true
-predictiondistribution%3Ay1%3A1\filter=true
-predictiondistribution%3Ay1%3A1\split=true
-predictiondistribution%3Ay2%3A1\color=true
-predictiondistribution%3Ay2%3A1\filter=true
-predictiondistribution%3Ay2%3A1\split=true
-vpc%3Ay1%3A1\color=true
-vpc%3Ay1%3A1\filter=true
-vpc%3Ay1%3A1\split=true
-vpc%3Ay2%3A1\color=true
-vpc%3Ay2%3A1\filter=true
-vpc%3Ay2%3A1\split=true
 
 [PROPERTIES]
 covariancemodeldiagnosis%3A%3A0\hasCorrelation=@Variant(\0\0\0\b\0\0\0\x2\0\0\0\x6\0\x61\0l\0l\0\0\0\x1\x1\0\0\0\x4\0I\0\x44\0\0\0\x1\x1)
@@ -95,22 +79,7 @@ vpc%3Ay1%3A0\xLabel=time
 vpc%3Ay1%3A0\yLabel=y1
 vpc%3Ay2%3A0\xLabel=time
 vpc%3Ay2%3A0\yLabel=y2
-npc%3Ay1%3A1\xLabel=y1
-npc%3Ay1%3A1\yLabel=Cumulative distribution function
-npc%3Ay2%3A1\xLabel=y2
-npc%3Ay2%3A1\yLabel=Cumulative distribution function
-predictiondistribution%3Ay1%3A1\xLabel=time
-predictiondistribution%3Ay1%3A1\yLabel=Cc_1
-predictiondistribution%3Ay2%3A1\xLabel=time
-predictiondistribution%3Ay2%3A1\yLabel=Cc_2
 vpc%3Ay1%3A0\piecewiseLinear=false
-vpc%3Ay1%3A1\axes=@Variant(\0\0\0\t\0\0\0\x1\0\0\0\b\0\0\0\x2\0\0\0\x2\0y\0\0\0\b\0\0\0\x4\0\0\0\n\0v\0\x61\0l\0u\0\x65\0\0\0\n\0\0\0\x4\0y\0\x32\0\0\0\b\0n\0o\0\x64\0\x65\0\0\0\b\0\0\0\x3\0\0\0\x14\0p\0r\0\x65\0v\0O\0\x62\0j\0\x65\0\x63\0t\0\0\0\b\0\0\0\x4\0\0\0\x14\0p\0r\0\x65\0v\0O\0\x62\0j\0\x65\0\x63\0t\0\0\0\b\0\0\0\x3\0\0\0\x14\0p\0r\0\x65\0v\0O\0\x62\0j\0\x65\0\x63\0t\0\0\0\b\0\0\0\0\0\0\0\f\0l\0\x65\0n\0g\0t\0h\0\0\0\x6?\xf0\0\0\0\0\0\0\0\0\0\x2\0\x30\0\0\0\b\0\0\0\0\0\0\0\f\0l\0\x65\0n\0g\0t\0h\0\0\0\x6@\0\0\0\0\0\0\0\0\0\0\x2\0\x31\0\0\0\b\0\0\0\0\0\0\0\x2\0\x30\0\0\0\b\0\0\0\0\0\0\0\f\0l\0\x65\0n\0g\0t\0h\0\0\0\x6?\xf0\0\0\0\0\0\0\0\0\0\x2\0\x30\0\0\0\b\0\0\0\0\0\0\0\n\0l\0\x61\0\x62\0\x65\0l\0\0\0\n\0\0\0\x4\0y\0\x32\0\0\0\x1c\0_\0_\0i\0s\0S\0\x65\0l\0\x65\0\x63\0t\0\x65\0\x64\0_\0_\0\0\0\x1\x1\0\0\0\x2\0x\0\0\0\b\0\0\0\x4\0\0\0\n\0v\0\x61\0l\0u\0\x65\0\0\0\n\0\0\0\x4\0y\0\x31\0\0\0\b\0n\0o\0\x64\0\x65\0\0\0\b\0\0\0\x3\0\0\0\x14\0p\0r\0\x65\0v\0O\0\x62\0j\0\x65\0\x63\0t\0\0\0\b\0\0\0\x4\0\0\0\x14\0p\0r\0\x65\0v\0O\0\x62\0j\0\x65\0\x63\0t\0\0\0\b\0\0\0\x3\0\0\0\x14\0p\0r\0\x65\0v\0O\0\x62\0j\0\x65\0\x63\0t\0\0\0\b\0\0\0\0\0\0\0\f\0l\0\x65\0n\0g\0t\0h\0\0\0\x6?\xf0\0\0\0\0\0\0\0\0\0\x2\0\x30\0\0\0\b\0\0\0\0\0\0\0\f\0l\0\x65\0n\0g\0t\0h\0\0\0\x6@\0\0\0\0\0\0\0\0\0\0\x2\0\x31\0\0\0\b\0\0\0\0\0\0\0\x2\0\x30\0\0\0\b\0\0\0\0\0\0\0\f\0l\0\x65\0n\0g\0t\0h\0\0\0\x6?\xf0\0\0\0\0\0\0\0\0\0\x2\0\x30\0\0\0\b\0\0\0\0\0\0\0\n\0l\0\x61\0\x62\0\x65\0l\0\0\0\n\0\0\0\x4\0y\0\x31\0\0\0\x1c\0_\0_\0i\0s\0S\0\x65\0l\0\x65\0\x63\0t\0\x65\0\x64\0_\0_\0\0\0\x1\x1)
-vpc%3Ay1%3A1\piecewiseLinear=false
-vpc%3Ay1%3A1\xLabel=time
-vpc%3Ay1%3A1\yLabel=y1
-vpc%3Ay2%3A1\xLabel=time
-vpc%3Ay2%3A1\piecewiseLinear=false
-vpc%3Ay2%3A1\yLabel=y2
 
 [COVARIATES]
 colors=@Variant(\0\0\0\b\0\0\0\x1\0\0\0\f\0_\0_\0i\0\x64\0_\0_\0\0\0\t\0\0\0\xe\0\0\0\n\0\0\0\xe\0#\0\x33\0\x39\0\x33\0\x62\0\x37\0\x39\0\0\0\n\0\0\0\xe\0#\0\x35\0\x32\0\x35\0\x34\0\x61\0\x33\0\0\0\n\0\0\0\xe\0#\0\x36\0\x62\0\x36\0\x65\0\x63\0\x66\0\0\0\n\0\0\0\xe\0#\0\x39\0\x63\0\x39\0\x65\0\x64\0\x65\0\0\0\n\0\0\0\xe\0#\0\x36\0\x33\0\x37\0\x39\0\x33\0\x39\0\0\0\n\0\0\0\xe\0#\0\x38\0\x63\0\x61\0\x32\0\x35\0\x32\0\0\0\n\0\0\0\xe\0#\0\x62\0\x35\0\x63\0\x66\0\x36\0\x62\0\0\0\n\0\0\0\xe\0#\0\x63\0\x65\0\x64\0\x62\0\x39\0\x63\0\0\0\n\0\0\0\xe\0#\0\x38\0\x63\0\x36\0\x64\0\x33\0\x31\0\0\0\n\0\0\0\xe\0#\0\x62\0\x64\0\x39\0\x65\0\x33\0\x39\0\0\0\n\0\0\0\xe\0#\0\x65\0\x37\0\x62\0\x61\0\x35\0\x32\0\0\0\n\0\0\0\xe\0#\0\x65\0\x37\0\x63\0\x62\0\x39\0\x34\0\0\0\n\0\0\0\xe\0#\0\x38\0\x34\0\x33\0\x63\0\x33\0\x39\0\0\0\n\0\0\0\xe\0#\0\x61\0\x64\0\x34\0\x39\0\x34\0\x61)
