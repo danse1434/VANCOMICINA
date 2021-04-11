@@ -1,32 +1,32 @@
 ********************************************************************************
-*                        BASE.mlxtran                                          *
-*                        February 04, 2021 at 20:46:16                         *
-*                        Monolix version : 2020R1                              *
+*                          BASE.mlxtran                                        *
+*                          April 11, 2021 at 03:00:46                          *
+*                          Monolix version : 2020R1                            *
 ********************************************************************************
 
 
 ESTIMATION OF THE POPULATION PARAMETERS ________________________________________
 
 Fixed Effects ----------------------------
-Cl_pop     :                          10.9
-V1_pop     :                          45.2
-Q_pop      :                          12.5
-V2_pop     :                          51.5
+Cl_pop     :                          5.46
+V1_pop     :                          22.4
+Q_pop      :                          6.56
+V2_pop     :                          22.9
 
 Standard Deviation of the Random Effects -
-omega_Cl   :                         0.126
-omega_V1   :                        0.0608
-omega_Q    :                         0.298
-omega_V2   :                        0.0956
+omega_Cl   :                         0.128
+omega_V1   :                          0.12
+omega_Q    :                         0.211
+omega_V2   :                         0.224
 
 Correlations -----------------------------
-corr_V2_V1 :                         0.962
+corr_V2_V1 :                         0.965
 
 Error Model Parameters -------------------
-a1         :                         0.245
-a2         :                        0.0658
+a1         :                         0.247
+a2         :                        0.0606
 
-Elapsed time (seconds) :     5.1
+Elapsed time (seconds) :     5.7
 
  _______________________________________________________________________________
 

@@ -185,4 +185,4 @@ ggsave(
 
 # Almacenamiento como RDS
 saveRDS(NPC_plot,
-        file.path('M2CPTM_nobs_2_aditv', 'figures', 'RDS', '012_NPC_percentil.RDS'))
+        file.path('BASE', 'figures', 'RDS', '012_NPC_percentil.RDS'))

@@ -54,7 +54,7 @@ popParameters <- read_csv(file.path(paramet.file, 'populationParameters.txt'))
 popParameters1 <- popParameters %>% 
   pivot_wider(id_cols=parameter, names_from = parameter, values_from = value) %>% 
   mutate(
-    List = pmap(list(2000, Cl_pop, Q_pop, V1_pop, V2_pop), constants_fun)
+    List = pmap(list(1000, Cl_pop, Q_pop, V1_pop, V2_pop), constants_fun)
   ) %>%
   unnest(cols = c(List)) %>%
   pivot_longer(-contains('ID'), names_to = 'parameter', values_to = 'value') %>% 
@@ -106,7 +106,7 @@ param_df <- param_list %>%
 param_df1 <- param_df %>%
   pivot_wider(names_from = parameter, values_from = value) %>%
   mutate(
-    List = pmap(list(2000, Cl_pop, Q_pop, V1_pop, V2_pop), constants_fun)
+    List = pmap(list(1000, Cl_pop, Q_pop, V1_pop, V2_pop), constants_fun)
   ) %>%
   unnest(cols = c(List)) %>%
   pivot_longer(-contains('ID'), names_to = 'parameter', values_to = 'value') %>%
@@ -398,7 +398,7 @@ param_df2 <- param_df %>%
   filter(ID %in% as.character(clean_df$B)) %>% 
   pivot_wider(names_from = parameter, values_from=value) %>% 
   mutate(
-    List = pmap(list(2000, Cl_pop, Q_pop, V1_pop, V2_pop), constants_fun)
+    List = pmap(list(1000, Cl_pop, Q_pop, V1_pop, V2_pop), constants_fun)
   ) %>%
   unnest(cols = c(List)) %>%
   pivot_longer(-contains('ID'), names_to = 'parameter', values_to = 'value') %>% 

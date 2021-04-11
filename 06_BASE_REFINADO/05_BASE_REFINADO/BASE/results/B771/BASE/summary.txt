@@ -1,32 +1,32 @@
 ********************************************************************************
-*                        BASE.mlxtran                                          *
-*                        February 04, 2021 at 20:29:47                         *
-*                        Monolix version : 2020R1                              *
+*                          BASE.mlxtran                                        *
+*                          April 11, 2021 at 02:44:58                          *
+*                          Monolix version : 2020R1                            *
 ********************************************************************************
 
 
 ESTIMATION OF THE POPULATION PARAMETERS ________________________________________
 
 Fixed Effects ----------------------------
-Cl_pop     :                          9.66
-V1_pop     :                          35.4
-Q_pop      :                          14.9
-V2_pop     :                          44.2
+Cl_pop     :                          4.82
+V1_pop     :                          17.3
+Q_pop      :                          7.74
+V2_pop     :                          22.7
 
 Standard Deviation of the Random Effects -
-omega_Cl   :                         0.245
-omega_V1   :                         0.309
-omega_Q    :                         0.628
-omega_V2   :                          0.35
+omega_Cl   :                         0.246
+omega_V1   :                           0.3
+omega_Q    :                         0.695
+omega_V2   :                         0.357
 
 Correlations -----------------------------
 corr_V2_V1 :                         0.999
 
 Error Model Parameters -------------------
 a1         :                         0.309
-a2         :                        0.0661
+a2         :                        0.0632
 
-Elapsed time (seconds) :       6
+Elapsed time (seconds) :     4.8
 
  _______________________________________________________________________________
 
