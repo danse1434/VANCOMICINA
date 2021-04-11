@@ -1,4 +1,4 @@
-<DATAFILE>
+	<DATAFILE>
 
 [FILEINFO]
 file='../data/data_TAD.csv'
@@ -54,19 +54,19 @@ data = {y1, y2}
 model = {y1, y2}
 
 <PARAMETER>
-Cl_pop = {value=5.660283864997213, method=MLE}
-Q_pop = {value=12.03913128860298, method=MLE}
-V1_pop = {value=40.8815103063449, method=MLE}
-V2_pop = {value=47.23938242539609, method=MLE}
-a1 = {value=0.303764992752937, method=MLE}
-a2 = {value=0.0627576812332785, method=MLE}
-beta_Cl_logtWTKG = {value=0.7531327229404581, method=MLE}
-beta_Cl_tCLCRMLMIN = {value=0.6108851743002219, method=MLE}
-corr_V2_V1 = {value=0.9984000755866762, method=MLE}
-omega_Cl = {value=0.1830403279447092, method=MLE}
-omega_Q = {value=0.6445365222405904, method=MLE}
-omega_V1 = {value=0.2872984821435086, method=MLE}
-omega_V2 = {value=0.2843484635237068, method=MLE}
+Cl_pop = {value=2.805935627076189, method=MLE}
+Q_pop = {value=5.105084632019603, method=MLE}
+V1_pop = {value=21.41743579226824, method=MLE}
+V2_pop = {value=28.97236977686333, method=MLE}
+a1 = {value=0.3028501260517049, method=MLE}
+a2 = {value=0.062920374660582, method=MLE}
+beta_Cl_logtWTKG = {value=0.7568429202598916, method=MLE}
+beta_Cl_tCLCRMLMIN = {value=0.6137735904695063, method=MLE}
+corr_V2_V1 = {value=0.998742685771744, method=MLE}
+omega_Cl = {value=0.1830344897417816, method=MLE}
+omega_Q = {value=0.6785725115027965, method=MLE}
+omega_V1 = {value=0.2845935412057954, method=MLE}
+omega_V2 = {value=0.2275134499770469, method=MLE}
 
 <MONOLIX>
 

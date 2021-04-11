@@ -200,7 +200,7 @@ G_PRED <- pred_df %>%
   ) %>%
   ggplot(aes(x = PE, y = fct_rev(estudio2)))+
   geom_boxplot(fill = alpha('gray', 0.4)) + 
-  coord_cartesian(xlim = c(-20, 300)) + 
+  coord_cartesian(xlim = c(0, 500)) + 
   geom_vline(xintercept = c(-20, +20), lty = 'dashed', col = 'red3') +
   xlab('MAPE (%)') +
   theme(axis.title.y = element_blank())
