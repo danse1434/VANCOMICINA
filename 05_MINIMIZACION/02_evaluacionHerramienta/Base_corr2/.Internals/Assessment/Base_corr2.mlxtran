@@ -61,8 +61,8 @@ omega_V2 = {value=1.5, method=MLE}
 [TASKS]
 populationParameters()
 individualParameters(method = {conditionalMean, conditionalMode })
-fim(method = StochasticApproximation)
-logLikelihood(run = false,method = ImportanceSampling)
+fim(method = Linearization)
+logLikelihood(run = false,method = Linearization)
 plotResult(method = {parameterdistribution, covariancemodeldiagnosis, covariatemodeldiagnosis, randomeffects, categorizedoutput, fisher })
 
 [SETTINGS]

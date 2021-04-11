@@ -29,13 +29,14 @@ aux_dir <- file.path(getwd(), 'Base_corr2', 'Assessment')
 #-------------------------------------------------------------------------------#
 # 1 Resumen Parámetros de Diseño Factorial --------------------------------------
 #-------------------------------------------------------------------------------#
+Np = 50
 # Lista vacía *d_fct_ls*
-d_fct_ls <- vector('list', 60)
+d_fct_ls <- vector('list', Np)
 # Lista vacía con Assessment
-m_fct_ls <- vector('list', 60)
+m_fct_ls <- vector('list', Np)
 
 # Lectura de datos de parámetros estimados
-for (i in 1:60) {
+for (i in 1:Np) {
   subdir <- file.path(aux_dir, paste0('Run', i))
   # Asignación a vector
   d_fct_ls[[i]] <-
