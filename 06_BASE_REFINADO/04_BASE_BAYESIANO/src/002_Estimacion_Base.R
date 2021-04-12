@@ -33,7 +33,7 @@ if(!file.exists(file.path('models', paste0(modelName, "Fit.Rsave")))){
   )
   d <- Sys.time()
   nChains <- 4
-  nPost <- 1000 ## Número de muestras de cadenas
+  nPost <- 2000 ## Número de muestras de cadenas
   nBurn <- 500  ## Número de muestras Burn-In
   nThin <- 10   ## Gráfico ACF no muestra correlación con 10
   

@@ -180,7 +180,7 @@ theme_set(theme_bw())
 
 distDF <- as.matrix(fit, pars = parameters) %>% 
   as_tibble(.) %>% 
-  add_column(rep = 1:4000, .before = 'CLHat') %>% 
+  add_column(rep = 1:8000, .before = 'CLHat') %>% 
   pivot_longer(!matches('rep'), 
                names_to = 'parameter', values_to = 'values') %>%
   mutate(parameter = factor(parameter, 
