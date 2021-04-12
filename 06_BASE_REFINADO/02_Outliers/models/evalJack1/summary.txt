@@ -1,32 +1,32 @@
 ********************************************************************************
-*                        evalJack1.mlxtran                                     *
-*                        February 04, 2021 at 17:09:44                         *
-*                        Monolix version : 2020R1                              *
+*                          evalJack1.mlxtran                                   *
+*                          April 12, 2021 at 15:32:43                          *
+*                          Monolix version : 2020R1                            *
 ********************************************************************************
 
 
 ESTIMATION OF THE POPULATION PARAMETERS ________________________________________
 
 Fixed Effects ----------------------------
-Cl_pop     :                          10.9
-V1_pop     :                          42.3
-Q_pop      :                          12.2
-V2_pop     :                          48.2
+Cl_pop     :                          5.45
+V1_pop     :                          20.8
+Q_pop      :                          6.13
+V2_pop     :                            26
 
 Standard Deviation of the Random Effects -
-omega_Cl   :                         0.177
-omega_V1   :                         0.295
-omega_Q    :                         0.626
-omega_V2   :                         0.352
+omega_Cl   :                         0.179
+omega_V1   :                         0.274
+omega_Q    :                         0.701
+omega_V2   :                         0.304
 
 Correlations -----------------------------
 corr_V2_V1 :                         0.999
 
 Error Model Parameters -------------------
-a1         :                         0.252
-a2         :                        0.0621
+a1         :                         0.254
+a2         :                        0.0618
 
-Elapsed time (seconds) :     4.3
+Elapsed time (seconds) :     5.5
 
  _______________________________________________________________________________
 

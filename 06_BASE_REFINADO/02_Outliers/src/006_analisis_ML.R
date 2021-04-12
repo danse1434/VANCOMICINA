@@ -125,7 +125,7 @@ ggsave("1_valores_estandarizados.pdf", G1, 'pdf', 'figures', 1, 5, 4)
 
 pca1 <- bake(pre, data_df) %>%
   select(-Sujeto) %>%
-  stats::prcomp(.)
+  stats::prcomp(x = ., center = TRUE, scale = FALSE)
 
 # Selección de la matriz con las variables transformadas en los componentes 
 # principales. *pca2*
@@ -177,8 +177,8 @@ dist <- apply(pca2, 2, function(x)
 # 
 # Es una generalización multidimensional de la idea de medir cuantas desvest 
 # esta lejos de la media de P. 
-
-dist2 <- bigutilsr::dist_ogk(pca2)
+U <- svds(pca2, 5)
+dist2 <- bigutilsr::dist_ogk(U$u)
 qplot(dist, sqrt(dist2))
 
 pval <- pchisq(dist2, df = 9, lower.tail = FALSE)
@@ -198,7 +198,7 @@ gPCA_Maha <-
 ggsave("3_distanceMahalonnobis.pdf", gPCA_Maha, 'pdf', 'figures', 1, 5, 4)
 
 #-------------------------------------------------------------------------------#
-# Aplicación de LOF
+# Aplicació♦n de LOF
 LOF_1 <- LOF(U = pca2, seq_k = c(3, 8))
 
 sh = 0.5
@@ -323,3 +323,4 @@ gT1 <- (gm1 + gm2 + (gPCA_LOF + coords) +
 # gT1
 
 ggsave('5_CompuestoPC_LOF.pdf', gT1, 'pdf', 'figures', 1, 5*2, 4*2)
+
