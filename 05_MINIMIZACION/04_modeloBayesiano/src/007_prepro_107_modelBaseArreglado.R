@@ -121,9 +121,9 @@ hiperparametros <- list(
   min_QHat  = 0,
   max_QHat  = 50,
   min_V1Hat = 0,
-  max_V1Hat = 250,
+  max_V1Hat = 150,
   min_V2Hat = 0,
-  max_V2Hat = 250,
+  max_V2Hat = 150,
   
   muOmega = rep(0, 4),
   sdOmega = rep(1, 4),

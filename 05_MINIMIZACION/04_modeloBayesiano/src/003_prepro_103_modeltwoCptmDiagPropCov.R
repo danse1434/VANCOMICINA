@@ -92,13 +92,13 @@ eventoDosificacion <- list(
 )
 
 hiperparametros <- list(
-  muClHat = 10.0,
-  sdClHat = 3,
-  muQHat  = 10.0,
-  sdQHat  = 3,
-  muV1Hat = 45,
+  muClHat = 5.5,
+  sdClHat = 1,
+  muQHat  = 5,
+  sdQHat  = 1,
+  muV1Hat = 25,
   sdV1Hat = 3,
-  muV2Hat = 50,
+  muV2Hat = 25,
   sdV2Hat = 3,
   
   muOmega = rep(0, 4),

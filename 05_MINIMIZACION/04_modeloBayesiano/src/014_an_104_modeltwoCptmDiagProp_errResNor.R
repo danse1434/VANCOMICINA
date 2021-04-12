@@ -2,6 +2,7 @@ source('./src/004_prepro_104_modeltwoCptmDiagPropCov_errResNor.R', encoding = 'U
 source('./src/051_fun_funcion2Cptm.R', encoding = 'UTF8')
 
 modelName <- '104_modeltwoCptmDiagProp_errResNor'
+Sys.setenv(LOCAL_CPPFLAGS = '-march=corei7 -mtune=corei7')
 
 #-------------------------------------------------------------------------------#
 # Modelamiento bayesiano ----------------

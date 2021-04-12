@@ -90,20 +90,20 @@ modificarInserto <- function(grafico, datos, par1, par2, xlim, ylim) {
 
 lista_2D[[1]] <- modificarInserto(grafico_2D_LS[[1]], fit_mcmc, 
                  'CLHat', 'V1Hat', 
-                 xlim=c(7,13), ylim=c(38,55))
+                 xlim=c(4,6), ylim=c(15, 25))
 
 
 lista_2D[[2]] <- modificarInserto(grafico_2D_LS[[2]], fit_mcmc, 
                  'V1Hat', 'V2Hat', 
-                 xlim=c(40,55), ylim=c(40,70))
+                 xlim=c(15, 25), ylim=c(15, 35))
 
 lista_2D[[3]] <- modificarInserto(grafico_2D_LS[[3]], fit_mcmc, 
                  'CLHat', 'QHat', 
-                 xlim=c(6,15), ylim=c(6,18))
+                 xlim=c(4,6), ylim=c(4,10))
 
 lista_2D[[4]] <- modificarInserto(grafico_2D_LS[[4]], fit_mcmc, 
                  'QHat', 'V2Hat', 
-                 xlim=c(8,20), ylim=c(40,100))
+                 xlim=c(4,10), ylim=c(15,35))
 
 # Creación de composición de gráficos
 (lista_2D %>% 
@@ -147,20 +147,19 @@ lista_2D_2 <- list()
 
 lista_2D_2[[1]] <- modificarInserto(grafico_2D_LS[[1]], fit_mcmc_2, 
                                   'CLHat', 'V1Hat', 
-                                  xlim=c(7,13), ylim=c(38,55))
-
+                                  xlim=c(4,8), ylim=c(10,40))
 
 lista_2D_2[[2]] <- modificarInserto(grafico_2D_LS[[2]], fit_mcmc_2, 
                                   'V1Hat', 'V2Hat', 
-                                  xlim=c(40,55), ylim=c(40,70))
+                                  xlim=c(12,40), ylim=c(13,40))
 
 lista_2D_2[[3]] <- modificarInserto(grafico_2D_LS[[3]], fit_mcmc_2, 
                                   'CLHat', 'QHat', 
-                                  xlim=c(6,15), ylim=c(6,18))
+                                  xlim=c(2,10), ylim=c(1,50))
 
 lista_2D_2[[4]] <- modificarInserto(grafico_2D_LS[[4]], fit_mcmc_2, 
                                   'QHat', 'V2Hat', 
-                                  xlim=c(8,20), ylim=c(40,100))
+                                  xlim=c(8, 50), ylim=c(20,100))
 
 # Creación de composición de gráficos
 (lista_2D_2 %>% 

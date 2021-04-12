@@ -2,6 +2,7 @@ source('./src/007_prepro_107_modelBaseArreglado.R', encoding = 'UTF8')
 source('./src/051_fun_funcion2Cptm.R', encoding = 'UTF8')
 
 modelName <- '107_modeloBaseArreglado'
+Sys.setenv(LOCAL_CPPFLAGS = '-march=corei7 -mtune=corei7')
 
 #-------------------------------------------------------------------------------#
 # Modelamiento bayesiano ----------------
