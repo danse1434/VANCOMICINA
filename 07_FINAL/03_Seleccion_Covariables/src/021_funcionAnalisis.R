@@ -107,7 +107,7 @@ graficoTrayecIndicador <- function(data, xval, xlim, ylim, crit = 965) {
     ggplot(aes(x = iteracion, y = !!xval_quo, col = indic)) +
     geom_point(aes(shape = optimo)) + geom_line(size = 0.5) + 
     geom_text_repel(aes(label = ifelse(data[xval] <= crit, iteracion, '')),
-                    box.padding = 0.5, 
+                    box.padding = 0.5, force = 1.2,
                     segment.color = 'black', segment.size = 0.1,
                     xlim = xlim, ylim = ylim, show.legend = FALSE) +
     facet_wrap(. ~ model, ncol = 3, scales = 'free_x') + 

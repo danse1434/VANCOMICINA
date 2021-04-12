@@ -32,9 +32,9 @@ ANTU = {use=covariate, type=categorical}
 <MODEL>
 
 [COVARIATE]
-input = {AGEA, ALBGDL, CLCRMLMIN, HCM, PROGDL, RAL, RAN, SCRMGDL, WTKG, ANTU}
+input = {AGEA, ALBGDL, CLCRMLMIN, HCM, PROGDL, RAL, RAN, SCRMGDL, WTKG, SEXF}
 
-ANTU = {type=categorical, categories={1, 2}}
+SEXF = {type=categorical, categories={0, 1}}
 
 EQUATION:
 logtAGEA = log(AGEA/44)
@@ -48,15 +48,15 @@ logtSCRMGDL = log(SCRMGDL/0.58)
 logtWTKG = log(WTKG/62)
 
 [INDIVIDUAL]
-input = {Cl_pop, omega_Cl, Q_pop, omega_Q, V1_pop, omega_V1, V2_pop, omega_V2, corr_V2_V1, logtCLCRMLMIN, beta_Cl_logtCLCRMLMIN, logtAGEA, beta_Q_logtAGEA, ANTU, beta_Q_ANTU_2, beta_V1_logtCLCRMLMIN}
+input = {Cl_pop, omega_Cl, Q_pop, omega_Q, V1_pop, omega_V1, V2_pop, omega_V2, corr_V2_V1, logtCLCRMLMIN, beta_Cl_logtCLCRMLMIN, logtAGEA, beta_Q_logtAGEA, logtWTKG, beta_Q_logtWTKG, SEXF, beta_V2_SEXF_1}
 
-ANTU = {type=categorical, categories={1, 2}}
+SEXF = {type=categorical, categories={0, 1}}
 
 DEFINITION:
 Cl = {distribution=logNormal, typical=Cl_pop, covariate=logtCLCRMLMIN, coefficient=beta_Cl_logtCLCRMLMIN, sd=omega_Cl}
-Q = {distribution=logNormal, typical=Q_pop, covariate={logtAGEA, ANTU}, coefficient={beta_Q_logtAGEA, {0, beta_Q_ANTU_2}}, sd=omega_Q}
-V1 = {distribution=logNormal, typical=V1_pop, covariate=logtCLCRMLMIN, coefficient=beta_V1_logtCLCRMLMIN, sd=omega_V1}
-V2 = {distribution=logNormal, typical=V2_pop, sd=omega_V2}
+Q = {distribution=logNormal, typical=Q_pop, covariate={logtAGEA, logtWTKG}, coefficient={beta_Q_logtAGEA, beta_Q_logtWTKG}, sd=omega_Q}
+V1 = {distribution=logNormal, typical=V1_pop, sd=omega_V1}
+V2 = {distribution=logNormal, typical=V2_pop, covariate=SEXF, coefficient={0, beta_V2_SEXF_1}, sd=omega_V2}
 correlation = {level=id, r(V2, V1)=corr_V2_V1}
 
 [LONGITUDINAL]
@@ -80,9 +80,9 @@ V2_pop = {value=48.00967397771, method=MLE}
 a1 = {value=1, method=MLE}
 a2 = {value=1, method=MLE}
 beta_Cl_logtCLCRMLMIN = {value=0, method=MLE}
-beta_Q_ANTU_2 = {value=0, method=MLE}
 beta_Q_logtAGEA = {value=0, method=MLE}
-beta_V1_logtCLCRMLMIN = {value=0, method=MLE}
+beta_Q_logtWTKG = {value=0, method=MLE}
+beta_V2_SEXF_1 = {value=0, method=MLE}
 corr_V2_V1 = {value=0.9987608583791298, method=MLE}
 omega_Cl = {value=1.5, method=MLE}
 omega_Q = {value=1.5, method=MLE}

@@ -133,11 +133,11 @@ ls2 <- ls1 %>%
 
 gIndic_OFV <- graficoTrayecIndicador(ls2, 'OFV', 
                                      crit = ls2$OFV %>% quantile(., prob = c(15/length(.))), 
-                                     xlim = c(5, NA), ylim = c(2910, NA) )
+                                     xlim = c(3, NA), ylim = c(2909, NA) )
 
 gIndic_BIC <- graficoTrayecIndicador(ls2, 'BICc', 
                                      crit = ls2$BICc %>% quantile(., prob = c(15/length(.))),
-                                     xlim = c(5, NA), ylim = c(975, NA))
+                                     xlim = c(2.5, NA), ylim = c(975, NA))
 
 ggsave('009_trayectoriaAlgoritmosOFV.pdf', gIndic_OFV, 'pdf', 
        'figures', 1, 10, 4)
@@ -164,7 +164,7 @@ gIndic_BIC_1 <- ls2 %>%
   filter(model %in% c('COSSAC', 'SCM')) %>%
   graficoTrayecIndicador(., 'BICc', 
                          crit = ls2$BICc %>% quantile(., prob = c(15/length(.))),
-                         xlim = c(5, NA), ylim = c(975, NA))
+                         xlim = c(3, NA), ylim = c(975, NA))
 
 ggsave('013_trayectoriaAlgoritmosBIC_1.pdf', gIndic_BIC_1, 'pdf', 
        'figures', 1, 8, 4)

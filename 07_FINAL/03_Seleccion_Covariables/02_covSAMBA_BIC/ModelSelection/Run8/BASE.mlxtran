@@ -32,9 +32,7 @@ ANTU = {use=covariate, type=categorical}
 <MODEL>
 
 [COVARIATE]
-input = {AGEA, ALBGDL, CLCRMLMIN, HCM, PROGDL, RAL, RAN, SCRMGDL, WTKG, ANTU}
-
-ANTU = {type=categorical, categories={1, 2}}
+input = {AGEA, ALBGDL, CLCRMLMIN, HCM, PROGDL, RAL, RAN, SCRMGDL, WTKG}
 
 EQUATION:
 logtAGEA = log(AGEA/44)
@@ -48,15 +46,13 @@ logtSCRMGDL = log(SCRMGDL/0.58)
 logtWTKG = log(WTKG/62)
 
 [INDIVIDUAL]
-input = {Cl_pop, omega_Cl, Q_pop, omega_Q, V1_pop, omega_V1, V2_pop, omega_V2, corr_V2_V1, logtCLCRMLMIN, beta_Cl_logtCLCRMLMIN, logtAGEA, beta_Q_logtAGEA, ANTU, beta_Q_ANTU_2, logtPROGDL, beta_V1_logtPROGDL, logtWTKG, beta_Cl_logtWTKG, logtSCRMGDL, beta_Q_logtSCRMGDL}
-
-ANTU = {type=categorical, categories={1, 2}}
+input = {Cl_pop, omega_Cl, Q_pop, omega_Q, V1_pop, omega_V1, V2_pop, omega_V2, corr_V2_V1, logtCLCRMLMIN, beta_Cl_logtCLCRMLMIN, logtAGEA, beta_Q_logtAGEA, logtHCM, beta_Q_logtHCM, logtSCRMGDL, beta_Q_logtSCRMGDL, logtWTKG, beta_Cl_logtWTKG, logtPROGDL, beta_V2_logtPROGDL}
 
 DEFINITION:
 Cl = {distribution=logNormal, typical=Cl_pop, covariate={logtCLCRMLMIN, logtWTKG}, coefficient={beta_Cl_logtCLCRMLMIN, beta_Cl_logtWTKG}, sd=omega_Cl}
-Q = {distribution=logNormal, typical=Q_pop, covariate={logtAGEA, ANTU, logtSCRMGDL}, coefficient={beta_Q_logtAGEA, {0, beta_Q_ANTU_2}, beta_Q_logtSCRMGDL}, sd=omega_Q}
-V1 = {distribution=logNormal, typical=V1_pop, covariate=logtPROGDL, coefficient=beta_V1_logtPROGDL, sd=omega_V1}
-V2 = {distribution=logNormal, typical=V2_pop, sd=omega_V2}
+Q = {distribution=logNormal, typical=Q_pop, covariate={logtAGEA, logtHCM, logtSCRMGDL}, coefficient={beta_Q_logtAGEA, beta_Q_logtHCM, beta_Q_logtSCRMGDL}, sd=omega_Q}
+V1 = {distribution=logNormal, typical=V1_pop, sd=omega_V1}
+V2 = {distribution=logNormal, typical=V2_pop, covariate=logtPROGDL, coefficient=beta_V2_logtPROGDL, sd=omega_V2}
 correlation = {level=id, r(V2, V1)=corr_V2_V1}
 
 [LONGITUDINAL]
@@ -73,18 +69,18 @@ data = {y1, y2}
 model = {y1, y2}
 
 <PARAMETER>
-Cl_pop = {value=10.62681081099871, method=MLE}
-Q_pop = {value=13.107659799776, method=MLE}
-V1_pop = {value=40.87808313672022, method=MLE}
-V2_pop = {value=48.40493529276184, method=MLE}
+Cl_pop = {value=5.269079260125524, method=MLE}
+Q_pop = {value=5.534838412175997, method=MLE}
+V1_pop = {value=21.48526649947165, method=MLE}
+V2_pop = {value=29.96998159917846, method=MLE}
 a1 = {value=1, method=MLE}
 a2 = {value=1, method=MLE}
-beta_Cl_logtCLCRMLMIN = {value=0.6415827012806958, method=MLE}
+beta_Cl_logtCLCRMLMIN = {value=0.6479872379143802, method=MLE}
 beta_Cl_logtWTKG = {value=0, method=MLE}
-beta_Q_ANTU_2 = {value=0, method=MLE}
-beta_Q_logtAGEA = {value=0.9573954641007143, method=MLE}
+beta_Q_logtAGEA = {value=1.08366329985909, method=MLE}
+beta_Q_logtHCM = {value=0, method=MLE}
 beta_Q_logtSCRMGDL = {value=0, method=MLE}
-beta_V1_logtPROGDL = {value=0, method=MLE}
+beta_V2_logtPROGDL = {value=0, method=MLE}
 corr_V2_V1 = {value=0.9987608583791298, method=MLE}
 omega_Cl = {value=1.5, method=MLE}
 omega_Q = {value=1.5, method=MLE}

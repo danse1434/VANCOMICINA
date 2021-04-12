@@ -46,12 +46,12 @@ logtSCRMGDL = log(SCRMGDL/0.58)
 logtWTKG = log(WTKG/62)
 
 [INDIVIDUAL]
-input = {Cl_pop, omega_Cl, Q_pop, omega_Q, V1_pop, omega_V1, V2_pop, omega_V2, corr_V2_V1, logtCLCRMLMIN, beta_Cl_logtCLCRMLMIN, logtHCM, beta_V1_logtHCM}
+input = {Cl_pop, omega_Cl, Q_pop, omega_Q, V1_pop, omega_V1, V2_pop, omega_V2, corr_V2_V1, logtCLCRMLMIN, beta_Cl_logtCLCRMLMIN, logtSCRMGDL, beta_V1_logtSCRMGDL}
 
 DEFINITION:
 Cl = {distribution=logNormal, typical=Cl_pop, covariate=logtCLCRMLMIN, coefficient=beta_Cl_logtCLCRMLMIN, sd=omega_Cl}
 Q = {distribution=logNormal, typical=Q_pop, sd=omega_Q}
-V1 = {distribution=logNormal, typical=V1_pop, covariate=logtHCM, coefficient=beta_V1_logtHCM, sd=omega_V1}
+V1 = {distribution=logNormal, typical=V1_pop, covariate=logtSCRMGDL, coefficient=beta_V1_logtSCRMGDL, sd=omega_V1}
 V2 = {distribution=logNormal, typical=V2_pop, sd=omega_V2}
 correlation = {level=id, r(V2, V1)=corr_V2_V1}
 
@@ -76,7 +76,7 @@ V2_pop = {value=48.00967397771, method=MLE}
 a1 = {value=1, method=MLE}
 a2 = {value=1, method=MLE}
 beta_Cl_logtCLCRMLMIN = {value=0, method=MLE}
-beta_V1_logtHCM = {value=0, method=MLE}
+beta_V1_logtSCRMGDL = {value=0, method=MLE}
 corr_V2_V1 = {value=0.9987608583791298, method=MLE}
 omega_Cl = {value=1.5, method=MLE}
 omega_Q = {value=1.5, method=MLE}

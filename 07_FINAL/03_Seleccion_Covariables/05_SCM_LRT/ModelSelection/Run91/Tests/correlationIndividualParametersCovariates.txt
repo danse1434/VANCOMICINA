@@ -1,5 +1,6 @@
 parameter,covariate,statistics,p-value,test
-Cl,beta_Cl_logtCLCRMLMIN,2.23101,0.0455282,t-Test
-Q,beta_Q_ANTU_2,-53.1136,1.29778e-14,t-Test
-Q,beta_Q_logtAGEA,95.8351,<2.2e-16,t-Test
-V2,beta_V2_logtWTKG,-0.249398,0.807271,t-Test
+Cl,beta_Cl_logtCLCRMLMIN,2.40533,0.0331943,t-Test
+V1,beta_V1_logtSCRMGDL,-0.259576,0.799591,t-Test
+Q,beta_Q_logtAGEA,160.168,<2.2e-16,t-Test
+Q,beta_Q_logtCLCRMLMIN,57.3629,6.29139e-14,t-Test
+Q,beta_Q_logtWTKG,76.8532,3.39716e-15,t-Test

@@ -46,13 +46,13 @@ logtSCRMGDL = log(SCRMGDL/0.58)
 logtWTKG = log(WTKG/62)
 
 [INDIVIDUAL]
-input = {Cl_pop, omega_Cl, Q_pop, omega_Q, V1_pop, omega_V1, V2_pop, omega_V2, corr_V2_V1, logtCLCRMLMIN, beta_Cl_logtCLCRMLMIN, logtAGEA, beta_Q_logtAGEA, beta_V2_logtCLCRMLMIN}
+input = {Cl_pop, omega_Cl, Q_pop, omega_Q, V1_pop, omega_V1, V2_pop, omega_V2, corr_V2_V1, logtCLCRMLMIN, beta_Cl_logtCLCRMLMIN, logtAGEA, beta_Q_logtAGEA, logtWTKG, beta_Q_logtWTKG, logtPROGDL, beta_Cl_logtPROGDL}
 
 DEFINITION:
-Cl = {distribution=logNormal, typical=Cl_pop, covariate=logtCLCRMLMIN, coefficient=beta_Cl_logtCLCRMLMIN, sd=omega_Cl}
-Q = {distribution=logNormal, typical=Q_pop, covariate=logtAGEA, coefficient=beta_Q_logtAGEA, sd=omega_Q}
+Cl = {distribution=logNormal, typical=Cl_pop, covariate={logtCLCRMLMIN, logtPROGDL}, coefficient={beta_Cl_logtCLCRMLMIN, beta_Cl_logtPROGDL}, sd=omega_Cl}
+Q = {distribution=logNormal, typical=Q_pop, covariate={logtAGEA, logtWTKG}, coefficient={beta_Q_logtAGEA, beta_Q_logtWTKG}, sd=omega_Q}
 V1 = {distribution=logNormal, typical=V1_pop, sd=omega_V1}
-V2 = {distribution=logNormal, typical=V2_pop, covariate=logtCLCRMLMIN, coefficient=beta_V2_logtCLCRMLMIN, sd=omega_V2}
+V2 = {distribution=logNormal, typical=V2_pop, sd=omega_V2}
 correlation = {level=id, r(V2, V1)=corr_V2_V1}
 
 [LONGITUDINAL]
@@ -76,8 +76,9 @@ V2_pop = {value=48.00967397771, method=MLE}
 a1 = {value=1, method=MLE}
 a2 = {value=1, method=MLE}
 beta_Cl_logtCLCRMLMIN = {value=0, method=MLE}
+beta_Cl_logtPROGDL = {value=0, method=MLE}
 beta_Q_logtAGEA = {value=0, method=MLE}
-beta_V2_logtCLCRMLMIN = {value=0, method=MLE}
+beta_Q_logtWTKG = {value=0, method=MLE}
 corr_V2_V1 = {value=0.9987608583791298, method=MLE}
 omega_Cl = {value=1.5, method=MLE}
 omega_Q = {value=1.5, method=MLE}

@@ -1,35 +1,36 @@
 ********************************************************************************
-*                        BASE.mlxtran                                          *
-*                        February 10, 2021 at 20:02:52                         *
-*                        Monolix version : 2020R1                              *
+*                          BASE.mlxtran                                        *
+*                          April 12, 2021 at 17:42:27                          *
+*                          Monolix version : 2020R1                            *
 ********************************************************************************
 
 
 ESTIMATION OF THE POPULATION PARAMETERS ________________________________________
 
 Fixed Effects ----------------------------
-Cl_pop                :               10.5
-beta_Cl_logtCLCRMLMIN :              0.613
-V1_pop                :               42.8
-Q_pop                 :               11.7
+Cl_pop                :               5.26
+beta_Cl_logtCLCRMLMIN :              0.628
+beta_Cl_logtWTKG      :              0.813
+V1_pop                :               21.8
+Q_pop                 :               5.42
 beta_Q_logtAGEA       :               1.21
-V2_pop                :               52.1
-beta_V2_logtPROGDL    :              0.294
+beta_Q_logtWTKG       :               1.33
+V2_pop                :               30.7
 
 Standard Deviation of the Random Effects -
-omega_Cl              :               0.21
-omega_V1              :              0.255
-omega_Q               :              0.317
-omega_V2              :              0.222
+omega_Cl              :              0.179
+omega_V1              :              0.274
+omega_Q               :              0.141
+omega_V2              :              0.228
 
 Correlations -----------------------------
 corr_V2_V1            :              0.998
 
 Error Model Parameters -------------------
-a1                    :              0.304
-a2                    :             0.0639
+a1                    :              0.305
+a2                    :             0.0642
 
-Elapsed time (seconds) :     8.6
+Elapsed time (seconds) :     5.7
 
  _______________________________________________________________________________
 
@@ -40,10 +41,10 @@ ESTIMATION OF THE INDIVIDUAL PARAMETERS ________________________________________
 
 Estimation of the individual parameters by Conditional Distribution ------------
            min        Q1    median        Q3       max
-Cl :      5.38      9.87      11.1      12.6      13.1
-V1 :      24.8      38.6      46.9        49      65.3
-Q  :      3.73      7.15      11.3      18.5      25.9
-V2 :      32.4      44.7      56.9        59      67.1
+Cl :      2.67      4.89      5.46      6.26      6.67
+V1 :      13.1      19.6      23.3        25      35.7
+Q  :      2.09      3.52      5.62      7.65      9.78
+V2 :      20.1      28.1      32.4      34.3      46.1
 
 Elapsed time (seconds) :     1.1
 
@@ -52,12 +53,12 @@ Elapsed time (seconds) :     1.1
 
 Estimation of the individual parameters by Conditional Mode --------------------
            min        Q1    median        Q3       max
-Cl :      5.35      9.87        11      12.6      13.1
-V1 :        25      39.3      46.7      48.8      67.4
-Q  :      3.74      6.72      10.4      17.3      23.3
-V2 :      32.5      45.4      56.6        59      69.1
+Cl :      2.66      4.88      5.43      6.24      6.67
+V1 :      12.7      19.5        23      25.8      36.6
+Q  :      2.09      3.51       5.5      7.61      9.46
+V2 :      19.6      27.9        32      35.2        47
 
-Elapsed time (seconds) :   0.038
+Elapsed time (seconds) :   0.026
 
  -------------------------------------------------------------------------------
 
@@ -69,10 +70,10 @@ Elapsed time (seconds) :   0.038
 ESTIMATION OF THE LOG-LIKELIHOOD _______________________________________________
 
                                                            (lin)
--2 x log-likelihood                       (OFV) :         923.58
-Akaike Information Criteria               (AIC) :         951.58
-Corrected Bayesian Information Criteria  (BICc) :         976.24
-Bayesian Information Criteria             (BIC) :         960.53
+-2 x log-likelihood                       (OFV) :         916.74
+Akaike Information Criteria               (AIC) :         946.74
+Corrected Bayesian Information Criteria  (BICc) :         972.03
+Bayesian Information Criteria             (BIC) :         956.32
 
 Elapsed time                          (seconds) :           0.01
 CPU time                              (seconds) :           0.00
