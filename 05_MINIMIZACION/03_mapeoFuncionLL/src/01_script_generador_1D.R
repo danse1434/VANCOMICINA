@@ -33,7 +33,7 @@ parametrosPoblacionales <-
 
 #-------------------------------------------------------------------------------#
 # Selección de parámetro a evaluar
-par_eval = 'omega_V2'
+par_eval = 'corr_V2_V1'
 
 # Cálculo de valor mínimo (50%) y valor máximo (500%) respecto al valor 
 # nominal estimado en el modelo base.
@@ -44,6 +44,10 @@ pop_par <-
   magrittr::use_series(value)
 
 pop_vector <- pop_par * seq(0.5, 5.0, length.out = 100)
+
+if (par_eval == 'corr_V2_V1') {
+  pop_vector <- seq(-1, 1, length.out = 100)
+}
 
 #-------------------------------------------------------------------------------#
 # Preparación de carpetas
@@ -84,7 +88,7 @@ global_conf <- glue(
   "exploratoryinterval = 0\r\n",
   "smoothinginterval = 0\r\n\r\n",
   "LL:\r\n",
-  "fixedsimulations = 30000\r\n\r\n"
+  "fixedsimulations = 10000\r\n\r\n"
 )
 
 Z1 <- Z %>% 
@@ -95,11 +99,31 @@ Z1 <- Z %>%
   # Lee el archivo de datos en el mismo directorio
   str_replace("data/data_TAD.csv", "../../../data/data_TAD.csv") %>% 
   str_replace_all('model/model.txt', '../../../model/model.txt')  %>%
+  # Cambiar ruta exportacion
+  str_replace_all("(?<=exportpath\\s\\=\\s)\\'M2CPTM_nobs_2_aditv_corr2'", 'base') %>% 
   # Reemplazar en [SETTINGS] las configuraciones del algoritmo SAEM
   str_replace(
     regex(
       '(?<=POPULATION\\:\\r\\n).+(?=\\r\\n\\r\\n\\[COMMENTS\\])', dotall=TRUE
-    ), global_conf)
+    ), global_conf) 
+
+
+# Cambiar parámetros poblacionales en archivo mlxtran
+
+for (i in 1:dim(parametrosPoblacionales)[1]) {
+  parametro = parametrosPoblacionales[i,]$parameter
+  valor     = parametrosPoblacionales[i,]$value
+  
+  Z1 <- Z1 %>%
+    str_replace(
+      glue(
+        "(?<={{parametro}}\\s\\=\\s\\{value\\=)((\\d+\\.\\d+)|(\\d+))(?=\\,\\smethod)",
+        .open = '{{',
+        .close = '}}'
+      ),
+      as.character(valor)
+    )
+}
 
 # Creación de directorios para cada item
 for (i in 1:length(pop_vector)) {
@@ -110,7 +134,7 @@ for (i in 1:length(pop_vector)) {
 for (i in 1:length(pop_vector)) {
   Y <- Z1 %>%
     str_replace(
-      glue("(?<={{par_eval}}\\s\\=\\s\\{value\\=)(\\d+\\.\\d+|\\d)(?=\\,\\smethod)",
+      glue("(?<={{par_eval}}\\s\\=\\s\\{value\\=)((\\d+\\.\\d+)|(\\d+))(?=\\,\\smethod)",
            .open='{{', .close='}}'),
       paste(pop_vector[i])
     )
@@ -118,7 +142,7 @@ for (i in 1:length(pop_vector)) {
   # Escribir archivo de control SAEM con cambio de parámetro seleccionado
   write_lines(Y,
               file.path('results', par_eval, paste0('A', i),
-                        'M2CPTM_nobs_2_aditv_corr2.mlxtran'),
+                        'base.mlxtran'),
               sep = '\n')
 }
 

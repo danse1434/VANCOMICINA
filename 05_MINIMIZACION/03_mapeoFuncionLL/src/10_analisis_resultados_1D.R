@@ -147,12 +147,13 @@ ggsave(x_ll, filename = 'figures/03_perfiles_LL_1D.pdf', device = 'pdf',
 #-------------------------------------------------------------------------------#
 # Todos los parámetros -------------------------------
 #-------------------------------------------------------------------------------#
-x_omegaCl <- extractor('omega_Cl', mode='interval')
-x_omegaQ  <- extractor('omega_Q', mode='interval')
-x_omegaV1 <- extractor('omega_V1', mode='interval')
-x_omegaV2 <- extractor('omega_V2', mode='interval')
-x_a1      <- extractor('a1', mode='interval')
-x_a2      <- extractor('a2', mode='interval')
+x_omegaCl  <- extractor('omega_Cl', mode='interval')
+x_omegaQ   <- extractor('omega_Q', mode='interval')
+x_omegaV1  <- extractor('omega_V1', mode='interval')
+x_omegaV2  <- extractor('omega_V2', mode='interval')
+x_a1       <- extractor('a1', mode='interval')
+x_a2       <- extractor('a2', mode='interval')
+x_corrV1V2 <- extractor('corr_V2_V1', mode='interval')
 
 # Cálculo de valores mínimos y adición de 3.84
 x_omegaCl_1 <- x_omegaCl %>% xval.func(omega_Cl, LL_mn)
@@ -161,6 +162,7 @@ x_omegaV1_1 <- x_omegaV1 %>% xval.func(omega_V1, LL_mn)
 x_omegaV2_1 <- x_omegaV2 %>% xval.func(omega_V2, LL_mn)
 x_a1_1      <- x_a1 %>% xval.func(a1, LL_mn)
 x_a2_1      <- x_a2 %>% xval.func(a2, LL_mn)
+x_corrV1V2_1 <- x_corrV1V2 %>% xval.func(corr_V2_V1, LL_mn)
 
 x_ll_5 <- ggplot(x_omegaCl, aes(x = omega_Cl, y = LL_mn)) +
   geom_ribbon(aes(ymin=LL_li, ymax=LL_ls), fill=alpha('blue', 0.1)) +
@@ -208,7 +210,15 @@ x_ll_10 <- ggplot(x_a2, aes(x = a2, y = LL_mn)) +
   geom_vline(data = popParam, aes(xintercept = a2), lty='dashed', col='blue4') + 
   xlab(bquote(a[2])) + aux_plot
 
-x_ll_total <- paste0('x_ll_', 1:10) %>% 
+x_ll_11 <- ggplot(x_corrV1V2, aes(x = corr_V2_V1, y = LL_mn)) +
+  geom_ribbon(aes(ymin=LL_li, ymax=LL_ls), fill=alpha('blue', 0.1)) +
+  geom_point(data = x_corrV1V2_1$Minimo, col = 'red3', shape = 8) +
+  geom_point(data = x_corrV1V2_1$Punto_Corte, col = 'green1') +
+  geom_vline(data = popParam, aes(xintercept = corr_V2_V1), lty='dashed', col='blue4') + 
+  xlab(bquote(rho~V[1]-V[2])) + aux_plot
+
+
+x_ll_total <- paste0('x_ll_', 1:11) %>% 
   paste(., collapse = ' + ') %>% 
   parse_expr() %>% 
   eval_bare() + 
@@ -223,16 +233,17 @@ ggsave(x_ll_total, filename = 'figures/04_perfiles_LL_1D_todos.pdf', device = 'p
 # Resultados Tabulados ----------------------------------------------------
 # Agrupar resultados
 modelLs <- list()
-modelLs[['Cl']]       = x_Clpop1
-modelLs[['Q']]        = x_Qpop1
-modelLs[['V1']]       = x_V1pop1
-modelLs[['V2']]       = x_V2pop1
-modelLs[['omega_CL']] = x_omegaCl_1
-modelLs[['omega_Q']]  = x_omegaQ_1
-modelLs[['omega_V1']] = x_omegaV1_1
-modelLs[['omega_V2']] = x_omegaV2_1
-modelLs[['a1']]       = x_a1_1
-modelLs[['a2']]       = x_a2_1
+modelLs[['Cl']]         = x_Clpop1
+modelLs[['Q']]          = x_Qpop1
+modelLs[['V1']]         = x_V1pop1
+modelLs[['V2']]         = x_V2pop1
+modelLs[['omega_CL']]   = x_omegaCl_1
+modelLs[['omega_Q']]    = x_omegaQ_1
+modelLs[['omega_V1']]   = x_omegaV1_1
+modelLs[['omega_V2']]   = x_omegaV2_1
+modelLs[['a1']]         = x_a1_1
+modelLs[['a2']]         = x_a2_1
+modelLs[['x_corrV1V2']] = x_corrV1V2
 
 modelLS_df_1 <- map_dfr(modelLs, 'Minimo') %>%
   pivot_longer(

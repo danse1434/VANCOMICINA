@@ -32,7 +32,7 @@
 #................................................................................
 
 extractor <- function(popVal, n = 100, mode='naive', n_tail=10, 
-                      modelName = 'M2CPTM_nobs_2_aditv_corr2') {
+                      modelName = 'base') {
   X = vector('list', length = n); 
   Y = vector('list', length = n); 
   
