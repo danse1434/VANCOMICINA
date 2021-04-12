@@ -1,0 +1,87 @@
+<DATAFILE>
+
+[FILEINFO]
+file='../../../data/data_TAD.csv'
+delimiter = comma
+header = {ID, DV, TAD, YTYPE, EVID, MDV, AMT, TINF, ADDL, II, SS, AGEA, SEXF, WTKG, HCM, SCRMGDL, ALBGDL, PROGDL, CLCRMLMIN, RAL, RAN, ANTU}
+
+[CONTENT]
+ID = {use=identifier}
+DV = {use=observation, name={y1, y2}, yname={'1', '2'}, type={continuous, continuous}}
+TAD = {use=time}
+YTYPE = {use=observationtype}
+EVID = {use=eventidentifier}
+MDV = {use=missingdependentvariable}
+AMT = {use=amount}
+TINF = {use=infusiontime}
+ADDL = {use=additionaldose}
+II = {use=interdoseinterval}
+SS = {use=steadystate, nbdoses=5}
+
+<MODEL>
+
+[INDIVIDUAL]
+input = {Cl_pop, omega_Cl, Q_pop, omega_Q, V1_pop, omega_V1, V2_pop, omega_V2, corr_V2_V1}
+
+DEFINITION:
+Cl = {distribution=logNormal, typical=Cl_pop, sd=omega_Cl}
+Q = {distribution=logNormal, typical=Q_pop, sd=omega_Q}
+V1 = {distribution=logNormal, typical=V1_pop, sd=omega_V1}
+V2 = {distribution=logNormal, typical=V2_pop, sd=omega_V2}
+correlation = {level=id, r(V2, V1)=corr_V2_V1}
+
+[LONGITUDINAL]
+input = {a1, a2}
+
+file = '../../../model/model.txt'
+
+DEFINITION:
+y1 = {distribution=logNormal, prediction=Cc_1, errorModel=constant(a1)}
+y2 = {distribution=logNormal, prediction=Cc_2, errorModel=constant(a2)}
+
+<FIT>
+data = {y1, y2}
+model = {y1, y2}
+
+<PARAMETER>
+Cl_pop = {value=20.2815680987046, method=MLE}
+Q_pop = {value=9.14640556872811, method=MLE}
+V1_pop = {value=21.0127611365753, method=MLE}
+V2_pop = {value=22.7517302584489, method=MLE}
+a1 = {value=0.30238475193767, method=MLE}
+a2 = {value=0.0644172753925321, method=MLE}
+corr_V2_V1 = {value=0.998611707327801, method=MLE}
+omega_Cl = {value=0.252960624822, method=MLE}
+omega_Q = {value=0.593670725497838, method=MLE}
+omega_V1 = {value=0.272244895203678, method=MLE}
+omega_V2 = {value=0.277405427709279, method=MLE}
+
+<MONOLIX>
+
+[TASKS]
+populationParameters()
+individualParameters(method = {conditionalMean})
+fim(run = false,method = StochasticApproximation)
+logLikelihood(method = ImportanceSampling)
+plotResult(method = likelihoodresults)
+[SETTINGS]
+GLOBAL:
+exportpath = base
+nbchains = 50
+
+POPULATION:
+burniniterations = 0
+smoothingiterations = 0
+exploratoryiterations = 0
+simulatedannealingiterations = 0
+exploratoryinterval = 0
+smoothinginterval = 0
+
+LL:
+fixedsimulations = 5000
+
+
+[COMMENTS]
+; Modelo Base con Matriz de variabilidad con correlación entre V1 y V2.
+
+

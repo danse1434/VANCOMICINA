@@ -101,15 +101,35 @@ Z1 <- Z %>%
   # Lee el archivo de datos en el mismo directorio
   str_replace("data/data_TAD.csv", "../../../data/data_TAD.csv") %>% 
   str_replace_all('model/model.txt', '../../../model/model.txt')  %>%
+  # Cambiar ruta exportacion
+  str_replace_all("(?<=exportpath\\s\\=\\s)\\'M2CPTM_nobs_2_aditv_corr2'", 'base') %>% 
   # Reemplazar en [SETTINGS] las configuraciones del algoritmo SAEM
   str_replace(
     regex(
       '(?<=POPULATION\\:\\r\\n).+(?=\\r\\n\\r\\n\\[COMMENTS\\])', dotall=TRUE
     ), global_conf)
 
-str1 <- glue('(?<={{par_eval1}}\\s\\=\\s\\{value\\=)(\\d+\\.\\d+|\\d)(?=\\,\\smethod)',
+# Cambiar parámetros poblacionales en archivo mlxtran
+
+for (i in 1:dim(parametrosPoblacionales)[1]) {
+  parametro = parametrosPoblacionales[i,]$parameter
+  valor     = parametrosPoblacionales[i,]$value
+  
+  Z1 <- Z1 %>%
+    str_replace(
+      glue(
+        "(?<={{parametro}}\\s\\=\\s\\{value\\=)((\\d+\\.\\d+)|(\\d+))(?=\\,\\smethod)",
+        .open = '{{',
+        .close = '}}'
+      ),
+      as.character(valor)
+    )
+}
+
+
+str1 <- glue('(?<={{par_eval1}}\\s\\=\\s\\{value\\=)((\\d+\\.\\d+)|(\\d+))(?=\\,\\smethod)',
              .open='{{', .close='}}')
-str2 <- glue('(?<={{par_eval2}}\\s\\=\\s\\{value\\=)(\\d+\\.\\d+|\\d)(?=\\,\\smethod)',
+str2 <- glue('(?<={{par_eval2}}\\s\\=\\s\\{value\\=)((\\d+\\.\\d+)|(\\d+))(?=\\,\\smethod)',
              .open='{{', .close='}}')
 
 # Creación de directorios para cada item
@@ -125,6 +145,6 @@ for (i in 1:dim(pop_vec_df)[1]) {
                 paste(pop_vec_df[i, 2]))
   
   write_lines(Y,
-              file.path(aux_dir, glue('A{i}'), 'M2CPTM_nobs_2_aditv_corr2.mlxtran'),
+              file.path(aux_dir, glue('A{i}'), 'base.mlxtran'),
               sep = '\n')
 }
