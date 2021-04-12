@@ -129,8 +129,7 @@ pca1 <- bake(pre, data_df) %>%
 
 # Selección de la matriz con las variables transformadas en los componentes 
 # principales. *pca2*
-
-((pca1$sdev)^2 *100/ sum((pca1$sdev)^2)) %>% 
+varExpli <- ((pca1$sdev)^2 *100/ sum((pca1$sdev)^2)) %>% 
   # `[`(1:4) %>% sum()
   map_dbl( ~ round(.x, 3))
   
@@ -199,7 +198,7 @@ ggsave("3_distanceMahalonnobis.pdf", gPCA_Maha, 'pdf', 'figures', 1, 5, 4)
 
 #-------------------------------------------------------------------------------#
 # Aplicació♦n de LOF
-LOF_1 <- LOF(U = pca2, seq_k = c(3, 8))
+LOF_1 <- LOF(U = U$u, seq_k = c(3, 8))
 
 sh = 0.5
 
@@ -241,7 +240,8 @@ gm1 <- pcout(pca2, PC1, PC2)$graph +
       filter(is.out == TRUE),
     mapping = aes(label = ID),
     nudge_x = 0.5
-  ) + xlab('PC1 (37.9%)') + ylab('PC2 (22.3%)')
+  ) + xlab(paste0('PC1 (', varExpli[1], '%)')) + 
+  ylab(paste0('PC1 (', varExpli[2], '%)'))
 
 gm2 <- pcout(pca2, PC1, PC3)$graph +
   elipsogk(pca2, c(1, 3), 0.10) +
@@ -257,7 +257,8 @@ gm2 <- pcout(pca2, PC1, PC3)$graph +
       filter(is.out == TRUE),
     mapping = aes(label = ID),
     nudge_x = 0.5
-  ) + xlab('PC1 (37.9%)') + ylab('PC3 (13.3%)')
+  )  + xlab(paste0('PC1 (', varExpli[1], '%)')) + 
+  ylab(paste0('PC3 (', varExpli[3], '%)'))
 
 gm3 <- pcout(pca2, PC2, PC3)$graph +
   elipsogk(pca2, c(2, 3), 0.10) +
@@ -273,7 +274,8 @@ gm3 <- pcout(pca2, PC2, PC3)$graph +
       filter(is.out == TRUE),
     mapping = aes(label = ID),
     nudge_x = 0.5
-  ) + xlab('PC2 (22.3%)') + ylab('PC3 (13.3%)')
+  )  + xlab(paste0('PC2 (', varExpli[2], '%)')) + 
+  ylab(paste0('PC3 (', varExpli[3], '%)'))
 
 #-------------------------------------------------------------------------------#
 # Gráfico 3D --------------------------------------------------------------
