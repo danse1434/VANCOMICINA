@@ -209,7 +209,8 @@ gPCA_LOF <-
     aes(color = 'LOF Score', shape='LOF Score'),
     size = abs(LOF_1*sh/min(LOF_1)) # El valor de LOF define el tamaño del punto 
   )  +
-  xlab("PC1 (37.9%)") + ylab("PC2  (22.3%)") +
+  xlab(paste0('PC1 (', varExpli[1], '%)')) + 
+  ylab(paste0('PC3 (', varExpli[3], '%)'))
   scale_color_manual(values = c('black', 'red'), breaks = c('Observaciones', 'LOF Score'), name='L') +
   scale_shape_manual(values = c(16, 1), breaks = c('Observaciones', 'LOF Score'), name='L') +
   geom_text_repel(aes(label = ifelse(LOF_1 >= 1, round(LOF_1, 2), NA_real_) )) +
@@ -241,7 +242,7 @@ gm1 <- pcout(pca2, PC1, PC2)$graph +
     mapping = aes(label = ID),
     nudge_x = 0.5
   ) + xlab(paste0('PC1 (', varExpli[1], '%)')) + 
-  ylab(paste0('PC1 (', varExpli[2], '%)'))
+  ylab(paste0('PC2 (', varExpli[2], '%)'))
 
 gm2 <- pcout(pca2, PC1, PC3)$graph +
   elipsogk(pca2, c(1, 3), 0.10) +

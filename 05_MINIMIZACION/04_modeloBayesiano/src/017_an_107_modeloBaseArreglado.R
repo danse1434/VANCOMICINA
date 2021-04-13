@@ -78,7 +78,7 @@ mcmc_acf_bar(fit, pars = parameters)
 
 dev.off()
 
-  # Predicciones
+# Predicciones
 
 predictions1 <-
   as.data.frame(fit, pars = c("cObsCond1", "cObsPred1", "cObsCond2", "cObsPred2")) %>%
