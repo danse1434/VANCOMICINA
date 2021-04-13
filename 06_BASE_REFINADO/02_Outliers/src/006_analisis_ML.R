@@ -210,7 +210,7 @@ gPCA_LOF <-
     size = abs(LOF_1*sh/min(LOF_1)) # El valor de LOF define el tamaño del punto 
   )  +
   xlab(paste0('PC1 (', varExpli[1], '%)')) + 
-  ylab(paste0('PC3 (', varExpli[3], '%)'))
+  ylab(paste0('PC3 (', varExpli[3], '%)')) +
   scale_color_manual(values = c('black', 'red'), breaks = c('Observaciones', 'LOF Score'), name='L') +
   scale_shape_manual(values = c(16, 1), breaks = c('Observaciones', 'LOF Score'), name='L') +
   geom_text_repel(aes(label = ifelse(LOF_1 >= 1, round(LOF_1, 2), NA_real_) )) +
