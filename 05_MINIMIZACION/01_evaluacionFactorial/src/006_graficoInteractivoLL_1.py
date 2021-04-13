@@ -13,6 +13,7 @@ rutaSAEM = '/Base_corr2/ChartsData/Saem/CvParam.txt'
 
 for i in range(81):
   df = pd.read_csv(f'evaluacion/E{i+1}' + rutaSAEM)
+  print(i)
   df['iteracion'] = i+1
   data_list.append(df)
 
