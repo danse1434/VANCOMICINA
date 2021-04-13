@@ -1,7 +1,7 @@
 <DATAFILE>
 
 [FILEINFO]
-file = '../../../../data/data_TAD.csv'
+file='../../../../data/data_TAD.csv'
 delimiter = comma
 header = {ID, DV, TAD, YTYPE, EVID, MDV, AMT, TINF, ADDL, II, SS, AGEA, SEXF, WTKG, HCM, SCRMGDL, ALBGDL, PROGDL, CLCRMLMIN, RAL, RAN, ANTU}
 
@@ -61,9 +61,9 @@ omega_V2 = {value=1.5, method=MLE}
 [TASKS]
 populationParameters()
 individualParameters(run = false,method = none )
-fim(method = StochasticApproximation)
-logLikelihood(run = false,method = none )
-plotResult(run = false,method = saemresults)
+fim(run = false,method = StochasticApproximation)
+logLikelihood(run = false,method = ImportanceSampling)
+plotResult(method = saemresults)
 
 [SETTINGS]
 GLOBAL:

@@ -60,7 +60,11 @@ omega_V2 = {value=1.5, method=MLE}
 
 [TASKS]
 populationParameters()
-plotResult(run = false, method = {saemresults})
+individualParameters(run = false,method = none )
+fim(run = false,method = StochasticApproximation)
+logLikelihood(run = false,method = ImportanceSampling)
+plotResult(method = saemresults)
+
 [SETTINGS]
 GLOBAL:
 exportpath = 'Base_corr2'
@@ -76,6 +80,4 @@ nbsimulatedparameters = 50
 
 [COMMENTS]
 ; Modelo Base con Matriz de variabilidad con correlaciÃ³n entre V1 y V2.
-
-
 
