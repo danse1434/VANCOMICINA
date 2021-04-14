@@ -69,13 +69,13 @@ data = {y1, y2}
 model = {y1, y2}
 
 <PARAMETER>
-Cl_pop = {value=10.35391799367459, method=MLE}
-Q_pop = {value=12.56280285266156, method=MLE}
-V1_pop = {value=40.70427176264, method=MLE}
-V2_pop = {value=48.00967397771, method=MLE}
+Cl_pop = {value=5, method=MLE}
+Q_pop = {value=5, method=MLE}
+V1_pop = {value=25, method=MLE}
+V2_pop = {value=25, method=MLE}
 a1 = {value=1, method=MLE}
 a2 = {value=1, method=MLE}
-beta_Cl_logtCLCRMLMIN = {value=0, method=MLE}
+beta_Cl_logtCLCRMLMIN = {value=0.6247017023004011, method=MLE}
 corr_V2_V1 = {value=0.9987608583791298, method=MLE}
 omega_Cl = {value=1.5, method=MLE}
 omega_Q = {value=1.5, method=MLE}
