@@ -23,7 +23,7 @@ require(directlabels) # Rectas al final de gráficos
 source(file.path('src', '010_funciones_PCA_R.R'), encoding = 'UTF-8')
 
 # Vector con orden de parámetros
-level_par <- c('Cl_pop', 'beta_Cl_logtWTKG', 'beta_Cl_tCLCRMLMIN', 
+level_par <- c('Cl_pop', 'beta_Cl_logtCLCRMLMIN', 
                'V1_pop', 'Q_pop', 'V2_pop', 
                'omega_Cl', 'corr_V2_V1', 'omega_V1', 'omega_V2', 'omega_Q', 
                'a1', 'a2')

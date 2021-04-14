@@ -66,11 +66,11 @@ df = data3
 
 fig = go.Figure()
 
-param_list = ['Cl_pop_x', 'Q_pop_x', 'V1_pop_x', 'V2_pop_x', 'a1', 'a2', 'beta_Cl_logtWTKG',
-              'beta_Cl_tCLCRMLMIN', 'corr_V2_V1', 'omega_Cl', 'omega_Q', 'omega_V1',
+param_list = ['Cl_pop_x', 'Q_pop_x', 'V1_pop_x', 'V2_pop_x', 'a1', 'a2',
+              'beta_Cl_logtCLCRMLMIN', 'corr_V2_V1', 'omega_Cl', 'omega_Q', 'omega_V1',
               'omega_V2', 'convergenceIndicator']
-param_name = ['Cl (L/h)', 'Q (L/h)', 'V1 (L)', 'V2 (L)', 'a1', 'a2', u"\u03B2" + ' Cl-logtWT',
-              u"\u03B2" + ' Cl-tClCr', u"\u03C1" + ' V1-V2', 
+param_name = ['Cl (L/h)', 'Q (L/h)', 'V1 (L)', 'V2 (L)', 'a1', 'a2', 
+              u"\u03B2" + ' Cl-logtClCr', u"\u03C1" + ' V1-V2', 
               u"\u03C9" + ' Cl', u"\u03C9" + ' Q', u"\u03C9" + ' V1', u"\u03C9" + ' V2', 
               'Indicador de Convergencia']
 

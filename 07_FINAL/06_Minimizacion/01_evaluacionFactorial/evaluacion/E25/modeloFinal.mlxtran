@@ -23,18 +23,16 @@ CLCRMLMIN = {use=covariate, type=continuous}
 <MODEL>
 
 [COVARIATE]
-input = {CLCRMLMIN, WTKG}
+input = {CLCRMLMIN}
 
 EQUATION:
 logtCLCRMLMIN = log(CLCRMLMIN/144)
-logtWTKG = log(WTKG/62)
-tCLCRMLMIN = CLCRMLMIN/144
 
 [INDIVIDUAL]
-input = {Cl_pop, omega_Cl, Q_pop, omega_Q, V1_pop, omega_V1, V2_pop, omega_V2, corr_V2_V1, tCLCRMLMIN, beta_Cl_tCLCRMLMIN, logtWTKG, beta_Cl_logtWTKG}
+input = {Cl_pop, omega_Cl, Q_pop, omega_Q, V1_pop, omega_V1, V2_pop, omega_V2, corr_V2_V1, logtCLCRMLMIN, beta_Cl_logtCLCRMLMIN}
 
 DEFINITION:
-Cl = {distribution=logNormal, typical=Cl_pop, covariate={tCLCRMLMIN, logtWTKG}, coefficient={beta_Cl_tCLCRMLMIN, beta_Cl_logtWTKG}, sd=omega_Cl}
+Cl = {distribution=logNormal, typical=Cl_pop, covariate={logtCLCRMLMIN}, coefficient={beta_Cl_logtCLCRMLMIN}, sd=omega_Cl}
 Q = {distribution=logNormal, typical=Q_pop, sd=omega_Q}
 V1 = {distribution=logNormal, typical=V1_pop, sd=omega_V1}
 V2 = {distribution=logNormal, typical=V2_pop, sd=omega_V2}
@@ -54,14 +52,13 @@ data = {y1, y2}
 model = {y1, y2}
 
 <PARAMETER>
-Cl_pop = {value=5.709736, method=MLE}
-Q_pop = {value=18.785571, method=MLE}
-V1_pop = {value=61.386638, method=MLE}
-V2_pop = {value=44.079134, method=MLE}
+Cl_pop = {value=5.259468, method=MLE}
+Q_pop = {value=9.163109, method=MLE}
+V1_pop = {value=30.759726, method=MLE}
+V2_pop = {value=21.697369, method=MLE}
 a1 = {value=1, method=MLE}
 a2 = {value=1, method=MLE}
-beta_Cl_logtWTKG = {value=0.7456038818985982, method=MLE}
-beta_Cl_tCLCRMLMIN = {value=0.6030888495185778, method=MLE}
+beta_Cl_logtCLCRMLMIN = {value=0.624404687093985, method=MLE}
 corr_V2_V1 = {value=0.9987608583791298, method=MLE}
 omega_Cl = {value=1.5, method=MLE}
 omega_Q = {value=1.5, method=MLE}
@@ -89,7 +86,7 @@ INDIVIDUAL:
 nbsimulatedparameters = 50
 
 [COMMENTS]
-; Modelo base refinado con inclusiÃ³n de las siguientes covariables: (1) Cl-CrCl, exponencial, y (2) Cl-WT, potencial.
+; Modelo base refinado con inclusiÃ³n de las siguientes covariables: (1) Cl-CrCl, exponencial.
 
 
 

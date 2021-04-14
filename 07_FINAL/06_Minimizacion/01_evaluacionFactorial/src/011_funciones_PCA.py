@@ -140,7 +140,7 @@ def generarTriplot_Plotly(x):
                   )))
 
   # Vectores de parámetros
-  for i in range(13):
+  for i in range(12):
     fig.add_trace(
       go.Scatter3d(
         x = [0, x['components'][0][i]*5], y = [0, x['components'][1][i]*5], z = [0, x['components'][2][i]*5],
