@@ -20,7 +20,7 @@ require(patchwork)
 require(tidyverse)
 
 # Vector con orden de parámetros
-level_par <- c('Cl_pop', 'beta_Cl_logtWTKG', 'beta_Cl_tCLCRMLMIN', 
+level_par <- c('Cl_pop', 'beta_Cl_logtCLCRMLMIN', 
                'V1_pop', 'Q_pop', 'V2_pop', 
                'omega_Cl', 'corr_V2_V1', 'omega_V1', 'omega_V2', 'omega_Q', 
                'a1', 'a2')
@@ -31,13 +31,14 @@ aux_dir <- file.path(getwd(), 'modeloFinal', 'Assessment')
 #-------------------------------------------------------------------------------#
 # 1 Resumen Parámetros de Diseño Factorial --------------------------------------
 #-------------------------------------------------------------------------------#
+Npop = 50
 # Lista vacía *d_fct_ls*
-d_fct_ls <- vector('list', 40)
+d_fct_ls <- vector('list', Npop)
 # Lista vacía con Assessment
-m_fct_ls <- vector('list', 40)
+m_fct_ls <- vector('list', Npop)
 
 # Lectura de datos de parámetros estimados
-for (i in 1:40) {
+for (i in 1:Npop) {
   subdir <- file.path(aux_dir, paste0('Run', i))
   # Asignación a vector
   d_fct_ls[[i]] <-
@@ -66,7 +67,7 @@ theme_set(theme_bw())
 G1 <- d_fct_ls1  %>% 
   ggplot(aes(x = ID, y = value, col = ifelse(out1|out2, 'Si', 'No'))) +
   geom_point() + 
-  geom_errorbar(aes(ymin = value-se_sa, ymax = value+se_sa)) +
+  geom_errorbar(aes(ymin = value-se_lin, ymax = value+se_lin)) +
   geom_text_repel(data = filter(d_fct_ls1, out1 |
                                   out2),
                   mapping = aes(label = as.character(ID))) +

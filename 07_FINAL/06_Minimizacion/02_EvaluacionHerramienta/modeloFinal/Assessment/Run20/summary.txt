@@ -1,34 +1,33 @@
 ********************************************************************************
-*                        modeloFinal.mlxtran                                   *
-*                        February 12, 2021 at 21:57:35                         *
-*                        Monolix version : 2020R1                              *
+*                          modeloFinal.mlxtran                                 *
+*                          April 14, 2021 at 22:03:34                          *
+*                          Monolix version : 2020R1                            *
 ********************************************************************************
 
 
 ESTIMATION OF THE POPULATION PARAMETERS ________________________________________
 
-Fixed Effects ----------------------------     se_sa    rse(%)
-Cl_pop             :                  5.68      1.26      22.1
-beta_Cl_logtWTKG   :                 0.766      0.34      44.4
-beta_Cl_tCLCRMLMIN :                 0.608     0.216      35.5
-V1_pop             :                  40.4      3.57      8.83
-Q_pop              :                  12.1       3.3      27.2
-V2_pop             :                  53.4      4.52      8.46
+Fixed Effects ----------------------------    se_lin    rse(%)
+Cl_pop                :               5.25     0.299       5.7
+beta_Cl_logtCLCRMLMIN :              0.629     0.245        39
+V1_pop                :               20.8      1.41       6.8
+Q_pop                 :               5.68      1.17      20.6
+V2_pop                :               26.3      3.46      13.1
 
 Standard Deviation of the Random Effects -
-omega_Cl           :                 0.183    0.0352      19.2
-omega_V1           :                 0.257    0.0724      28.2
-omega_Q            :                 0.769     0.194      25.2
-omega_V2           :                  0.22    0.0692      31.5
+omega_Cl              :               0.21    0.0403      19.2
+omega_V1              :              0.227    0.0527      23.2
+omega_Q               :              0.706     0.156      22.1
+omega_V2              :              0.177     0.192       109
 
 Correlations -----------------------------
-corr_V2_V1         :                 0.998   0.00556     0.557
+corr_V2_V1            :              0.998     0.864      86.6
 
 Error Model Parameters -------------------
-a1                 :                 0.304    0.0228      7.52
-a2                 :                0.0626   0.00629        10
+a1                    :              0.305    0.0224      7.33
+a2                    :             0.0629   0.00626      9.95
 
-Elapsed time (seconds) :     8.8
+Elapsed time (seconds) :     5.8
 
  _______________________________________________________________________________
 
@@ -37,14 +36,14 @@ Elapsed time (seconds) :     8.8
 ESTIMATION OF THE INDIVIDUAL PARAMETERS ________________________________________
 
 
-Estimation of the individual parameters by Conditional Distribution ------------
+Estimation of the individual parameters by Conditional Mode --------------------
            min        Q1    median        Q3       max
-Cl :      5.29      9.89        11      12.6      13.4
-V1 :      24.4      37.5      41.3      46.6      58.3
-Q  :      3.13      10.4      14.9      19.9      40.1
-V2 :      34.7      50.1      54.4      60.3      72.9
+Cl :      2.64      4.93      5.51      6.23      6.59
+V1 :      12.7      19.6      22.6      24.5      28.2
+Q  :      1.74      3.05      5.15      8.43      19.7
+V2 :      17.9      25.1      28.1      29.9      33.4
 
-Elapsed time (seconds) :     1.3
+Elapsed time (seconds) :    0.03
 
  -------------------------------------------------------------------------------
 
@@ -55,27 +54,26 @@ Elapsed time (seconds) :     1.3
 ESTIMATION OF THE FISHER INFORMATION MATRIX ____________________________________
 
 
-Estimation of the Fisher information matrix by Stochastic Approximation --------
+Estimation of the Fisher information matrix by Linearization -------------------
 
 Correlation Matrix :
-            Cl_pop         1
-  beta_Cl_logtWTKG -0.023161         1
-beta_Cl_tCLCRMLMIN  -0.97436  0.039562         1
-            V1_pop-0.0097949-0.0045644 0.0014577         1
-             Q_pop  0.009939 0.0049246 0.0035163  -0.37437         1
-            V2_pop -0.020088-0.0049559   0.01074    0.9479  -0.39078         1
-          omega_Cl  0.010658 0.0096237 -0.010122-0.0045837 0.0097354 -0.014928         1
-          omega_V1    0.0161   0.00431 -0.014677  -0.11442  0.044687  -0.16235 0.0085871         1
-        corr_V2_V1  0.013487  0.012779 -0.017435  0.010051 -0.039138  -0.08701  0.036198   0.35771         1
-           omega_Q0.00027282 0.0073276 0.0053142  -0.27362   0.31927  -0.27419 0.0096755 -0.062706-0.0007004         1
-          omega_V2  0.010458-0.0023809-0.0040989  -0.21797   0.17776  -0.24241-0.0074615   0.82839 -0.046157  0.030066         1
-                a1 -0.011482 -0.005388   0.00957 -0.015891 -0.001906-0.0085578  0.028333   0.01517 -0.017815 0.0048874  0.024307         1
-                a2  0.011719  0.011097 -0.010409  0.052482 -0.026501  0.030441 -0.032247 -0.088219   0.13887 -0.026758  -0.19396  -0.10263         1
+               Cl_pop         1
+beta_Cl_logtCLCRMLMIN   0.11533         1
+               V1_pop  0.001501 0.0093246         1
+                Q_pop   0.02274-0.0047293  -0.11951         1
+               V2_pop -0.027248  0.014434   0.43309 -0.096987         1
+             omega_Cl         0         0         0         0         0         1
+             omega_V1         0         0         0         0         00.00021947         1
+           corr_V2_V1         0         0         0         0         00.00028011  0.040596         1
+              omega_Q         0         0         0         0         0-0.00011117 -0.018243 0.0079778         1
+             omega_V2         0         0         0         0         0-0.00033929   0.22548  -0.67569-0.0073637         1
+                   a1         0         0         0         0         0-0.00010329-0.00087837 0.0046119-0.00079014-0.0034487         1
+                   a2         0         0         0         0         0-0.0066849 -0.056847   0.29847 -0.051136  -0.22319 -0.015836         1
 
                                min       max   max/min
-Eigen values           :     0.025       2.6      1e+2
+Eigen values           :      0.27       1.9       6.9
 
-Elapsed time (seconds) :    0.81
+Elapsed time (seconds) :   0.009
 
  -------------------------------------------------------------------------------
 
@@ -85,18 +83,14 @@ Elapsed time (seconds) :    0.81
 
 ESTIMATION OF THE LOG-LIKELIHOOD _______________________________________________
 
-                                                            (is)
--2 x log-likelihood                       (OFV) :         932.08
-Akaike Information Criteria               (AIC) :         958.08
-Corrected Bayesian Information Criteria  (BICc) :         982.10
-Bayesian Information Criteria             (BIC) :         966.39
+                                                           (lin)
+-2 x log-likelihood                       (OFV) :         939.41
+Akaike Information Criteria               (AIC) :         963.41
+Corrected Bayesian Information Criteria  (BICc) :         986.79
+Bayesian Information Criteria             (BIC) :         971.08
 
-Elapsed time                          (seconds) :           2.92
-CPU time                              (seconds) :           2.00
-
-
-[Importance Sampling] Standard error        : 0.562
-                      Sampling distribution : T-distribution with 5 degrees of freedom
+Elapsed time                          (seconds) :           0.00
+CPU time                              (seconds) :           0.00
 
  _______________________________________________________________________________
 

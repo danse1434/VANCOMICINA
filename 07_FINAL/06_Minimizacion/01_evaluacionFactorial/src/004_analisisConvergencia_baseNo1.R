@@ -278,11 +278,11 @@ yb <- import('yellowbrick.features')
 np <- import('numpy')
 
 s_fct_ls1_DF <- s_fct_ls1 %>%
-  distinct(I, label.x, parameter, last_value) %>% 
-  pivot_wider(id_cols = c('I', 'label.x'), names_from=parameter, values_from=last_value)
+  distinct(I, label, parameter, last_value) %>% 
+  pivot_wider(id_cols = c('I', 'label'), names_from=parameter, values_from=last_value)
 
-X <- s_fct_ls1_DF %>% select(-I, -label.x, -LL) %>% as.matrix()
-Y <- s_fct_ls1_DF %>% pull(label.x)
+X <- s_fct_ls1_DF %>% select(-I, -label, -LL) %>% as.matrix()
+Y <- s_fct_ls1_DF %>% pull(label)
 
 Y1 <- Y %>% 
   as.factor() %>% 
