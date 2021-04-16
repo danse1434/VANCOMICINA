@@ -4,6 +4,7 @@ require(patchwork)
 
 source(file.path('src', '002_pre_102_modeloFinal.R'), encoding = 'UTF8')
 source(file.path('src', '050_fun_funcion2Cptm.R'), encoding = 'UTF8')
+Sys.setenv(LOCAL_CPPFLAGS = '-march=corei7 -mtune=corei7')
 
 modelName <- '102_modeloFinal'
 
@@ -24,7 +25,7 @@ if(!file.exists(file.path('models', paste0(modelName, "Fit.Rsave")))){
   
   d <- Sys.time()
   nChains <- 4
-  nPost <- 2000 ## Número de muestras de cadenas (2000)
+  nPost <- 1000 ## Número de muestras de cadenas (2000)
   nBurn <- 500  ## Número de muestras Burn-In (500)
   nThin <- 10   ## Gráfico ACF no muestra correlación con 10 (1)
   
@@ -160,7 +161,7 @@ write_csv(summary(fit)$summary %>% as_tibble(rownames = 'P'),
 
 print(Sys.time() - d)
 #-------------------------------------------------------------------------------#
-# shinystan::launch_shinystan(fit)
+shinystan::launch_shinystan(fit)
 
 
 

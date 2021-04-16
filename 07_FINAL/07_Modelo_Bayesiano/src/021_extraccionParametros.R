@@ -181,12 +181,12 @@ theme_set(theme_bw())
 
 distDF <- as.matrix(fit, pars = parameters) %>% 
   as_tibble(.) %>% 
-  add_column(rep = 1:8000, .before = 'CLHat') %>% 
+  add_column(rep = 1:4000, .before = 'CLHat') %>% 
   pivot_longer(!matches('rep'), 
                names_to = 'parameter', values_to = 'values') %>%
   mutate(parameter = factor(parameter, 
                             levels = c('CLHat', 'QHat', 'V1Hat', 'V2Hat',
-                                       'beta_Cl_logtWTKG', 'beta_Cl_tCLCRMLMIN',
+                                       'beta_Cl_logtCLCRMLMIN',
                                        'omega[1]', 'omega[2]', 'omega[3]', 'omega[4]', 
                                        'a1', 'a2', 'rho[3,4]','rho1[3,4]'))) 
 
@@ -251,7 +251,7 @@ createDistribution <- function(x, y, dist = 'log-normal') {
 distDF1 <- distDF %>%
   group_by(parameter) %>% nest() %>% 
   add_column(dist = c(rep('log-normal', 4),
-                      rep('normal', 3), rep('gamma', 4), 
+                      rep('normal', 2), rep('gamma', 4), 
                       rep('log-normal', 2), 'normal')) %>% 
   mutate(
     param = map2(data, dist,  
@@ -310,8 +310,7 @@ gtsave(
 densidadDist <- tibble(
   parameter = parameters[!grepl('rho', parameters)],
   lim = list(c(0, 25), c(0, 50.0), c(0, 80), c(0, 250.),
-             # c(-1, 1), 
-             c(-1, 2.5), c(-1, 2),
+             c(-1, 2),
              c(0, 0.8),  c(0, 3.0),  c(0, 0.6),  c(0, 3.0), 
              c(0.2, 0.4), c(0, 0.2)#, 
              # c(-1, 1)
@@ -322,8 +321,7 @@ densidadDist <- tibble(
     c(stan_d$min_V1Hat, stan_d$max_V1Hat),
     c(stan_d$min_V2Hat, stan_d$max_V2Hat),
     
-    c(stan_d$min_beta_Cl_logtWTKG, stan_d$max_beta_Cl_logtWTKG),
-    c(stan_d$min_beta_Cl_tCLCRMLMIN, stan_d$max_beta_Cl_tCLCRMLMIN),
+    c(stan_d$min_beta_Cl_logtCLCRMLMIN, stan_d$max_beta_Cl_logtCLCRMLMIN),
     
     c(stan_d$muOmega[1], stan_d$sdOmega[1]),
     c(stan_d$muOmega[2], stan_d$sdOmega[2]),
@@ -332,7 +330,7 @@ densidadDist <- tibble(
     c(stan_d$mua1, stan_d$sda1),
     c(stan_d$mua2, stan_d$sda2)
   ),
-  fun = list(dunif, dunif, dunif, dunif, dunif, dunif,
+  fun = list(dunif, dunif, dunif, dunif, dunif,
              dcauchy, dcauchy, dcauchy, dcauchy, dcauchy, dcauchy)
 )
 

@@ -25,7 +25,7 @@ source(file.path('src', '001_pre_101_modeloFinal.R'), encoding = 'UTF8')
 source(file.path('src', '051_fun_resultados.R'), encoding = 'UTF8')
 source(file.path('src', '052_fun_comparacionML.R'), encoding = 'UTF8')
 
-modelName <- '107_modeloBaseArreglado'
+modelName <- '102_modeloFinal'
 load(file = file.path('models', paste0(modelName, "Fit.Rsave")))
 
 #-------------------------------------------------------------------------------#
@@ -40,12 +40,11 @@ pLL_dir <- file.path('..',  '06_Minimizacion', '03_mapeoFuncionLL')
 results_dir <- file.path(pLL_dir, 'results')
 
 # Perfil 1
-df_Cl_pop_beta_Cl_tCLCRMLMIN <-
-  extractor('Cl_pop_beta_Cl_tCLCRMLMIN', results_dir, n = 900)
+df_Cl_pop_beta_Cl_logtCLCRMLMIN <-
+  extractor('Cl_pop_beta_Cl_logtCLCRMLMIN', results_dir, n = 900)
 
 # Perfil 2
-df_beta_Cl_logtWTKG_beta_Cl_tCLCRMLMIN <-
-  extractor('beta_Cl_logtWTKG_beta_Cl_tCLCRMLMIN', results_dir, n = 900)
+df_corr_V2_V1_V1_pop <- extractor('corr_V2_V1_V1_pop', results_dir, n = 900)
 
 # 1.3. Lectura de archivo poblacional
 popParam_dir <- file.path(pLL_dir, 'modeloFinal')
@@ -79,29 +78,29 @@ lista_2D <- list()
 grafico_2D_LS <- list()
 
 grafico_2D_LS[[1]] <- 
-  generarGrafico2D(df_Cl_pop_beta_Cl_tCLCRMLMIN, popParam, 
-                   'Cl_pop', 'beta_Cl_tCLCRMLMIN', 'LL1', 
-                   expression(theta[0]~'TVCL (L/h)'), bquote(theta[1]~'Cl-ClCr'), n_bins = 20, 
-                   barheight = 6)
+  generarGrafico2D(df_Cl_pop_beta_Cl_logtCLCRMLMIN, popParam, 
+                   'Cl_pop', 'beta_Cl_logtCLCRMLMIN', 'LL1', 
+                   expression(theta[0]~'TVCL (L/h)'), bquote(theta[1]~'log (Cl-ClCr)'), 
+                   n_bins = 20, barheight = 6)
 
 grafico_2D_LS[[2]] <- 
-  generarGrafico2D(df_beta_Cl_logtWTKG_beta_Cl_tCLCRMLMIN, popParam, 
-                   'beta_Cl_logtWTKG', 'beta_Cl_tCLCRMLMIN', 'LL1', 
-                   bquote(theta[2]~'Cl-logtWT'), bquote(theta[1]~'Cl-tClCr'), n_bins = 20,
+  generarGrafico2D(df_corr_V2_V1_V1_pop, popParam, 
+                   'corr_V2_V1', 'V1_pop', 'LL1', 
+                   bquote(rho~'V1-V2'), bquote(V[1]~'(L)'), n_bins = 20,
                    barheight = 6)
 
 
 lista_2D[[1]] <- (grafico_2D_LS[[1]] + 
                     theme(panel.background = element_rect(fill = 'gray'))) %>% 
   modificarInserto(., fit_mcmc, 
-                   'CLHat', 'beta_Cl_logtWTKG', 
-                   xlim = c(3.5, 10), ylim = c(0.4, 2))
+                   'CLHat', 'beta_Cl_logtCLCRMLMIN', 
+                   xlim = c(3.5, 7), ylim = c(0.0, 1.5))
 
 lista_2D[[2]] <- (grafico_2D_LS[[2]] + 
                     theme(panel.background = element_rect(fill = 'gray'))) %>% 
   modificarInserto(., fit_mcmc, 
-                   'beta_Cl_logtWTKG', 'beta_Cl_tCLCRMLMIN', 
-                   xlim = c(0.4, 1.8), ylim = c(0.35, 1.2))
+                   'Omega[3,4]', 'V1Hat', 
+                   xlim = c(-0.1, 0.2), ylim = c(15, 26))
 
 # Creación de composición de gráficos
 (lista_2D %>% 

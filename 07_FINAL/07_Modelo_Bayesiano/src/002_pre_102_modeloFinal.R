@@ -114,7 +114,7 @@ eventoDosificacion <- list(
   dose       = as.numeric(as.character(dataDosificacion$AMT)),
   tinf       = as.numeric(as.character(dataDosificacion$TINF)),
   logtWTKG  = filter(data, EVID == 1) %>% pull(WTKG) %>% {log(./62)},
-  tCLCRMLMIN = filter(data, EVID == 1) %>% pull(CLCRMLMIN) %>% {./144}
+  logtCLCRMLMIN = filter(data, EVID == 1) %>% pull(CLCRMLMIN) %>% {log(./144)}
 )
 
 hiperparametros <- list(
@@ -127,11 +127,8 @@ hiperparametros <- list(
   min_V2Hat = 0,
   max_V2Hat = 250,
   
-  min_beta_Cl_logtWTKG = -1.0, 
-  max_beta_Cl_logtWTKG = +2.5,
-  
-  min_beta_Cl_tCLCRMLMIN = -1.0,
-  max_beta_Cl_tCLCRMLMIN = +2.0,
+  min_beta_Cl_logtCLCRMLMIN = -1.0,
+  max_beta_Cl_logtCLCRMLMIN = +2.0,
   
   muOmega = rep(0, 4),
   sdOmega = rep(1, 4),
@@ -158,12 +155,9 @@ init <- function() {
     V1Hat = runif(1, hiperparametros$min_V1Hat, hiperparametros$max_V1Hat),
     V2Hat = runif(1, hiperparametros$min_V2Hat, hiperparametros$max_V2Hat),
     
-    beta_Cl_logtWTKG = runif(1,
-                             hiperparametros$min_beta_Cl_logtWTKG,
-                             hiperparametros$max_beta_Cl_logtWTKG),
-    beta_Cl_tCLCRMLMIN = runif(1,
-                               hiperparametros$min_beta_Cl_tCLCRMLMIN,
-                               hiperparametros$max_beta_Cl_tCLCRMLMIN),
+    beta_Cl_logtCLCRMLMIN = runif(1,
+                                  hiperparametros$min_beta_Cl_logtCLCRMLMIN,
+                                  hiperparametros$max_beta_Cl_logtCLCRMLMIN),
     
     omega = exp(rnorm(4, log(0.2), 0.5)),
     sigma = runif(1, 0.5, 2),

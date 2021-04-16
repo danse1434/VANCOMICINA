@@ -134,11 +134,8 @@ data{
   real<lower=0> min_V2Hat;
   real<lower=0> max_V2Hat;
   
-  real min_beta_Cl_logtWTKG;
-  real max_beta_Cl_logtWTKG;
-  
-  real min_beta_Cl_tCLCRMLMIN;
-  real max_beta_Cl_tCLCRMLMIN;
+  real min_beta_Cl_logtCLCRMLMIN;
+  real max_beta_Cl_logtCLCRMLMIN;
   
   real muOmega[4];
   real<lower=0> sdOmega[4];
@@ -149,8 +146,7 @@ data{
   real<lower=0> sda2;
   
   // Relación covariables
-  real logtWTKG[nSubjects1];
-  real tCLCRMLMIN[nSubjects1];
+  real logtCLCRMLMIN[nSubjects1];
 }
 
 transformed data{
@@ -166,8 +162,7 @@ parameters{
   real<lower = 0> V2Hat;
   corr_matrix[nRandom] rho;
   
-  real beta_Cl_logtWTKG;
-  real beta_Cl_tCLCRMLMIN;
+  real beta_Cl_logtCLCRMLMIN;
   
   vector<lower = 0>[nRandom] omega;
   real<lower = 0> a1;
@@ -209,7 +204,7 @@ transformed parameters{
   Omega = quad_form_diag(rho1, omega);
   
   for(i in 1:nSubjects1){
-    CL[i] = exp(logtheta[i ,1]) * exp(beta_Cl_logtWTKG * logtWTKG[i]) * exp(beta_Cl_tCLCRMLMIN * tCLCRMLMIN[i]);
+    CL[i] = exp(logtheta[i ,1] + beta_Cl_logtCLCRMLMIN * logtCLCRMLMIN[i]);
     Q[i]  = exp(logtheta[i,2]);
     V1[i] = exp(logtheta[i,3]);
     V2[i] = exp(logtheta[i,4]);
@@ -242,8 +237,7 @@ model{
     V1Hat ~ uniform(min_V1Hat, max_V1Hat);
     V2Hat ~ uniform(min_V2Hat, max_V2Hat);
     
-    beta_Cl_logtWTKG ~ uniform(min_beta_Cl_logtWTKG, max_beta_Cl_logtWTKG);
-    beta_Cl_tCLCRMLMIN ~ uniform(min_beta_Cl_tCLCRMLMIN, max_beta_Cl_tCLCRMLMIN);
+    beta_Cl_logtCLCRMLMIN ~ uniform(min_beta_Cl_logtCLCRMLMIN, max_beta_Cl_logtCLCRMLMIN);
     
     omega ~ cauchy(muOmega, sdOmega);
     rho ~ lkj_corr(etaRho);
@@ -276,7 +270,7 @@ generated quantities{
   for(j in 1:nSubjects1){
     logthetaPred[j] = multi_normal_rng(log(thetaHat), Omega);
     //print(multi_normal_rng(log(thetaHat), Omega));
-    CLPred[j] = exp(logthetaPred[j, 1]) * exp(beta_Cl_logtWTKG * logtWTKG[j]) * exp(beta_Cl_tCLCRMLMIN * tCLCRMLMIN[j]);
+    CLPred[j] = exp(logthetaPred[j, 1] + beta_Cl_logtCLCRMLMIN * logtCLCRMLMIN[j]);
     QPred[j]  = exp(logthetaPred[j, 2]);
     V1Pred[j] = exp(logthetaPred[j, 3]);
     V2Pred[j] = exp(logthetaPred[j, 4]);
