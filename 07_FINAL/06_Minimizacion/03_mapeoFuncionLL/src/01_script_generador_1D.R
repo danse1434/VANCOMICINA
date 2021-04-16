@@ -40,7 +40,11 @@ pop_par <-
   magrittr::use_series(value)
 
 pop_vector <- pop_par * seq(0.5, 5.0, length.out = 100)
-# pop_vector <- pop_par * seq(0.2, 1.0, length.out = 100) # para corr_V2_V1
+
+if (par_eval == 'corr_V2_V1') {
+  pop_vector <- seq(-0.99999, 0.99999, length.out = 100) # para corr_V2_V1
+}
+
 
 #-------------------------------------------------------------------------------#
 # Preparación de carpetas
@@ -81,7 +85,7 @@ global_conf <- glue(
   "exploratoryinterval = 0\r\n",
   "smoothinginterval = 0\r\n\r\n",
   "LL:\r\n",
-  "fixedsimulations = 10000\r\n\r\n"
+  "fixedsimulations = 5000\r\n\r\n"
 )
 
 Z1 <- Z %>% 

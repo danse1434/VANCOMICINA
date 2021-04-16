@@ -23,18 +23,16 @@ CLCRMLMIN = {use=covariate, type=continuous}
 <MODEL>
 
 [COVARIATE]
-input = {CLCRMLMIN, WTKG}
+input = CLCRMLMIN
 
 EQUATION:
 logtCLCRMLMIN = log(CLCRMLMIN/144)
-logtWTKG = log(WTKG/62)
-tCLCRMLMIN = CLCRMLMIN/144
 
 [INDIVIDUAL]
-input = {Cl_pop, omega_Cl, Q_pop, omega_Q, V1_pop, omega_V1, V2_pop, omega_V2, corr_V2_V1, tCLCRMLMIN, beta_Cl_tCLCRMLMIN, logtWTKG, beta_Cl_logtWTKG}
+input = {Cl_pop, omega_Cl, Q_pop, omega_Q, V1_pop, omega_V1, V2_pop, omega_V2, corr_V2_V1, logtCLCRMLMIN, beta_Cl_logtCLCRMLMIN}
 
 DEFINITION:
-Cl = {distribution=logNormal, typical=Cl_pop, covariate={tCLCRMLMIN, logtWTKG}, coefficient={beta_Cl_tCLCRMLMIN, beta_Cl_logtWTKG}, sd=omega_Cl}
+Cl = {distribution=logNormal, typical=Cl_pop, covariate=logtCLCRMLMIN, coefficient=beta_Cl_logtCLCRMLMIN, sd=omega_Cl}
 Q = {distribution=logNormal, typical=Q_pop, sd=omega_Q}
 V1 = {distribution=logNormal, typical=V1_pop, sd=omega_V1}
 V2 = {distribution=logNormal, typical=V2_pop, sd=omega_V2}
@@ -54,15 +52,14 @@ data = {y1, y2}
 model = {y1, y2}
 
 <PARAMETER>
-Cl_pop = {value=5.679596718889655, method=MLE}
-Q_pop = {value=12.46840298616553, method=MLE}
-V1_pop = {value=40.61722759607822, method=MLE}
-V2_pop = {value=47.69465141845684, method=MLE}
+Cl_pop = {value=5.264649851496253, method=MLE}
+Q_pop = {value=6.034251762319929, method=MLE}
+V1_pop = {value=20.52918419463264, method=MLE}
+V2_pop = {value=22.33438659964571, method=MLE}
 a1 = {value=0.3028501260517049, method=MLE}
 a2 = {value=0.062920374660582, method=MLE}
-beta_Cl_logtWTKG = {value=0.7579030591042235, method=MLE}
-beta_Cl_tCLCRMLMIN = {value=0.6097062966188034, method=MLE}
-corr_V2_V1 = {value=0.207747894516015, method=MLE}
+beta_Cl_logtCLCRMLMIN = {value=0.624404687093985, method=MLE}
+corr_V2_V1 = {value=-0.9797881818181819, method=MLE}
 omega_Cl = {value=0.1830344897417816, method=MLE}
 omega_Q = {value=0.6785725115027965, method=MLE}
 omega_V1 = {value=0.2845935412057954, method=MLE}
@@ -90,6 +87,9 @@ smoothingiterations = 0
 exploratoryiterations = 0
 simulatedannealingiterations = 0
 
+LL:
+fixedsimulations = 5000
+
 [COMMENTS]
-; Modelo base refinado con inclusión de las siguientes covariables: (1) Cl-CrCl, exponencial, y (2) Cl-WT, potencial.
+; Modelo base refinado con inclusión de las siguientes covariables: (1) Cl-CrCl, exponencial.
 

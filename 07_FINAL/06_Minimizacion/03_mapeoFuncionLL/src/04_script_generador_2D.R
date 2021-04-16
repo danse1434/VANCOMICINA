@@ -28,8 +28,8 @@ parametrosPoblacionales <-
 
 #-------------------------------------------------------------------------------#
 # Selección de parámetros a evaluar
-par_eval1 = 'Cl_pop'
-par_eval2 = 'beta_Cl_tCLCRMLMIN'
+par_eval1 = 'corr_V2_V1'
+par_eval2 = 'V1_pop'
 
 #-------------------------------------------------------------------------------#
 # Cálculo de valor mínimo (50%) y valor máximo (150%) respecto al valor 
@@ -41,6 +41,20 @@ pop_par <-
 
 pop_vector_1 <- pop_par[1] * seq(0.5, 5.0, length.out = 30)
 pop_vector_2 <- pop_par[2] * seq(0.5, 5.0, length.out = 30)
+
+
+# Excepciones
+if (par_eval2 == 'V1_pop') {
+  pop_vector_2 <- 20.2 * seq(0.5, 5.0, length.out = 30) 
+}
+
+if (par_eval1 == 'corr_V2_V1') {
+  pop_vector_1 <- seq(-.999, +.999, length.out = 30)
+}
+
+if (par_eval2 == 'beta_Cl_logtCLCRMLMIN') {
+  pop_vector_2 <- seq(-.1, 2, length.out = 30)
+}
 
 # Malla expandida con valores de referencia para los parámetros
 pop_vec_df <- expand.grid(pop_vector_1, pop_vector_2)

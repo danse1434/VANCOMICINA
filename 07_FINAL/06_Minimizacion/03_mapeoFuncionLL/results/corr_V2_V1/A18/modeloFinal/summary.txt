@@ -1,32 +1,31 @@
 ********************************************************************************
-*                        modeloFinal.mlxtran                                   *
-*                        February 13, 2021 at 15:34:29                         *
-*                        Monolix version : 2020R1                              *
+*                          modeloFinal.mlxtran                                 *
+*                          April 14, 2021 at 23:02:50                          *
+*                          Monolix version : 2020R1                            *
 ********************************************************************************
 
 
 ESTIMATION OF THE POPULATION PARAMETERS ________________________________________
 
 Fixed Effects ----------------------------
-Cl_pop             :                  5.68
-beta_Cl_logtWTKG   :                 0.758
-beta_Cl_tCLCRMLMIN :                  0.61
-V1_pop             :                  40.6
-Q_pop              :                  12.5
-V2_pop             :                  47.7
+Cl_pop                :               5.26
+beta_Cl_logtCLCRMLMIN :              0.624
+V1_pop                :               20.5
+Q_pop                 :               6.03
+V2_pop                :               22.3
 
 Standard Deviation of the Random Effects -
-omega_Cl           :                 0.183
-omega_V1           :                 0.285
-omega_Q            :                 0.679
-omega_V2           :                 0.228
+omega_Cl              :              0.183
+omega_V1              :              0.285
+omega_Q               :              0.679
+omega_V2              :              0.228
 
 Correlations -----------------------------
-corr_V2_V1         :                 0.337
+corr_V2_V1            :             -0.657
 
 Error Model Parameters -------------------
-a1                 :                 0.303
-a2                 :                0.0629
+a1                    :              0.303
+a2                    :             0.0629
 
 Elapsed time (seconds) :       0
 
@@ -39,12 +38,12 @@ ESTIMATION OF THE INDIVIDUAL PARAMETERS ________________________________________
 
 Estimation of the individual parameters by Conditional Distribution ------------
            min        Q1    median        Q3       max
-Cl :      5.33      9.88      11.1      12.5      13.3
-V1 :      25.1      34.4      42.5      47.4      65.8
-Q  :      5.12      12.4      16.1      19.9        29
-V2 :      36.7      43.9      47.4      53.6      60.8
+Cl :      2.63      4.93      5.52       6.2      6.61
+V1 :      12.9      18.2      21.4      23.5      32.7
+Q  :      1.77      3.66       7.5        10      14.6
+V2 :      20.3      20.9      22.3      25.2      28.4
 
-Elapsed time (seconds) :     1.3
+Elapsed time (seconds) :     1.1
 
  -------------------------------------------------------------------------------
 
@@ -56,16 +55,16 @@ Elapsed time (seconds) :     1.3
 ESTIMATION OF THE LOG-LIKELIHOOD _______________________________________________
 
                                                             (is)
--2 x log-likelihood                       (OFV) :         932.94
-Akaike Information Criteria               (AIC) :         958.94
-Corrected Bayesian Information Criteria  (BICc) :         982.96
-Bayesian Information Criteria             (BIC) :         967.25
+-2 x log-likelihood                       (OFV) :         943.83
+Akaike Information Criteria               (AIC) :         967.83
+Corrected Bayesian Information Criteria  (BICc) :         991.21
+Bayesian Information Criteria             (BIC) :         975.50
 
-Elapsed time                          (seconds) :           2.11
-CPU time                              (seconds) :           2.00
+Elapsed time                          (seconds) :           1.08
+CPU time                              (seconds) :           1.00
 
 
-[Importance Sampling] Standard error        : 0.123
+[Importance Sampling] Standard error        : 0.049
                       Sampling distribution : T-distribution with 5 degrees of freedom
 
  _______________________________________________________________________________

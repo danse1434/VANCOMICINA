@@ -1,37 +1,53 @@
 ********************************************************************************
-*                        modeloFinal.mlxtran                                   *
-*                        February 13, 2021 at 14:01:28                         *
-*                        Monolix version : 2020R1                              *
+*                          modeloFinal.mlxtran                                 *
+*                          April 14, 2021 at 22:29:56                          *
+*                          Monolix version : 2020R1                            *
 ********************************************************************************
 
 
 ESTIMATION OF THE POPULATION PARAMETERS ________________________________________
 
 Fixed Effects ----------------------------
-Cl_pop             :                  5.66
-beta_Cl_logtWTKG   :                 0.753
-beta_Cl_tCLCRMLMIN :                 0.611
-V1_pop             :                  40.9
-Q_pop              :                    12
-V2_pop             :                  47.2
+Cl_pop                :               5.26
+beta_Cl_logtCLCRMLMIN :               0.62
+V1_pop                :               20.2
+Q_pop                 :               6.24
+V2_pop                :               22.6
 
 Standard Deviation of the Random Effects -
-omega_Cl           :                 0.183
-omega_V1           :                 0.287
-omega_Q            :                 0.645
-omega_V2           :                 0.284
+omega_Cl              :              0.207
+omega_V1              :              0.287
+omega_Q               :              0.644
+omega_V2              :              0.262
 
 Correlations -----------------------------
-corr_V2_V1         :                 0.998
+corr_V2_V1            :              0.999
 
 Error Model Parameters -------------------
-a1                 :                 0.304
-a2                 :                0.0628
+a1                    :              0.304
+a2                    :             0.0628
 
-Elapsed time (seconds) :     3.6
+Elapsed time (seconds) :     6.6
 
  _______________________________________________________________________________
 
+
+
+ESTIMATION OF THE INDIVIDUAL PARAMETERS ________________________________________
+
+
+Estimation of the individual parameters by Conditional Mode --------------------
+           min        Q1    median        Q3       max
+Cl :      2.67      4.92      5.55      6.24      6.61
+V1 :        12      17.8      21.6      24.3      33.5
+Q  :       1.8      4.95      6.48      9.21        13
+V2 :        14      20.1      23.9      26.7      35.8
+
+Elapsed time (seconds) :    0.04
+
+ -------------------------------------------------------------------------------
+
+ _______________________________________________________________________________
 
 
 

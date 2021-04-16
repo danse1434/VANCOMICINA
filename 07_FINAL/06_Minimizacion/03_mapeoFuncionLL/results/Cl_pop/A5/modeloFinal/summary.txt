@@ -1,34 +1,33 @@
 ********************************************************************************
-*                        modeloFinal.mlxtran                                   *
-*                        February 13, 2021 at 14:57:37                         *
-*                        Monolix version : 2020R1                              *
+*                          modeloFinal.mlxtran                                 *
+*                          April 14, 2021 at 22:42:52                          *
+*                          Monolix version : 2020R1                            *
 ********************************************************************************
 
 
 ESTIMATION OF THE POPULATION PARAMETERS ________________________________________
 
 Fixed Effects ----------------------------
-Cl_pop             :                  3.86
-beta_Cl_logtWTKG   :                 0.758
-beta_Cl_tCLCRMLMIN :                  0.61
-V1_pop             :                  40.6
-Q_pop              :                  12.5
-V2_pop             :                  47.7
+Cl_pop                :               3.59
+beta_Cl_logtCLCRMLMIN :              0.624
+V1_pop                :               20.5
+Q_pop                 :               6.03
+V2_pop                :               22.3
 
 Standard Deviation of the Random Effects -
-omega_Cl           :                 0.183
-omega_V1           :                 0.285
-omega_Q            :                 0.679
-omega_V2           :                 0.228
+omega_Cl              :              0.183
+omega_V1              :              0.285
+omega_Q               :              0.679
+omega_V2              :              0.228
 
 Correlations -----------------------------
-corr_V2_V1         :                 0.999
+corr_V2_V1            :              0.999
 
 Error Model Parameters -------------------
-a1                 :                 0.303
-a2                 :                0.0629
+a1                    :              0.303
+a2                    :             0.0629
 
-Elapsed time (seconds) :       0
+Elapsed time (seconds) :   0.016
 
  _______________________________________________________________________________
 
@@ -39,12 +38,12 @@ ESTIMATION OF THE INDIVIDUAL PARAMETERS ________________________________________
 
 Estimation of the individual parameters by Conditional Distribution ------------
            min        Q1    median        Q3       max
-Cl :      5.27      9.75      11.1      12.4      13.2
-V1 :      25.5      35.7      43.6      46.6      59.1
-Q  :      3.63      11.2      13.2      18.2      36.4
-V2 :      32.8      42.9      50.4      53.1      64.3
+Cl :      2.64      4.86      5.53       6.2      6.54
+V1 :      12.4      17.8      20.4      23.5      30.3
+Q  :      2.65      6.66      7.61       9.5      17.1
+V2 :      14.9      19.9      22.2      24.9      30.5
 
-Elapsed time (seconds) :     1.7
+Elapsed time (seconds) :     2.1
 
  -------------------------------------------------------------------------------
 
@@ -56,16 +55,16 @@ Elapsed time (seconds) :     1.7
 ESTIMATION OF THE LOG-LIKELIHOOD _______________________________________________
 
                                                             (is)
--2 x log-likelihood                       (OFV) :         993.71
-Akaike Information Criteria               (AIC) :        1019.71
-Corrected Bayesian Information Criteria  (BICc) :        1043.72
-Bayesian Information Criteria             (BIC) :        1028.01
+-2 x log-likelihood                       (OFV) :         995.74
+Akaike Information Criteria               (AIC) :        1019.74
+Corrected Bayesian Information Criteria  (BICc) :        1043.12
+Bayesian Information Criteria             (BIC) :        1027.41
 
-Elapsed time                          (seconds) :           1.70
+Elapsed time                          (seconds) :           1.13
 CPU time                              (seconds) :           1.00
 
 
-[Importance Sampling] Standard error        : 0.234
+[Importance Sampling] Standard error        : 1.210
                       Sampling distribution : T-distribution with 5 degrees of freedom
 
  _______________________________________________________________________________

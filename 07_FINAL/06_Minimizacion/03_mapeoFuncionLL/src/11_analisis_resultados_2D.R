@@ -43,10 +43,10 @@ popParam <- populationParameters %>%
 #-------------------------------------------------------------------------------#
 # 1. Lectura de archivos de verosimilitud ------------------------------------
 #-------------------------------------------------------------------------------#
-df_Cl_pop_beta_Cl_tCLCRMLMIN <-
-  extractor('Cl_pop_beta_Cl_tCLCRMLMIN', n = 900)
-df_beta_Cl_logtWTKG_beta_Cl_tCLCRMLMIN <-
-  extractor('beta_Cl_logtWTKG_beta_Cl_tCLCRMLMIN', n = 900)
+df_Cl_pop_beta_Cl_logtCLCRMLMIN <-
+  extractor('Cl_pop_beta_Cl_logtCLCRMLMIN', n = 900)
+df_corr_V2_V1_V1_pop <-
+  extractor('corr_V2_V1_V1_pop', n = 900)
 
 # df_Clpop_V1pop       <- extractor('Cl_pop_V1_pop', n=900)
 # df_V1_pop_V2_pop     <- extractor('V1_pop_V2_pop', n=900)
@@ -65,14 +65,14 @@ theme_set(theme_classic() +
 grafico_2D_LS <- list()
 
 grafico_2D_LS[[1]] <- 
-  generarGrafico2D(df_Cl_pop_beta_Cl_tCLCRMLMIN, popParam, 
-                   'Cl_pop', 'beta_Cl_tCLCRMLMIN', 'LL1', 
+  generarGrafico2D(df_Cl_pop_beta_Cl_logtCLCRMLMIN, popParam, 
+                   'Cl_pop', 'beta_Cl_logtCLCRMLMIN', 'LL1', 
                  expression(CL~'(L/h)'), bquote(beta~'Cl-ClCr'), n_bins = 6)
 
 grafico_2D_LS[[2]] <- 
-generarGrafico2D(df_beta_Cl_logtWTKG_beta_Cl_tCLCRMLMIN, popParam, 
-                 'beta_Cl_logtWTKG', 'beta_Cl_tCLCRMLMIN', 'LL1', 
-                 bquote(beta~'Cl-logtWT'), bquote(beta~'Cl-tClCr'), n_bins = 6)
+generarGrafico2D(df_corr_V2_V1_V1_pop, popParam, 
+                 'corr_V2_V1', 'V1_pop', 'LL1', 
+                 bquote(rho~'V2-V1'), bquote(V[1]~'(L/h)'), n_bins = 6)
 
 # grafico_2D_LS[[3]] <- 
 # generarGrafico2D(df_Cl_pop_Q_pop, popParam, 'Cl_pop', 'Q_pop', 'LL1', 
@@ -103,16 +103,23 @@ ggsave(r_G_ll1, filename = 'figures/06_perfiles_LL_2D.pdf', device = 'pdf',
 plotly_2D_LS <- list()
 
 plotly_2D_LS[[1]] <- 
-  generarGrafico2D(df_Cl_pop_beta_Cl_tCLCRMLMIN, popParam, 
-                   'Cl_pop', 'beta_Cl_tCLCRMLMIN', 'LL1', 
+  generarGrafico2D(df_Cl_pop_beta_Cl_logtCLCRMLMIN, popParam, 
+                   'Cl_pop', 'beta_Cl_logtCLCRMLMIN', 'LL1', 
                    'CL (L/h)', 'beta Cl-tClCr', 
                    n_bins = 10, tipo = 'plotly')
 
 plotly_2D_LS[[2]] <- 
-  generarGrafico2D(df_beta_Cl_logtWTKG_beta_Cl_tCLCRMLMIN, popParam, 
-                   'beta_Cl_logtWTKG', 'beta_Cl_tCLCRMLMIN', 'LL1', 
-                   'beta Cl-logtWT', 'beta Cl-tClCr', 
-                   n_bins = 10, tipo = 'plotly')
+  generarGrafico2D(
+    df_corr_V2_V1_V1_pop,
+    popParam,
+    'corr_V2_V1',
+    'V1_pop',
+    'LL1',
+    TeX('\\rho_{\\mathrm{V_1}\\text{-}\\mathrm{V_2}}'),
+    TeX('\\mathrm{V_1}~(\\mathrm{L/h})'),
+    n_bins = 10,
+    tipo = 'plotly'
+  )
 
 # plotly_2D_LS[[3]] <- 
 #   generarGrafico2D(df_Cl_pop_Q_pop, popParam, 'Cl_pop', 'Q_pop', 'LL1', 
