@@ -1,34 +1,33 @@
 ********************************************************************************
-*                        FINAL.mlxtran                                         *
-*                        February 26, 2021 at 17:33:08                         *
-*                        Monolix version : 2020R1                              *
+*                          FINAL.mlxtran                                       *
+*                          April 17, 2021 at 13:14:30                          *
+*                          Monolix version : 2020R1                            *
 ********************************************************************************
 
 
 ESTIMATION OF THE POPULATION PARAMETERS ________________________________________
 
 Fixed Effects ----------------------------
-Cl_pop             :                  4.94
-beta_Cl_logtWTKG   :                  1.66
-beta_Cl_tCLCRMLMIN :                 0.783
-V1_pop             :                  35.3
-Q_pop              :                  12.8
-V2_pop             :                  48.1
+Cl_pop                :               5.16
+beta_Cl_logtCLCRMLMIN :              0.854
+V1_pop                :               20.3
+Q_pop                 :               7.98
+V2_pop                :               23.9
 
 Standard Deviation of the Random Effects -
-omega_Cl           :                0.0371
-omega_V1           :                 0.457
-omega_Q            :                 0.562
-omega_V2           :                  0.65
+omega_Cl              :              0.194
+omega_V1              :               0.35
+omega_Q               :              0.425
+omega_V2              :              0.335
 
 Correlations -----------------------------
-corr_V2_V1         :                 0.999
+corr_V2_V1            :              0.998
 
 Error Model Parameters -------------------
-a1                 :                 0.294
-a2                 :                0.0621
+a1                    :              0.344
+a2                    :             0.0583
 
-Elapsed time (seconds) :     5.5
+Elapsed time (seconds) :     4.9
 
  _______________________________________________________________________________
 
@@ -37,7 +36,7 @@ Elapsed time (seconds) :     5.5
 
 DATASET INFORMATION
 Number of individuals: 14
-Number of observations (obsid 1): 98
-Number of observations (obsid 2): 98
+Number of observations (obsid 1): 94
+Number of observations (obsid 2): 94
 Number of doses: 84
 

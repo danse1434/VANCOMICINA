@@ -1,34 +1,33 @@
 ********************************************************************************
-*                        FINAL.mlxtran                                         *
-*                        February 26, 2021 at 15:42:20                         *
-*                        Monolix version : 2020R1                              *
+*                          FINAL.mlxtran                                       *
+*                          April 17, 2021 at 12:25:19                          *
+*                          Monolix version : 2020R1                            *
 ********************************************************************************
 
 
 ESTIMATION OF THE POPULATION PARAMETERS ________________________________________
 
 Fixed Effects ----------------------------
-Cl_pop             :                  4.76
-beta_Cl_logtWTKG   :                  1.09
-beta_Cl_tCLCRMLMIN :                 0.862
-V1_pop             :                  45.9
-Q_pop              :                  13.7
-V2_pop             :                  52.8
+Cl_pop                :               5.44
+beta_Cl_logtCLCRMLMIN :              0.525
+V1_pop                :               22.9
+Q_pop                 :               7.06
+V2_pop                :               25.1
 
 Standard Deviation of the Random Effects -
-omega_Cl           :                 0.167
-omega_V1           :                0.0753
-omega_Q            :                 0.609
-omega_V2           :                0.0491
+omega_Cl              :              0.194
+omega_V1              :             0.0586
+omega_Q               :              0.603
+omega_V2              :             0.0557
 
 Correlations -----------------------------
-corr_V2_V1         :                 0.999
+corr_V2_V1            :              0.997
 
 Error Model Parameters -------------------
-a1                 :                 0.262
-a2                 :                0.0725
+a1                    :              0.262
+a2                    :             0.0729
 
-Elapsed time (seconds) :      41
+Elapsed time (seconds) :     4.9
 
  _______________________________________________________________________________
 

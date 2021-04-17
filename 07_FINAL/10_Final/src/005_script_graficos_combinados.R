@@ -59,7 +59,7 @@ G_PRED_OBS_PRED <-
   GOF_PRED(y_gof, popPred, y, YTYPE, 
            xlab = 'PRED', ylab = 'OBS', xlim = c(0, 60), ylim = c(0, 60), 
            legend = c(0.16, 0.82)) +
-  predictivePerformaceLabel(y_gof, 'popPred', 'y', 1.1)
+  predictivePerformaceLabel(y_gof, 'popPred', 'y', .95)
 
 
 G_PRED_OBS_IPRED <- 

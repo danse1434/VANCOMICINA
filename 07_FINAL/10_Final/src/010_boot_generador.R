@@ -70,9 +70,22 @@ A = readChar(fileName, file.info(fileName)$size)
 # Modificación de efectos aleatorios para mejorar la estimación SAEM
 # Con esto se modifican los valores iniciales se dejan en 1.00 y esto permite una 
 # mejor búsqueda en el espacio muestral. 
+tasks <- paste(
+  "\r\npopulationParameters()",
+  "plotResult(method = {saemresults})",
+  "individualParameters(run = false,method = none )",
+  "fim(run = false,method = StochasticApproximation)",
+  "logLikelihood(run = false,method = ImportanceSampling)",
+  "plotResult(run = false, method = none)",
+  "\r\n",
+  sep = '\r\n'
+)
 
-A1 <-
-  A %>%
+settings <- paste('GLOBAL\\:',
+                  "exportpath = 'FINAL'",
+                  "nbchains = 50", sep = '\r\n') 
+
+A1 <- A %>%
   str_replace('(?<=ANTU)\\}', ', new_ID}') %>%
   str_replace('ID(?=\\s\\=\\s)', 'new_ID') %>%
   str_replace_all('(?<=a1\\s\\=\\s\\{value\\=)\\d\\.\\d+(?=\\,)', '1.0') %>%
@@ -82,13 +95,14 @@ A1 <-
   str_replace_all("(?<=file\\s\\=\\s)\\'(?=model\\/model\\.txt\\')",
                   "'../../../") %>%
   str_replace_all('data\\/', '') %>%
-  # str_replace_all("(?<=file\\=)\\'(?=data\\_TAD)", "'../../../") %>%
-  str_replace("exportpath = 'M2CPTM_nobs_2_aditv_corr2'",
-              "exportpath = 'FINAL'") %>%
   # Selección de tarea a ejecutar en archivo de control
   str_replace(
     regex("(?<=\\[TASKS\\]).+(?=\\[SETTINGS\\])", dotall = TRUE),
-    '\r\npopulationParameters()\r\nplotResult(method = {saemresults})\r\n\r\n'
+    tasks
+  ) %>% 
+  str_replace(
+    regex("(?<=\\[SETTINGS\\]).+(?=\\[COMMENTS\\])", dotall = TRUE),
+    settings
   )
 
 for (i in 1:1000) {
