@@ -38,7 +38,7 @@ dfCorr_2
 #-------------------------------------------------------------------------------#
 # 1.1. Crear gráficos 
 
-label_vec <- c('Cl', bquote(beta~'(Cl-logtWT)'), bquote(beta~'(Cl-tClCr)'),
+label_vec <- c('Cl', bquote(beta~'log(Cl-tClCr)'),
                bquote('V'[1]), 'Q', bquote('V'[2]), 
                bquote(omega['Cl']^2), bquote(omega['V'[1]]^2), bquote('corr-V'[2]~V[1]),
                bquote(omega['Q']^2), bquote(omega['V'[2]]^2), 
@@ -102,8 +102,7 @@ dfPrec_3 <- as.matrix(fit) %>%
   as_tibble() %>%
   select(parameters) %>% 
   relocate(`rho[4,3]`, .after = `omega[4]`) %>% 
-  relocate(beta_Cl_logtWTKG, .after = 'CLHat') %>% 
-  relocate(beta_Cl_tCLCRMLMIN, .after = 'beta_Cl_logtWTKG') %>% 
+  relocate(beta_Cl_logtCLCRMLMIN, .after = 'CLHat') %>% 
   relocate(QHat, .after = 'V1Hat') %>% 
   relocate(`omega[2]`, .after = `omega[3]`)
 
@@ -119,6 +118,8 @@ dfPrec_4 <- dfPrec_3 %>%
 
 # Creación de un gráfico con medidas unificadas para ambos algoritmos
 
+
+
 df_Prec_plot <- dfPrec_2 %>% 
   bind_rows(dfPrec_4) %>% 
   mutate(parameter = factor(parameter)) %>% 
@@ -128,7 +129,7 @@ df_Prec_plot <- dfPrec_2 %>%
   geom_bar(stat = 'identity', position = 'dodge', colour='black') +
   xlab('RSE (%)') + 
   theme_bw() +
-  scale_y_discrete(labels = rev(label_vec[c(2, 3 , 11, 8, 10, 5, 1, 7, 13, 6, 4, 12, 9)])) +
+  scale_y_discrete(labels = rev(label_vec[c(2,10,7,9,4,6,12,3,5,11,1,8)])) +
   scale_fill_manual(name='Algoritmo', values = c('red2', 'blue2')) +
   geom_text(
     aes(

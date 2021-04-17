@@ -59,6 +59,7 @@ Z1 <-
     '\r\npopulationParameters()\r\n'
   ) %>%
   # Cambio de configuración del algoritmo SAEM
+  str_replace('ANTU(?=\\})', "ANTU, OLD_ID") %>% 
   str_replace('(?<=burniniterations\\s\\=\\s)\\d{1,6}', "50") %>%
   str_replace('(?<=smoothingiterations\\s\\=\\s)\\d{1,6}', "2000") %>%
   str_replace('(?<=exploratoryiterations\\s\\=\\s)\\d{1,6}', "2000") %>%

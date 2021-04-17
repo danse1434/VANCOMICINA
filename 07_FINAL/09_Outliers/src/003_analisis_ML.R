@@ -26,7 +26,7 @@ source(file.path('src', '010_fun_analisis.R'), encoding = 'UTF-8')
 
 # Órden de parámetros
 par_lev = c('Cl_pop', 'Q_pop', 'V1_pop', 'V2_pop',
-            'beta_Cl_logtWTKG', 'beta_Cl_tCLCRMLMIN',
+            'beta_Cl_logtCLCRMLMIN',
             'omega_Cl', 'omega_Q', 'omega_V1', 'omega_V2', 
             'corr_V2_V1', 'a1', 'a2')
 
@@ -178,8 +178,9 @@ dist <- apply(pca2, 2, function(x)
 # 
 # Es una generalización multidimensional de la idea de medir cuantas desvest 
 # esta lejos de la media de P. 
+U <- svds(pca2, 5)
 
-dist2 <- bigutilsr::dist_ogk(pca2, niter = 20)
+dist2 <- bigutilsr::dist_ogk(U$u, niter = 20)
 qplot(dist, sqrt(dist2))
 
 pval <- pchisq(dist2, df = 9, lower.tail = FALSE)
@@ -225,7 +226,7 @@ ggsave("4_LOF_identification.pdf", gPCA_LOF, 'pdf', 'figures', 1, 5, 4)
 # 4. Gráficos finales PCA ----------------------------------------------------
 #-------------------------------------------------------------------------------#
 # Gráficos con PCA para cada par (PC1,PC2)-(PC2,PC3)-(PC1,PC3)
-# 
+# 3
 coords <- list(coord_cartesian(xlim = c(-7.0, 7.0), ylim = c(-7.0, 7.0)))
 
 gm1 <- pcout(pca2, PC1, PC2)$graph +
@@ -242,7 +243,7 @@ gm1 <- pcout(pca2, PC1, PC2)$graph +
       filter(is.out == TRUE),
     mapping = aes(label = ID),
     nudge_x = 0.5
-  ) + xlab('PC1 (37.9%)') + ylab('PC2 (22.3%)')
+  ) + xlab('PC1 (34.6%)') + ylab('PC2 (22.6%)')
 
 gm2 <- pcout(pca2, PC1, PC3)$graph +
   elipsogk(pca2, c(1, 3), 0.10) +
@@ -258,7 +259,7 @@ gm2 <- pcout(pca2, PC1, PC3)$graph +
       filter(is.out == TRUE),
     mapping = aes(label = ID),
     nudge_x = 0.5
-  ) + xlab('PC1 (37.9%)') + ylab('PC3 (13.3%)')
+  ) + xlab('PC1 (34.6%)') + ylab('PC3 (14.5%)')
 
 gm3 <- pcout(pca2, PC2, PC3)$graph +
   elipsogk(pca2, c(2, 3), 0.10) +
@@ -274,7 +275,7 @@ gm3 <- pcout(pca2, PC2, PC3)$graph +
       filter(is.out == TRUE),
     mapping = aes(label = ID),
     nudge_x = 0.5
-  ) + xlab('PC2 (22.3%)') + ylab('PC3 (13.3%)')
+  ) + xlab('PC2 (22.6%)') + ylab('PC3 (14.5%)')
 
 #-------------------------------------------------------------------------------#
 # Gráfico 3D --------------------------------------------------------------
@@ -340,8 +341,7 @@ fig <- as_tibble(pca2) %>%
           hovertemplate = ~ glue(
             'PC: ({round(PC1,2)}, {round(PC2,2)}, {round(PC3,2)}) <br><br>',
             'Cl: {round(Cl_pop, 2)} L/h <br>',
-            'theta2: {round(beta_Cl_logtWTKG, 2)} <br>',
-            'theta3: {round(beta_Cl_tCLCRMLMIN, 2)} <br>',
+            'theta2: {round(beta_Cl_logtCLCRMLMIN, 2)} <br>',
             'Q: {round(Q_pop, 2)} L/h <br>',
             'V1: {round(V1_pop, 2)} L <br>',
             'V2: {round(V2_pop, 2)} L <br>',
