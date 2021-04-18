@@ -23,7 +23,7 @@ rdir <- file.path('model', 'reference_model.mlxtran')
 p_DF <- read_csv(file.path('model', 'FINAL', 'populationParameters.txt'))
 p <- setNames(p_DF$value, p_DF$parameter)
 p['CLCRMLMIN'] = 120
-p['WTKG'] = 62
+# p['WTKG'] = 62
 
 #-------------------------------------------------------------------------------#
 # 1. Determinación de N.Dosis para Estado Estacionario -------------------
@@ -33,7 +33,7 @@ adm <- list(tfd=0, ii=12, amount=1000, tinf = 2)
 nDosis <- 1:20
 nDosis_ls <- vector(mode = 'list', length = length(nDosis))
 N = 5e2
-# 
+#  
 for (i in 1:length(nDosis)) {
   out <- list(name = 'Cc', time = "steady.state", ngc = nDosis[i])
   res <- exposure(model = rdir, output = out, 
