@@ -1,0 +1,53 @@
+<DATAFILE>
+
+[FILEINFO]
+file='../../../../results/data_TAD.csv'
+delimiter = comma
+header = {ID, DV, TAD, YTYPE, EVID, MDV, AMT, TINF, ADDL, II, SS, AGEA, SEXF, WTKG, HCM, SCRMGDL, ALBGDL, PROGDL, CLCRMLMIN, RAL, RAN, ANTU}
+
+[CONTENT]
+ID = {use=identifier}
+DV = {use=observation, name={y1, y2}, yname={'1', '2'}, type={continuous, continuous}}
+TAD = {use=time}
+YTYPE = {use=observationtype}
+EVID = {use=eventidentifier}
+MDV = {use=missingdependentvariable}
+AMT = {use=amount}
+TINF = {use=infusiontime}
+ADDL = {use=additionaldose}
+II = {use=interdoseinterval}
+SS = {use=steadystate, nbdoses=5}
+AGEA = {use=covariate, type=continuous}
+SEXF = {use=covariate, type=categorical}
+WTKG = {use=covariate, type=continuous}
+HCM = {use=covariate, type=continuous}
+SCRMGDL = {use=covariate, type=continuous}
+ALBGDL = {use=covariate, type=continuous}
+PROGDL = {use=covariate, type=continuous}
+CLCRMLMIN = {use=covariate, type=continuous}
+RAL = {use=covariate, type=continuous}
+RAN = {use=covariate, type=continuous}
+ANTU = {use=covariate, type=categorical}
+
+[SETTINGS]
+dataType = {'1'=plasma, '2'=plasma}
+
+<MODEL>
+
+[LONGITUDINAL]
+file = 'lib:infusion_2cpt_ClV1QV2.txt'
+
+<PKANALIX>
+
+[SETTINGS]
+GLOBAL:
+obsIdToUse = '1' 
+
+NCA:
+administrationType = {1 = intravenous}
+startTimeNotBefore = {use=no, value=0}
+partialAUCTime = {use=yes, value={{0,24}}}
+
+CA:
+initialValues = {Cl=4, Q=4, V1=24, V2=24}
+
