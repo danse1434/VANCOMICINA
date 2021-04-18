@@ -210,8 +210,8 @@ res <- simulx(model     = file.path(mdir),
 # 4. Gráficos y almacenamiento  -----------------------------------
 #-------------------------------------------------------------------------------#
 # Almacenar perfiles
-res$y %>% 
-  mutate(y = round(y, 2)) %>% 
+res$Cc %>% 
+  mutate(Cc = round(Cc, 2)) %>% 
   write_csv(., file.path(wdir, 'simulated_OBS.csv'))
 
 

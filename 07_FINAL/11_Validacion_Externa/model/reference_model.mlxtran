@@ -1,15 +1,14 @@
 [COVARIATE]
-input = {CLCRMLMIN, WTKG}
+input = {CLCRMLMIN}
 
 EQUATION:
-logtWTKG = log(WTKG/62)
-tCLCRMLMIN = CLCRMLMIN/144
+logtCLCRMLMIN = log(CLCRMLMIN/144)
 
 [INDIVIDUAL]
-input = {Cl_pop, omega_Cl, Q_pop, omega_Q, V1_pop, omega_V1, V2_pop, omega_V2, corr_V2_V1, tCLCRMLMIN, beta_Cl_tCLCRMLMIN, logtWTKG, beta_Cl_logtWTKG}
+input = {Cl_pop, omega_Cl, Q_pop, omega_Q, V1_pop, omega_V1, V2_pop, omega_V2, corr_V2_V1, logtCLCRMLMIN, beta_Cl_logtCLCRMLMIN}
 
 DEFINITION:
-Cl = {distribution=logNormal, typical=Cl_pop, covariate={tCLCRMLMIN, logtWTKG}, coefficient={beta_Cl_tCLCRMLMIN, beta_Cl_logtWTKG}, sd=omega_Cl}
+Cl = {distribution=logNormal, typical=Cl_pop, covariate={logtCLCRMLMIN}, coefficient={beta_Cl_logtCLCRMLMIN}, sd=omega_Cl}
 Q = {distribution=logNormal, typical=Q_pop, sd=omega_Q}
 V1 = {distribution=logNormal, typical=V1_pop, sd=omega_V1}
 V2 = {distribution=logNormal, typical=V2_pop, sd=omega_V2}

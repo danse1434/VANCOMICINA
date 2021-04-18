@@ -33,7 +33,7 @@ param  <- list(time = seq(0, 8 * 6, by = 8), amount = 1800/3, tinf = 1)
 # Desenlace
 Cc  <- list(name = 'Cc', time = c(2, 10, 12, 14, 25))
 y1  <- list(name = 'y1', time = c(2, 10, 12, 14, 25))
-ind <- list(name = c('CLCRMLMIN', 'WTKG'))
+ind <- list(name = c('CLCRMLMIN'))
 # Simulación de parámetros poblacionales desde FIM
 dP <- mlxR::simpopmlx(n = nPob, project = mdir)
 
@@ -44,7 +44,7 @@ dP <- mlxR::simpopmlx(n = nPob, project = mdir)
 # 
 covTab <- read_csv(file.path(wdir, 'parameters.csv')) %>% 
   separarGruposRes(nIndiv) %>% 
-  select(pop = poblacion, CLCRMLMIN = CrCl, WTKG = TBW)
+  select(pop = poblacion, CLCRMLMIN = CrCl)
 
 dP_DF <- tibble(dP) %>% 
   right_join(covTab, by = 'pop')

@@ -40,11 +40,7 @@ dP <- mlxR::simpopmlx(n = nPob, project = mdir)
 
 covTab <- read_csv(file.path(wdir, 'parameters.csv')) %>% 
   separarGruposRes(nIndiv) %>% 
-  select(pop = poblacion, CLCRMLMIN = ClCr) %>% 
-  add_column(
-    WTKG = paramMoments(86, 19.42^2) %>%
-      {rlnorm(nPob * nIndiv, .$mu, .$sigma2)}
-  )
+  select(pop = poblacion, CLCRMLMIN = ClCr)
 
 dP_DF <- tibble(dP) %>% 
   right_join(covTab, by = 'pop')
@@ -99,9 +95,9 @@ total_data <- test_data %>%
   group_by(poblacion) %>% 
   nest() %>% 
   mutate(
-    MAE  = map_dbl(data, ~MAE(.x$ytest, .x$y)),
-    RMSE = map_dbl(data, ~RMSE(.x$ytest, .x$y)),
-    MAPE = map_dbl(data, ~MAPE(.x$ytest, .x$y))
+    MAE  = map_dbl(data, ~MAE( .x$ytest, .x$Cc)),
+    RMSE = map_dbl(data, ~RMSE(.x$ytest, .x$Cc)),
+    MAPE = map_dbl(data, ~MAPE(.x$ytest, .x$Cc))
   ) %>% 
   select(-data)
 

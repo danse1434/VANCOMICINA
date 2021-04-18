@@ -32,7 +32,7 @@ param <- list(time = seq(0, 8 * 6, by = 8), amount = 1800/3, tinf = 1)
 # Desenlace
 Cc  <- list(name = 'Cc', time = c(2, 10, 12, 14, 25))
 y1  <- list(name = 'y1', time = c(2, 10, 12, 14, 25))
-ind <- list(name = c('CLCRMLMIN', 'WTKG'))
+ind <- list(name = c('CLCRMLMIN'))
 # Simulación de parámetros poblacionales desde FIM
 dP <- mlxR::simpopmlx(n = nPob, project = mdir)
 
@@ -43,7 +43,7 @@ TBW_ls <- c(56, 55, 72.5, 65, 76.5, 55, 84.5, 56.5, 67, 58)
 # Generación de tabla con simulaciones de 
 dP_DF <- dP %>%
   add_column(covariates = list(data.frame(
-    CLCRMLMIN = as.numeric(ClCr_ls), WTKG = TBW_ls
+    CLCRMLMIN = as.numeric(ClCr_ls)
   ))) %>%
   tibble() %>%
   unnest(covariates)

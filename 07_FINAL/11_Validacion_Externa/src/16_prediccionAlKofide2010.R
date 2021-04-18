@@ -33,7 +33,7 @@ param <- list(time = seq(0, 8 * 6, by = 8), amount = 1800/3, tinf = 1)
 # Desenlace
 Cc  <- list(name = 'Cc', time = c(2, 10, 12, 14, 25))
 y1  <- list(name = 'y1', time = c(2, 10, 12, 14, 25))
-ind <- list(name = c('CLCRMLMIN', 'WTKG'))
+ind <- list(name = c('CLCRMLMIN'))
 # Simulación de parámetros poblacionales desde FIM
 dP <- mlxR::simpopmlx(n = nPob, project = mdir)
 
@@ -45,9 +45,9 @@ dP <- mlxR::simpopmlx(n = nPob, project = mdir)
 covSim <- tibble(pop = 1:50) %>%
   mutate(parameter = list(data.frame(
     CLCRMLMIN = paramMoments(105.4, 62.3^2) %>% 
-    {rlnorm(nIndiv, .$mu, sqrt(.$sigma2))},
-    WTKG = paramMoments(66.8, 17.1^2) %>% 
-    {rlnorm(nIndiv, .$mu, sqrt(.$sigma2))}
+    {rlnorm(nIndiv, .$mu, sqrt(.$sigma2))}#,
+    # WTKG = paramMoments(66.8, 17.1^2) %>% 
+    # {rlnorm(nIndiv, .$mu, sqrt(.$sigma2))}
   ))) %>% 
   unnest(parameter)
   
