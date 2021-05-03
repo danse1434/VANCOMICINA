@@ -41,7 +41,7 @@ sourceCpp(file.path('src', '013_funciones_analisis_boot.cpp'))
 # Se abre el archivo con los parámetros calculados con los datos originales, 
 # esto corresponde a t0 en cada parámetro.
 
-vectorParametros <- c('Cl_pop', 'beta_Cl_logtWTKG', 'beta_Cl_tCLCRMLMIN',
+vectorParametros <- c('Cl_pop', 'beta_Cl_logtCLCRMLMIN',
                       'V1_pop', 'V2_pop', 'Q_pop',
                       'omega_V1', 'omega_V2', 'omega_Cl', 'omega_Q',
                       'corr_V2_V1',

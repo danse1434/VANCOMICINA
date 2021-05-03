@@ -1,0 +1,80 @@
+
+<MODEL>
+
+[COVARIATE]
+input = CLCRMLMIN
+
+EQUATION:
+logtCLCRMLMIN = log(CLCRMLMIN/144)
+
+[INDIVIDUAL]
+input = {Cl_pop, omega_Cl, Q_pop, omega_Q, V1_pop, omega_V1, V2_pop, omega_V2, corr_V2_V1, logtCLCRMLMIN, beta_Cl_logtCLCRMLMIN}
+
+DEFINITION:
+Cl = {distribution=logNormal, typical=Cl_pop, covariate=logtCLCRMLMIN, coefficient=beta_Cl_logtCLCRMLMIN, sd=omega_Cl}
+Q = {distribution=logNormal, typical=Q_pop, sd=omega_Q}
+V1 = {distribution=logNormal, typical=V1_pop, sd=omega_V1}
+V2 = {distribution=logNormal, typical=V2_pop, sd=omega_V2}
+correlation = {level=id, r(V2, V1)=corr_V2_V1}
+
+[LONGITUDINAL]
+input = {a1, a2}
+
+file = 'FINAL_simulxModel/ModelFile/model.txt'
+
+DEFINITION:
+y1 = {distribution=logNormal, prediction=Cc_1, errorModel=constant(a1)}
+y2 = {distribution=logNormal, prediction=Cc_2, errorModel=constant(a2)}
+
+<SIMULX>
+
+[SETTINGS]
+GLOBAL:
+exportpath='FINAL_simulxModel'
+
+[DEFINITION]
+OCCASION:
+file='FINAL_simulxModel/ExternalFiles/mlx_subjects.txt'
+
+POPULATION:
+parameters={Cl_pop, beta_Cl_logtCLCRMLMIN, V1_pop, Q_pop, V2_pop, corr_V2_V1, omega_Cl, omega_Q, omega_V1, omega_V2, a1, a2}
+'mlx_Pop' = {{{values={5.250523682795905, 0.6200565620578807, 20.7458360428374, 5.752530136364668, 25.12211087180515, 0.9989229426643357, 0.2071323088125522, 0.6556344787077562, 0.2500085739440593, 0.316468569213356, 0.30291152763084, 0.0648412543141933}}}}
+
+OUTPUT:
+'mlx_y1' = {output=y1, file='FINAL_simulxModel/ExternalFiles/mlx_y1.txt'}
+'mlx_Cc_1' = {output=Cc_1, {{start=1, interval=0.0421686746987952, final=11.5}}}
+'mlx_y2' = {output=y2, file='FINAL_simulxModel/ExternalFiles/mlx_y2.txt'}
+'mlx_Cc_2' = {output=Cc_2, {{start=1, interval=0.0421686746987952, final=11.5}}}
+
+INDIVIDUAL:
+parameters={Cl, V1, Q, V2}
+'mlx_PopIndiv' = {{{values={5.250523682795905, 20.7458360428374, 5.752530136364668, 25.12211087180515}}}}
+'mlx_PopIndivCov' = {file='FINAL_simulxModel/ExternalFiles/mlx_PopIndivCov.txt'}
+'mlx_CondMean' = {file='FINAL_simulxModel/ExternalFiles/mlx_CondMean.txt'}
+'mlx_EBEs' = {file='FINAL_simulxModel/ExternalFiles/mlx_EBEs.txt'}
+'mlx_CondDistSample' = {file='FINAL_simulxModel/ExternalFiles/mlx_CondDistSample.txt'}
+
+COVARIATE:
+continuousCovariates={CLCRMLMIN}
+'mlx_Cov' = {file='FINAL_simulxModel/ExternalFiles/mlx_Cov.txt'}
+'mlx_CovDist' = {{distribution=normal, typical=143.9142857142857, sd=34.36323744806487}}
+
+TREATMENT:
+'mlx_Adm1' = {file='FINAL_simulxModel/ExternalFiles/mlx_Adm1.txt', adm=1}
+
+[SIMULATION]
+GROUPS:
+'simulationGroup1'={size=14, parameter='mlx_Pop', remaining={a1=1, a2=1}, covariate='mlx_Cov', outputs={'mlx_y1', 'mlx_y2'}, treatment={'mlx_Adm1'}}
+sharedIds={covariate, output, treatment}
+
+[EXPLORATION]
+GROUPS:
+'explorationGroup1'={remaining={a1=1, a2=1}, parameter='mlx_PopIndiv', outputs={'mlx_Cc_1', 'mlx_Cc_2'}, treatment={'mlx_Adm1'}}
+
+[TASKS]
+simulation()
+endpoint(run=false)
+
+[COMMENTS]
+; Modelo base refinado con inclusión de las siguientes covariables: (1) Cl-CrCl, exponencial.
+

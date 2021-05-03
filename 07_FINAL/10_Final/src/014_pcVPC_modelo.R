@@ -28,7 +28,7 @@ require(data.table)
 #-------------------------------------------------------------------------------#
 auxdir <- file.path('.', 'FINAL')
 project.file <- file.path('FINAL.mlxtran')
-simulx.file <- file.path('FINAL_simulxModel.txt')
+simulx.file <- file.path('FINAL_simulx.txt')
 paramet.file <- file.path('FINAL')
 dir.create(file.path(auxdir, 'figures'))
 dir.create(file.path(auxdir, 'figures', 'RDS'))

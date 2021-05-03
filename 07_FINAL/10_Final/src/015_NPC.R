@@ -25,7 +25,7 @@ require(patchwork)
 #-------------------------------------------------------------------------------#
 # 
 project.file <- file.path('FINAL.mlxtran')
-simulx.file <- file.path('FINAL_simulxModel.txt')
+simulx.file <- file.path('FINAL_simulx.txt')
 paramet.file <- file.path('FINAL')
 # Remuestreo de pacientes iniciales
 
@@ -44,8 +44,6 @@ out2  <- list(name = 'y2', time = seq(0, 12, length.out = 1e3))
 data_list_1 <- vector(mode = "list", length = N)
 data_list_2 <- vector(mode = "list", length = N)
 
-covLev <- data_TAD$covariate %>%
-  mutate(across(c('id', 'WTKG', 'CLCRMLMIN'), ~ as.numeric(as.character(.x))))
 
 data_TAD <-
   file.path('data', 'data_TAD.csv') %>% 
@@ -53,6 +51,8 @@ data_TAD <-
                     header = c('id', 'y', 'time', 'ytype', 'evid', 'mdv',
                                'amt', 'tinf', 'addl', 'ii', 'ss', 
                                'contcov', 'catcov', rep('contcov', 8), 'catcov'), )
+covLev <- data_TAD$covariate %>%
+  mutate(across(c('id', 'CLCRMLMIN'), ~ as.numeric(as.character(.x))))
 
 # Realizar simulaciones desde el archivo
 
