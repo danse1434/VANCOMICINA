@@ -38,7 +38,7 @@ dfCorr_2
 #-------------------------------------------------------------------------------#
 # 1.1. Crear gráficos 
 
-label_vec <- c('Cl', bquote(beta~'log(Cl-tClCr)'),
+label_vec <- c('Cl', bquote(theta[1]~'log(Cl-tClCr)'),
                bquote('V'[1]), 'Q', bquote('V'[2]), 
                bquote(omega['Cl']^2), bquote(omega['V'[1]]^2), bquote('corr-V'[2]~V[1]),
                bquote(omega['Q']^2), bquote(omega['V'[2]]^2), 
@@ -147,4 +147,4 @@ df_Prec_plot <- dfPrec_2 %>%
 # Almacenamiento de gráfico
 (df_Prec_plot + df_Corr_plot + plot_annotation(tag_levels = 'A')) %>% 
   ggsave(file.path('figures', '03_Correlacion_Base_2.pdf'), 
-         ., 'pdf', width = 10, height = 5)
+         ., 'pdf', width = 12, height = 5)
