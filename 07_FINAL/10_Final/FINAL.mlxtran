@@ -76,7 +76,7 @@ plotResult(method = {indfits, parameterdistribution, covariancemodeldiagnosis, c
 
 [SETTINGS]
 GLOBAL:
-exportpath = 'modeloFinal'
+exportpath = 'FINAL'
 nbchains = 50
 nbsimulations = 1000
 grid = 1000
