@@ -207,14 +207,26 @@ G_PRED <- pred_df %>%
 
 ggsave('005_predMAPE.pdf', G_PRED, 'pdf', 'figures', 1, 6.5, 4)
 
-G_COMP_1 <- ((gPerfil1 + theme(legend.position = 'bottom')) + G_PRED) +
-  plot_annotation(tag_levels = 'A')
-ggsave('006_predMAPE_comp1.pdf', G_COMP_1, 'pdf', 'figures', 1, 8*2, 3*2)
 
-G_COMP_2 <- (gPerfil2 + G_PRED) + 
+layout <- '
+AABB
+AABB
+AABB
+AABB
+CCCC
+'
+
+G_COMP_1 <- ((gPerfil1 + theme(legend.position = 'bottom')) + G_PRED + guide_area()) +
+  plot_layout(design = layout, guides = 'collect') +
+  plot_annotation(tag_levels = 'A')
+
+ggsave('006_predMAPE_comp1.pdf', G_COMP_1, 'pdf', 'figures', 1, 8.5, 4)
+
+G_COMP_2 <- ((gPerfil2 + theme(strip.text = element_text(size=5))) + G_PRED) + 
   plot_layout(widths = c(1.5, 1)) +
   plot_annotation(tag_levels = 'A')
-ggsave('007_predMAPE_comp2.pdf', G_COMP_2, 'pdf', 'figures', 1, 14, 6)
+
+ggsave('007_predMAPE_comp2.pdf', G_COMP_2, 'pdf', 'figures', 1, 8.5, 4)
 
 
 
