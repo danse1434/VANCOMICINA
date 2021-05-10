@@ -17,7 +17,7 @@ Nreg = 5000
 N <- 2e2
 
 regimenes <- tibble(
-  DD = runif(Nreg, 15, 30),
+  DD = runif(Nreg, 1000, 4000),
   II = runif(Nreg, 2, 24),
   CLCR = runif(Nreg, 80, 150)
 ) %>% mutate(tinf = map_dbl(II, ~ runif(1, 1.5, .x)))
@@ -48,15 +48,8 @@ for (k in 1:dim(regimenes)[1]) {
   
   # Simulación de parámetros y covariables para cada individuo
   p_DataFrame <- creacionDF(p, N) %>% 
-    add_column(
-      # Peso variable
-      WTKG = wangScenario3(60, 55, 67, 14) %>%
-        {paramMoments(.$x, .$s^2)} %>%
-        {rlnorm(N, .$mu, sqrt(.$sigma2))},
-      # Aclaramiento de creatinina variable
-      CLCRMLMIN = rep(regimenes$CLCR[k], N)
-    )
-
+    add_column(CLCRMLMIN = regimenes$CLCR[k])
+  
   out <- list(name = 'Cc', time = seq(72, 96, length = 30))
 
   par <- as.vector(as.data.frame(p_DataFrame)[1, ])
@@ -67,8 +60,7 @@ for (k in 1:dim(regimenes)[1]) {
     # 3.1.1. Selección de parámetros en la fila de cada individuo
     par <- as.vector(as.data.frame(p_DataFrame)[i, ])
     # 3.1.2. Creación de régimen de dosificación para cada individuo
-    # Se multiplica la dosis diaria por el peso, ya que está original en mg/kg/d
-    amountLS = listaTratamiento(regimenes$DD[k] * par$WTKG,
+    amountLS = listaTratamiento(regimenes$DD[k],
                                 regimenes$II[k],
                                 regimenes$tinf[k],
                                 16)
