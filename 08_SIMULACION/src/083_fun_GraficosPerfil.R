@@ -42,7 +42,7 @@ graficoPTA_AUC <- function(data, MIC_vec, MIC_eje,
   
   data %>% 
     filter(log2r(MIC) %in% log2r(MIC_eje)) %>% 
-    ggplot(aes(x = !!q_x, y = !!q_y, group = !!q_group, color = !!q_color)) +
+    ggplot(aes(x = !!q_x, y = !!q_y, group = factor(!!q_group), color = factor(!!q_color))) +
     geom_line(data = data) + 
     geom_point() + 
     theme_bw() + 
@@ -50,5 +50,5 @@ graficoPTA_AUC <- function(data, MIC_vec, MIC_eje,
                        breaks = MIC_eje,
                        guide = guide_axis(n.dodge = 2),
                        labels = map_dbl(MIC_eje, formatFun)) +
-    xlab('MIC (mg/L)') + ylab('AUC > MIC')
+    xlab('MIC (mg/L)') + ylab('AUC/MIC > 400')
 }

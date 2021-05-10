@@ -28,7 +28,7 @@ outputfile <- '002_out_desconocido'
 
 dataLS <- list()
 
-for (i in 1:35) {
+for (i in 1:49) {
   data0 <- fread(file.path('results', paste0(outputfile, i, '.csv')))
   data0[, G := i]
   # data1 <- resPTA_Tabla(data0, MIC_vec_1, resPTA1_AUC, crit = 400, g = i)
@@ -40,13 +40,12 @@ admDF <- fread(file.path('data', 'adm_list.csv'))
 
 # Creación de perfiles plasmáticas
 
-df <- map_df(dataLS, ~.x)[admDF, on = .(G = ID)] %>%
-  setnames(., 'ii', 'II')
+df <- map_df(dataLS, ~.x)[admDF, on = .(G = ID)]
 
 G1 <- df %>% 
   ggplot(aes(x = time, group = G)) + 
-  geom_ribbon(aes(ymin = Q1, ymax = Q3, fill = factor(tinf)), alpha = 0.3) +
-  geom_line(aes(y = Q2, color = factor(tinf))) + 
+  geom_ribbon(aes(ymin = Q1, ymax = Q3, fill = factor(Tinf)), alpha = 0.3) +
+  geom_line(aes(y = Q2, color = factor(Tinf))) + 
   xlab('Tiempo (hr)') + ylab(expression(C[PRED]~(mg/L))) +
   facet_grid(DD ~ II, labeller = labeller(.rows = label_both, .cols = label_both)) + 
   scale_color_manual(values = c('red', 'green3', 'blue'), name = 'Tinf') + 

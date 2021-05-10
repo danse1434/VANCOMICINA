@@ -41,14 +41,7 @@ N <- 1e3
 
 # Simulación de parámetros y covariables para cada individuo
 p_DataFrame <- creacionDF(p, N) %>% 
-  add_column(
-    # Peso variable
-    WTKG = wangScenario3(60, 55, 67, 14) %>%
-      {paramMoments(.$x, .$s^2)} %>%
-      {rlnorm(N, .$mu, sqrt(.$sigma2))},
-    # Aclaramiento de creatinina variable
-    CLCRMLMIN = rep(120, N)
-  )
+  add_column(CLCRMLMIN = 120)
 
 # Liberar memoria de p_DF
 rm(p_DF)
@@ -83,7 +76,7 @@ adm <- list()
 # Crear una lista con información de dosis diaria, II, y tiempo de infusión
 for (i in 1:dim(admDF)[1]) {
   row <- admDF[i,]
-  adm[[row$ID]] <- list(DD = row$DD, ii = row$ii, tinf = row$tinf)
+  adm[[row$ID]] <- list(DD = row$DD, ii = row$II, tinf = row$Tinf)
 }
 
 #-------------------------------------------------------------------------------#
@@ -110,8 +103,7 @@ for (k in 1:length(adm)) {
     # 3.1.1. Selección de parámetros en la fila de cada individuo
     par <- as.vector(as.data.frame(p_DataFrame)[i, ])
     # 3.1.2. Creación de régimen de dosificación para cada individuo
-    # Se multiplica la dosis diaria por el peso, ya que está original en mg/kg/d
-    amountLS = listaTratamiento(adm[[k]]$DD * par$WTKG, adm[[k]]$ii, adm[[k]]$tinf, 16)
+    amountLS = listaTratamiento(adm[[k]]$DD, adm[[k]]$ii, adm[[k]]$tinf, 16)
     # 3.1.3. Crear para un elemento en la lista de simulación
     dP_ls[[i]] <- list(
       parameter = par,

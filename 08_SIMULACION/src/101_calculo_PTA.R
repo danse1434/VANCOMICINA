@@ -51,7 +51,7 @@ for (k in seq_len(length(outexposure))) {
   
   dataDF <- data.table()
   
-  for (i in 1:35) {
+  for (i in 1:49) {
     data0 <- fread(file.path('results', paste0(outexposure[k], i, '.csv')))
     # Aclaramiento
     data1 <- resPTA_Tabla(data0, MIC_vec_1, resPTA1_AUC, crit = 400, g = i)
@@ -82,6 +82,15 @@ fwrite(dataTotal, file = file.path('results', 'datosFunRenal.csv'))
 # 3. Gráficos -----------------------------------------------------
 #-------------------------------------------------------------------------------#
 
-graficoPTA_AUC(dataTotal, MIC_vec_1, MIC_vec_0, color = CLCR, format = 'P') + 
-  facet_grid(DD ~ ii)
+gAUC <- dataTotal %>%
+  .[dataTotal$DD %in% c(seq(1, 4) * 1e3), ] %>%
+  graficoPTA_AUC(MIC_vec_1, MIC_vec_0, color = CLCR, format = 'P', group = CLCR) + 
+    facet_grid(II + Tinf ~ DD, 
+               labeller = labeller(.rows = label_both, .cols = label_both)) + 
+    coord_cartesian(xlim = c(2^-2, 2^+2)) + 
+  scale_colour_brewer(palette = "Spectral", name = 'ClCr') + 
+  theme(panel.grid.minor = element_blank())
+  
+gAUC
 
+ggsave('051_perfilesPTA.pdf', gAUC, 'pdf', 'figures', 1, 8, 6)

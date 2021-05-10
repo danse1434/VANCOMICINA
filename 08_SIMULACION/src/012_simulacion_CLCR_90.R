@@ -83,7 +83,7 @@ adm <- list()
 # Crear una lista con información de dosis diaria, II, y tiempo de infusión
 for (i in 1:dim(admDF)[1]) {
   row <- admDF[i,]
-  adm[[row$ID]] <- list(DD = row$DD, ii = row$ii, tinf = row$tinf)
+  adm[[row$ID]] <- list(DD = row$DD, ii = row$II, tinf = row$Tinf)
 }
 
 #-------------------------------------------------------------------------------#
@@ -111,7 +111,7 @@ for (k in 1:length(adm)) {
     par <- as.vector(as.data.frame(p_DataFrame)[i, ])
     # 3.1.2. Creación de régimen de dosificación para cada individuo
     # Se multiplica la dosis diaria por el peso, ya que está original en mg/kg/d
-    amountLS = listaTratamiento(adm[[k]]$DD * par$WTKG, adm[[k]]$ii, adm[[k]]$tinf, 16)
+    amountLS = listaTratamiento(adm[[k]]$DD, adm[[k]]$ii, adm[[k]]$tinf, 16)
     # 3.1.3. Crear para un elemento en la lista de simulación
     dP_ls[[i]] <- list(
       parameter = par,
