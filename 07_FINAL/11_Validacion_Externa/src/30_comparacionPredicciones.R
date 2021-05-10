@@ -190,6 +190,21 @@ pred_df <- predictivoLS %>%
   mutate(estudio  = as.numeric(estudio),
          estudio2 = nombresEstudios[estudio]) 
 
+
+pred_df %>%
+  mutate(PE = MAE, orden = ov[estudio],
+         estudio2 = reorder(estudio2, orden)) %>%
+  ggplot(aes(x = PE, y = fct_rev(estudio2)))+
+  annotate(geom='rect', ymin = -Inf,ymax = Inf, xmin = 3.45, xmax = 4.33,
+           fill = alpha('red1', 0.2), colour=NA, size=0) +
+  geom_vline(xintercept = c(3.901), lty = 'dashed', col = 'red4') +
+  geom_boxplot(fill = alpha('gray', 0.4)) + 
+  coord_cartesian(xlim = c(2, 16)) +
+  scale_x_continuous(expand = expansion(mult = c(0, 0))) + 
+  xlab('MAE (mg/L)') +
+  theme(axis.title.y = element_blank())
+
+
 ov <- c(1:2,4:7,3)
 
 G_PRED <- pred_df %>%
@@ -199,9 +214,12 @@ G_PRED <- pred_df %>%
     estudio2 = reorder(estudio2, orden)
   ) %>%
   ggplot(aes(x = PE, y = fct_rev(estudio2)))+
+  annotate(geom='rect', ymin = -Inf,ymax = Inf, xmin = 24.5, xmax = 32.9, 
+           fill = alpha('red1', 0.2), colour=NA, size=0) +
+  geom_vline(xintercept = c(+27.6), lty = 'dashed', col = 'red4') +
   geom_boxplot(fill = alpha('gray', 0.4)) + 
-  coord_cartesian(xlim = c(0, 500)) + 
-  geom_vline(xintercept = c(+20), lty = 'dashed', col = 'red3') +
+  coord_cartesian(xlim = c(20, 400)) + 
+  scale_x_continuous(expand = expansion(mult = c(0, 0))) + 
   xlab('MAPE (%)') +
   theme(axis.title.y = element_blank())
 
