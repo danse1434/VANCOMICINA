@@ -16,7 +16,8 @@
 #' 
 #' 
 graficoPTA_AUC <- function(data, MIC_vec, MIC_eje, 
-                           x = 'MIC', y = 'mn', group = 'g', color = 'g', format = 'N') {
+                           x = 'MIC', y = 'mn', group = 'g', color = 'g', format = 'N',
+                           xlabel = 'MIC (mg/L)', ylabel = 'PTA(AUC/MIC > 400)') {
   q_x <- ensym(x)
   q_y <- ensym(y)
   q_group <- ensym(group)
@@ -29,7 +30,7 @@ graficoPTA_AUC <- function(data, MIC_vec, MIC_eje,
   if (format == 'N') {
     formatFun <- function(x) 
     {format(x, drop0trailing = T, digits = 4, nsmall = 0, trim = T, 
-            scientific = F)}
+            scientific = F) %>% as.numeric(.)}
   } else if (format == 'P') {
     formatFun <- function(x){
       log2(x)
@@ -50,5 +51,5 @@ graficoPTA_AUC <- function(data, MIC_vec, MIC_eje,
                        breaks = MIC_eje,
                        guide = guide_axis(n.dodge = 2),
                        labels = map_dbl(MIC_eje, formatFun)) +
-    xlab('MIC (mg/L)') + ylab('AUC/MIC > 400')
+    xlab(xlabel) + ylab(ylabel)
 }
