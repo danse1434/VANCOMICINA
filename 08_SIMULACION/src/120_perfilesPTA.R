@@ -41,7 +41,7 @@ admDF <- fread(file.path('data', 'adm_list.csv'))
 
 df <- map_df(dataLS, ~.x)[admDF, on = .(G = ID)]
 
-G1 <- df[df$DD %in% c(1:4*1000), ] %>% 
+G1 <- df[df$DD %in% seq(1500, 3000, by = 500), ] %>% 
   ggplot(aes(x = time, group = G)) + 
   geom_ribbon(aes(ymin = Q1, ymax = Q3, fill = factor(Tinf)), alpha = 0.3) +
   geom_line(aes(y = Q2, color = factor(Tinf))) + 
@@ -73,9 +73,7 @@ for (i in 1:49) {
 
 df1 <- map_df(dataLS, ~.x)[admDF, on = .(G = ID)]
 
-
-
-G2 <- df1[df1$DD %in% c(1:4*1000), ] %>% 
+G2 <- df1[df1$DD %in% seq(1500, 3000, by = 500), ] %>% 
   ggplot(aes(group = G)) +
   geom_density(aes(x = auc, color = factor(Tinf))) + 
   xlab('AUC (mg·h/L)') + 
@@ -86,7 +84,7 @@ G2 <- df1[df1$DD %in% c(1:4*1000), ] %>%
 
 G2
 
-G3 <- df1[df1$DD %in% c(1:4*1000), ] %>% 
+G3 <- df1[df1$DD %in% seq(1500, 3000, by = 500), ] %>% 
   ggplot(aes(group = G)) +
   geom_density(aes(x = cmin, color = factor(Tinf))) + 
   xlab(expression(C[min]~(mg/L))) + 
@@ -96,7 +94,7 @@ G3 <- df1[df1$DD %in% c(1:4*1000), ] %>%
   scale_fill_manual(values = c('red', 'green3', 'blue'), name = 'Tinf')
 G3
 
-G4 <- df1[df1$DD %in% c(1:4*1000), ] %>% 
+G4 <- df1[df1$DD %in% seq(1500, 3000, by = 500), ] %>% 
   ggplot(aes(group = G)) +
   geom_density(aes(x = cmax, color = factor(Tinf))) + 
   xlab(expression(C[max]~(mg/L))) + 
@@ -120,7 +118,7 @@ columnList.values <- c(unlist(columnList, use.names=F))
 columnList.keys <- names(columnList)
 
 
-gt1 <- df1[df1$DD %in% c(1:4 * 1000),] %>%
+gt1 <- df1[df1$DD %in% seq(1500, 3000, by = 500),] %>%
   .[, .(
     mn  = mean(auc),
     sd  = sd(auc),
@@ -145,7 +143,7 @@ gt1 <- subset(gt1, select=columnList.keys) %>%
 
 #'-------------------------------------------------------------------------------
 # Cmin
-gt2 <- df1[df1$DD %in% c(1:4 * 1000),] %>%
+gt2 <- df1[df1$DD %in% seq(1500, 3000, by = 500),] %>%
   .[, .(
     mn  = mean(cmin),
     sd  = sd(cmin),
@@ -169,7 +167,7 @@ gt2 <- subset(gt2, select=columnList.keys) %>%
 
 #'-------------------------------------------------------------------------------
 # Cmax
-gt3 <- df1[df1$DD %in% c(1:4 * 1000),] %>%
+gt3 <- df1[df1$DD %in% seq(1500, 3000, by = 500),] %>%
   .[, .(
     mn  = mean(cmax),
     sd  = sd(cmax),

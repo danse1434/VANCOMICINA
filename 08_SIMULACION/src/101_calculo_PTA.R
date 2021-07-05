@@ -83,7 +83,7 @@ fwrite(dataTotal, file = file.path('results', 'datosFunRenal.csv'))
 #-------------------------------------------------------------------------------#
 
 gAUC <- dataTotal %>%
-  .[dataTotal$DD %in% c(seq(1, 4) * 1e3), ] %>%
+  .[dataTotal$DD %in% c(seq(1.5, 3, .5) * 1e3), ] %>%
   graficoPTA_AUC(MIC_vec_1, MIC_vec_0, color = CLCR, format = 'N', group = CLCR) + 
   geom_hline(yintercept = 0.85, lty = 'dashed') + 
   facet_grid(II + Tinf ~ DD, 
