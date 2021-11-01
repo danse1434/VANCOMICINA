@@ -48,11 +48,12 @@ NCA:
 administrationType = {1 = intravenous}
 startTimeNotBefore = {use=no, value=0}
 integralMethod = linLogTrapLinLogInterp
-partialAUCTime = {use=yes, value={{72,96}}}
+partialAUCTime = {use=yes, value={{0,24}, {0,12}}}
 ajdR2AcceptanceCriteria = {use=yes, value=0.98}
 extrapAUCAcceptanceCriteria = {use=yes, value=20}
 spanAcceptanceCriteria = {use=yes, value=3}
 computedParameters = {Lambda_z,HL_Lambda_z,Tmax_Rate,Max_Rate,Rate_last,AURC_last,AURC_INF_obs,AURC_PerCentExtrap_obs,Cmin,Tmax,Cmax,Tlast,Clast,AUClast,AUCINF_obs,AUC_PerCentExtrap_obs,Vz_F_obs,Cl_F_obs,Cl_obs,Ctau,AUC_TAU,Vz_obs,Vz_F,CLss_F}
 CA:
+weighting = uniform
 initialValues = {Cl=4, Q=4, V1=24, V2=24}
 
