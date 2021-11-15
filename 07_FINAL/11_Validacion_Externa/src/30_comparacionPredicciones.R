@@ -36,8 +36,15 @@ perfilLS <- vector(mode = 'list', length(vectorEstudios))
 for (i in 1:length(vectorEstudios)) {
   estudio <- vectorEstudios[i]
   
+  if (i == 7) {
+    colnames1 <- c('tiempo', 'p2.5', 'p50', 'p50_1', 'p97.5', 'grupo')
+  } else {
+    colnames1 <- c('tiempo', 'p2.5', 'p50', 'p50_1', 'p97.5')
+  }
+  
   perfilLS[[i]] <- 
-    read_csv(file.path(estudio, 'perfilPlasmatico.csv'), col_types = cols())
+    read_csv(file.path(estudio, 'perfilPlasmatico.csv'), 
+             col_names = colnames1, col_types = cols(), skip=1)
 }
 
 #-------------------------------------------------------------------------------#
@@ -46,21 +53,22 @@ for (i in 1:length(vectorEstudios)) {
 # estadísticos de posición.
 # 
 perfilLS[[7]] <- perfilLS[[7]] %>% 
-  group_by(time) %>% 
+  group_by(tiempo) %>% 
   summarise(
-    `..2.5.`  = quantile(`..50.`, probs = 0.025, type = 4),
-    `..50....3`  = quantile(`..50.`, probs = 0.5, type = 4),
-    `..97.5.`  = quantile(`..50.`, probs = 0.975, type = 4)
+    p2.5   = quantile(p50_1, probs = 0.025, type = 4),
+    p50    = quantile(p50_1, probs = 0.5, type = 4),
+    p97.5  = quantile(p50_1, probs = 0.975, type = 4)
     ) 
 
 # Unificación de perfiles en todas las simulaciones
 perfilDF <- perfilLS %>% 
-  map(~ rename(.x, tiempo = time, 
-               M = `..50....3`, 
-               L = `..2.5.`,
-               S = `..97.5.`)) %>% 
+  map(~ rename(.x, 
+               tiempo = tiempo, 
+               M = p50, 
+               L = p2.5,
+               S = p97.5)) %>% 
   map_dfr(~.x, .id= 'estudio') %>% 
-  select(- `...4`) %>% 
+  select(- p50_1) %>% 
   mutate(estudio  = as.numeric(estudio),
          estudio1 = vectorEstudios[estudio])
 
@@ -130,15 +138,20 @@ dfPerfil <- perfilDF %>%
   mutate(estudio2 = nombresEstudios[estudio])
 
 gPerfil1 <- dfPerfil %>% 
-  ggplot(aes(x = tiempo)) +
+  mutate(hover = glue::glue(
+    "Estudio: {estudio2}<br>Tiempo: {round(tiempo,2)}<br>Concentración: {round(M,1)}")) %>% 
+  ggplot(aes(x = tiempo, text = hover)) +
+  geom_line(aes(y = M, color = estudio2, linetype = estudio2, text=NULL)) +
   geom_line(aes(y = M, color = estudio2, linetype = estudio2)) +
-  geom_ribbon(aes(ymin = L, ymax = S, fill = estudio2, alpha = estudio2)) +
+  geom_ribbon(aes(ymin = L, ymax = S, fill = estudio2, alpha = estudio2, text=NULL)) +
   xlab('Tiempo (hr)') + ylab('Conc. plasmática (mg/L)')  +
   scale_linetype_manual(values = paletaLineas) +
   scale_color_manual(values = paletaColores) +
   scale_fill_manual(values = paletaColores) +
   scale_alpha_manual(values = paletaAlfas) + 
   theme(legend.title = element_blank())
+
+gPerfil1
 
 ggsave('001_perfilCompuestoSIM.pdf', gPerfil1, 'pdf', 
        'figures', 1, 8, 5)
@@ -149,6 +162,10 @@ htmlwidgets::saveWidget(
   file.path('figures', '002_perfilCompuestoSIM.html') %>% normalizePath(), 
   selfcontained = TRUE
 )
+
+plotly::ggplotly(gPerfil1, tooltip = 'text') %>% 
+  plotly::config(displayModeBar = FALSE) %>%
+  saveRDS(file.path('figures', '002_perfilCompuestoSIM.rds'))
 
 # Figura en mosaico
 paletaAlfas <- c(rep(0.2, 7), 0.6)
