@@ -48,7 +48,7 @@ NCA:
 administrationType = {1 = intravenous}
 startTimeNotBefore = {use=no, value=0}
 integralMethod = linLogTrapLinLogInterp
-partialAUCTime = {use=yes, value={{0,24}, {0,12}}}
+partialAUCTime = {use=yes, value={{72,96}}}
 ajdR2AcceptanceCriteria = {use=yes, value=0.98}
 extrapAUCAcceptanceCriteria = {use=yes, value=20}
 spanAcceptanceCriteria = {use=yes, value=3}

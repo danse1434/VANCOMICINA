@@ -52,28 +52,32 @@ dataTipo <- bind_rows(
 # 2. Creación de gráficos -----------------------------------------------------
 #-------------------------------------------------------------------------------#
 
-vpcTipo  <- dataTipo %>%
-  ggplot(aes(x = bins_middles)) +
-  geom_rect(aes(ymin=theoretical_median_piLower_pc,
-                ymax=theoretical_median_piUpper_pc,
-                xmin=xmin, xmax=xmax), alpha = 0.5, fill = 'gray70') +
-  geom_rect(aes(ymin=theoretical_lower_piLower_pc,
-                ymax=theoretical_lower_piUpper_pc,
-                xmin=xmin, xmax=xmax), alpha = 0.5, fill = 'gray30') +
-  geom_rect(aes(ymin=theoretical_upper_piLower_pc ,
-                ymax=theoretical_upper_piUpper_pc ,
-                xmin=xmin, xmax=xmax), alpha = 0.5, fill = 'gray30') +
-  geom_line(aes(y = theoretical_lower_median_pc), lty='dashed') +
-  geom_line(aes(y = theoretical_median_median_pc), lty='dashed') +
-  geom_line(aes(y = theoretical_upper_median_pc), lty='dashed') +
-  linedots(dataTipo, bins_middles, empirical_median) +
-  linedots(dataTipo, bins_middles, empirical_lower) +
-  linedots(dataTipo, bins_middles, empirical_upper) +
-  facet_wrap(. ~ YTYPE) +
-  xlab('TAD, tiempo tras dosis (h)') +
-  ylab('Concentración plasmática VAN \n Corregida por predicción (mg/L)') +
-  scale_x_continuous(breaks = seq(0, 12, 2)) +
-  coord_cartesian(ylim = c(0, 80), xlim = c(0, 12)) 
+crearVPC <- function(dataTipo) {
+  dataTipo %>%
+    ggplot(aes(x = bins_middles)) +
+    geom_rect(aes(ymin=theoretical_median_piLower_pc,
+                  ymax=theoretical_median_piUpper_pc,
+                  xmin=xmin, xmax=xmax), alpha = 0.5, fill = 'gray70') +
+    geom_rect(aes(ymin=theoretical_lower_piLower_pc,
+                  ymax=theoretical_lower_piUpper_pc,
+                  xmin=xmin, xmax=xmax), alpha = 0.5, fill = 'gray30') +
+    geom_rect(aes(ymin=theoretical_upper_piLower_pc ,
+                  ymax=theoretical_upper_piUpper_pc ,
+                  xmin=xmin, xmax=xmax), alpha = 0.5, fill = 'gray30') +
+    geom_line(aes(y = theoretical_lower_median_pc), lty='dashed') +
+    geom_line(aes(y = theoretical_median_median_pc), lty='dashed') +
+    geom_line(aes(y = theoretical_upper_median_pc), lty='dashed') +
+    linedots(dataTipo, bins_middles, empirical_median) +
+    linedots(dataTipo, bins_middles, empirical_lower) +
+    linedots(dataTipo, bins_middles, empirical_upper) +
+    facet_wrap(. ~ YTYPE) +
+    xlab('TAD, tiempo tras dosis (h)') +
+    ylab('Concentración plasmática VAN \n Corregida por predicción (mg/L)') +
+    scale_x_continuous(breaks = seq(0, 12, 2)) +
+    coord_cartesian(ylim = c(0, 80), xlim = c(0, 12)) 
+}
+
+vpcTipo  <- crearVPC(dataTipo)
 
 
 #-------------------------------------------------------------------------------#
