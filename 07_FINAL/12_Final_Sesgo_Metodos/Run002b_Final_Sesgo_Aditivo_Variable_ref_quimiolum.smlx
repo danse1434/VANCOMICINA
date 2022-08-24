@@ -1,0 +1,155 @@
+<DATAFILE>
+
+[FILEINFO]
+file='data/data_TAD.csv'
+delimiter = comma
+header = {ID, DV, TAD, YTYPE, EVID, MDV, AMT, TINF, ADDL, II, SS, AGEA, SEXF, WTKG, HCM, SCRMGDL, ALBGDL, PROGDL, CLCRMLMIN, RAL, RAN, ANTU}
+
+[CONTENT]
+ID = {use=identifier}
+DV = {use=observation, name={y1, y2}, yname={'1', '2'}, type={continuous, continuous}}
+TAD = {use=time}
+YTYPE = {use=observationtype}
+EVID = {use=eventidentifier}
+MDV = {use=missingdependentvariable}
+AMT = {use=amount}
+TINF = {use=infusiontime}
+ADDL = {use=additionaldose}
+II = {use=interdoseinterval}
+SS = {use=steadystate, nbdoses=5}
+WTKG = {use=covariate, type=continuous}
+CLCRMLMIN = {use=covariate, type=continuous}
+
+[FILTER]
+data_1 = {origin='data/data_TAD.csv', filter={{removeLines='YTYPE==2'}}}
+data_2 = {origin='data/data_TAD.csv', filter={{removeLines='YTYPE==1'}}}
+
+<MODEL>
+
+[COVARIATE]
+input = CLCRMLMIN
+
+EQUATION:
+logtCLCRMLMIN = log(CLCRMLMIN/144)
+
+[INDIVIDUAL]
+input = {Cl_pop, omega_Cl, Q_pop, omega_Q, V1_pop, omega_V1, V2_pop, omega_V2, corr_V2_V1, logtCLCRMLMIN, beta_Cl_logtCLCRMLMIN, bias_pop, bias_sd}
+
+DEFINITION:
+Cl = {distribution=logNormal, typical=Cl_pop, covariate=logtCLCRMLMIN, coefficient=beta_Cl_logtCLCRMLMIN, sd=omega_Cl}
+Q = {distribution=logNormal, typical=Q_pop, sd=omega_Q}
+V1 = {distribution=logNormal, typical=V1_pop, sd=omega_V1}
+V2 = {distribution=logNormal, typical=V2_pop, sd=omega_V2}
+bias = {distribution=normal, typical=bias_pop, sd=bias_sd}
+correlation = {level=id, r(V2, V1)=corr_V2_V1}
+
+[LONGITUDINAL]
+input = {a1, a2}
+
+file = 'Run002b_Final_Sesgo_Aditivo_Variable_ref_quimiolum/ModelFile/modelo_sesgo_aditivo_ref_quimiolum.txt'
+
+DEFINITION:
+y1 = {distribution=logNormal, prediction=Cc_1, errorModel=constant(a1)}
+y2 = {distribution=logNormal, prediction=Cc_2, errorModel=constant(a2)}
+
+<SIMULX>
+
+[SETTINGS]
+GLOBAL:
+exportpath='Run002b_Final_Sesgo_Aditivo_Variable_ref_quimiolum'
+
+[DEFINITION]
+OCCASION:
+file='Run002b_Final_Sesgo_Aditivo_Variable_ref_quimiolum/ExternalFiles/mlx_subjects.txt'
+
+POPULATION:
+parameters={Cl_pop, beta_Cl_logtCLCRMLMIN, V1_pop, Q_pop, V2_pop, bias_pop, bias_sd, corr_V2_V1, omega_Cl, omega_Q, omega_V1, omega_V2, a1, a2}
+'mlx_Pop' = {{{values={5.278942638198342, 0.6288680953888005, 21.42158013007763, 6.152312551938111, 23.19604538079938, -0.5610578968512309, 4.986186189648949, 0.8949611114865171, 0.2120817123901015, 0.5852786611917387, 0.268021508173677, 0.3730676654400389, 0.1378066763914796, 0.0660451410850501}}}}
+'mlx_PopUncertainSA' = {mean={1.663725819746895, 0.6288680953888005, 3.064398831209997, 1.816828035844238, 3.143981806418531, -0.5610578968512309, 4.986186189648949, 0.8949611114865171, 0.2120817123901015, 0.5852786611917387, 0.268021508173677, 0.3730676654400389, 0.1378066763914796, 0.0660451410850501}, rse={5.758060267929138, 39.43592404030781, 8.270344932570177, 19.41245641174788, 13.82836923651372, 240.4296649126853, 20.33875090494426, 21.92005344860692, 19.55083029191814, 28.93372699616157, 24.70509969591082, 33.34244801476007, 9.463869842057328, 12.8512733532829}, covariance={0.0033155258049104, 0.0016472196733384, 0.061503972427987, 0.0000372892860395, 0.000133018596868, 0.0068398605303689, 0.0002805230754488, -0.0001430511179557, -0.0032294284785435, 0.0376843463938011, -0.000124085956776, 0.0002601292239084, 0.0069858981890023, -0.0039668330997179, 0.0191223795741359, 0.0003635307042653, -0.0010664364161659, -0.0002310479590428, -0.001530297170378, 0.0001401490647707, 1.819665080982326, -0.000349748645495, 0.0040118792203118, 0.0003569790742346, 0.0014409046361617, 0.0013335522269523, -0.0219241455282129, 1.028455577605532, 0.0000002385198984, -0.0007346169470797, -0.0001488914302806, -0.003154753234534, 0.0043126985119725, -0.0005160643728329, 0.0008710954571023, 0.0384850049207835, 0.0000072414812885, 0.000098545678477, 0.0000350957531875, 0.0000076039713636, 0.0000268649623705, -0.0004055145397049, 0.0012701805306816, -0.0002371680031199, 0.001719241375677, -0.0000154578884098, 0.0001441333431471, -0.002523772559267, 0.007137411629006, 0.0004686110129625, 0.0008666012828615, 0.0024328355738306, -0.0049417382639338, 0.0000559296072155, 0.0286770279396326, -0.0000386853963326, -0.0002199734231388, 0.0000492137784257, -0.000645973289004, 0.0008475636152827, 0.0001383071625459, -0.000356288392367, 0.0062915833214589, -0.0000360118949393, -0.0014449022507121, 0.0043844236824491, -0.0001802365275629, -0.000135143262717, -0.0010328252982374, -0.0012875254943726, 0.0032150082773288, -0.0005622220340019, 0.0004750300181263, 0.0082103312158189, -0.0000612485727396, -0.0019406481251094, 0.0050230793165343, 0.0154728453335783, -0.0000142337052685, 0.0000091964258489, -0.0001242413104972, 0.0000161425575951, 0.0000156924998159, 0.0003610197982822, -0.0005072761972013, -0.0004990631290802, -0.0000055128880868, 0.000329759252554, -0.0000303549763582, -0.0001136992663558, 0.0001700897076323, 0.000014086748408, -0.0000157850798431, 0.0001314875107685, -0.0001245706032163, -0.0000125532015436, -0.0000969855863796, -0.0001122855789177, 0.000528154462045, -0.0000065063466578, -0.0003685518381733, 0.0000262480379703, 0.0000064142394398, -0.0000380482710562, 0.0000720400602254}, distribution={logNormal, normal, logNormal, logNormal, logNormal, normal, variance, correlation, variance, variance, variance, variance, errorModel, errorModel}}
+
+OUTPUT:
+'mlx_y1' = {output=y1, file='Run002b_Final_Sesgo_Aditivo_Variable_ref_quimiolum/ExternalFiles/mlx_y1.txt'}
+'mlx_Cc_1' = {output=Cc_1, {{start=1, interval=0.0421686746987952, final=11.5}}}
+'mlx_y2' = {output=y2, file='Run002b_Final_Sesgo_Aditivo_Variable_ref_quimiolum/ExternalFiles/mlx_y2.txt'}
+'mlx_Cc_2' = {output=Cc_2, {{start=1, interval=0.0421686746987952, final=11.5}}}
+'outputRegular1' = {output=Cc_2, {{start=0, interval=1, final=200}}}
+'AUC72_48' = {output=AUC72_48, {{start=72, interval=1, final=80}}}
+
+INDIVIDUAL:
+parameters={Cl, V1, Q, V2, bias}
+'mlx_PopIndiv' = {{{values={5.278942638198342, 21.42158013007763, 6.152312551938111, 23.19604538079938, -0.5610578968512309}}}}
+'mlx_PopIndivCov' = {file='Run002b_Final_Sesgo_Aditivo_Variable_ref_quimiolum/ExternalFiles/mlx_PopIndivCov.txt'}
+'mlx_CondMean' = {file='Run002b_Final_Sesgo_Aditivo_Variable_ref_quimiolum/ExternalFiles/mlx_CondMean.txt'}
+'mlx_EBEs' = {file='Run002b_Final_Sesgo_Aditivo_Variable_ref_quimiolum/ExternalFiles/mlx_EBEs.txt'}
+'mlx_CondDistSample' = {file='Run002b_Final_Sesgo_Aditivo_Variable_ref_quimiolum/ExternalFiles/mlx_CondDistSample.txt'}
+
+COVARIATE:
+continuousCovariates={CLCRMLMIN}
+'mlx_Cov' = {file='Run002b_Final_Sesgo_Aditivo_Variable_ref_quimiolum/ExternalFiles/mlx_Cov.txt'}
+'mlx_CovDist' = {{distribution=logNormal, typical=140.1498321961089, sd=0.2392537346176495}}
+'CRCL80' = {{{values={80}}}}
+'CRCL100' = {{{values={100}}}}
+'CRCL120' = {{{values={120}}}}
+'CRCL140' = {{{values={140}}}}
+
+TREATMENT:
+'mlx_Adm1' = {file='Run002b_Final_Sesgo_Aditivo_Variable_ref_quimiolum/ExternalFiles/mlx_Adm1.txt', adm=1}
+'ConvDose1' = {{{times={0, 6, 12, 18, 24, 30, 36, 42, 48, 54, 60, 66, 72, 78, 84, 90, 96, 102, 108, 114, 120, 126, 132, 138, 144, 150, 156, 162, 168, 174, 180, 186, 192, 198, 204, 210, 216, 222, 228, 234, 240}, amounts={500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500}, durations={1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}}}, adm=1}
+'ConvDose2' = {{{times={0, 12, 24, 36, 48, 60, 72, 84, 96, 108, 120, 132, 144, 156, 168, 180, 192, 204, 216, 228, 240}, amounts={1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000}, durations={1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}}}, adm=1}
+'InfDose' = {{{times={0, 24, 48, 72, 96, 120, 144, 168, 192, 216, 240}, amounts={2400, 2400, 2400, 2400, 2400, 2400, 2400, 2400, 2400, 2400, 2400}, durations={24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24}}}, adm=1}
+
+[SIMULATION]
+GROUPS:
+'CRCL120_D1'={size=5000, parameter='mlx_Pop', remaining={a1=1, a2=1}, covariate='CRCL100', outputs={'AUC72_48'}, treatment={'ConvDose1'}}
+'CRCL120_D2'={size=5000, parameter='mlx_Pop', remaining={a1=1, a2=1}, covariate='CRCL100', outputs={'AUC72_48'}, treatment={'ConvDose2'}}
+'CRCL120_D3'={size=5000, parameter='mlx_Pop', remaining={a1=1, a2=1}, covariate='CRCL100', outputs={'AUC72_48'}, treatment={'InfDose'}}
+
+[EXPLORATION]
+GROUPS:
+'explorationGroup3'={remaining={a1=1, a2=1}, parameter='mlx_PopIndiv', outputs={'outputRegular1'}, treatment={'InfDose'}}
+'explorationGroup1'={remaining={a1=1, a2=1}, parameter='mlx_PopIndiv', outputs={'outputRegular1'}, treatment={'ConvDose1'}}
+'explorationGroup2'={remaining={a1=1, a2=1}, parameter='mlx_PopIndiv', outputs={'outputRegular1'}, treatment={'ConvDose2'}}
+
+[ENDPOINT]
+OUTCOME:
+'AUCgt400' = {outputElement='AUC72_48', statistic=last, sample=value, threshold='value>=400'}
+'AUCgt400.' = {outputElement='AUC72_48', statistic=last, sample=value, threshold='value>=400'}
+'AUCle600' = {outputElement='AUC72_48', statistic=last, sample=value, threshold='value<=600'}
+
+OUTPUT:
+referenceGroup='CRCL120_D3'
+decisionCriterion=true
+'endpoint1' = { outcome='AUCgt400.', function=percentTrue, criterion={type=statisticalTest, test='value!=1', pValue=0.05} }
+'endpoint2' = { outcome={'AUCgt400', 'AUCle600'}, operator=and, function=percentTrue, criterion={type=statisticalTest, test='value!=1', pValue=0.05} }
+
+[TASKS]
+simulation()
+endpoint()
+
+[EXTENSION]
+EQUATION:
+AUC48_0 = 0
+if(t<48)
+    dAUC48 = Cc_2
+else
+    dAUC48 = 0
+end
+ddt_AUC48 = dAUC48
+
+AUC72_0 = 0
+if(t<72)
+    dAUC72 = Cc_2
+else
+    dAUC72 = 0
+end
+ddt_AUC72 = dAUC72
+
+AUC72_48 = AUC72 - AUC48
+
+OUTPUT:
+output = {Cc_1, Cc_2}
+table = {AUC72_48}
+
+[COMMENTS]
+; Modelo base refinado con inclusión de las siguientes covariables: (1) Cl-CrCl, exponencial, y adición de sesgo aditivo (referencia observaciones de quimioluminiscencia) entre medidas con variabilidad interindividual.
+

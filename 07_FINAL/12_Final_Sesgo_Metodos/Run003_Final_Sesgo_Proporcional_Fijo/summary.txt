@@ -1,0 +1,128 @@
+********************************************************************************
+*                 Run003_Final_Sesgo_Proporcional_Fijo.mlxtran                 *
+*                  at                                                          *
+*                 Monolix version : 2021R1                                     *
+********************************************************************************
+
+
+ESTIMATION OF THE POPULATION PARAMETERS ________________________________________
+
+Fixed Effects ----------------------------     se_sa    rse(%)
+Cl_pop                :               6.62     0.376      5.68
+beta_Cl_logtCLCRMLMIN :              0.622     0.244      39.3
+V1_pop                :               25.6      2.32      9.05
+Q_pop                 :               7.88      1.68      21.4
+V2_pop                :               29.6      4.61      15.6
+bias_pop              :              0.268  1.05e-07  3.92e-05
+
+Standard Deviation of the Random Effects -
+omega_Cl              :              0.209    0.0406      19.4
+omega_V1              :              0.288    0.0941      32.7
+omega_Q               :              0.594     0.181      30.5
+omega_V2              :              0.398     0.218      54.8
+bias_sd               :              1e-07                    
+
+Correlations -----------------------------
+corr_V2_V1            :              0.846     0.379      44.8
+
+Error Model Parameters -------------------
+a1                    :              0.354    0.0264      7.45
+a2                    :             0.0602   0.00629      10.5
+
+Elapsed time (seconds):       48
+Exploratory phase iterations:     2087 (Autostop)
+Smoothing phase iterations:        133 (Autostop)
+
+ _______________________________________________________________________________
+
+
+
+ESTIMATION OF THE INDIVIDUAL PARAMETERS ________________________________________
+
+
+Estimation of the individual parameters by Conditional Distribution ------------
+             min        Q1    median        Q3       max
+Cl   :      3.31      6.22      6.97      7.84       8.3
+V1   :      14.8      20.4      27.6      30.4      42.8
+Q    :      2.28      6.84      8.52      11.2      14.9
+V2   :      16.7      24.7      32.5      36.8      53.4
+bias :     0.268     0.268     0.268     0.268     0.268
+
+Elapsed time (seconds):      1.6
+Iterations:       88 (Autostop)
+
+ -------------------------------------------------------------------------------
+
+
+Estimation of the individual parameters by Conditional Mode --------------------
+             min        Q1    median        Q3       max
+Cl   :      3.31      6.22      6.98      7.84       8.3
+V1   :      14.8      22.2      27.1      30.6      44.3
+Q    :      2.29      6.21      8.14      11.4      13.5
+V2   :        16      24.1      31.3      37.4      54.1
+bias :     0.268     0.268     0.268     0.268     0.268
+
+Elapsed time (seconds):    0.037
+
+ -------------------------------------------------------------------------------
+
+ _______________________________________________________________________________
+
+
+
+ESTIMATION OF THE FISHER INFORMATION MATRIX ____________________________________
+
+
+Estimation of the Fisher information matrix by Stochastic Approximation --------
+
+Correlation Matrix :
+               Cl_pop         1
+beta_Cl_logtCLCRMLMIN   0.11434         1
+               V1_pop-0.0041572 0.0037675         1
+                Q_pop   0.04054-4.9474e-05  -0.28397         1
+               V2_pop -0.038739  0.012354   0.51494   -0.1169         1
+             bias_pop  -0.04855 0.0013807  -0.19826   0.08096   0.33751         1
+             omega_Cl  0.0073610.00050068  0.036991 -0.010394 -0.043939  -0.14352         1
+             omega_V1 -0.027672-0.0072915  -0.17018   0.05377   0.20796    0.5712  -0.10747         1
+           corr_V2_V1 -0.031461-0.0089633   -0.1487  0.019546   0.25689   0.70408  -0.13298   0.69445         1
+              omega_Q  0.032592 0.0065544 -0.029339   0.18413   -0.1829  -0.50413  0.096401    -0.425  -0.52903         1
+             omega_V2 -0.057506-0.0028227  -0.14456-0.0095233    0.3653   0.69311  -0.12433   0.72374   0.67147  -0.49011         1
+                   a1  0.017064 0.0074451 0.0060858  0.012182 -0.012306 -0.083016  0.023881 -0.034885 -0.060067   0.05628 -0.050734         1
+                   a2 -0.012121-0.0073014  0.096263    -0.112 -0.020196 -0.064754 -0.014357 -0.049567  0.079249 -0.091639 -0.059094 -0.069207         1
+
+                               min       max   max/min
+Eigen values           :       0.2       3.6        18
+
+Elapsed time (seconds):     0.47
+Iterations:      100 (Autostop)
+
+ -------------------------------------------------------------------------------
+
+ _______________________________________________________________________________
+
+
+
+ESTIMATION OF THE LOG-LIKELIHOOD _______________________________________________
+
+                                                            (is)
+-2 x log-likelihood                       (OFV) :         961.81
+Akaike Information Criteria               (AIC) :         987.81
+Corrected Bayesian Information Criteria  (BICc) :        1014.44
+Bayesian Information Criteria             (BIC) :         996.11
+
+Elapsed time                          (seconds) :           2.89
+CPU time                              (seconds) :           2.00
+MonteCarlo size (is):    10000 (Fixed number of iterations)
+
+
+[Importance Sampling] Standard error        : 0.118
+                      Sampling distribution : T-distribution with 5 degrees of freedom
+
+ _______________________________________________________________________________
+
+DATASET INFORMATION
+Number of individuals: 14
+Number of observations (obsid 1): 96
+Number of observations (obsid 2): 96
+Number of doses: 84
+

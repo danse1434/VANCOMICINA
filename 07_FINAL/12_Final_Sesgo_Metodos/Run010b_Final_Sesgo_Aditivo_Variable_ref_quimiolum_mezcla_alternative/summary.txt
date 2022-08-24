@@ -1,0 +1,135 @@
+Run010b_Final_Sesgo_Aditivo_Variable_ref_quimiolum_mezcla_alternative.mlxtran
+ at 
+Monolix version : 2021R1
+
+
+ESTIMATION OF THE POPULATION PARAMETERS ________________________________________
+
+Fixed Effects ----------------------------     se_sa    rse(%)
+Cl_pop                :               5.28     0.318      6.01
+beta_Cl_logtCLCRMLMIN :              0.645     0.256      39.7
+V1_pop                :               22.3      2.11      9.46
+Q_pop                 :               5.93      1.18        20
+V2_pop                :               25.3      14.6      57.9
+bias_pop              :              -17.6      2.74      15.6
+beta_bias_lcat_2      :               18.2      2.84      15.6
+
+Standard Deviation of the Random Effects -
+omega_Cl              :              0.218    0.0428      19.6
+omega_V1              :              0.263    0.0794      30.2
+omega_Q               :              0.477     0.172        36
+omega_V2              :               0.41     0.154      37.7
+bias_sd               :               2.13     0.443      20.8
+
+Correlations -----------------------------
+corr_V2_V1            :               0.91      1.26       139
+
+Error Model Parameters -------------------
+a1                    :              0.116    0.0146      12.6
+a2                    :             0.0711    0.0123      17.3
+
+Latent Probabilities ---------------------
+plcat_1               :             0.0714    0.0688      96.4
+plcat_2               :              0.929    0.0688      7.41
+
+Elapsed time (seconds):  1.6e+02
+Exploratory phase iterations:     2073 (Autostop)
+Smoothing phase iterations:        107 (Autostop)
+
+ _______________________________________________________________________________
+
+
+
+ESTIMATION OF THE INDIVIDUAL PARAMETERS ________________________________________
+
+
+Estimation of the individual parameters by Conditional Distribution ------------
+             min        Q1    median        Q3       max
+Cl   :      2.49      4.93      5.55      6.29      6.69
+V1   :      11.5        21        23      25.8      35.6
+Q    :      2.19       5.4      6.52      7.93      9.18
+V2   :      9.88      23.6      27.8      30.4      48.9
+bias :     -17.9     -1.99     0.246      1.92      3.99
+
+Elapsed time (seconds):      1.9
+Iterations:      105 (Autostop)
+
+ -------------------------------------------------------------------------------
+
+
+Estimation of the individual parameters by Conditional Mode --------------------
+             min        Q1    median        Q3       max
+Cl   :      2.51      4.95      5.55      6.27      6.69
+V1   :      11.5        21      22.9      25.8      36.9
+Q    :      2.16      4.92      6.61      8.17      8.67
+V2   :      9.79      23.5      26.3      30.7        51
+bias :     -17.8     -2.01     0.216      1.93      3.97
+
+Elapsed time (seconds):     0.17
+
+ -------------------------------------------------------------------------------
+
+ _______________________________________________________________________________
+
+
+
+ESTIMATION OF THE FISHER INFORMATION MATRIX ____________________________________
+
+
+Estimation of the Fisher information matrix by Stochastic Approximation --------
+
+Correlation Matrix :
+               Cl_pop         1
+beta_Cl_logtCLCRMLMIN   0.10652         1
+               V1_pop -0.049887  0.021534         1
+                Q_pop   0.11284 -0.017851  -0.38487         1
+               V2_pop  0.066634 -0.019886  -0.32282   0.34861         1
+             bias_pop-0.0031213 -0.042913  0.043989  -0.10351  -0.13172         1
+     beta_bias_lcat_2  0.011486   0.03986  -0.07028   0.12412   0.18069  -0.97406         1
+             omega_Cl -0.007653  0.016974  0.090807 -0.060501  -0.11311 -0.083514  0.073599         1
+             omega_V1   0.05731 -0.025085  -0.32811   0.31352   0.66516 -0.089661   0.12541 -0.086645         1
+           corr_V2_V1   0.10617 -0.029405  -0.50168   0.47156   0.93566  -0.14968   0.20126  -0.12487   0.69455         1
+              omega_Q  0.052162   -0.0142  -0.44689   0.35212   0.54718 -0.088255   0.11896 -0.089727   0.36521   0.57412         1
+             omega_V2  -0.11258  0.012974   0.12021  -0.30593  0.053063  0.059309 -0.064064  0.014757   0.24036  -0.15181  -0.13659         1
+              bias_sd  0.015788 0.0024572 -0.054974  0.059776  0.093485 0.0078556  0.014338 -0.019099  0.065126  0.098297  0.067733 -0.008167         1
+                   a1 -0.096434  0.010613   0.13752  -0.32198  -0.49626   0.16702  -0.19297  0.023989  -0.34452  -0.54892  -0.16095   0.12941 -0.077305         1
+                   a2   0.10842 -0.014677  -0.15851   0.33934   0.57053  -0.15816   0.18807   -0.0409     0.373   0.63007   0.16621  -0.14543  0.065808  -0.63945         1
+              plcat_1-8.9251e-12-7.0116e-124.5074e-11-6.0739e-11-9.1531e-113.3707e-10-3.1854e-10-1.6713e-11-6.8406e-11-1.0583e-10-5.9068e-114.2738e-111.9238e-107.3534e-11-8.5073e-11         1
+              plcat_21.9514e-131.2365e-13-6.5368e-124.9518e-129.2158e-11-6.3553e-116.2168e-114.9285e-143.7393e-139.2093e-12 6.988e-13-4.5446e-13-5.8642e-12-7.3906e-147.2097e-14-0.0047376 0.0047376
+
+                               min       max   max/min
+Eigen values           :     0.017       4.4   2.6e+02
+
+Elapsed time (seconds):     0.61
+Iterations:      104 (Autostop)
+
+ -------------------------------------------------------------------------------
+
+ _______________________________________________________________________________
+
+
+
+ESTIMATION OF THE LOG-LIKELIHOOD _______________________________________________
+
+                                                            (is)
+-2 x log-likelihood                       (OFV) :         811.31
+Akaike Information Criteria               (AIC) :         843.31
+Corrected Bayesian Information Criteria  (BICc) :         869.19
+Bayesian Information Criteria             (BIC) :         853.54
+
+Elapsed time                          (seconds) :           3.25
+CPU time                              (seconds) :           3.00
+MonteCarlo size (is):    10000 (Fixed number of iterations)
+
+
+[Importance Sampling] Standard error        : 0.114
+                      Sampling distribution : T-distribution with 5 degrees of freedom
+
+ _______________________________________________________________________________
+
+DATASET INFORMATION
+Number of individuals: 14
+Number of observations (obsid 1): 95
+Number of observations (obsid 2): 96
+Number of doses: 84
+
