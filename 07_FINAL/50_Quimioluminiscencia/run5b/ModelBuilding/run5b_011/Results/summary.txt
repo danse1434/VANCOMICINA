@@ -1,0 +1,83 @@
+********************************************************************************
+*                         run5b.mlxtran                                        *
+*                         August 24, 2022 at 22:50:03                          *
+*                         Monolix version : 2021R1                             *
+********************************************************************************
+
+
+ESTIMATION OF THE POPULATION PARAMETERS ________________________________________
+
+Fixed Effects ----------------------------
+Cl_pop               :                5.11
+V1_pop               :                22.7
+beta_V1_centeredCLCR :              -0.056
+Q_pop                :                4.93
+V2_pop               :                27.2
+
+Standard Deviation of the Random Effects -
+omega_Cl             :               0.262
+omega_V1             :               0.213
+omega_Q              :               0.662
+
+Error Model Parameters -------------------
+b                    :              0.0256
+
+Elapsed time (seconds):       11
+Exploratory phase iterations:      500 (Stopped at the maximum number of iterations/auto-stop criteria have not been reached)
+Smoothing phase iterations:        113 (Autostop)
+
+ _______________________________________________________________________________
+
+
+
+ESTIMATION OF THE INDIVIDUAL PARAMETERS ________________________________________
+
+
+Estimation of the individual parameters by Conditional Distribution ------------
+           min        Q1    median        Q3       max
+Cl :      2.52      4.93      5.49       6.1      6.53
+V1 :      13.4      19.3      22.4      23.8      29.6
+Q  :      1.76      2.49      5.53      8.14      13.9
+V2 :      27.2      27.2      27.2      27.2      27.2
+
+Elapsed time (seconds):     0.81
+Iterations:      102 (Autostop)
+
+ -------------------------------------------------------------------------------
+
+
+Estimation of the individual parameters by Conditional Mode --------------------
+           min        Q1    median        Q3       max
+Cl :      2.53      4.94      5.49       6.1      6.51
+V1 :      13.4      19.8      23.1      24.2      30.7
+Q  :      1.84       2.5      4.85      7.41      12.6
+V2 :      27.2      27.2      27.2      27.2      27.2
+
+Elapsed time (seconds):    0.014
+
+ -------------------------------------------------------------------------------
+
+ _______________________________________________________________________________
+
+
+
+
+ESTIMATION OF THE LOG-LIKELIHOOD _______________________________________________
+
+                                                           (lin)
+-2 x log-likelihood                       (OFV) :         393.41
+Akaike Information Criteria               (AIC) :         411.41
+Corrected Bayesian Information Criteria  (BICc) :         426.79
+Bayesian Information Criteria             (BIC) :         417.16
+
+Elapsed time                          (seconds) :           0.00
+CPU time                              (seconds) :           0.00
+
+ _______________________________________________________________________________
+
+DATASET INFORMATION
+Number of individuals: 14
+Number of observations (obsid 1): 96
+Number of observations (obsid 2): 96
+Number of doses: 84
+

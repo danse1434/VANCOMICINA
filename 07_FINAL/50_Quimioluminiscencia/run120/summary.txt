@@ -1,0 +1,117 @@
+********************************************************************************
+*                         run120.mlxtran                                       *
+*                         August 25, 2022 at 23:09:19                          *
+*                         Sycomore version : 2021R1                            *
+********************************************************************************
+
+
+ESTIMATION OF THE POPULATION PARAMETERS ________________________________________
+
+Fixed Effects ----------------------------     se_sa    rse(%)
+Cl_pop               :               0.382     0.449       118
+beta_Cl_centeredCLCR :               0.528     0.227      43.1
+beta_Cl_centeredHCM  :                2.04      1.18      57.8
+V1_pop               :                21.3      1.57      7.36
+Q_pop                :                5.03      1.17      23.3
+V2_pop               :                27.8      4.63      16.7
+
+Standard Deviation of the Random Effects -
+omega_Cl             :               0.201     0.039      19.4
+omega_V1             :               0.206      0.05      24.2
+omega_Q              :                0.68     0.182      26.7
+
+Error Model Parameters -------------------
+b                    :              0.0255   0.00255      9.98
+
+Elapsed time (seconds):      7.3
+Exploratory phase iterations:      271 (Autostop)
+Smoothing phase iterations:        114 (Autostop)
+
+ _______________________________________________________________________________
+
+
+
+ESTIMATION OF THE INDIVIDUAL PARAMETERS ________________________________________
+
+
+Estimation of the individual parameters by Conditional Distribution ------------
+           min        Q1    median        Q3       max
+Cl :      2.52      4.93       5.5      6.12      6.57
+V1 :      13.4      19.1      22.6      23.5      29.1
+Q  :      1.81      2.49      5.37      7.98      14.5
+V2 :      27.8      27.8      27.8      27.8      27.8
+
+Elapsed time (seconds):      0.8
+Iterations:      102 (Autostop)
+
+ -------------------------------------------------------------------------------
+
+
+Estimation of the individual parameters by Conditional Mode --------------------
+           min        Q1    median        Q3       max
+Cl :      2.53      4.94       5.5      6.11      6.56
+V1 :      13.4      19.6        23      24.1      29.9
+Q  :      1.82      2.48      4.81      7.39      13.4
+V2 :      27.8      27.8      27.8      27.8      27.8
+
+Elapsed time (seconds):    0.014
+
+ -------------------------------------------------------------------------------
+
+ _______________________________________________________________________________
+
+
+
+ESTIMATION OF THE FISHER INFORMATION MATRIX ____________________________________
+
+
+Estimation of the Fisher information matrix by Stochastic Approximation --------
+
+Correlation Matrix :
+              Cl_pop         1
+beta_Cl_centeredCLCR -0.082708         1
+ beta_Cl_centeredHCM   -0.9784  -0.11985         1
+              V1_pop-0.0069701   0.01623 0.0026812         1
+               Q_pop 0.0049067 -0.012601 0.0010891  -0.31929         1
+              V2_pop-0.0075803  0.027351 -0.002349   0.33116  -0.36531         1
+            omega_Cl -0.013087  0.011266 0.0098317  0.018543 -0.019659   0.06262         1
+            omega_V1 -0.010577 -0.012466  0.012925   0.03357 -0.075314 0.0083587  0.013598         1
+             omega_Q 0.0010094-0.0067625 0.0014177  -0.27269   0.28532  -0.13563  0.013399 -0.095798         1
+                   b  0.011544-0.0037192-0.0089023  -0.10002   0.12737  -0.27964 -0.038823 -0.097061  0.020342         1
+
+                               min       max   max/min
+Eigen values           :     0.001         2   1.9e+03
+
+Elapsed time (seconds):      1.9
+Iterations:      200 (Autostop)
+
+ -------------------------------------------------------------------------------
+
+ _______________________________________________________________________________
+
+
+
+ESTIMATION OF THE LOG-LIKELIHOOD _______________________________________________
+
+                                                            (is)
+-2 x log-likelihood                       (OFV) :         385.04
+Akaike Information Criteria               (AIC) :         405.04
+Corrected Bayesian Information Criteria  (BICc) :         421.05
+Bayesian Information Criteria             (BIC) :         411.43
+
+Elapsed time                          (seconds) :           1.65
+CPU time                              (seconds) :           1.00
+MonteCarlo size (is):    10000 (Fixed number of iterations)
+
+
+[Importance Sampling] Standard error        : 0.091
+                      Sampling distribution : T-distribution with 5 degrees of freedom
+
+ _______________________________________________________________________________
+
+DATASET INFORMATION
+Number of individuals: 14
+Number of observations (obsid 1): 96
+Number of observations (obsid 2): 96
+Number of doses: 84
+

@@ -1,0 +1,94 @@
+********************************************************************************
+*                         run5.mlxtran                                         *
+*                         August 24, 2022 at 22:19:06                          *
+*                         Monolix version : 2021R1                             *
+********************************************************************************
+
+
+ESTIMATION OF THE POPULATION PARAMETERS ________________________________________
+
+Fixed Effects ----------------------------    se_lin    rse(%)
+Cl_pop   :                            5.12     0.363      7.08
+V1_pop   :                            21.5      1.49      6.93
+Q_pop    :                            4.93     0.988        20
+V2_pop   :                            27.4      3.74      13.6
+
+Standard Deviation of the Random Effects -
+omega_Cl :                           0.263    0.0504      19.2
+omega_V1 :                            0.22    0.0544      24.7
+omega_Q  :                           0.654     0.152      23.3
+
+Error Model Parameters -------------------
+b        :                          0.0256   0.00244       9.5
+
+Elapsed time (seconds):      7.3
+Exploratory phase iterations:      327 (Autostop)
+Smoothing phase iterations:        101 (Autostop)
+
+ _______________________________________________________________________________
+
+
+
+ESTIMATION OF THE INDIVIDUAL PARAMETERS ________________________________________
+
+
+Estimation of the individual parameters by Conditional Mode --------------------
+           min        Q1    median        Q3       max
+Cl :      2.53      4.94      5.49      6.11      6.51
+V1 :      13.3      19.7      23.1      24.2      31.1
+Q  :      1.84       2.5      4.81       7.4      12.2
+V2 :      27.4      27.4      27.4      27.4      27.4
+
+Elapsed time (seconds):    0.018
+
+ -------------------------------------------------------------------------------
+
+ _______________________________________________________________________________
+
+
+
+ESTIMATION OF THE FISHER INFORMATION MATRIX ____________________________________
+
+
+Estimation of the Fisher information matrix by Linearization -------------------
+
+Correlation Matrix :
+  Cl_pop         1
+  V1_pop  0.006967         1
+   Q_pop  0.034485  -0.15241         1
+  V2_pop -0.039841     0.193  -0.19731         1
+omega_Cl         0         0         0         0         1
+omega_V1         0         0         0         00.00022901         1
+ omega_Q         0         0         0         0-0.00033845 -0.017636         1
+       b         0         0         0         0 -0.007186 -0.096959 -0.074456         1
+
+                               min       max   max/min
+Eigen values           :      0.79       1.4       1.7
+
+Elapsed time (seconds):    0.006
+
+ -------------------------------------------------------------------------------
+
+ _______________________________________________________________________________
+
+
+
+ESTIMATION OF THE LOG-LIKELIHOOD _______________________________________________
+
+                                                           (lin)
+-2 x log-likelihood                       (OFV) :         393.36
+Akaike Information Criteria               (AIC) :         409.36
+Corrected Bayesian Information Criteria  (BICc) :         424.09
+Bayesian Information Criteria             (BIC) :         414.47
+
+Elapsed time                          (seconds) :           0.00
+CPU time                              (seconds) :           0.00
+
+ _______________________________________________________________________________
+
+DATASET INFORMATION
+Number of individuals: 14
+Number of observations (obsid 1): 96
+Number of observations (obsid 2): 96
+Number of doses: 84
+

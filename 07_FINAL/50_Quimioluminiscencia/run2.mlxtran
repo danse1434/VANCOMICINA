@@ -1,0 +1,73 @@
+<DATAFILE>
+
+[FILEINFO]
+file='data/data_TAD.csv'
+delimiter = comma
+header = {ID, DV, TAD, YTYPE, EVID, MDV, AMT, TINF, ADDL, II, SS, AGEA, SEXF, WTKG, HCM, SCRMGDL, ALBGDL, PROGDL, CLCRMLMIN, RAL, RAN, ANTU}
+
+[CONTENT]
+ID = {use=identifier}
+DV = {use=observation, name={y_1, y_2}, yname={'1', '2'}, type={continuous, continuous}}
+TAD = {use=time}
+YTYPE = {use=observationtype}
+EVID = {use=eventidentifier}
+MDV = {use=missingdependentvariable}
+AMT = {use=amount}
+TINF = {use=infusiontime}
+ADDL = {use=additionaldose}
+II = {use=interdoseinterval}
+SS = {use=steadystate, nbdoses=5}
+
+<MODEL>
+
+[INDIVIDUAL]
+input = {Cl_pop, omega_Cl, Q_pop, V1_pop, omega_V1, V2_pop}
+
+DEFINITION:
+Cl = {distribution=logNormal, typical=Cl_pop, sd=omega_Cl}
+Q = {distribution=logNormal, typical=Q_pop, no-variability}
+V1 = {distribution=logNormal, typical=V1_pop, sd=omega_V1}
+V2 = {distribution=logNormal, typical=V2_pop, no-variability}
+
+[LONGITUDINAL]
+input = {b}
+
+file = 'lib:infusion_2cpt_ClV1QV2.txt'
+
+DEFINITION:
+y2 = {distribution=logNormal, prediction=Cc, errorModel=proportional(b)}
+
+<FIT>
+data = y_2
+model = y2
+
+<PARAMETER>
+Cl_pop = {value=5.13, method=MLE}
+Q_pop = {value=5.39, method=MLE}
+V1_pop = {value=20.91, method=MLE}
+V2_pop = {value=26.12, method=MLE}
+b = {value=0.3, method=MLE}
+c = {value=1, method=FIXED}
+omega_Cl = {value=1.5, method=MLE}
+omega_V1 = {value=1.5, method=MLE}
+
+<MONOLIX>
+
+[TASKS]
+populationParameters()
+individualParameters(method = none )
+fim(method = StochasticApproximation)
+logLikelihood(method = ImportanceSampling)
+plotResult(method = {indfits, parameterdistribution, covariancemodeldiagnosis, covariatemodeldiagnosis, obspred, residualsscatter, residualsdistribution, randomeffects, categorizedoutput })
+
+[SETTINGS]
+GLOBAL:
+exportpath = 'run2'
+
+FIM:
+miniterations = 200
+maxiterations = 5000
+
+[COMMENTS]
+; Modelo de 2CPTM con observaciones del metodo de quimioluminiscencia, variabilidad en Cl y V1, modelo de error proporcional.
+

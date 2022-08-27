@@ -1,0 +1,83 @@
+********************************************************************************
+*                         run031.mlxtran                                       *
+*                         August 25, 2022 at 21:44:39                          *
+*                         Sycomore version : 2021R1                            *
+********************************************************************************
+
+
+ESTIMATION OF THE POPULATION PARAMETERS ________________________________________
+
+Fixed Effects ----------------------------
+Cl_pop                 :               5.3
+beta_Cl_centeredALBGDL :           -0.0379
+V1_pop                 :              21.7
+Q_pop                  :              4.78
+V2_pop                 :              29.5
+
+Standard Deviation of the Random Effects -
+omega_Cl               :             0.265
+omega_V1               :             0.219
+omega_Q                :             0.672
+
+Error Model Parameters -------------------
+b                      :            0.0249
+
+Elapsed time (seconds):      7.3
+Exploratory phase iterations:      411 (Autostop)
+Smoothing phase iterations:        106 (Autostop)
+
+ _______________________________________________________________________________
+
+
+
+ESTIMATION OF THE INDIVIDUAL PARAMETERS ________________________________________
+
+
+Estimation of the individual parameters by Conditional Distribution ------------
+           min        Q1    median        Q3       max
+Cl :      2.49      4.95      5.49      6.12      6.51
+V1 :      13.5      19.3        23      24.1      29.7
+Q  :      1.69      2.46      4.94      7.84      14.1
+V2 :      29.5      29.5      29.5      29.5      29.5
+
+Elapsed time (seconds):     0.73
+Iterations:      104 (Autostop)
+
+ -------------------------------------------------------------------------------
+
+
+Estimation of the individual parameters by Conditional Mode --------------------
+           min        Q1    median        Q3       max
+Cl :      2.51      4.95      5.47      6.12       6.5
+V1 :      13.4      19.8      23.3      24.4        31
+Q  :      1.81      2.45      4.62      7.18      12.6
+V2 :      29.5      29.5      29.5      29.5      29.5
+
+Elapsed time (seconds):    0.017
+
+ -------------------------------------------------------------------------------
+
+ _______________________________________________________________________________
+
+
+
+
+ESTIMATION OF THE LOG-LIKELIHOOD _______________________________________________
+
+                                                           (lin)
+-2 x log-likelihood                       (OFV) :         393.72
+Akaike Information Criteria               (AIC) :         411.72
+Corrected Bayesian Information Criteria  (BICc) :         427.10
+Bayesian Information Criteria             (BIC) :         417.47
+
+Elapsed time                          (seconds) :           0.01
+CPU time                              (seconds) :           0.00
+
+ _______________________________________________________________________________
+
+DATASET INFORMATION
+Number of individuals: 14
+Number of observations (obsid 1): 96
+Number of observations (obsid 2): 96
+Number of doses: 84
+
