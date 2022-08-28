@@ -61,5 +61,6 @@ A continuación, se muestra una tabla con los características de los modelos ev
 |run171|Modelo de 2CPTM con observaciones del metodo de quimioluminiscencia, variabilidad en Cl, Q y V1 con correlación entre Cl y V1, modelo de error combinado. Efecto de CLCR en Cl (modelo potencial).|454.83|
 |run172|Modelo de 2CPTM con observaciones del metodo de quimioluminiscencia, variabilidad en Cl, Q y V1 con correlación entre Cl y V1, modelo de error combinado de tipo 2. Efecto de CLCR en Cl (modelo potencial).|455.06|
 |run173|Modelo de 2CPTM con observaciones del metodo de quimioluminiscencia, variabilidad en Cl, Q y V1 con correlación entre Cl y V1, modelo de error proporcional y exponente. Efecto de CLCR en Cl (modelo potencial).|422.57|
+|run200|Modelo de 2CPTM con observaciones del metodo de quimioluminiscencia, variabilidad en Cl, Q y V1 con correlación entre Cl y V1, modelo de error proporcional y exponente. Efecto de CLCR en Cl (modelo potencial), la variable está escalada en un valor de 144 mL/min.|418.07|
 
 
