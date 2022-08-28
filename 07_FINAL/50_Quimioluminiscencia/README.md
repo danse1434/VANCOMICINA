@@ -1,6 +1,17 @@
 # Desarrollo de modelo final con datos obtenidos por quimioluminiscencia
 
+## Modelo base refinado 
+El modelo base inicial corresponde a un modelo de 2CPTM con error aditivo con variabilidad en Cl y V1.
+
+## Modelo base refinado 
+El modelo base corresponde a la corrida 5b que corresponde a un modelo de 2CPTM con observaciones del metodo de quimioluminiscencia, variabilidad en Cl, Q y V1 con correlación entre Cl y V1, modelo de error proporcional y efecto de CLCR en Cl (modelo potencial).
+
+## Modelo final
+El modelo final corresponde a la corrida 170 que corresponde a un modelo de 2CPTM con observaciones del metodo de quimioluminiscencia, variabilidad en Cl, Q y V1 con correlación entre Cl y V1, modelo de error proporcional y efecto de CLCR en Cl (modelo potencial).
+
 ## Equivalencia
+
+A continuación, se muestra una tabla con los características de los modelos evaluados con sólo datos de quimioluminiscencia.
 
 |Run|Descripción|BIC|
 |---|---|---|
