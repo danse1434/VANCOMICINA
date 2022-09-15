@@ -1,0 +1,69 @@
+********************************************************************************
+*                           run200.mlxtran                                     *
+*                            at                                                *
+*                           Monolix version : 2021R1                           *
+********************************************************************************
+
+
+ESTIMATION OF THE POPULATION PARAMETERS ________________________________________
+
+Fixed Effects ----------------------------     se_sa    rse(%)
+Cl_pop           :                    5.78     0.344      5.95
+beta_Cl_logtCLCR :                    0.41      0.35      85.5
+V1_pop           :                    4.15      2.14      51.6
+Q_pop            :                    40.8      6.57      16.1
+V2_pop           :                    33.3      2.36      7.09
+
+Standard Deviation of the Random Effects -
+omega_Cl         :                   0.214     0.044      20.6
+omega_V1         :                   0.324     0.474       146
+omega_Q          :                  0.0908     0.193       213
+
+Correlations -----------------------------
+corr_V1_Cl       :                   0.022      1.31  5.97e+03
+
+Error Model Parameters -------------------
+b                :                  0.0436   0.00381      8.75
+
+Elapsed time (seconds):      6.4
+Exploratory phase iterations:      225 (Autostop)
+Smoothing phase iterations:         93 (Autostop)
+
+ _______________________________________________________________________________
+
+
+
+
+ESTIMATION OF THE FISHER INFORMATION MATRIX ____________________________________
+
+
+Estimation of the Fisher information matrix by Stochastic Approximation --------
+
+Correlation Matrix :
+          Cl_pop         1
+beta_Cl_logtCLCR  0.088871         1
+          V1_pop  0.024443   0.17704         1
+           Q_pop-0.00069351  -0.15096  -0.73397         1
+          V2_pop    0.1007  -0.12113  -0.75758   0.64046         1
+        omega_Cl -0.028436   -0.1138  0.032235 -0.014281  0.033704         1
+      corr_V1_Cl -0.069197  -0.63991  -0.24996   0.19218   0.17294   0.21769         1
+        omega_V1  0.039296-0.0013763  -0.31057  -0.01189  0.053893 -0.083402  0.053059         1
+         omega_Q -0.067285   0.10243   0.45796  -0.26105  -0.30729  0.074698  -0.17216  -0.73083         1
+               b -0.021519  -0.11465 -0.066387   0.17834   0.11511  0.016849   0.12753  -0.34071   0.20216         1
+
+                               min       max   max/min
+Eigen values           :      0.13       2.9        23
+
+Elapsed time (seconds):        2
+Iterations:      154 (Autostop)
+
+ -------------------------------------------------------------------------------
+
+ _______________________________________________________________________________
+
+
+DATASET INFORMATION
+Number of individuals: 14
+Number of observations (2): 96
+Number of doses: 84
+

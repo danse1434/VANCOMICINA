@@ -1,0 +1,41 @@
+********************************************************************************
+*                           run200.mlxtran                                     *
+*                            at                                                *
+*                           Monolix version : 2021R1                           *
+********************************************************************************
+
+
+ESTIMATION OF THE POPULATION PARAMETERS ________________________________________
+
+Fixed Effects ----------------------------
+Cl_pop           :                    5.24
+beta_Cl_logtCLCR :                   0.697
+V1_pop           :                      21
+Q_pop            :                    5.66
+V2_pop           :                    25.3
+
+Standard Deviation of the Random Effects -
+omega_Cl         :                   0.211
+omega_V1         :                   0.232
+omega_Q          :                     0.5
+
+Correlations -----------------------------
+corr_V1_Cl       :                   0.582
+
+Error Model Parameters -------------------
+b                :                  0.0237
+
+Elapsed time (seconds):       12
+Exploratory phase iterations:      228 (Autostop)
+Smoothing phase iterations:         97 (Autostop)
+
+ _______________________________________________________________________________
+
+
+
+
+DATASET INFORMATION
+Number of individuals: 14
+Number of observations (2): 96
+Number of doses: 84
+
