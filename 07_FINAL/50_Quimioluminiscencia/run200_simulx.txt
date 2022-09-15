@@ -1,0 +1,35 @@
+[COVARIATE]
+input = {CLCRMLMIN}
+
+EQUATION:
+logtCLCR = log(CLCRMLMIN/144)
+
+[INDIVIDUAL]
+input = {Cl_pop, omega_Cl, Q_pop, V1_pop, omega_V1, V2_pop, omega_Q, logtCLCR, beta_Cl_logtCLCR, corr_V1_Cl}
+
+DEFINITION:
+Cl = {distribution=logNormal, typical=Cl_pop, covariate=logtCLCR, coefficient=beta_Cl_logtCLCR, sd=omega_Cl}
+Q = {distribution=logNormal, typical=Q_pop, sd=omega_Q}
+V1 = {distribution=logNormal, typical=V1_pop, sd=omega_V1}
+V2 = {distribution=logNormal, typical=V2_pop, no-variability}
+correlation = {level=id, r(V1, Cl)=corr_V1_Cl}
+
+[LONGITUDINAL]
+input = {Cl, V1, Q, V2, b}
+
+EQUATION:
+
+; Parameter transformations 
+V = V1 
+k = Cl/V1 
+k12 = Q/V1 
+k21 = Q/V2
+
+; PK model definition
+Cc = pkmodel(V, k, k12, k21)
+
+DEFINITION:
+y2 = {distribution=logNormal, prediction=Cc, errorModel=proportional(b)}
+
+OUTPUT:
+output = {y2}
