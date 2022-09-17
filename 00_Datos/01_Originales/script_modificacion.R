@@ -26,7 +26,7 @@ dataVAN <- read_xlsx('01_Originales/original_200219.xlsx') %>%
 #' Manipulación de tabla **dataVAN** en **dataVAN1**
 #................................................................................
 #' 1 Eliminar el individuo 15 (excluido del estudio)
-#' 2 Renombrar variables con la nomeclatura estándar de NONMEM primeras tres/cuatro 
+#' 2 Renombrar variables con la nomenclatura estándar de NONMEM primeras tres/cuatro 
 #' letras es variable, y ultimas letras unidades de medición. 
 #' 3 Convertir variable _SEXF_ con femenino como 1, y masculino como 0
 #' 4 Convertir _HCM_ en variable numérica
