@@ -334,8 +334,6 @@ GITER <- ggplot(convergence_df1,
   theme_bw() +
   theme(legend.position = 'none')
 
-print(GITER)
-
 # Almacenamiento del gráfico
 ggsave(str_glue('{fig_path}/1005_trayectorias_Iter.pdf'), GITER, 'pdf',
        width = 8, height = 6)

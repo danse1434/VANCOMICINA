@@ -131,7 +131,7 @@ DataFrame constants_fun(double D, double Cl, double Q, double V1, double V2){
   double k10, k12, k21;
   k10 = Cl / V1;
   k12 = Q / V1;
-  k21 = Cl / V2;
+  k21 = Q / V2;
   
   // Microconstantes
   double alpha, beta;
