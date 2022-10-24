@@ -128,8 +128,8 @@ G1 <- ((G_PRED_OBS_PRED + G_PRED_OBS_IPRED) /
 
 G1 <- G1 + plot_annotation(tag_levels = 'A')
 
-ggsave(file.path(auxdir, 'figures/y2_G_GOF.pdf'), G1, 
-       device = 'pdf', width = 9, height = 9 * 0.9, units = 'in')  4
+ggsave(file.path(auxdir, "figures", "y2_G_GOF.pdf"), G1, 
+       device = 'pdf', width = 9, height = 9 * 0.9, units = 'in') 
 saveRDS(G1, file.path(auxdir, 'figures/y2_G_GOF.rds'))
 
 #-------------------------------------------------------------------------------#
@@ -235,8 +235,8 @@ popeta1 <- popeta %>%
   pivot_wider(names_from = parameter, values_from = value)
 
 vareta <- eta %>% 
-    summarise(across(matches("\\_mean"), ~var(.x, na.rm = TRUE))) %>% 
-    rename_with(~str_replace_all(.x, "eta\\_|\\_mean", '')) %>%  
+    summarise(across(matches("\\mode"), ~var(.x, na.rm = TRUE))) %>% 
+    rename_with(~str_replace_all(.x, "eta\\_|\\_mode", '')) %>%  
     rename_with(~paste0(.x, '_pop'))
 
 # Shrinkage Eta

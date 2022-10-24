@@ -36,11 +36,13 @@ dataTipo <- read_csv(file.path(vpc_dir, 'y2_percentiles.txt')) %>%
   add_column(xmin = dataBins$bins_values[1:7],
              xmax = dataBins$bins_values[2:8])
 
+dataObservaciones <- read_csv(file.path(vpc_dir, 'y2_observations.txt'))
+
 #-------------------------------------------------------------------------------#
 # 2. Creación de gráficos -----------------------------------------------------
 #-------------------------------------------------------------------------------#
 
-crearVPC <- function(dataTipo) {
+crearVPC <- function(dataTipo, dataObservaciones) {
   dataTipo %>%
     ggplot(aes(x = bins_middles)) +
     geom_rect(aes(ymin=theoretical_median_piLower_pc,
@@ -52,6 +54,7 @@ crearVPC <- function(dataTipo) {
     geom_rect(aes(ymin=theoretical_upper_piLower_pc ,
                   ymax=theoretical_upper_piUpper_pc ,
                   xmin=xmin, xmax=xmax), alpha = 0.5, fill = 'gray30') +
+    geom_point(data = dataObservaciones, aes(x = time, y = y2_pc), col = "gray20") + 
     geom_line(aes(y = theoretical_lower_median_pc), lty='dashed') +
     geom_line(aes(y = theoretical_median_median_pc), lty='dashed') +
     geom_line(aes(y = theoretical_upper_median_pc), lty='dashed') +
@@ -65,8 +68,8 @@ crearVPC <- function(dataTipo) {
     coord_cartesian(ylim = c(0, 60), xlim = c(0, 12)) 
 }
 
-vpcTipo  <- crearVPC(dataTipo)
-
+vpcTipo  <- crearVPC(dataTipo, dataObservaciones)
+vpcTipo
 
 #-------------------------------------------------------------------------------#
 # Almacenamiento en formato PDF

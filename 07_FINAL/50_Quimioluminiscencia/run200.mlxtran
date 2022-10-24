@@ -98,6 +98,7 @@ plotResult(method = {indfits, parameterdistribution, covariancemodeldiagnosis, c
 [SETTINGS]
 GLOBAL:
 exportpath = 'run200'
+nbsimulations = 1000
 
 POPULATION:
 burniniterations = 100
