@@ -17,6 +17,7 @@ require(tidyverse)
 require(PerformanceAnalytics)
 require(patchwork)
 require(gt)
+require(nortest)
 
 source('src/20_funciones.R')
 
