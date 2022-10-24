@@ -154,24 +154,21 @@ parameters{
   real beta_Cl_logtCLCR;
   
   vector<lower = 0>[nRandom] omega;
-  
   real<lower = 0> b;
   
-  vector[nFixed] alpha;
+  vector[nFixed] logTheta[nSubjects];
 }
 
 transformed parameters{
   vector<lower = 0>[nFixed] thetaHat;
-  vector[nFixed] logtheta[nSubjects];
-  cov_matrix[nRandom] Omega;
-  matrix[nRandom, nRandom] L;
+  matrix[nRandom, nRandom] Omega;
   
   real<lower = 0> CL[nSubjects];  
   real<lower = 0> Q[nSubjects];
   real<lower = 0> V1[nSubjects];
   real<lower = 0> V2[nSubjects];
   vector<lower = 0>[nOBS] cHat;
-  
+    
   // Efectos fijos
   
   thetaHat[1] = CLHat;
@@ -181,19 +178,12 @@ transformed parameters{
   
   // Efectos Aleatorios
   Omega = diag_matrix(omega);
-  L = cholesky_decompose(Omega);
   
   // Transformaciones
-  for(i in 1:nSubjects){
-    logtheta[i,] = log(thetaHat) + L * alpha;
-  }
-  
-  for(i in 1:nSubjects){
-    CL[i] = exp(logtheta[i ,1] + beta_Cl_logtCLCR * logtCLCR[i]);
-  }
-  V1 = exp(logtheta[,2]);
-  Q  = exp(logtheta[,3]);
-  V2 = exp(logtheta[,4]);
+  CL = to_array_1d(exp(to_vector(logTheta[,1]) + (to_vector(logtCLCR) * beta_Cl_logtCLCR)));
+  V1 = exp(logTheta[,2]);
+  Q  = exp(logTheta[,3]);
+  V2 = exp(logTheta[,4]);
   
   for(i in 1:nOBS){
     cHat[i] = twoCPTM_model_covariable(
@@ -204,8 +194,6 @@ transformed parameters{
       CL[subject[i]], Q[subject[i]], 
       V1[subject[i]], V2[subject[i]] );
   }
-  
-  
 }
 
 model{
@@ -221,14 +209,11 @@ model{
     b ~ cauchy(mu_b, sd_b);
     
     // Variabilidad Inter-individual
-    
-    alpha ~ std_normal();
-    // Implies: logtheta ~ multi_normal(log(thetaHat), Omega);
+    logTheta ~ multi_normal(log(thetaHat), Omega);
     
     // Variabilidad Intra-individual
     // Se cambia a un modelo de error residual de tipo proporcional con distribucion log normal
     logOBS ~ normal(log(cHat), sqrt(square(log(cHat) * b)) );
-    
     
 }
 
@@ -245,13 +230,13 @@ generated quantities{
 
   for(j in 1:nSubjects){
     logthetaPred[j,] = multi_normal_rng(log(thetaHat), Omega);
-    
-    CLPred[j] = exp(logthetaPred[j, 1] + beta_Cl_logtCLCR * logtCLCR[j]);
-    QPred[j]  = exp(logthetaPred[j, 2]);
-    V1Pred[j] = exp(logthetaPred[j, 3]);
-    V2Pred[j] = exp(logthetaPred[j, 4]);
   }
-
+  
+  CLPred = to_array_1d(exp(to_vector(logthetaPred[, 1]) + (to_vector(logtCLCR) * beta_Cl_logtCLCR)));
+  QPred  = exp(logthetaPred[, 2]);
+  V1Pred = exp(logthetaPred[, 3]);
+  V2Pred = exp(logthetaPred[, 4]);
+  
   for(i in 1:nOBS){
     cHatPred[i] = twoCPTM_model_covariable(
       timeAdm[ startAdmEv[subject[i]]:endAdmEv[subject[i]] ],
@@ -261,8 +246,8 @@ generated quantities{
       CLPred[subject[i]],  QPred[subject[i]],
       V1Pred[subject[i]], V2Pred[subject[i]]);
 
-      cObsCond[i] = exp(normal_rng(log(cHat[i]),     fabs(log(cHat[i]))));     // Predicciones individuales
-      cObsPred[i] = exp(normal_rng(log(cHatPred[i]), fabs(log(cHatPred[i])))); // Predicciones poblacionales
+      cObsCond[i] = exp(normal_rng(log(cHat[i]),     fabs(b * log(cHat[i]))));     // Predicciones individuales
+      cObsPred[i] = exp(normal_rng(log(cHatPred[i]), fabs(b * log(cHatPred[i])))); // Predicciones poblacionales
   }
   
 }
