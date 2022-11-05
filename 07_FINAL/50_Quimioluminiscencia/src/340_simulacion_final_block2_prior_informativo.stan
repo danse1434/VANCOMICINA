@@ -1,4 +1,5 @@
 /**
+ Simulación
  Modelo de dos compartimentos con infusión y multiDosis
  Efecto de CLCR en CL
  IIV en Cl, V1, Q, con correlación entre Cl y V1
@@ -12,7 +13,7 @@ functions{
   * dosificación.
   * 
   * @param time vector con tiempos de dosificación (en orden)
-  * @param dose vector de dosis (en orden) 
+  * @param doseAdmEv vector de dosis (en orden) 
   * @param tinf vector de t. de infusión (en orden)
   * @param dt tiempo
   * @param CL Clearance
@@ -20,7 +21,7 @@ functions{
   * @param V1 Volumen de distribución
   * @param V2 Volumen periférico
   */
-  real twoCPTM_model_covariable(real[] time, real[] dose, real[] tinf, real dt, 
+  real twoCPTM_model_covariable(real[] time, real[] doseAdmEv, real[] tinf, real dt, 
         real CL, real Q, real V1, real V2){
     // Longitud total de matriz de historial de dosis
     int n_bolus = size(time);
@@ -63,7 +64,7 @@ functions{
       // Predomina la acumulación del fármaco
       
       for(i in 1:nb){
-        D = dose[i];
+        D = doseAdmEv[i];
         t0 = time[i];
         t_inf = tinf[i];
         
@@ -82,7 +83,7 @@ functions{
     } else {
       // Predomina la eliminación del fármaco
       for(i in 1:nb){
-        D = dose[i];
+        D = doseAdmEv[i];
         t0 = time[i];
         t_inf = tinf[i];
         
@@ -98,42 +99,36 @@ functions{
 
 data{
   // Eventos de Observación
-  
-  int nOBS;
-  vector[nOBS] OBS;
-  vector[nOBS] time;
+  int nobsSim;
+  vector[nobsSim] time;
   
   int nSubjects;
   
   int start[nSubjects]; 
   int end[nSubjects];
-  int subject[nOBS];
+  int subjectID[nobsSim];
   
   // Eventos de Dosificación
   int nAdmEv;
   int startAdmEv[nSubjects];
   int endAdmEv[nSubjects];
   
-  real timeAdm[nAdmEv];
-  real dose[nAdmEv];
-  real tinf[nAdmEv];
+  real timeAdmEv[nAdmEv];
+  real doseAdmEv[nAdmEv];
+  real tinfAdmEv[nAdmEv];
   
-  // Hiperparámetros
-  real<lower=0> mu_ClHat;
-  real<lower=0> sd_ClHat;
-  real<lower=0> mu_QHat;
-  real<lower=0> sd_QHat;
-  real<lower=0> mu_V1Hat;
-  real<lower=0> sd_V1Hat;
-  real<lower=0> mu_V2Hat;
-  real<lower=0> sd_V2Hat;
-  real<lower=0> rho_prior;
+  // Relación covariables
+  real logtCLCR[nSubjects];
   
-  real mu_beta_Cl_logtCLCR;
-  real sd_beta_Cl_logtCLCR;
+  // Modelo entrenado
+  int nSimulaciones;
   
-  real mu_Omega[2];
-  real<lower=0> sd_Omega[2];
+  int nRandom;
+  int nFixed;
+  
+  
+  
+  
   
   // Caso especial para Omega de Q (este parámetro no tiene correlación con el resto en IIV)
   real mu_Omega_Q;
@@ -141,9 +136,6 @@ data{
   
   real<lower=0> mu_b; 
   real<lower=0> sd_b;
-  
-  // Relación covariables
-  real logtCLCR[nSubjects];
   
   
   // Parámetros simulados
@@ -156,32 +148,16 @@ data{
   
   real<lower = 0> b;
   
-  vector<lower = 0>[nOBS] cHat;
-  int nRandom = 2;
-  int nFixed  = 4;
+  vector<lower = 0>[nobsSim] cHat;
 }
 
 transformed data{
-  // vector[nOBS] logOBS = log(OBS);
-  
 }
 
 parameters{
-  // real<lower = 0> CLHat;
-  // real<lower = 0> V1Hat;
-  // real<lower = 0> QHat;
-  // real<lower = 0> V2Hat;
-  // vector<lower = 0>[nRandom] omega;
-  // corr_matrix[nRandom] rho;
-  // vector[nFixed-2] logTheta[nSubjects];
-  // real logThetaQ[nSubjects];
 }
 
 transformed parameters{
-  // real<lower = 0> CL[nSubjects];  
-  // real<lower = 0> Q[nSubjects];
-  // real<lower = 0> V1[nSubjects];
-  // real<lower = 0> V2[nSubjects];
 }
 
 
@@ -193,9 +169,9 @@ generated quantities{
   real<lower = 0> QPred[nSubjects];
   real<lower = 0> V2Pred[nSubjects];
 
-  real<lower = 0> cHatPred[nOBS];
-  real<lower = 0> cObsPred[nOBS];
-  real<lower = 0> cObsCond[nOBS];
+  real<lower = 0> cHatPred[nobsSim];
+  real<lower = 0> cObsPred[nobsSim];
+  real<lower = 0> cObsCond[nobsSim];
 
   for(j in 1:nSubjects){
     logthetaPred[j,] = multi_normal_rng(log( segment(thetaHat, 1, 2) ), Omega);
@@ -208,14 +184,14 @@ generated quantities{
   QPred  = exp(logthetaQPred);
   V2Pred = rep_array(thetaHat[4], nSubjects);
   
-  for(i in 1:nOBS){
+  for(i in 1:nobsSim){
     cHatPred[i] = twoCPTM_model_covariable(
-      timeAdm[ startAdmEv[subject[i]]:endAdmEv[subject[i]] ],
-      dose[ startAdmEv[subject[i]]:endAdmEv[subject[i]] ],
-      tinf[ startAdmEv[subject[i]]:endAdmEv[subject[i]] ],
+      timeAdmEv[ startAdmEv[subjectID[i]]:endAdmEv[subjectID[i]] ],
+      doseAdmEv[ startAdmEv[subjectID[i]]:endAdmEv[subjectID[i]] ],
+      tinfAdmEv[ startAdmEv[subjectID[i]]:endAdmEv[subjectID[i]] ],
       time[i],
-      CLPred[subject[i]],  QPred[subject[i]],
-      V1Pred[subject[i]], V2Pred[subject[i]]);
+      CLPred[subjectID[i]],  QPred[subjectID[i]],
+      V1Pred[subjectID[i]], V2Pred[subjectID[i]]);
 
       cObsCond[i] = exp(normal_rng(log(cHat[i]),     fabs(b * log(cHat[i]))));     // Predicciones individuales
       cObsPred[i] = exp(normal_rng(log(cHatPred[i]), fabs(b * log(cHatPred[i])))); // Predicciones poblacionales

@@ -1,0 +1,84 @@
+---
+title: "Verificación de multiplicación de matrices en cálculo de logTheta "
+format: pdf
+editor: visual
+jupyter: python3
+---
+
+## Verificación
+
+```{python}
+import numpy as np
+import sympy 
+
+nSubjects = 5
+nFixed = 4
+
+alpha_vec = np.random.normal(size = nSubjects * nFixed) 
+alpha_vec = alpha_vec.reshape(nFixed, nSubjects)
+
+alpha_vec[0:5, 0:4]
+```
+
+```{python}
+
+rho = np.array([
+  (1.0, 0.2, 0.3, 0.4),
+  (0.2, 1.0, 0.3, 0.4),
+  (0.3, 0.3, 1.0, 0.4),
+  (0.4, 0.4, 0.4, 1.0)
+  ])
+
+L = np.linalg.cholesky(rho)
+
+L[0:4, 0:4]
+
+
+L_original = np.dot(L, alpha_vec)
+L_original
+
+
+L_nuevo = np.zeros((nFixed, nSubjects))
+
+for i in range(5):
+  L_nuevo[:, i] = np.dot(L, alpha_vec[:,i])
+
+L_nuevo  
+
+```
+
+```{python}
+
+# L_sym = 
+rho = sympy.symbols("rho")
+a11, a12, a21, a22, a31, a32 = sympy.symbols("a11 a12 a21 a22 a31 a32")
+o1, o2 = sympy.symbols("o1 o2")
+
+L_mat = sympy.Matrix([[1, rho], [rho, 1]])
+L_mat = L_mat.cholesky(hermitian = False)
+
+alpha_mat = sympy.Matrix([[a11, a21, a31], [a12, a22, a32]])
+Omega_mat = sympy.Matrix([[o1, 0], [0, o2]])
+
+
+L_mat * alpha_mat
+
+
+L_mat * alpha_mat.col(0)
+
+
+Omega_mat * L_mat * alpha_mat
+Omega_mat * L_mat * alpha_mat.col(0)
+
+  
+
+```
+
+Se adicionan opciones al ejecutable de la siguiente manera:
+
+```{python}
+#| echo: false
+2 * 2
+```
+
+The `echo: false` option disables the printing of code (only output is displayed).
